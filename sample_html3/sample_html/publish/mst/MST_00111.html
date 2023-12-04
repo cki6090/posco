@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
+    <title>전체 Layout</title>
+
+    <!-- 필수 plugin -->
+    <!-- jQuery -->
+    <script src="../../js/jquery/dist/jquery.min.js"></script>
+    <script src="../../js/jquery-ui/dist/jquery-ui.min.js"></script>
+    <script src="../../js/jsrender/dist/jsrender.js"></script>
+    <!-- Select -->
+    <script src="../../js/tom-select/dist/js/tom-select.complete.min.js"></script>
+    <!-- 날짜 관련 -->
+    <script src="../../js/moment/dist/moment.min.js"></script>
+    <!-- //필수 plugin -->
+
+    <!-- UI Style -->
+    <link rel="stylesheet" href="../../style/css/style-ui.css" />
+</head>
+
+<body class="iframe-layout">
+    <div class="wrapper">
+        <!-- 타이틀 및 네비게이션 영역 : 2023.05.08 공통 영역 수정 -->
+        <section class="content-head">
+            <h2 class="page-title"><span>선박정보</span></h2>
+            <div class="head-article" x-data="{open: false}">
+                <include src="../_include/content/content-head-article.html"></include>
+            </div>
+        </section>
+        <!-- //타이틀 및 네비게이션 영역 -->
+
+        <!-- Main content -->
+        <section class="content-body">
+            <!-- 검색된 컨텐츠 영역 -->
+            <div class="search-cont-area"><!-- class : off 삭제하면 검색된 영역이 보인다 -->
+                <include src="../_include/search/search_content.html"></include>
+            </div>
+            <!-- //검색된 컨텐츠 영역 -->
+
+            <div class="content-area">
+                <!-- 2023.05.09 class 명 변경 : cont-head-area >> header-area -->
+                <div class="header-area">
+                    <h3 class="txt-title">
+                        <!-- 2023.04.21 flag-icon 불필요한 class 삭제 -->
+                        <i class="fi-km"></i>
+                        <span>STELLAR HERMES</span>
+                    </h3>
+                    <div class="badge-group">
+                        <div class="badge-area">
+                            <div class="txt-label">등록자</div>
+                            <div class="txt-cont">administrator</div>
+                        </div>
+                        <div class="badge-area">
+                            <div class="txt-label">등록일</div>
+                            <div class="txt-cont">2023.02.21</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-grid info">
+                    <!-- view table template -->
+                    <div class="table-area">
+                        <p class="txt-title">일반정보</p>
+                        <div class="table-wrap">
+                            <table class="view-table">
+                                <colgroup>
+                                    <col class="th">
+                                    <col class="td">
+                                    <col class="th">
+                                    <col class="td">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">선박취급유형</th>
+                                        <td>POLSH</td>
+                                        <th scope="row">선박코드</th>
+                                        <td>STELLAR HERMES</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">선박명</th>
+                                        <td>3EUM5</td>
+                                        <th scope="row">선박자국명</th>
+                                        <td>9060326</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">선박유형</th>
+                                        <td>518771000</td>
+                                        <th scope="row">선박Biz유형코드</th>
+                                        <td>Panama</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">국가</th>
+                                        <td>PAN OCEAN</td>
+                                        <th scope="row">IMO No.</th>
+                                        <td>CAPESIZE / Coal</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">선박건조일자</th>
+                                        <td colspan="3">KR</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">선박원소유자명</th>
+                                        <td>YYY-MM-DD</td>
+                                        <th scope="row">계약유형</th>
+                                        <td>YYYY-MM-DD</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- //view table template -->
+                    <!-- view table template -->
+                    <div class="table-area">
+                        <p class="txt-title">제원정보</p>
+                        <div class="table-wrap">
+                            <table class="view-table">
+                                <colgroup>
+                                    <col class="th">
+                                    <col class="td">
+                                    <col class="th">
+                                    <col class="td">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">선박전장</th>
+                                        <td>160,890</td>
+                                        <th scope="row">선박너비</th>
+                                        <td>332.0</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">총톤수</th>
+                                        <td>160,890</td>
+                                        <th scope="row">순톤수</th>
+                                        <td>58.0</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">선박재화중량</th>
+                                        <td>295,520</td>
+                                        <th scope="row">배수톤수</th>
+                                        <td>43.0</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">선적가능량</th>
+                                        <td colspan="3">295,520</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">공선속도</th>
+                                        <td>56.4</td>
+                                        <th scope="row">만선속도</th>
+                                        <td>Text</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Draft</th>
+                                        <td colspan="3">56.4</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- //view table template -->
+                    <!-- view table template -->
+                    <div class="table-area full">
+                        <p class="txt-title">제품선 정보</p>
+                        <div class="table-wrap">
+                            <table class="view-table">
+                                <colgroup>
+                                    <col class="th">
+                                    <col class="td">
+                                    <col class="th">
+                                    <col class="td">
+                                    <col class="th">
+                                    <col class="td">
+                                    <col class="th">
+                                    <col class="td">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">최대항구수</th>
+                                        <td colspan="3">Dedicated</td>
+                                        <th scope="row">최소배선</th>
+                                        <td colspan="3">2018.12.26 ~ 2020.12.31</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">적격선 여부</th>
+                                        <td colspan="3">Dedicated</td>
+                                        <th scope="row">부적격 사유</th>
+                                        <td colspan="3"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- //view table template -->
+                    <!-- view table template -->
+                    <div class="table-area full">
+                        <p class="txt-title">화물창/Hatch정보</p>
+                        <div class="table-wrap">
+                            <table class="view-table">
+                                <colgroup>
+                                    <col class="th">
+                                    <col class="td">
+                                    <col class="th">
+                                    <col class="td">
+                                    <col class="th">
+                                    <col class="td">
+                                    <col class="th">
+                                    <col class="td">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">선박화물창수량</th>
+                                        <td>Dedicated</td>
+                                        <th scope="row">Hatch Cover수량</th>
+                                        <td colspan="5">2018.12.26 ~ 2020.12.31</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Sten Hatch(W/L)</th>
+                                        <td>Dedicated</td>
+                                        <th scope="row">Middle Hatch(W/L)</th>
+                                        <td>2018.12.26 ~ 2020.12.31</td>
+                                        <th scope="row">Stern Hatch(W/L)</th>
+                                        <td colspan="3">2018.12.26 ~ 2020.12.31</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">해치육측간격</th>
+                                        <td>Dedicated</td>
+                                        <th scope="row">해치깊이</th>
+                                        <td>2018.12.26 ~ 2020.12.31</td>
+                                        <th scope="row">해치간격</th>
+                                        <td colspan="3">2018.12.26 ~ 2020.12.31</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- //view table template -->
+                    <!-- view table template -->
+                    <div class="table-area full">
+                        <p class="txt-title">친환경선박정보</p>
+                        <div class="table-wrap">
+                            <table class="view-table">
+                                <colgroup>
+                                    <col class="th">
+                                    <col class="td">
+                                    <col class="th">
+                                    <col class="td">
+                                    <col class="th">
+                                    <col class="td">
+                                    <col class="th">
+                                    <col class="td">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">IMO(환경규제)</th>
+                                        <td>Dedicated</td>
+                                        <th scope="row">Rightship Rating</th>
+                                        <td>2018.12.26 ~ 2020.12.31</td>
+                                        <th scope="row">GHG Rating</th>
+                                        <td colspan="3">2018.12.26 ~ 2020.12.31</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- //view table template -->
+                </div>
+            </div>
+        </section>
+        <!-- //Main content -->
+    </div>
+    <!-- /wrapper -->
+
+    <!-- ibleaders -->
+    <script src="../../js/ibsheet8/ibsheet.js"></script>
+    <script src="../../js/ibsheet8/ibleaders.js"></script>
+    <script src="../../js/ibsheet8/locale/ko.js"></script>
+    <!-- //ibleaders -->
+
+    <!-- 퍼블 사용하기 위한 JavaScript -->
+    <script src="../../style/js/include.js"></script>
+    <script defer src="../../style/js/alpinejs.min.js"></script>
+    <!-- //퍼블 사용하기 위한 JavaScript -->
+</body>
+
+</html>

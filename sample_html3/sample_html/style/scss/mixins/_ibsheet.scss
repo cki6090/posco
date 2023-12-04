@@ -1,0 +1,46 @@
+// @content : ibsheet 함수 모음
+@mixin ibsheetWrap {
+	@include fullScreen;
+	& > div {
+        position: relative;
+		height: 100% !important;
+        box-shadow: inset 0 0 0 1px $line-table-color;
+        @include boxRadius(all, $radius-table);
+	}
+}
+@mixin ibsheetTh {
+    text-align: center;
+    background-color: $bg-th-color;
+    border-bottom: $line-table;
+}
+@mixin ibsheetBase {
+    table {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        border-collapse: separate;
+        border-spacing: 0;
+        table-layout: fixed;
+        border: none;
+    }
+    .IBSolidRow & {
+        width: auto;
+    }
+    input {
+        height: inherit;
+    }
+    .IBWidth, .IBSpaceWidth {
+        width: 100%;
+    }
+}
+@mixin ibsheetScrollBase {
+    .IBSectionScroll {
+        -ms-overflow-style: none;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+    .IBHScrollHidden {
+        overflow: visible !important;
+    }
+}

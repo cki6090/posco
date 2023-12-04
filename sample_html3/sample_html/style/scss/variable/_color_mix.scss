@@ -1,0 +1,137 @@
+//* layout color */
+// adjust-color($color, [$red], [$green], [$blue], [$saturation], [$lightness], [$alpha]);
+// header
+$bg-header-color 			    : $color-white;
+$header-txt-color			    : $color-dark;
+// $header-bg-str 			    : #$brand-color;
+// $header-bg-end			    : $brand-point-dark;
+// $bg-header-color 		    : linear-gradient(90deg, $header-bg-str 46.51%, $header-bg-end 91.33%);
+
+// lnb 메뉴
+$bg-sidebar 				    : adjust-color($brand-color, $lightness: 1.2%);
+$bg-sidebar-active			    : $color-smoke;
+$bg-sidebar-sub				    : $color-white;
+$bg-sidebar-sub-head		    : adjust-color($bg-dark-color, $alpha: -0.97);
+$side-txt-color				    : $color-white;
+$side-txt-active-color		    : $color-active;
+$side-sub-head-txt-color	    : $color-active;
+$side-sub-txt-color			    : $color-smoky;
+$side-sub-txt-active-color	    : $color-smoky;
+
+// header tab menu
+$bg-nav-menu-bar-color	        : $color-white;
+$bg-nav-menu-off-color	        : $bg-gray-color;
+$bg-nav-menu-on-color	        : $color-white;
+$line-nav-menu-color	        : $color-light;
+$line-nav-menu-hr-color	        : $color-silver;
+$nav-txt-color 				    : $color-gray;
+$nav-txt-active-color		    : $color-dark;
+$nav-icon-hover-color		    : $color-gray;
+$nav-icon-active-color		    : $color-dim;
+$nav-scroll-color			    : adjust-color($bg-scroll-color, $alpha: -0.5);
+
+// content
+$bg-body-color				    : $color-white;
+$bg-transport-color             : $bg-light-color;
+
+// form
+$bg-form-default			    : $color-white;
+$bg-form-disabled			    : $bg-disabled-color;
+$bg-form-error				    : $bg-error-color;
+$bg-select-option			    : $color-white;
+$bg-select-option-hover		    : $bg-light-color;
+$bg-select-option-select	    : $secondary-color;
+
+// bg Color
+$bg-mask-color				    : adjust-color($color-black, $alpha: -0.4);
+$bg-search-color			    : $color-white;
+$bg-search-cont-color		    : $bg-snow-color;
+$bg-search-btn-color		    : $color-ghost;
+$bg-table-color		            : $color-white;
+$bg-th-color            		: $color-ghost;
+$bg-th-hover-color         		: $color-concrete;
+$bg-td-color 				    : $color-white;
+$bg-td-hover-color 			    : adjust-color($bg-dim-color, $red: 1%, $alpha: -0.9);
+$bg-scroll-cut 				    : $bg-scroll-color;
+$bg-map-info-color              : adjust-color($primary-color, $saturation: -14%, $lightness: -14%, $alpha: -0.4);
+$bg-panl-active-color           : $secondary-color;
+
+// dialog, Box Color
+$bg-dialog-color			    : $color-white;
+$bg-dialog-mask-color           : $bg-mask-color;
+
+//* 택스트 */
+$txt-title-color			    : $color-smoky;
+$txt-cont-color				    : $color-dark;
+$txt-cont-bar-color			    : $color-gray;
+$txt-label-color			    : $color-gray;
+$txt-label-check-color		    : $color-dark;
+$txt-label-trans-color		    : $color-smoky;
+$txt-form-color				    : $color-smoky;
+$txt-disabled-color			    : $color-gray;
+$txt-placeholder-color		    : $color-silver;
+$txt-select-option-hover	    : $secondary-color;
+$txt-select-option-select	    : $color-white;
+$txt-exp-color				    : $color-gray;
+$txt-alert-color	            : $color-smoky;
+$txt-thead-color                : $color-dark;
+$txt-tbody-color			    : $color-smoky;
+$txt-th-color                   : $color-dark;
+$txt-td-color   			    : $color-smoky;
+$txt-error-color			    : $error-color;
+$txt-btn-color				    : $color-dark;
+$txt-map-info-color	            : $color-white;
+$txt-tab-color 				    : $color-gray;
+$txt-tab-active-color		    : $color-smoky;
+$txt-plus-color                 : $plus-color;
+$txt-minus-color                : $minus-color;
+
+// Border Color
+$line-title-color			    : $color-dark;
+$line-sidebar-sub-color		    : $color-clouds;
+$line-search-cont-color		    : $line-hr-color;
+$line-form-color			    : $line-default-color;
+$line-form-select-color		    : $secondary-color;
+$line-form-error-color	        : $error-color;
+$line-table-color			    : $color-light;
+$line-tbody-color			    : $color-gainsboro;
+$line-icon-default-color        : $line-light-color;
+$line-btn-color				    : $line-default-color;
+$line-dialog-color			    : $line-light-color;
+$line-dialog-hr-color		    : $line-gray-color;
+
+$line-tooltip-light-color       : $color-dark;
+$line-tooltip-dark-color        : $color-smoky;
+
+//* 버튼 */
+$btn-color-primary			    : $bg-dim-color;
+
+// tom-select
+$badge-tom-select-txt		    : $color-smoky;
+$badge-tom-select-bg		    : adjust-color($secondary-color, $alpha: -0.9);
+$badge-tom-select-line		    : adjust-color($secondary-color, $alpha: -0.8);
+$badge-tom-select-icon		    : $color-dim;
+
+// data color
+$data-red-color                 : adjust-color($red-color, $saturation: -20%, $lightness: 25%);
+$data-pink-color                : adjust-color($pink-color, $saturation: -20%, $lightness: 16%);
+$data-orange-color              : adjust-color($orange-color, $saturation: -20%, $lightness: 25%);
+$data-yellow-color              : adjust-color($yellow-color, $saturation: -25%, $lightness: 15%);
+$data-purple-color              : adjust-color($purple-color, $saturation: -20%, $lightness: 20%);
+$data-green-color               : adjust-color($green-color, $saturation: -10%, $lightness: 25%);
+$data-blue-color                : adjust-color($blue-color, $saturation: -20%, $lightness: 35%);
+$data-brown-color               : adjust-color($brown-color, $saturation: -14%, $lightness: 30%);
+$data-gray-color                : adjust-color($gray-color, $saturation: -14%, $lightness: 15%);
+
+// datepicker color
+$txt-datepicker-title-color     : $color-smoky;
+$txt-datepicker-week-color      : adjust-color($secondary-color, $saturation: -87%);
+$txt-datepicker-date-color      : $color-smoky;
+$txt-datepicker-bg-color        : $color-white;
+$txt-datepicker-other-color     : $color-slater;
+$bg-datepicker-color	        : $color-white;
+$bg-datepicker-head-color       : $bg-dim-color;
+$bg-datepicker-hover-color      : $color-white;
+
+$datepicker-today-color         : $secondary-color;
+$datepicker-select-color        : $data-blue-color;

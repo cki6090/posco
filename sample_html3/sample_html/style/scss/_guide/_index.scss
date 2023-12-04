@@ -1,0 +1,396 @@
+@charset "utf-8";
+// @content : 가이트 스타일
+
+.guide_container {
+	padding-bottom: $guide-size-base * 5;
+	width: 90%;
+	margin: 0 auto;
+	min-width: $screen-desktop;
+	h1, h2, h3, h4, h5, h6, dl, dt, dd, ul, ol, li {
+		padding: 0;
+		margin: 0;
+	}
+	// ol, ul {
+	// 	list-style-position: inside;
+	// }
+	ol {
+		margin-left: 1rem;
+	}
+	.l_ex {
+		font-size: $guide-font-title;
+		width: auto;
+		overflow: hidden;
+		dl, dt, dd {
+			float: left;
+			height: $pd-base;
+			margin: 0;
+		}
+		dl {
+			margin: 2px 0;
+		}
+		dt {
+			width: $pd-base;
+			float: left;
+		}
+		dd {
+			text-align: left;
+			padding-left: $pd-base;
+			padding-right: $pd-md;
+			float: left;
+		}
+	}
+	table {
+		width: 100%;
+		border: $guide-line-table;
+		border-collapse: collapse;
+		border-spacing: 0;
+	}
+	th, td {
+		white-space: nowrap;
+		padding: $pd-xs;
+		font-size: $guide-font-title;
+	}
+	thead {
+		th, td {
+			font-family: $font-family-base;
+		}
+		th {
+			vertical-align: middle !important;
+			border-left: $guide-line-td;
+			height: $pd-md;
+			text-align: center;
+		}
+		tr th:first-child {
+			border-left: 0;
+		}
+	}
+	tbody {
+		th, td {
+			font-family: $guide-font-family;
+		}
+		th {
+			font-weight: normal;
+			border-top: $guide-line-td;
+			border-left: $guide-line-td;
+			height: $pd-md;
+			word-break: keep-all;
+			word-wrap: break-word;
+			white-space: inherit;
+		}
+		td {
+			font-weight: normal;
+			border-top: $guide-line-td;
+			border-left: $guide-line-td;
+			height: $pd-md;
+			word-break: keep-all;
+			word-wrap: break-word;
+			white-space: inherit;
+			vertical-align: middle;
+			&:first-child {
+				border-left: 0;
+			}
+			&:last-child {
+				color: $guide-color-disabled;
+				line-height: 14px;
+				width: auto;
+				word-break: break-all;
+				font-size: $guide-font-sm !important;
+			}
+			&:last-child * {
+				font-size: $guide-font-sm !important;
+			}
+		}
+	}
+	td {
+		width: $guide-td-base;
+		text-align: center;
+		&:nth-child(1), &:nth-child(2), &:last-child {
+			text-align: left;
+		}
+		&:nth-child(3), &:nth-child(4) {
+			font-family: $font-family-base;
+			font-size: $guide-font-sm;
+		}
+		&:last-child {
+			width: auto;
+		}
+	}
+	.menu {
+		width: 30%;
+	}
+	.url {
+		width: 25%;
+	}
+	.aem {
+		color: $guide-color-aem;
+		background-color: $guide-color-aem-bg;
+		a {
+			color: $guide-color-aem;
+			background-color: $guide-color-aem-bg;
+		}
+		td:nth-child(3),
+		&.bg {
+			background-color: $guide-color-aem-bg;
+		}
+		td:nth-child(3):after {
+			content: "대기";
+		}
+	}
+	.ok {
+		color: $guide-color-ok;
+		a {
+			color: $guide-color-ok;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+		td:nth-child(3), &.bg {
+			background-color: $guide-color-ok-bg !important;
+		}
+		td:nth-child(3):after {
+			content: "완료";
+		}
+	}
+	.img {
+		color: $guide-color-disabled;
+		a {
+			color: $guide-color-disabled;
+		}
+		td:nth-child(3), &.bg {
+			background-color: $guide-color-img-bg !important;
+			color: $guide-color-img;
+		}
+		td:nth-child(3):after {
+			content: "진행중";
+		}
+	}
+	.edit {
+		td:nth-child(4), &.bg {
+			background-color: $guide-color-edit-bg !important;
+		}
+		td:nth-child(4):after {
+			content: "수정";
+		}
+	}
+	.add {
+		td:nth-child(4), &.bg {
+			background-color: $guide-color-add-bg !important;
+		}
+		td:nth-child(4):after {
+			content: "추가";
+		}
+	}
+	.del {
+		background-color: $guide-color-ok;
+		td a {
+			color: $guide-color-disabled;
+		}
+		td:nth-child(3) {
+			background-color: $guide-color-ok;
+		}
+		td:nth-child(3):after {
+			content: "삭제";
+			color: $guide-color-disabled;
+		}
+	}
+	.txt_edit, .txt_edit2 {
+		&::before {
+			display: block;
+			margin-bottom: 2px;
+		}
+	}
+	.txt_edit {
+		&::before {
+			content: '* 1차 수정 및 추가 - 'attr(data-title)' *';
+			color: $guide-color-edit-title;
+		}
+	}
+	.txt_edit2 {
+		&::before {
+			content: '* 2차 수정 및 추가 - 'attr(data-title)' *';
+			color: adjust-hue($guide-color-edit-title, 60);
+		}
+	}
+	.txt, .txt_edit, .txt_edit2 {
+		display: block;
+		margin: 0;
+		.title {
+			color: darken(adjust-hue($guide-color-edit-title, -50), 30%);
+			margin-bottom: 2px;
+		}
+		p {
+			margin: 0;
+		}
+		span {
+			display: inline-block;
+			vertical-align: middle;
+		}
+		.tit {
+			min-width: 100px;
+		}
+	}
+	.txt_edit:not(:first-child), .txt_edit2:not(:first-child) {
+		padding-top: $pd-xs;
+		margin-top: $pd-xs;
+		border-top: 1px $guide-color-line dotted;
+	}
+	.txt_edit + .txt_edit2 {
+		padding-top: $pd-xs;
+		margin-top: $pd-xs;
+		border-top: 1px $guide-color-line solid;
+	}
+	.h1, h1 {
+		font-size: 36px;
+		margin-bottom: $guide-size-base;
+	}
+	h2, h3 {
+		margin-bottom: $guide-size-base;
+	}
+	h2 {
+		margin-top: $pd-md;
+		font-size: $pd-base;
+		text-transform: uppercase;
+		font-weight: 500;
+	}
+	.l_p15 {
+		padding-left: 15px;
+	}
+	.left {
+		text-align: left !important;
+	}
+	mark {
+		background-color: $guide-color-mark-bg;
+		line-height: 1.8;
+		padding: $pd-xxs $pd-xs;
+		color:$guide-color-mark;
+	}
+	td.main_menu .menu {
+		display: inline-block;
+		width: 100px;
+		position: relative;
+		&::after {
+			content: "\2501";
+			position: absolute;
+			right: 7px;
+			top: 1px;
+		}
+	}
+	td.sub_menu {
+		padding-left: 100px - 15px;
+		&::before {
+			content: "\2515";
+			display: inline-block;
+			width: $pd-base;
+		}
+	}
+	.nav-tabs-custom {
+		.nav-tabs {
+			font-size: 18px;
+			margin-bottom: $pd-base;
+			li, a {
+				border: none !important;
+				margin: 0;
+			}
+			a {
+				display: block;
+				padding-bottom: 15px;
+			}
+			li {
+				position: relative;
+				width: 50%;
+				text-align: center;
+			}
+			.active {
+				color: $guide-color-tab-on;
+				&::before {
+					content: "";
+					display: block;
+					position: absolute;
+					left: 0;
+					bottom: -3px;
+					width: 100%;
+					height: $pd-xs;
+					background-color: $guide-color-tab-on;
+					z-index: 1;
+				}
+			}
+		}
+	}
+}
+xmp {
+	margin: 0;
+	padding: 0 $guide-size-base;
+	font-family: $guide-font-family;
+	white-space: pre-wrap;
+	position: relative;
+	font-size: $guide-font-sm;
+	line-height: 1.2;
+	letter-spacing: 0.5px;
+}
+.coding_box {
+	font-size: 0;
+	line-height: 1;
+	margin-top: 0;
+	margin-bottom: $pd-xs;
+	padding: 0;
+	background: $color-dark;
+	position: relative;
+	&::before {
+		content: "Coding source";
+		font-size: $guide-font-sm;
+		font-weight: 500;
+		text-transform: uppercase;
+		display: block;
+		width: 100%;
+		color: $guide-color-edit-title;
+		padding: 7px 7px 4px;
+		border-bottom: 1px $guide-color-disabled solid;
+		cursor: pointer;
+	}
+	xmp {
+		margin-top: -5px;
+		display: none;
+		color: $guide-color-aem;
+	}
+	&.open xmp {
+		display: block;
+	}
+}
+// 설명
+.guide {
+	&-after {
+		box-shadow: $guide-area-line;
+		&::after {
+			@include guideData();
+		}
+	}
+	&-before {
+		&::before {
+			content: attr(data-text);
+			display: block;
+			padding: $spacer-xs $spacer-sm;
+			background-color: $guide-color-mark-bg;
+			color: $guide-color-ok;
+			@include codeText;
+		}
+	}
+	&-cont {
+		@include directionAlign(center, center);
+		height: 100%;
+	}
+	&-txt {
+		@include guideText(text);
+		mark {
+			margin: 0 $pd-xxs;
+		}
+	}
+	&-code {
+		@include guideText(code);
+		mark {
+			margin: 0 $pd-xxs;
+		}
+	}
+}
+mark {
+	@include markStyle;
+}

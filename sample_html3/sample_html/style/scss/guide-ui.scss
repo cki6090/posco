@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+@use "sass:math"; 			// 내장 함수 - 연산자 호출
+
+//* 변수 선언 */
+@import "variable/index";
+
+//* 함수 작업 */
+@import "mixins/index";
+
+//* 가이드에만 사용 독입적 */
+@import "_guide/variable"; // 가이드 변수 - 독립적
+@import "_guide/index"; // 가이드 스타일 - 독립적

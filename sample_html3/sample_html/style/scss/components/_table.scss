@@ -1,0 +1,75 @@
+.table-wrap {
+    @include tableWrap;
+    @include tableStyle(view, $table-view-th-max-width, 2);
+    @include tableStyle(list);
+    .full & {
+        @include tableVew($table-view-th-max-width, 4);
+    }
+}
+.table-area {
+    height: 100%;
+    .txt-title {
+        height: $table-title-height;
+    }
+    .head-area {
+        @include flexBoxContAlignX(full);
+        align-items: flex-start;
+    }
+    .txt-title, .head-area {
+        & + .ibsheet-wrap {
+            height: calc(100% - $table-title-height);
+        }
+    }
+    .form-group {
+        width: $form-width-min-size;
+        margin-bottom: $spacer-base;
+        & + .ibsheet-wrap {
+            height: calc(100% - $form-height-size - $spacer-base);
+        }
+    }
+    .table-info {
+        height: $table-info-heigh;
+        & + .ibsheet-wrap {
+            height: calc(100% - $table-info-heigh);
+        }
+    }
+}
+.ibsheet-wrap {
+    @include ibsheetWrap;
+    .modal-wrap .table-area & {
+        height: ($table-row-height * 5) + $table-thead-heigh - 1px;
+    }
+}
+.list-area {
+    @include tableGrde(cell, th, td, list);
+}
+.cell-merge {
+    @include Opacity(0);
+    width: 100%;
+}
+.merge-wrap {
+    // position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    // overflow: visible !important;
+    z-index: 1;
+    // @for $i from 1 through 20 {
+    //     &[data-merge='#{$i}'] {
+    //         .merge-area {
+    //             background-color: red;
+    //             position: absolute;
+    //             width: 100% * $i;
+    //             height: 100%;
+    //             top: 0;
+    //             left: 0;
+    //         }
+    //     }
+    // }
+}
+// [ib-col] {
+//     position: relative;
+//     height: auto;
+//     padding: 0;
+// }

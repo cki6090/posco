@@ -1,0 +1,40 @@
+.error_url,
+.error_page {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    .ep_tit {
+        font-size: 32px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 1);
+    }
+
+    .ep_stit {
+        font-size: 16px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 1);
+    }
+
+    .ep_btn {
+        font-size: 14px;
+        font-weight: 700;
+        color: rgba(17, 17, 17, 1);
+        padding: 0px 16px;
+        background: rgba(255, 255, 255, 1);
+        text-align: center;
+        border-radius: 35px;
+        line-height: 40px;
+        height: 40px;
+
+        .icon_error_check_img {
+            vertical-align: middle;
+        }
+    }
+}

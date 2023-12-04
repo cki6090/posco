@@ -1,0 +1,75 @@
+
+@mixin fixCenter {
+	$center: 50%;
+	position: absolute;
+	left: $center;
+	top: $center;
+	transform: translate(-$center, -$center);
+}
+@mixin contTransLate($contX, $contY) {
+	position: absolute;
+	left: $contX;
+	top: $contY;
+	transform: translate(-$contX, -$contY);
+}
+@mixin contTransSingle($type, $cont) {
+	position: absolute;
+	@if $type == left {
+		left: $cont;
+		transform: translateX(-$cont);
+	}
+	@else if  $type == top {
+		top: $cont;
+		transform: translateY(-$cont);
+	}
+}
+@mixin contTransCenterX($type:left, $X:0){
+	position: absolute;
+	@if $type == left {
+        top: 50%;
+        transform: translateY(-50%);
+        left: $X;
+	} @else if $type == right {
+        top: 50%;
+        transform: translateY(-50%);
+        right: $X;
+	}
+}
+@mixin contTransCenterY($type:top, $y:0){
+	position: absolute;
+	@if $type == top {
+        left: 50%;
+        transform: translateX(-50%);
+        top: $y;
+	} @else if $type == bottom {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: $y;
+	}
+}
+@mixin transWidth {
+	transition: width 0.5s;
+    transition-timing-function: cubic-bezier(.88, -.35, .565, 1.35);
+}
+@mixin transHeigh {
+	transition: height 0.5s;
+    transition-timing-function: cubic-bezier(.88, -.35, .565, 1.35);
+}
+@mixin transMotion($type, $time: 0.02s) {
+    transition-duration: $time;
+    transition-property: $type;
+    transition-timing-function: linear;
+}
+@mixin loading {
+    .loding-bar {
+        width: 50px;
+        padding: 8px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: $secondary-color;
+        mask: conic-gradient(#0000 10%,#000), linear-gradient(#000 0 0) content-box;
+        mask-composite: subtract;
+        animation: s3 1s infinite linear;
+    }
+    @keyframes s3 { to { transform: rotate(1turn) } };
+}

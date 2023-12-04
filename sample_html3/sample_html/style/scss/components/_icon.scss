@@ -1,0 +1,578 @@
+// header
+.icon-logo {
+	@include shapeIcon($icon-logo-width, $icon-logo-height, ico_logo);
+	&-min {
+		@include squareIcon($icon-logo-min-height, ico_logo_p);
+	}
+}
+.icon-project {
+	@include shapeIcon($icon-project-width, $icon-project-height, ico_project_name);
+}
+.icon-arrow {
+	.nav-togle & {
+		@include squareIcon($icon-head-size, ico_nav);
+	}
+}
+.icon-favorites {
+	@include squareIcon($icon-head-size, ico_favorites);
+	&:hover, [open] & {
+		@include svgIconName(ico_favorites_hover);
+	}
+}
+.icon-language {
+	@include squareIcon($icon-head-size, ico_language);
+	&:hover, [open] & {
+		@include svgIconName(ico_language_hover);
+	}
+}
+.icon-user {
+	@include squareIcon($icon-head-size, ico_user);
+	&:hover, [open] & {
+		@include svgIconName(ico_user_hover);
+	}
+}
+.icon-caution {
+	@include squareIcon($icon-head-size, ico_caution);
+}
+// naves
+.icon-close-all {
+	@include squareIcon($icon-nav-size, ico_close_all);
+}
+.icon-arr {
+	&-left {
+		@include squareIcon($icon-nav-size, ico_arr_left);
+	}
+	&-right {
+		@include squareIcon($icon-nav-size, ico_arr_right);
+	}
+}
+// sidebar
+.icon-nav {
+	&-dash {
+		@include squareIcon($icon-side-size, ico_nav_dash);
+		.active &, .nav-item:hover & {
+			@include maskIconChange($side-txt-active-color, ico_nav_dash);
+		}
+	}
+	&-ocn {
+		@include squareIcon($icon-side-size, ico_nav_ocn);
+		.active &, .nav-item:hover & {
+			@include maskIconChange($side-txt-active-color, ico_nav_ocn);
+		}
+	}
+	&-prd {
+		@include squareIcon($icon-side-size, ico_nav_prd);
+		.active &, .nav-item:hover & {
+			@include maskIconChange($side-txt-active-color, ico_nav_prd);
+		}
+	}
+	&-pwh {
+		@include squareIcon($icon-side-size, ico_nav_pwh);
+		.active &, .nav-item:hover & {
+			@include maskIconChange($side-txt-active-color, ico_nav_pwh);
+		}
+	}
+	&-mst {
+		@include squareIcon($icon-side-size, ico_nav_mst);
+		.active &, .nav-item:hover & {
+			@include maskIconChange($side-txt-active-color, ico_nav_mst);
+		}
+	}
+	&-adm {
+		@include squareIcon($icon-side-size, ico_nav_adm);
+		.active &, .nav-item:hover & {
+			@include maskIconChange($side-txt-active-color, ico_nav_adm);
+		}
+	}
+}
+.icon-star {
+	@include squareIcon($icon-side-sub-size, ico_star);
+	.btn-favor.active & {
+		@include maskIconChange($star-icon-color, ico_star);
+	}
+	.ibsheet-wrap & {
+		overflow: hidden;
+		box-sizing: border-box;
+	}
+}
+.icon-btn-check {
+	@include squareIcon($icon-error-btn-size, ico_btn_check);
+}
+// message icon
+.icon-error {
+	&-url {
+		@include squareIcon($icon-error-size, ico_error_url);
+	}
+	&-page {
+		@include squareIcon($icon-error-size, ico_error_page);
+	}
+}
+.icon-alert {
+	@include squareIcon($icon-head-size, ico_alert);
+	&:hover, [open] & {
+		@include svgIconName(ico_alert_hover);
+	}
+	.new & {
+		@include squareIcon($icon-head-size, ico_alert_on);
+		&:hover, [open] & {
+			@include svgIconName(ico_alert_on_hover);
+		}
+	}
+	&-info {
+		@include squareIcon($icon-alert-size, ico_alert_info);
+	}
+}
+.alert-list {
+	.icon-alert {
+		&-truck {
+			@include squareIcon($icon-alert-list-size, ico_alert_truck);
+		}
+		&-ship {
+			@include squareIcon($icon-alert-list-size, ico_alert_ship);
+		}
+		&-store {
+			@include squareIcon($icon-alert-list-size, ico_alert_store);
+		}
+	}
+	.new {
+		[class*="icon-alert"] {
+			position: relative;
+			overflow: visible;
+			&::before {
+				$size: 2px;
+				content: '';
+				display: block;
+				position: absolute;
+				top: -$size * 1.5;
+				right: -$size * 1.5;
+				z-index: 1;
+				@include circleIcon($error-color);
+				border: $size $color-white solid;
+			}
+		}
+	}
+}
+.icon-close {
+	@include squareIcon($icon-side-size, ico_close);
+	.navs-wrap & {
+		@include iconSizeChange($icon-nav-tab-size);
+		@include maskIconChange($bg-nav-menu-off-color, ico_close);
+	}
+	.active & {
+		@include maskIconChange($side-txt-active-color, ico_close);
+	}
+	.navs-wrap .active &, .navs-wrap  .nav-item.active:hover & {
+		background-color: $nav-icon-active-color;
+	}
+	.navs-wrap .nav-item:hover & {
+		background-color: $nav-icon-hover-color;
+	}
+	.nav-sidebar .active & {
+		background-color: $color-white;
+	}
+}
+.icon-open {
+	.navs-wrap & {
+		@include squareIcon($icon-nav-tab-size, ico_open);
+	}
+}
+.icon-info {
+	@include squareIcon($icon-form-txt-size, ico_info);
+}
+.icon-help {
+	@include squareIcon($icon-form-txt-size, ico_help);
+}
+.icon-excel {
+	@include squareIcon($icon-form-txt-size, ico_excel);
+}
+.icon-search {
+	@include squareIcon($icon-form-btn-size, ico_search);
+}
+.icon-reset {
+	@include squareIcon($icon-form-txt-size, ico_reset);
+}
+.icon-exp-time {
+	@include squareIcon($icon-form-txt-size, ico_exp_time);
+}
+.icon-calendar {
+	@include squareIcon($icon-form-bg-size, ico_calendar);
+}
+.icon-edit {
+	.modal-wrap & {
+		@include squareIcon($icon-form-txt-size, ico_edit);
+	}
+	.dialog-head & {
+		@include squareIcon($icon-form-txt-size, ico_edit_dialog);
+	}
+}
+.icon-speed {
+	@include squareIcon($icon-form-txt-size, ico_speed);
+}
+.icon-location {
+	@include squareIcon($icon-form-txt-size, ico_location);
+}
+.icon-nodata {
+	@include squareIcon($icon-info-size, ico_nodata);
+}
+// Dropdowns icon
+%icon-down {
+	.header-wrap & {
+		@include bgIconPosition(ico_arr_down);
+	}
+	.ts-control & {
+		@include bgIconPosition(ico_select_down);
+		background-size: $icon-badge-size $icon-badge-size;
+		background-position: right $badge-tom-gap-spacer center;
+	}
+}
+%icon-up {
+	.header-wrap & {
+		@include bgIconPosition(ico_arr_up);
+	}
+	.ts-control & {
+		@include bgIconPosition(ico_select_up);
+		background-size: $icon-badge-size $icon-badge-size;
+		background-position: right $badge-tom-gap-spacer center;
+	}
+}
+// prev, next
+.icon-circle {
+	&-prev {
+		@include squareIcon($icon-circle-arr-size, ico_circle_left);
+	}
+	&-next {
+		@include squareIcon($icon-circle-arr-size, ico_circle_right);
+	}
+}
+.icon-tab {
+	&-route {
+		@include squareIcon($icon-form-txt-size, ico_tab_route);
+		&-on {
+			@include squareIcon($icon-form-txt-size, ico_tab_route_on);
+		}
+	}
+	&-weather {
+		@include squareIcon($icon-form-txt-size, ico_tab_weather);
+		&-on {
+			@include squareIcon($icon-form-txt-size, ico_tab_weather_on);
+		}
+	}
+}
+// map info
+.info-item {
+	.icon-info {
+		@include bgImgBase;
+		@include squareSize($icon-info-size);
+		padding-top: $icon-info-size;
+		&.eco {
+			@include svgIconName(ico_map_eco);
+		}
+		&.norm {
+			@include svgIconName(ico_map_norm);
+		}
+		&.full {
+			@include svgIconName(ico_map_full);
+		}
+		&.vest-total {
+			@include svgIconName(ico_vest_total);
+		}
+		&.vest-alert {
+			@include svgIconName(ico_vest_alert);
+		}
+		&.ship {
+			@include svgIconName(ico_info_ship);
+		}
+		&.share {
+			@include svgIconName(ico_info_share);
+		}
+		&.average, &.deviate {
+			@include svgIconName(ico_info_average);
+		}
+		&.driver, &.car {
+			@include squareSize($icon-info-txt-size);
+			padding-top: $icon-info-txt-size;
+		}
+		&.driver {
+			@include svgIconName(ico_info_driver);
+		}
+		&.car {
+			@include svgIconName(ico_info_car);
+		}
+		&.delay {
+			@include svgIconName(ico_info_delay);
+			.panl-list & {
+				@include svgIconName(ico_info_delay);
+			}
+		}
+		&.stop {
+			@include svgIconName(ico_info_stop);
+			.panl-list & {
+				@include svgIconName(ico_info_stop);
+			}
+		}
+		&.ais {
+			@include svgIconName(ico_info_slash);
+			.panl-list & {
+				@include svgIconName(ico_info_slash);
+			}
+		}
+	}
+	.panl-box.active &, .panl-box:hover & {
+		.icon-info {
+			&.deviate {
+				@include svgIconName(ico_info_average_on);
+			}
+			&.delay {
+				@include svgIconName(ico_info_delay_on);
+			}
+			&.stop {
+				@include svgIconName(ico_info_stop_on);
+			}
+			&.ais {
+				@include svgIconName(ico_info_slash_on);
+			}
+		}
+	}
+	.panl-list & {
+		.icon-info {
+			@include squareSize($icon-info-min-size);
+			padding-top: $icon-info-min-size;
+			&.deviate {
+				@include svgIconName(ico_min_average);
+			}
+			&.delay {
+				@include svgIconName(ico_min_delay);
+			}
+			&.stop {
+				@include svgIconName(ico_min_stop);
+			}
+			&.ais {
+				@include svgIconName(ico_min_slash);
+			}
+		}
+	}
+}
+// 운송 설명
+.icon-cargo {//원료명
+	&-coal {
+		@include circleIcon($cargo-coal-color);
+	}
+	&-iron {
+		@include circleIcon($cargo-iron-color);
+	}
+	&-stone {
+		@include circleIcon($cargo-stone-color);
+	}
+	&-product {
+		@include circleIcon($product-color);
+	}
+}
+.icon-node {
+	@include circleIcon(transition);
+	box-shadow: inset 0 0 0 2px $port-route-color;
+}
+.icon-transport {
+	@include circleIcon($bg-route-color);
+}
+.icon-sea-port {
+	@include circleIcon(transition);
+	box-shadow: inset 0 0 0 2px $port-point-color;
+}
+.icon-port {
+	@include bgImgBase;
+	@include squareSize($icon-port-height);
+	&-ph {
+		@include circleIcon($port-ph-color);
+	}
+	&-gy {
+		@include circleIcon($port-gy-color);
+	}
+	.anchor & {
+		@include svgIconName(ico_ship_anchor);
+	}
+	.berth & {
+		@include svgIconName(ico_ship_berth);
+	}
+	.departure & {
+		@include svgIconName(ico_ship_departure);
+	}
+	.dock & {
+		@include svgIconName(ico_ship_dock);
+	}
+	.schedule-bar & {
+		@include squareSize($icon-legend-size);
+	}
+}
+.transport-info {
+	&-actual {
+		@include squareIcon($icon-form-txt-size, ico_port_actual);
+	}
+	&-estim {
+		@include squareIcon($icon-form-txt-size, ico_port_estim);
+	}
+}
+.icon-ship {
+	@include bgImgBase;
+	@include shapeSize($icon-ship-width, $icon-ship-height);
+	.ship-product & {
+		@include svgIconName(ico_ship_general);
+	}
+	.ship-stone &, .ship-iron &, .ship-coal &, .ship-material & {
+		@include svgIconName(ico_ship_bulk);
+	}
+	&-in {
+		@include squareIcon($icon-modal-size, ico_ship_in);
+	}
+	&-out {
+		@include squareIcon($icon-modal-size, ico_ship_out);
+	}
+}
+.icon-route {
+	@include bgImgBase;
+	.icon-item & {
+		@include squareSize($icon-route-size);
+		.route-truck & {
+			@include svgIconName(ico_route_truck);
+		}
+		.route-ship & {
+			@include svgIconName(ico_route_ship);
+		}
+		.route-store & {
+			@include svgIconName(ico_route_store);
+		}
+	}
+	.icon-cont & {
+		@include shapeSize($icon-ship-width, $icon-ship-height);
+		.route-road & {
+			.route & {
+				@include svgIconName(ico_route_bar_road);
+			}
+			.store & {
+				@include svgIconName(ico_store_bar_road);
+			}
+		}
+		.route-ship & {
+			@include svgIconName(ico_route_bar_ship);
+		}
+	}
+}
+.icon-port-route {
+	@include squareSize($icon-port-height);
+	@include svgIconName(ico_ship_berth);
+}
+// 유통기지 진행상황
+.icon-store {
+	&-in {
+		@include shapeIcon($icon-store-width, $icon-ship-height, ico_store_in);
+	}
+	&-move {
+		@include shapeIcon($icon-store-width, $icon-ship-height, ico_store_move);
+	}
+	&-out {
+		@include shapeIcon($icon-store-width, $icon-ship-height, ico_store_out);
+	}
+	&-bourne {
+		@include shapeIcon($icon-ship-width, $icon-ship-height, ico_store_bourne);
+	}
+}
+.store-port {
+	&::before {
+		@include bgImgBase;
+		@include shapeSize($icon-store-width, $icon-ship-height);
+	}
+}
+.icon-item {
+	@include bgImgBase;
+	.ship-product &, .ship-stone &, .ship-iron &, .ship-coal & {
+		@include shapeSize($icon-ship-width, $icon-ship-height);
+	}
+	.ship-product & {
+		@include svgIconName(ico_ship_general);
+	}
+	.ship-stone &, .ship-iron &, .ship-coal & {
+		@include svgIconName(ico_ship_bulk);
+	}
+	.anchor &, .berth &, .departure &, .dock & {
+		@include shapeSize(($icon-ship-width - $icon-ship-height), $icon-port-height);
+	}
+	.anchor & {
+		@include svgIconName(ico_ship_anchor);
+	}
+	.berth & {
+		@include svgIconName(ico_ship_berth);
+	}
+	.departure & {
+		@include svgIconName(ico_ship_departure);
+	}
+	.dock & {
+		@include svgIconName(ico_ship_dock);
+	}
+}
+.status-area.arrival-info {
+	.data-info::after {
+		@include bgIconBase;
+		@include bgImgBase;
+		@include shapeSize($icon-ship-width, $icon-ship-height);
+	}
+	.ship-product .data-info::after {
+		@include svgIconName(ico_ship_general);
+	}
+	.ship-stone, .ship-iron, .ship-coal {
+		.data-info::after {
+			@include svgIconName(ico_ship_bulk);
+		}
+	}
+}
+// 날씨 아이콘
+.icon-weather {
+	@include bgImgBase;
+	@include squareSize($icon-weather-big);
+	.weather-list & {
+		@include squareSize($icon-weather-md);
+	}
+}
+.weather-01d {
+	@include svgIconName(ico_weather_01d);
+}
+.weather-02d {
+	@include svgIconName(ico_weather_02d);
+}
+.weather-09d {
+	@include svgIconName(ico_weather_09d);
+}
+.weather-10d {
+	@include svgIconName(ico_weather_10d);
+}
+.weather-11d {
+	@include svgIconName(ico_weather_11d);
+}
+.weather-13d {
+	@include svgIconName(ico_weather_13d);
+}
+.weather-01n {
+	@include svgIconName(ico_weather_01n);
+}
+.weather-02n {
+	@include svgIconName(ico_weather_02n);
+}
+.weather-09n {
+	@include svgIconName(ico_weather_09n);
+}
+.weather-10n {
+	@include svgIconName(ico_weather_10n);
+}
+.weather-11n {
+	@include svgIconName(ico_weather_11n);
+}
+.weather-13n {
+	@include svgIconName(ico_weather_13n);
+}
+.weather-03d, .weather-03n {
+	@include svgIconName(ico_weather_03);
+}
+.weather-04d, .weather-04n {
+	@include svgIconName(ico_weather_04);
+}
+.weather-50d, .weather-50n {
+	@include svgIconName(ico_weather_50);
+}

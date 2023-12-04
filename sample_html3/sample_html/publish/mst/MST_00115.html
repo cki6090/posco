@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
+    <title>전체 Layout</title>
+
+    <!-- 필수 plugin -->
+    <!-- jQuery -->
+    <script src="../../js/jquery/dist/jquery.min.js"></script>
+    <script src="../../js/jquery-ui/dist/jquery-ui.min.js"></script>
+    <script src="../../js/jsrender/dist/jsrender.js"></script>
+    <!-- Select -->
+    <script src="../../js/tom-select/dist/js/tom-select.complete.min.js"></script>
+    <!-- 날짜 관련 -->
+    <script src="../../js/moment/dist/moment.min.js"></script>
+    <!-- //필수 plugin -->
+
+    <!-- UI Style -->
+    <link rel="stylesheet" href="../../style/css/style-ui.css" />
+</head>
+
+<body class="iframe-layout">
+    <div class="wrapper">
+        <!-- 타이틀 및 네비게이션 영역 : 2023.05.08 공통 영역 수정 -->
+        <section class="content-head">
+            <h2 class="page-title"><span>구간별 거리정보</span></h2>
+            <div class="head-article" x-data="{open: false}">
+                <include src="../_include/content/content-head-article.html"></include>
+            </div>
+        </section>
+        <!-- //타이틀 및 네비게이션 영역 -->
+
+        <!-- Main content -->
+        <section class="content-body">
+            <!-- 검색된 컨텐츠 영역 -->
+            <div class="search-cont-area"><!-- class : off 추가시 검색영역 hide -->
+                <include src="../_include/search/search_content.html"></include>
+            </div>
+            <!-- //검색된 컨텐츠 영역 -->
+
+            <div class="content-area fixed">
+                <!-- 20230714 임시 삭제 -->
+                <div class="info-area hide">
+                    <!-- 2023.04.27 class 명 변경 : table-wrap >> ibsheet-wrap -->
+                    <div class="ibsheet-wrap">
+                        <div id="sheetDiv"></div>
+                    </div>
+                </div>
+                <!-- //20230714 임시 삭제 -->
+                <div class="map-area">
+                    <!-- Map 상단 정보 -->
+                    <include src="../_include/content/content_map_info.html"></include>
+                    <!-- //Map 상단 정보 -->
+                    <!-- 지도 영역 -->
+                    <div class="map-wrap" style="background-color: #C5C5C6;">
+                        실제 지도가 들어갈 영역
+                    </div>
+                    <!-- //지도 영역 -->
+                </div>
+            </div>
+        </section>
+        <!-- //Main content -->
+    </div>
+    <!-- /wrapper -->
+
+    <!-- ibleaders -->
+    <script src="../../js/ibsheet8/ibsheet.js"></script>
+    <script src="../../js/ibsheet8/ibleaders.js"></script>
+    <script src="../../js/ibsheet8/locale/ko.js"></script>
+    <!-- //ibleaders -->
+
+    <!-- 퍼블 사용하기 위한 JavaScript -->
+    <script src="../../style/js/include.js"></script>
+    <script defer src="../../style/js/alpinejs.min.js"></script>
+    <!-- //퍼블 사용하기 위한 JavaScript -->
+
+    <script type="text/javascript">
+        var ib = ib || {};
+        ib = {
+            init: {
+                Def: {                   	// 공통 속성 설정
+                    Header: {
+                        Align: "Center",
+                        TextStyle: 1
+                    },
+                },
+                Cfg: {// 전역 기능 설정(cfg property)
+                    FitWidth: 1,            //우측에 더미 열(Column)을 추가
+                    HeaderMerge: 3,
+                    HoverScope: 1,          //헤더 영역에 Hover 동작하지 않음
+                    CanColResize: false,    //사용자 너비 조절 기능 X
+                    CanSort: false,         //열 정렬(Sort) 기능 X
+                    SearchMode: 2,
+                    borderCursors: 0,       //hover시 Border active X
+                    IgnoreFocused: true,    // 조회 후 포커스를 가져오지 않게 한다.
+                },
+                Cols: [               // 기본 열 설정(가운데영역)  (col property)
+                    {
+                        Header: ["Port", "From"],
+                        Type: "Text",
+                        Name: "cell01",
+                        Align: "Left",
+                        Width: 100
+                    }, {
+                        Header: ["Port", "To"],
+                        Type: "Text",
+                        Name: "cell02",
+                        Align: "Left",
+                        RelWidth: 1,
+                        MinWidth: 150,
+                    }, {
+                        Header: ["Time\nDliff.", "Time\nDliff."],
+                        Type: "Text",
+                        Name: "cell03",
+                        Align: "Right",
+                        Width: 150
+                    }, {
+                        Header: ["Standart\nDistance", "Standart\nDistance"],
+                        Type: "Text",
+                        Name: "cell04",
+                        Align: "Right",
+                        Width: 150
+                    }, {
+                        Header: ["ECA\nDistance", "ECA\nDistance"],
+                        Type: "Text",
+                        Name: "cell05",
+                        Align: "Center",
+                        Width: 150
+                    }, {
+                        Header: ["Description", "Description"],
+                        Type: "Text",
+                        Name: "cell06",
+                        Align: "Left",
+                        Width: 150
+                    }
+                ],     	// 필터 행 추가/정의
+            },
+            //시트객체 생성
+            create: function () {
+                var options = this.init;
+                IBSheet.create({
+                    id: "sheet", 		// 생성할 시트의 id
+                    el: "sheetDiv", 	// 시트를 생성할 Dom 객체 및 id
+                    options: options,   // 생성될 시트의 속성
+                    data: this.data 	// 생성될 시트의 정적데이터
+                });
+            },
+            data: [
+                {
+                    cell01: "GY",
+                    cell02: "ABBOTPOINT",
+                    cell03: "1",
+                    cell04: "3,802",
+                    cell05: "0",
+                    cell06: "-",
+                },
+                {
+                    cell01: "GY",
+                    cell02: "ABBOTPOINT",
+                    cell03: "1",
+                    cell04: "3,802",
+                    cell05: "0",
+                    cell06: "-",
+                },
+                {
+                    cell01: "GY",
+                    cell02: "ABBOTPOINT",
+                    cell03: "1",
+                    cell04: "3,802",
+                    cell05: "0",
+                    cell06: "-",
+                },
+                {}, {}, {}, {}, {}, {}, {}, {}, {},
+                {}, {}, {}, {}, {}, {}, {}, {}, {},
+            ]
+        };
+        ib.create();
+    </script>
+</body>
+</html>

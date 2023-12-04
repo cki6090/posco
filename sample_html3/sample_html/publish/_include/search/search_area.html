@@ -1,0 +1,236 @@
+<div class="search-wrap">
+	<h2 class="txt-title">조회영역</h2>
+	<div class="find-area" style="height: 400px; padding: 20px 0;">
+		조회검색 폼
+		<template>
+			<!-- multiple select -->
+			<div class="form-group">
+				<label class="form-label" for="form-data-01">멀티셀렉트</label>
+				<div class="form-select">
+					<select id="form-data-01" class="form-control" multiple placeholder="최대 5개까지 선택가능">
+						<option>01</option>
+						<option>02</option>
+						<option>03</option>
+						<option>item 04</option>
+						<option>길게한줄 나오면 나머진</option>
+						<option>item 06</option>
+						<option>item 07</option>
+						<option>item 08</option>
+						<option>item 09</option>
+					</select>
+				</div>
+			</div>
+			<!-- //multiple select -->
+			<div class="form-group">
+				<label class="form-label" for="form-data-02">멀티셀렉트 disabled</label>
+				<div class="form-select">
+					<select id="form-data-02" class="form-control" disabled multiple placeholder="최대 5개까지 선택가능">
+						<option>option 01</option>
+						<option selected>option 02</option>
+						<option>option 03</option>
+						<option>option 04</option>
+						<option>option 05</option>
+						<option>option 06</option>
+						<option>option 07</option>
+						<option>option 08</option>
+						<option>option 09</option>
+					</select>
+				</div>
+			</div>
+			<!-- single select -->
+			<div class="form-group">
+				<label class="form-label" for="form-data-03">싱글셀렉트</label>
+				<div class="form-select">
+					<select id="form-data-03" class="form-control" placeholder="하나만 선택 가능합니다.">
+						<option>option 01</option>
+						<option>option 02</option>
+						<option>option 03</option>
+						<option>option 04</option>
+						<option>option 05</option>
+						<option>option 06</option>
+						<option>option 07</option>
+						<option>option 08</option>
+						<option>option 09</option>
+					</select>
+				</div>
+			</div>
+			<!-- //single select -->
+			<!-- single select -->
+			<div class="form-group">
+				<label class="form-label" for="form-data-08">싱글셀렉트 2개 이상</label>
+				<div class="input-group">
+					<div class="form-select">
+						<select id="form-data-08" class="form-control" placeholder="하나만 선택 가능합니다.">
+							<option>option 01</option>
+							<option>option 02</option>
+							<option>option 03</option>
+							<option>option 04</option>
+							<option>option 05</option>
+							<option>option 06</option>
+							<option>option 07</option>
+							<option>option 08</option>
+							<option>option 09</option>
+						</select>
+					</div>
+					<div class="form-select">
+						<select id="form-data-08-2" class="form-control" placeholder="하나만 선택 가능합니다.">
+							<option>option 01</option>
+							<option>option 02</option>
+							<option>option 03</option>
+							<option>option 04</option>
+							<option>option 05</option>
+							<option>option 06</option>
+							<option>option 07</option>
+							<option>option 08</option>
+							<option>option 09</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<!-- //single select -->
+			<div class="form-group">
+				<label class="form-label" for="form-data-04">싱글셀렉트 disabled</label>
+				<div class="form-select">
+					<select id="form-data-04" class="form-control" disabled placeholder="하나만 선택 가능합니다.">
+						<option>option 01</option>
+						<option selected>option 02</option>
+						<option>option 03</option>
+						<option>option 04</option>
+						<option>option 05</option>
+						<option>option 06</option>
+						<option>option 07</option>
+						<option>option 08</option>
+						<option>option 09</option>
+					</select>
+				</div>
+			</div>
+			<!-- single input -->
+			<div class="form-group">
+				<label class="form-label" for="form-data-04">Input 1개 일때</label>
+				<div class="form-input">
+					<input type="text" id="form-data-04" class="form-control" autocomplete="off" placeholder="입력해주세요.">
+				</div>
+			</div>
+			<!-- //single input -->
+			<!-- input group -->
+			<div class="form-group">
+				<label class="form-label" for="form-data-05">Input 2개 이상 일때</label>
+				<div class="input-group">
+					<div class="form-input">
+						<input type="text" id="form-data-05" class="form-control" autocomplete="on" placeholder="입력해주세요.">
+					</div>
+					<div class="form-input">
+						<input type="text" class="form-control" autocomplete="on" disabled placeholder="입력해주세요.">
+					</div>
+					<div class="form-input">
+						<input type="text" class="form-control error" autocomplete="on" placeholder="입력해주세요.">
+					</div>
+				</div>
+			</div>
+			<!-- //input group -->
+			<div class="form-group">
+				<span class="form-label">Check Group 01</span>
+				<div class="check-list">
+					<div class="form-check">
+						<input class="check-input" id="check1-01" type="checkbox">
+						<label class="check-label" for="check1-01">Checkbox</label>
+					</div>
+					<div class="form-check">
+						<input class="check-input" id="check1-02" type="checkbox" checked>
+						<label class="check-label" for="check1-02">Checked</label>
+					</div>
+					<div class="form-check">
+						<input class="check-input" id="check1-03" type="checkbox" disabled>
+						<label class="check-label" for="check1-03">Disabled</label>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<span class="form-label">Check Group 02</span>
+				<div class="check-list row">
+					<div class="form-check">
+						<input class="check-input" id="check2-01" type="checkbox">
+						<label class="check-label" for="check2-01">Checkbox</label>
+					</div>
+					<div class="form-check">
+						<input class="check-input" id="check2-02" type="checkbox" checked>
+						<label class="check-label" for="check2-02">Checked</label>
+					</div>
+					<div class="form-check">
+						<input class="check-input" id="check2-03" type="checkbox" disabled>
+						<label class="check-label" for="check2-03">Disabled</label>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<span class="form-label">Radio Group</span>
+				<div class="check-list">
+					<div class="form-radio">
+						<input class="radio-input" id="check1-04" type="radio" name="radio1">
+						<label class="radio-label" for="check1-04">Radio</label>
+					</div>
+					<div class="form-radio">
+						<input class="radio-input" id="check1-05" type="radio" name="radio1" checked>
+						<label class="radio-label" for="check1-05">Checked</label>
+					</div>
+					<div class="form-radio">
+						<input class="radio-input" id="check1-06" type="radio" disabled>
+						<label class="radio-label" for="check1-06">Disabled</label>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<span class="form-label">Radio Group</span>
+				<div class="check-list row">
+					<div class="form-radio">
+						<input class="radio-input" id="check2-04" type="radio" name="radio2">
+						<label class="radio-label" for="check2-04">Radio</label>
+					</div>
+					<div class="form-radio">
+						<input class="radio-input" id="check2-05" type="radio" name="radio2" checked>
+						<label class="radio-label" for="check2-05">Checked</label>
+					</div>
+					<div class="form-radio">
+						<input class="radio-input" id="check2-06" type="radio" disabled>
+						<label class="radio-label" for="check2-06">Disabled</label>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<span class="form-label">Switch</span>
+				<div class="form-switch">
+					<input class="switch-input" type="checkbox" id="flexSwitchCheckDefault">
+					<label class="switch-label" for="flexSwitchCheckDefault">
+						<span class="switch-cont">Default Switch</span>
+					</label>
+				</div>
+			</div>
+			<!-- 날짜 -->
+			<div class="form-group">
+				<label class="form-label" for="form-data-06">날짜</label>
+				<div class="form-date">
+					<input type="date" id="form-data-06" class="form-control" placeholder="입력해주세요.">
+				</div>
+			</div>
+			<!-- //날짜 -->
+			<!-- 기간 -->
+			<div class="form-group">
+				<label class="form-label" for="form-data-07">기간</label>
+				<div class="date-group">
+					<div class="form-date">
+						<input type="date" id="form-data-07" class="form-control" placeholder="입력해주세요.">
+					</div>
+					<div class="form-date">
+						<input type="date" class="form-control" placeholder="입력해주세요.">
+					</div>
+				</div>
+			</div>
+			<!-- //기간 -->
+		</template>
+	</div>
+	<div class="btn-group">
+		<button type="button" class="btn-reset">초기화</button>
+		<button type="button" class="btn-search">검색</button>
+	</div>
+	<button class="btn-close" ><i class="icon-close">닫기</i></button>
+</div>

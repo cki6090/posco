@@ -1,0 +1,356 @@
+@mixin titleStyle($weight: bold, $color: $txt-title-color) {
+    color: $color;
+    @if $weight == bold {
+        font-weight: $font-weight-bold;
+    } @else if $weight == black {
+        font-weight: $font-weight-black;
+    } @else if $weight == base {
+        font-weight: $font-weight-base;
+    }
+    line-height: 1;
+}
+@mixin textStyle($size, $color, $weight: light) {
+    color: $color;
+    font-size: $size;
+    @if $weight == light {
+        font-weight: $font-weight-light;
+    } @else if $weight == base {
+        font-weight: $font-weight-base;
+    } @else if $weight == thin {
+        font-weight: $font-weight-thin;
+    } @else if $weight == bold {
+        font-weight: $font-weight-bold;
+    } @else if $weight == black {
+        font-weight: $font-weight-black;
+    }
+}
+@mixin textStyleChange($value, $type: color) {
+    @if $type == color {
+        color: $value;
+    } @else if $type  == size {
+        font-size: $value;
+    } @else if $type  == weight {
+        font-weight: $value;
+    }
+}
+@mixin linearGradient($style, $color...) {
+    @if $style == left {
+        background-image: linear-gradient(to right, $color...);
+    } @else if $style == right {
+        background-image: linear-gradient(to left, $color...);
+    } @else if $style == top {
+        background-image: linear-gradient(to bottom, $color...);
+    } @else if $style == bottom {
+        background-image: linear-gradient(to top, $color...);
+    }
+}
+@mixin progressBar($type:X) {
+    @for $num from 0 through 100 {
+        [data-role="#{$num}"] {
+            $sum: $num * 1%;
+            @if $type == X {
+                width: $sum;
+            } @else if $type == Y {
+                height: $sum;
+            }
+        }
+    }
+}
+@mixin progressBarStep($name, $start, $end, $spaceType:percent, $space: $end, $type:X) {
+    @if $start == 0 {
+        @for $num from $start through $end {
+            [data-#{$name}="#{$num}"] {
+                @if $type == X {
+                    @if $spaceType == px {
+                        $sum: $num * $space;
+                        width: $sum;
+                    } @else if $spaceType == percent {
+                        $sum: calc((100 / $end) * $num);
+                        width: $sum * 1%;
+                    }
+                } @else if $type == Y {
+                    @if $spaceType == px {
+                        $sum: $num * $space;
+                        height: $sum;
+                    } @else if $spaceType == percent {
+                        $sum: calc((100 / $end) * $num);
+                        height: $sum * 1%;
+                    }
+                }
+            }
+        }
+    } @else if $start == 1 {
+        @for $num from $start through $end {
+            [data-#{$name}="#{$num}"] {
+                @if $type == X {
+                    @if $spaceType == px {
+                        $sum: ($num * $space) + $space;
+                        width: $sum;
+                    } @else if $spaceType == percent {
+                        $sum: calc(((100 / $end) * $num) + (100 / $end));
+                        width: $sum * 1%;
+                    }
+                } @else if $type == Y {
+                    @if $spaceType == px {
+                        $sum: ($num * $space) + $space;
+                        height: $sum;
+                    } @else if $spaceType == percent {
+                        $sum: calc(((100 / $end) * $num) + (100 / $end));
+                        height: $sum * 1%;
+                    }
+                }
+            }
+        }
+    }
+}
+@mixin bgDottwd($point, $color, $size) {
+	background-image: repeating-linear-gradient(
+		to right,
+		transparent 0,
+		transparent calc((50% / #{$point}) - $size),
+		$color calc((50% / #{$point}) - $size),
+		$color calc((50% / #{$point}) + $size),
+		transparent calc((50% / #{$point}) + $size),
+		transparent calc(100% / #{$point})
+	);
+	background-size: 100% ($size * 2);
+	background-repeat: repeat-x;
+	background-position: center;
+}
+@mixin bgDash($point, $color, $size) {
+	background-image: repeating-linear-gradient(
+		to right,
+		transparent 0,
+		transparent calc((50% / #{$point}) - $size * 4),
+		$color calc((50% / #{$point}) - $size * 4),
+		$color calc((50% / #{$point}) + $size * 4),
+		transparent calc((50% / #{$point}) + $size * 4),
+		transparent calc(100% / #{$point})
+	);
+	background-size: 100% ($size * 2);
+	background-repeat: repeat-x;
+	background-position: center;
+}
+@mixin alertType($type: alert) {
+	border-width: 1px;
+	border-style: solid;
+	@if $type == alert {
+		padding: $dialog-gap-spacer;
+		border-radius: $radius-dialog;
+		border-color: $line-tooltip-light-color;
+		background-color: $bg-dialog-color;
+	} @else if $type == tooltip {
+		padding: $spacer-xs $spacer-sm;
+		border-radius: $radius-xs;
+		border-color: $line-tooltip-light-color;
+		background-color: $bg-dialog-color;
+	} @else if $type == icon {
+		padding: $alert-icon-spacer;
+		border-radius: $radius-sm;
+	}
+}
+@mixin alertStyle($type: info) {
+    .#{$type}-alert {
+        padding: $spacer-xs $spacer-sm;
+        @include flexBoxContAlignX();
+        gap: $spacer-xs;
+        @if $type == base {
+        } @else if $type == info {
+            background-color: $bg-alert-info-color;
+            border: 1px $alert-info-color solid;
+            border-radius: $radius-sm;
+            &::before {
+                content: "";
+                display: block;
+                @extend .icon-alert-info;
+                @include maskIconChange($alert-info-color, ico_alert_info);
+            }
+            .txt-alert {
+                font-size: $font-size-md;
+                color: $alert-info-color;
+            }
+        }
+    }
+}
+@mixin dialogMaskStyle {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	border: none;
+	z-index: 100;
+	background-color: $bg-dialog-mask-color;
+}
+// dialog style
+@mixin dialogRadius($type: base) {
+	@if $type == base {
+        @include boxRadius(all, $radius-base-min);
+	} @else if $type == card {
+        @include boxRadius(all, $radius-base);
+	} @else if $type == thin {
+        @include boxRadius(all, $radius-sm);
+	} @else if $type == box {
+        @include boxRadius(all, 0);
+	} @else {
+        @include boxRadius(all, $type);
+	}
+}
+@mixin dialogStyle($type: base, $name: dialog, $header: 0, $footer: 0) {
+    border: none;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+    .#{$name}-body {
+        
+    }
+    @if $header == 1 {
+        .#{$name}-header {
+            display: flex;
+            align-items: center;
+        }
+    }
+    @if $footer == 1 {
+        .#{$name}-footer {
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+	@if $type == base {
+        .#{$name}-body {
+			padding: $dialog-spacer-x $dialog-spacer-x;
+            flex: auto;
+		}
+        @if $header == 1 {
+            .#{$name}-header {
+                padding: $dialog-spacer-y $dialog-spacer-x 0;
+            }
+        }
+        @if $footer == 1 {
+            .#{$name}-footer {
+                padding: 0 $dialog-spacer-y $dialog-spacer-x;
+            }
+        }
+	} @else if $type == thin {
+		.#{$name}-body {
+			padding: $card-spacer-y 0;
+		}
+        @if $header == 1 {
+            .#{$name}-header {
+                padding: $card-spacer-y $card-spacer-x 0;
+            }
+        }
+        @if $footer == 1 {
+            .#{$name}-footer {
+                padding: 0 $card-spacer-y $card-spacer-x;
+            }
+        }
+	} @else if $type == box {
+		.#{$name}-body {
+			padding: $card-spacer-y 0;
+		}
+        @if $header == 1 {
+            .#{$name}-header {
+                padding: $card-spacer-y $card-spacer-x 0;
+            }
+        }
+        @if $footer == 1 {
+            .#{$name}-footer {
+                padding: 0 $card-spacer-y $card-spacer-x;
+            }
+        }
+	} @else {
+		.#{$name}-body {
+			padding: $type;
+		}
+        @if $header == 1 {
+            .#{$name}-header {
+                padding: $type $type 0;
+            }
+        }
+        @if $footer == 1 {
+            .#{$name}-footer {
+                padding: 0 $type $type;
+            }
+        }
+	}
+}
+// tab style
+@mixin tabBoxWrap($menu, $body, $gap:0) {
+    display: flex;
+    flex: auto;
+    flex-direction: column;
+    gap: $gap;
+    .#{$menu} {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        .nav-item {
+            flex: auto;
+            height: 100%;
+        }
+        .btn-menu {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .#{$body} {
+        position: relative;
+        flex: auto;
+        display: flex;
+        .tab-cont {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            transform: translateX(100%);
+            transition: transform 0.4s;
+            visibility: hidden;
+            @include Opacity(0);
+            &.active {
+                transform: translateX(0);
+                visibility: visible;
+                @include Opacity(100);
+            }
+        }
+    }
+}
+// message page style
+@mixin fixedArea($name, $zindex: 100) {
+    .#{$name} {
+        @include fixFullScreen($zindex);
+    }
+}
+@mixin messageContent($name, $type: row) {
+    .msg-#{$name} {
+        @include flexBoxContAlign();
+        @if $type == col {
+        } @else if $type == row {
+            flex-direction: column;
+        }
+        .icon-msg {
+            @extend .icon-#{$name};
+        }
+        .txt-msg {
+            line-height: 1.4;
+        }
+    }
+}
+@mixin datepickerColor($color, $type: bg) {
+    &::before {
+        content: '';
+        display: block;
+        @include fixCenter;
+        @include circleSize($datepicker-date-heigh - $spacer-xs);
+        z-index: -1;
+        @if $type == bg {
+            background-color: $color;
+        } @else if $type == line {
+            border: 2px $color solid;
+        }
+    }
+}

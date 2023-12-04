@@ -1,0 +1,146 @@
+// 공통 class 명
+.blind {
+	@include blind;
+}
+.hide {
+	display: none !important;
+}
+.visibility {
+	visibility: hidden;
+}
+.loding-area {
+	@include loading;
+	@include flexBox(center);
+	@include fixFullScreen(100);
+	background-color: rgba(255,255,255,0.4);
+}
+// message page
+.message-area {
+	@include addPosition(all, 0, 0, 100%);
+	.message-box {
+		flex-direction: column;
+		gap: $spacer-gap-group;
+		.txt-cont {
+			line-height: 1.5;
+			text-align: center;
+		}
+	}
+}
+.message-box {
+	@include flexBoxContAlign();
+	width: 100%;
+	height: 100%;
+	.header-wrap & {
+		padding: $spacer-md 0;
+		@include messageContent(nodata, col);
+	}
+	.msg-nodata {
+		gap: $spacer-xs;
+	}
+	.transport-area & {
+		@include messageContent(nodata);
+	}
+	&.url-error {
+		background-color: $bg-dark-color;
+	}
+	&.page-error {
+		background-color: $color-dim;
+	}
+}
+// tab style
+.tab-menu {
+	display: flex;
+	overflow: hidden;
+	position: relative;
+	// @include scrollHoverWrap($bg-scroll-cut, $scroll-sm-size, x);
+	.nav-item {
+		position: relative;
+		display: flex;
+		align-items: stretch;
+		justify-content: stretch;
+		&.active {
+			z-index: 1;
+		}
+	}
+}
+// box style
+.dialog-header, .card-header {
+	@include borderStyle(bottom, $line-hr);
+}
+.dialog-footer, .card-footer {
+	@include borderStyle(top, $line-hr);
+}
+.card-dialog {
+	@include cardStyleWrap();
+	background-color: $bg-dialog-color;
+}
+.trans-info {
+	@include flexBoxContAlignX(full);
+	gap: $form-spacer;
+	.cont-head & {
+		gap: $form-spacer * 2;
+		.txt-cont {
+			position: relative;
+			&::before {
+				@include addBorderCenter(left, $form-spacer, $line-hr, -$form-spacer);
+			}
+			&:first-child::before{
+				display: none;
+			}
+		}
+	}
+	.cont-body & {
+		gap: $default-spacer;
+		min-width: $badge-info-date-width;
+	}
+}
+// 알림
+.alert-area, .tooltip-area {
+	display: none;
+	position: absolute;
+	z-index: 5;
+}
+.tooltip-area {
+	@include alertType();
+	&:before {
+		content: "";
+		display: block;
+		@include shapeSize($icon-tooltip-width, $icon-tooltip-height);
+		@include svgIconName(ico_tooltip_w);
+		position: absolute;
+		bottom: -$icon-tooltip-height;
+	}
+}
+// status-area
+// progress-bar
+.progress-bar, .ratio_bar {
+	@include progressBar();
+}
+.progress-bar {
+	&.on, .route &, .store & {
+		.icon-cont {
+			height: $progress-bar-height;
+		}
+	}
+	.route-area & {
+		.trans-info {
+			justify-content: flex-start;
+			.txt-cont {
+				&::before {
+					content: '/';
+					margin-left: -$spacer-xs;
+					margin-right: $spacer-xs;
+				}
+			}
+		}
+	}
+}
+.schedule-bar {
+	@include progressBar(Y);
+	.timeline-area & {
+		.icon-cont {
+			width: $schedule-bar-width;
+			border-radius: $schedule-bar-width;
+		}
+	}
+}

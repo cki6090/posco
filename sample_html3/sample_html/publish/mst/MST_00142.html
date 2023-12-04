@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
+    <title>차량 정보</title>
+
+    <!-- 필수 plugin -->
+    <!-- jQuery -->
+    <script src="../../js/jquery/dist/jquery.min.js"></script>
+    <script src="../../js/jquery-ui/dist/jquery-ui.min.js"></script>
+    <script src="../../js/jsrender/dist/jsrender.js"></script>
+    <!-- Select -->
+    <script src="../../js/tom-select/dist/js/tom-select.complete.min.js"></script>
+    <!-- 날짜 관련 -->
+    <script src="../../js/moment/dist/moment.min.js"></script>
+    <!-- //필수 plugin -->
+
+    <!-- UI Style -->
+    <link rel="stylesheet" href="../../style/css/style-ui.css" />
+</head>
+
+<body class="iframe-layout">
+    <div class="wrapper">
+        <!-- 타이틀 및 네비게이션 영역 : 2023.05.08 공통 영역 수정 -->
+        <section class="content-head">
+            <h2 class="page-title"><span>차량 정보</span></h2>
+            <div class="head-article" x-data="{open: false}">
+                <include src="../_include/content/content-head-article.html"></include>
+            </div>
+        </section>
+        <!-- //타이틀 및 네비게이션 영역 -->
+
+        <!-- Main content -->
+        <section class="content-body">
+            <!-- 검색된 컨텐츠 영역 -->
+            <div class="search-cont-area"><!-- class : off 추가시 검색영역 hide -->
+                <include src="../_include/search/search_content.html"></include>
+            </div>
+            <!-- //검색된 컨텐츠 영역 -->
+
+            <div class="content-area">
+
+                <!-- table-grid -->
+                <div class="table-grid info">
+                    <!-- view table template -->
+                    <div class="table-area">
+                        <p class="txt-title">운송사 정보</p>
+                        <div class="table-wrap">
+                            <table class="view-table">
+                                <colgroup>
+                                    <col class="th">
+                                    <col class="td">
+                                    <col class="th">
+                                    <col class="td">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">화주사 코드</th>
+                                        <td colspan="3">1002</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">운송사 코드</th>
+                                        <td>한진</td>
+                                        <th scope="row">센터 코드</th>
+                                        <td>WMC0001</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- //view table template -->
+                    <!-- view table template -->
+                    <div class="table-area">
+                        <p class="txt-title">차량 정보</p>
+                        <div class="table-wrap">
+                            <table class="view-table">
+                                <colgroup>
+                                    <col class="th">
+                                    <col class="td">
+                                    <col class="th">
+                                    <col class="td">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">차량 코드</th>
+                                        <td colspan="3">VEH2301001</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">차량 번호</th>
+                                        <td>11가 2234</td>
+                                        <th scope="row">차량 타입</th>
+                                        <td>Truck</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- //view table template -->
+                    <!-- view table template -->
+                    <div class="table-area">
+                        <p class="txt-title">계약 정보</p>
+                        <div class="table-wrap">
+                            <table class="view-table">
+                                <colgroup>
+                                    <col class="th">
+                                    <col class="td">
+                                    <col class="th">
+                                    <col class="td">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">계약 정보</th>
+                                        <td>용차</td>
+                                        <th scope="row">계약 기간</th>
+                                        <td>2023.01.01 ~ 2023.12.31</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- //view table template -->
+                    <!-- view table template -->
+                    <div class="table-area">
+                        <p class="txt-title">운송 정보</p>
+                        <div class="table-wrap">
+                            <table class="view-table">
+                                <colgroup>
+                                    <col class="th">
+                                    <col class="td">
+                                    <col class="th">
+                                    <col class="td">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">상품 유형</th>
+                                        <td colspan="3">코일</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">ULD 정보</th>
+                                        <td>Cassette</td>
+                                        <th scope="row">온도 규정</th>
+                                        <td>상온</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- //view table template -->
+                </div>
+                <!-- //table-grid -->
+            </div>
+        </section>
+        <!-- //Main content -->
+    </div>
+    <!-- /wrapper -->
+
+    <!-- ibleaders -->
+    <script src="../../js/ibsheet8/ibsheet.js"></script>
+    <script src="../../js/ibsheet8/ibleaders.js"></script>
+    <script src="../../js/ibsheet8/locale/ko.js"></script>
+    <!-- //ibleaders -->
+
+    <!-- 퍼블 사용하기 위한 JavaScript -->
+    <script src="../../style/js/include.js"></script>
+    <script defer src="../../style/js/alpinejs.min.js"></script>
+    <!-- //퍼블 사용하기 위한 JavaScript -->
+</body>
+
+</html>

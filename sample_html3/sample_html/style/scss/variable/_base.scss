@@ -1,0 +1,52 @@
+// url */
+$font-path              : "../fonts" !default;
+$img-path               : "../../img" !default;
+$img-icon-path          : "../../img/icon" !default;
+$flag-icon-path         : "../../img/flag" !default;
+// $icon-font-path         : "/js/@mdi/dist/fonts" !default;
+
+// breakpoint size
+// phone
+$screen-phone-min       : 360px !default;
+$screen-phone-max       : 428px !default;
+// tablet
+$screen-tablet-min      : 768px !default;
+$screen-tablet-max 	    : 962px !default;
+// laptop or Notebook
+$screen-laptop-min      : 1024px !default;
+$screen-laptop-max 	    : 1280px !default;
+// desktop
+$screen-desktop-min     : 1440px !default;
+$screen-desktop-max		: 1920px !default;
+
+$screen-default-min     : 1366px;
+
+// layout position - grid point
+// ┏━━━┯━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+// ┃   ┃             1             ┃
+// ┃   ┃━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+// ┃   ┃             3             ┃
+// ┃ 2 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+// ┃   ┃                           ┃
+// ┃   ┃             4             ┃
+// ┃   ┃                           ┃
+// ┗━━━┻━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+$header-grid			: 1 / 2 / span 1 / span 1; // 1
+$sidebar-grid			: 1 / 1 / span 3 / span 1; // 2
+$nav-tab-grid			: 2 / 2 / span 1 / span 1; // 3
+$content-grid			: 3 / 2 / span 1 / span 1; // 4
+
+// 폰트정의 */
+$font-family-base       : "Pretendard", sans-serif, Arial, Helvetica !default;
+$font-family-sm         : "돋움", Dotum !default;
+$font-icon-family		: "materialdesignicons" !default;
+
+$font-weight-9          : 900 !default; //Black
+$font-weight-8          : 800 !default; //ExtraBold
+$font-weight-7          : 700 !default; //Bold
+$font-weight-6          : 600 !default; //SemiBold
+$font-weight-5          : 500 !default; //Medium
+$font-weight-4          : 400 !default; //Regular
+$font-weight-3          : 300 !default; //Light
+$font-weight-2          : 200 !default; //ExtraLight
+$font-weight-1          : 100 !default; //Thin

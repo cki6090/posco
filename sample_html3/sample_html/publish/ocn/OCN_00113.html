@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
+    <title>선박 상세</title>
+
+    <!-- 필수 plugin -->
+    <!-- jQuery -->
+    <script src="../../js/jquery/dist/jquery.min.js"></script>
+    <script src="../../js/jquery-ui/dist/jquery-ui.min.js"></script>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="../../js/jsrender/dist/jsrender.js"></script>
+    <!-- Select -->
+    <script src="../../js/tom-select/dist/js/tom-select.complete.min.js"></script>
+    <!-- 날짜 관련 -->
+    <script src="../../js/moment/dist/moment.min.js"></script>
+    <!-- //필수 plugin -->
+
+    <!-- UI Style -->
+    <link rel="stylesheet" href="../../style/css/style-ui.css" />
+</head>
+
+<body class="iframe-layout">
+    <div class="wrapper">
+        <!-- 타이틀 및 네비게이션 영역 : 2023.05.08 공통 영역 수정 -->
+        <section class="content-head">
+            <h2 class="page-title">
+                <i class="fi-km"></i>
+                <span>STELLAR HERMES</span>
+            </h2>
+            <div class="head-article" x-data="{open: false}">
+                <include src="../_include/content/content-head-article.html"></include>
+            </div>
+        </section>
+        <!-- //타이틀 및 네비게이션 영역 -->
+
+        <!-- Main content -->
+        <section class="content-body">
+            <div class="content-area top-fixed">
+                <div class="map-area">
+                    <!-- Map 팝업 정보 -->
+                    <dialog class="summary-modal" open>
+                        
+                        <div class="summary-btn"></div>
+                        
+                        <div class="summary-body">
+                            <div class="tab-wrap" x-data="{tab:'route'}">
+                                <ul class="tab-menu" :class="{'active': tab === 'weather'}">
+                                    <li class="nav-item active" :class="{'active': tab === 'route'}">
+                                        <button type="button" class="btn-menu route" @click="tab = 'route'"><span>운항 요약</span></button>
+                                    </li>
+                                    <li class="nav-item" :class="{'active': tab === 'weather'}">
+                                        <button type="button" class="btn-menu weather" @click="tab = 'weather'"><span>날씨 정보</span></button>
+                                    </li>
+                                </ul>
+                                
+                                <div class="tab-content">
+                                    <div class="tab-cont" :class="{'active': tab === 'route'}">
+                                        <div class="transport-area">
+                                            <div class="transport-info">
+                                                <div class="cont-head">
+                                                    <span class="txt-exp">Departure</span>
+                                                    <span class="txt-title">STP</span>
+                                                </div>
+                                                <div class="cont-body">
+                                                    <div class="info-item">
+                                                        <span class="txt-label">ATA</span>
+                                                        <span class="txt-cont">2021-07-17</span>
+                                                        <span class="txt-unit plus">+0D</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="transport-info">
+                                                <div class="cont-head">
+                                                    <span class="txt-exp">Arrival</span>
+                                                    <span class="txt-title">P.WALCOTT</span>
+                                                </div>
+                                                <div class="cont-body">
+                                                    <div class="info-item">
+                                                        <span class="txt-label">ATA</span>
+                                                        <span class="txt-cont">2021-07-17</span>
+                                                        <span class="txt-unit minus">+0D</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="route-area">
+                                            <div class="progress-bar">
+                                                <div class="trans-info">
+                                                    <span class="txt-label">7.77Kts</span>
+                                                    <span class="txt-cont">82%</span>
+                                                </div>
+                                                <!-- ship-product: 제품선 / ship-stone: 석회석 / ship-iron: 철광석 / ship-coal: 석탄 -->
+                                                <!-- port 상태 : anchor 묘박 / berth 정박 / departure 출발 / dock 도착 -->
+                                                <div class="trans-progress ship-stone">
+                                                    <!-- 선박 icon : 원료선 / 제품선 에따라 아이콘 변경 -->
+                                                    <div class="icon-cont" data-role="50"><i class="icon-item"></i></div>
+                                                </div>
+                                            </div>
+                                            <ul class="info-list">
+                                                <li class="info-item">
+                                                    <span class="txt-label">지나온 경로</span>
+                                                    <span class="txt-cont">818nm/14Kts (2D)</span>
+                                                </li>
+                                                <li class="info-item">
+                                                    <span class="txt-label">남은 경로</span>
+                                                    <span class="txt-cont">2,660nm/14Kts (8D)</span>
+                                                </li>
+                                                <li class="info-item">
+                                                    <span class="txt-label">선적화물</span>
+                                                    <span class="txt-cont">철광석/HIY.F/얀디광/135,000</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="tab-cont" :class="{'active': tab === 'weather'}">
+                                        <div class="weather-area row">
+                                            <div class="widget-area">
+                                                <div class="weather-info">
+                                                    <div class="txt-title">Hay Point QLD, Australia</div>
+                                                    <div class="info-item">
+                                                        <i class="icon-weather weather-09d"></i>
+                                                        <div class="txt-cont">
+                                                            <span class="txt-num">17.7</span><span class="txt-unit">°C</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <ul class="info-list">
+                                                    <li class="info-item">
+                                                        <div class="txt-label">Rain Fall</div>
+                                                        <div class="txt-cont">59 mm/h (100%)</div>
+                                                    </li>
+                                                    <li class="info-item">
+                                                        <div class="txt-label">ATM</div>
+                                                        <div class="txt-cont">1,022hPa</div>
+                                                    </li>
+                                                    <li class="info-item">
+                                                        <div class="txt-label">Dew Point</div>
+                                                        <div class="txt-cont">16.2°C</div>
+                                                    </li>
+                                                    <li class="info-item">
+                                                        <div class="txt-label">Humdity</div>
+                                                        <div class="txt-cont">93%</div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="widget-area">
+                                                <ul class="weather-list">
+                                                    <li class="info-item">
+                                                        <div class="txt-label">화요일</div>
+                                                        <i class="icon-weather weather-01d"></i>
+                                                        <div class="txt-cont">25/12°</div>
+                                                    </li>
+                                                    <li class="info-item">
+                                                        <div class="txt-label">수요일</div>
+                                                        <i class="icon-weather weather-03d"></i>
+                                                        <div class="txt-cont">25/12°</div>
+                                                    </li>
+                                                    <li class="info-item today">
+                                                        <div class="txt-label">목요일</div>
+                                                        <i class="icon-weather weather-50d"></i>
+                                                        <div class="txt-cont">27/17.7°</div>
+                                                    </li>
+                                                    <li class="info-item">
+                                                        <div class="txt-label">금요일</div>
+                                                        <i class="icon-weather weather-13d"></i>
+                                                        <div class="txt-cont">25/12°</div>
+                                                    </li>
+                                                    <li class="info-item">
+                                                        <div class="txt-label">토요일</div>
+                                                        <i class="icon-weather weather-11d"></i>
+                                                        <div class="txt-cont">25/12°</div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </dialog>
+                    <!-- //Map 팝업 정보 -->
+                    <!-- 지도 영역 -->
+                    <div class="map-wrap" style="background-color: #C5C5C6;">
+                    실제 지도가 들어갈 영역
+                    </div>
+                    <!-- //지도 영역 -->
+                </div>
+                <div class="grid-area">
+                    <div class="timeline-area">
+                        <p class="txt-title">전체 운항 정보</p>
+                        <div class="schedule-list">
+                            <!-- 일정완료 : on / 일정이 없을경우 : off -->
+                            <!-- schedule 반복 -->
+                            <div class="schedule-item on">
+                                <div class="schedule-bar">
+                                    <div class="icon-cont" data-role="100"><i class="icon-port"></i></div>
+                                </div>
+                                <div class="cont-head">
+                                    <span class="txt-port">R.BANK</span>
+                                    <span class="txt-date">0000-00-00</span>
+                                    <span class="txt-unit">7D (W -1D)</span>
+                                </div>
+                                <div class="cont-body">
+                                    <div class="trans-info">
+                                        <span class="txt-label">ATA</span>
+                                        <span class="txt-cont">2021-07-17</span>
+                                        <span class="txt-unit">+0D</span>
+                                    </div>
+                                    <div class="trans-info">
+                                        <span class="txt-label">ATD</span>
+                                        <span class="txt-cont ">2021-07-17</span>
+                                        <span class="txt-unit">+0D</span>
+                                    </div>
+                                    <div class="trans-info">
+                                        <span class="txt-label">ATA</span>
+                                        <span class="txt-cont">2021-07-17</span>
+                                        <span class="txt-unit">+0D</span>
+                                    </div>
+                                    <div class="trans-info">
+                                        <span class="txt-label">ATD</span>
+                                        <span class="txt-cont ">2021-07-17</span>
+                                        <span class="txt-unit">+0D</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- //schedule 반복 -->
+                            <div class="schedule-item on">
+                                <include src="transport/schedule-item.html"></include>
+                            </div>
+                            <div class="schedule-item off">
+                                <include src="transport/schedule-item.html"></include>
+                            </div>
+                            <div class="schedule-item on">
+                                <include src="transport/schedule-item.html"></include>
+                            </div>
+                            <div class="schedule-item on">
+                                <include src="transport/schedule-item.html"></include>
+                            </div>
+                            <div class="schedule-item">
+                                <include src="transport/schedule-item.html"></include>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-grid">
+                        <div class="table-area">
+                            <p class="txt-title">선적화물 정보</p>
+                            <div class="ibsheet-wrap">
+                                <div id="sheetDiv1"></div>
+                            </div>
+                        </div>
+                        <div class="table-area">
+                            <p class="txt-title">선적항 정보</p>
+                            <div class="ibsheet-wrap">
+                                <div id="sheetDiv2"></div>
+                            </div>
+                        </div>
+                        <div class="table-area">
+                            <p class="txt-title">양하항 정보</p>
+                            <div class="ibsheet-wrap">
+                                <div id="sheetDiv3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- //Main content -->
+    </div>
+    <!-- /wrapper -->
+<script>
+  
+     $(".summary-btn").on('click', function(event) {
+        $(this).next(".summary-body").fadeToggle(100);
+        $(this).toggleClass("on")
+    });
+
+    </script>
+    <!-- ibleaders -->
+    <script src="../../js/ibsheet8/ibsheet.js"></script>
+    <script src="../../js/ibsheet8/ibleaders.js"></script>
+    <script src="../../js/ibsheet8/locale/ko.js"></script>
+    <!-- //ibleaders -->
+
+    <!-- 퍼블 사용하기 위한 JavaScript -->
+    <script src="../../style/js/include.js"></script>
+    <script defer src="../../style/js/alpinejs.min.js"></script>
+    <!-- //퍼블 사용하기 위한 JavaScript -->
+
+    <script type="text/javascript">
+  
+        var ib = ib || {};
+        ib = {
+            init1: {
+                Def: {// 공통 속성 설정
+                    Header: {
+                        Align: "Center",
+                        TextStyle: 1
+                    },
+                },
+                Cfg: {// 전역 기능 설정(cfg property)
+                    // 공통으로 사용
+                    FitWidth: 1,            //우측에 더미 열(Column)을 추가
+                    HeaderMerge: 3,
+                    HoverScope: 1,          //헤더 영역에 Hover 동작하지 않음
+                    CanColResize: false,    //사용자 너비 조절 기능 X
+                    CanSort: false,         //열 정렬(Sort) 기능 X
+                    SearchMode: 2,
+                    borderCursors: 0,       //hover시 Border active X
+                    IgnoreFocused: true,    // 조회 후 포커스를 가져오지 않게 한다.
+                    // 경우에 따라 사용
+                    CanEdit: 0,
+                    RelWidth: 1
+                },
+                Cols: [// 기본 열 설정(가운데영역)  (col property)
+                    { Header: "Port", Type: "Text", Name: "cell01", Align: "Center", Width: 100 },
+                    { Header: "기항수", Type: "Html", Name: "cell02", Align: "Center", Width: 90 },
+                    { Header: "화물 종류", Type: "Text", Name: "cell03", Align: "Center", Width: 150 },
+                    { Header: "화물 상세", Type: "Text", Name: "cell04", Align: "Center", Width: 150 },
+                    { Header: "양하량", Type: "Text", Name: "cell05", Align: "Left", Width: 150 },
+                    { Header: "선적량", Type: "Text", Name: "cell06", Align: "Left", Width: 100 }
+                ],     	// 필터 행 추가/정의
+            },
+            init2: {
+                Def: {// 공통 속성 설정
+                    Col: {},
+                    Row: {},
+                    Header: {
+                        Align: "Center",
+                        TextStyle: 1
+                    },
+                },
+                Cfg: {// 전역 기능 설정(cfg property)
+                    // 공통으로 사용
+                    FitWidth: 1,            //우측에 더미 열(Column)을 추가
+                    HeaderMerge: 3,
+                    HoverScope: 1,          //헤더 영역에 Hover 동작하지 않음
+                    CanColResize: false,    //사용자 너비 조절 기능 X
+                    CanSort: false,         //열 정렬(Sort) 기능 X
+                    SearchMode: 2,
+                    borderCursors: 0,       //hover시 Border active X
+                    IgnoreFocused: true,    // 조회 후 포커스를 가져오지 않게 한다.
+                    // 경우에 따라 사용
+                    CanEdit: 0,
+                    RelWidth: 1
+                },
+                Cols: [// 기본 열 설정(가운데영역)  (col property)
+                    {
+                        Header: "Port",
+                        Type: "Text",
+                        Name: "cell01",
+                        Align: "Center",
+                        Width: 100
+                    }, {
+                        Header: "기항수",
+                        Type: "Html",
+                        Name: "cell02",
+                        Align: "Center",
+                        Width: 90
+                    }, {
+                        Header: "LAY",
+                        Type: "Text",
+                        Name: "cell03",
+                        Align: "Center",
+                        Width: 100
+                    }, {
+                        Header: "CAN",
+                        Type: "Text",
+                        Name: "cell04",
+                        Align: "Center",
+                        Width: 100
+                    }, {
+                        Header: "ETA(전일대비)",
+                        Type: "Text",
+                        Name: "cell05",
+                        Align: "Left",
+                        Width: 120
+                    }, {
+                        Header: "ATA(전일대비)",
+                        Type: "Text",
+                        Name: "cell06",
+                        Align: "Left",
+                        Width: 120
+                    }, {
+                        Header: "ETD(전일대비)",
+                        Type: "Text",
+                        Name: "cell07",
+                        Align: "Left",
+                        Width: 120
+                    }, {
+                        Header: "ATD(전일대비)",
+                        Type: "Text",
+                        Name: "cell08",
+                        Align: "Left",
+                        Width: 120
+                    }, {
+                        Header: "Waiting Time(Day)",
+                        Type: "Text",
+                        Name: "cell09",
+                        Align: "Left",
+                        Width: 150
+                    }
+                ],     	// 필터 행 추가/정의
+            },
+            init3: {
+                Def: {// 공통 속성 설정
+                    Col: {},
+                    Row: {},
+                    Header: {
+                        Align: "Center",
+                        TextStyle: 1
+                    },
+                },
+                Cfg: {// 전역 기능 설정(cfg property)
+                    // 공통으로 사용
+                    FitWidth: 1,            //우측에 더미 열(Column)을 추가
+                    HeaderMerge: 3,
+                    HoverScope: 1,          //헤더 영역에 Hover 동작하지 않음
+                    CanColResize: false,    //사용자 너비 조절 기능 X
+                    CanSort: false,         //열 정렬(Sort) 기능 X
+                    SearchMode: 2,
+                    borderCursors: 0,       //hover시 Border active X
+                    IgnoreFocused: true,    // 조회 후 포커스를 가져오지 않게 한다.
+                    // 경우에 따라 사용
+                    CanEdit: 0,
+
+                },
+                Cols: [// 기본 열 설정(가운데영역)  (col property)
+                    {
+                        Header: "Port",
+                        Type: "Text",
+                        Name: "cell01",
+                        Align: "Center",
+                        Width: 100
+                    }, {
+                        Header: "ETA(전일대비)",
+                        Type: "Text",
+                        Name: "cell03",
+                        Align: "Left",
+                        Width: 400
+                    }, {
+                        Header: "ETB(전일대비)",
+                        Type: "Text",
+                        Name: "cell04",
+                        Align: "Center",
+                        Width: 150
+                    }, {
+                        Header: "ETD(전일대비)",
+                        Type: "Text",
+                        Name: "cell05",
+                        Align: "Center",
+                        Width: 150
+                    }, {
+                        Header: "하역율(T/Day)",
+                        Type: "Text",
+                        Name: "cell06",
+                        Align: "Left",
+                        Width: 100
+                    }
+                ],     	// 필터 행 추가/정의
+            },
+            //시트객체 생성
+            create: function () {
+                var options1 = this.init1;
+                IBSheet.create({
+                    id: "sheet1", 		// 생성할 시트의 id
+                    el: "sheetDiv1", 	// 시트를 생성할 Dom 객체 및 id
+                    options: options1,   // 생성될 시트의 속성
+                    data: this.data 	// 생성될 시트의 정적데이터
+                });
+                var options2 = this.init2;
+                IBSheet.create({
+                    id: "sheet2", 		// 생성할 시트의 id
+                    el: "sheetDiv2", 	// 시트를 생성할 Dom 객체 및 id
+                    options: options2,   // 생성될 시트의 속성
+                    data: this.data 	// 생성될 시트의 정적데이터
+                });
+                var options3 = this.init3;
+                IBSheet.create({
+                    id: "sheet3", 		// 생성할 시트의 id
+                    el: "sheetDiv3", 	// 시트를 생성할 Dom 객체 및 id
+                    options: options3,   // 생성될 시트의 속성
+                    data: this.data 	// 생성될 시트의 정적데이터
+                });
+            },
+            data: [
+                {
+                    cell01: "-",
+                    cell02: "<span class='txt-ordinal' data-ordinal='12'></span>",
+                    cell03: "-",
+                    cell04: "-",
+                    cell05: "-",
+                    cell06: "-",
+                    cell07: "-",
+                    cell08: "-",
+                    cell09: "-",
+                },
+                {
+                    cell01: "-",
+                    cell02: "<span class='txt-ordinal' data-ordinal='1'></span>",
+                    cell03: "-",
+                    cell04: "-",
+                    cell05: "-",
+                    cell06: "-",
+                    cell07: "-",
+                    cell08: "-",
+                    cell09: "-",
+                },
+                {
+                    cell01: "-",
+                    cell02: "<span class='txt-ordinal' data-ordinal='43'></span>",
+                    cell03: "-",
+                    cell04: "-",
+                    cell05: "-",
+                    cell06: "-",
+                    cell07: "-",
+                    cell08: "-",
+                    cell09: "-",
+                },
+                {
+                    cell01: "-",
+                    cell02: "<span class='txt-ordinal' data-ordinal='60'></span>",
+                    cell03: "-",
+                    cell04: "-",
+                    cell05: "-",
+                    cell06: "-",
+                    cell07: "-",
+                    cell08: "-",
+                    cell09: "-",
+                },
+                {
+                    cell01: "-",
+                    cell02: "<span class='txt-ordinal' data-ordinal='71'></span>",
+                    cell03: "-",
+                    cell04: "-",
+                    cell05: "-",
+                    cell06: "-",
+                    cell07: "-",
+                    cell08: "-",
+                    cell09: "-",
+                },
+                {
+                    cell01: "-",
+                    cell02: "<span class='txt-ordinal' data-ordinal='12'></span>",
+                    cell03: "-",
+                    cell04: "-",
+                    cell05: "-",
+                    cell06: "-",
+                    cell07: "-",
+                    cell08: "-",
+                    cell09: "-",
+                }
+            ]
+        };
+        ib.create();
+    </script>
+</body>
+
+</html>

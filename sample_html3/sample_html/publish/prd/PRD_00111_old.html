@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
+    <title>트럭 운송 현황</title>
+
+    <!-- UI Style -->
+    <link rel="stylesheet" href="../../style/css/style-ui.css" />
+
+</head>
+
+<body class="iframe-layout">
+    <div class="wrapper">
+        <!-- 타이틀 및 네비게이션 영역 -->
+        <section class="content-head">
+            <h2 class="page-title"><span>트럭 운송 현황</span></h2>
+            <div class="head-article" x-data="{open: true}">
+                <include src="../_include/content/content-head-article.html"></include>
+            </div>
+        </section>
+        <!-- //타이틀 및 네비게이션 영역 -->
+
+        <!-- Main content -->
+        <section class="content-body">
+            <!-- 검색된 컨텐츠 영역 -->
+            <div class="search-cont-area">
+                <!-- class : off 추가시 검색영역 hide -->
+                <include src="../_include/search/search_content.html"></include>
+            </div>
+            <!-- //검색된 컨텐츠 영역 -->
+
+            <div class="content-area transport">
+                <!-- 운송 Process -->
+                <div class="transport-wrap">
+
+                    <!-- //운송 list item 반복 -->
+                    <div class="transport-area">
+                        <div class="transport-info transport-truck">
+                            <div class="cont-head">
+                                <button type="button" class="btn-favor active" x-data="{ show: true }"
+                                    @click="show = !show" :class="{ 'active': show }"><i
+                                        class="icon-star">북마크</i></button>
+                                <a href="#" class="txt-title">PUS1234567</a>
+
+                                <div class="trans-info">
+                                    <span class="txt-label">Hot Coil</span>
+                                    <span class="txt-cont">Package 100</span>
+                                </div>
+                            </div>
+
+                            <div class="cont-con">
+                                <div>평택 유통기지</div>
+                                <div class="img">
+                                    <i class="icon_dot_line"></i>
+                                    <i class="icon_ti_home"></i>
+                                    <i class="icon_dot_line"></i>
+                                </div>
+                                <div>KRKAN</div>
+                            </div>
+
+                            <div class="cont-footer">
+                                <div>· 운송장 NO <span>#1234567PS</span></div>
+                                <div>· LOT NO <span>#1234567PS</span></div>
+                            </div>
+                        </div>
+
+                        <div class="truck_progress">
+
+                            <button type="button" class="pr_btn_prev icon-circle-prev">이전</button>
+                            <button type="button" class="pr_btn_next icon-circle-next">이후</button>
+
+                            <div class="tp_list_area">
+                                <div class="tp_list">
+                                    <div class="tp_first tpbox">
+                                        <div class="tf_img">
+
+                                            <div><i class="icon_ti_tp_car"></i></div>
+                                            <div><i class="icon_ti_tp_forklift_on"></i></div>
+                                            <div><i class="icon_ti_tp_pick"></i></div>
+                                        </div>
+
+                                        <div class="tf_con">평택 유통기지</div>
+                                        <div class="tf_txt">2023-04-01 <span>+1D</span></div>
+                                    </div>
+
+                                    <div class="tp_first add tpbox">
+                                        <div class="tf_img"></div>
+                                        <div class="tf_con">KRKAN</div>
+                                        <div class="tf_txt">2023-04-02 <span>+1D</span></div>
+                                    </div>
+
+                                    <div class="tp_mid tpbox">
+                                        <div><i class="icon_ti_tm_truck"></i></div>
+                                        <div class="icon_ti_tm_bg"></div>
+                                        <div></div>
+                                    </div>
+
+                                    <div class="tp_last tpbox">
+                                        <div class="tl_img"><i class="icon_ti_tl_warehouse"></i></div>
+                                        <div class="tl_con blue">PH</div>
+                                        <div class="tl_txt">2023-04-01<span>+1D</span> </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="truck_information">
+                                <div class="tit"><i class="icon_ti_Driver"></i> 운전자 정보</div>
+                                <div>· 이태근<span>(01032922431)</span></div>
+                                <div>· 동연특수</div>
+
+                                <div class="tit"><i class="icon_ti_Car"></i> 차량정보</div>
+                                <div>· 전남97바4666</div>
+                                <div>· [25TT]25톤 탑트럭</div>
+
+                                <div>&nbsp;</div>
+                                <div>· [CHARTER]용차</div>
+                                <div>· [A10]코일전용트레일러</div>
+
+                                <div class="ti_btn_off ti_btn_off_img"></div>
+                            </div>
+
+                            <div class="ti_btn_on ti_btn_on_img"></div>
+                        </div>
+
+                    </div>
+
+                    <div class="transport-area">
+                        <div class="transport-info transport-truck">
+                            <div class="cont-head">
+                                <button type="button" class="btn-favor active" x-data="{ show: true }"
+                                    @click="show = !show" :class="{ 'active': show }"><i
+                                        class="icon-star">북마크</i></button>
+                                <a href="#" class="txt-title">PUS1234567</a>
+
+                                <div class="trans-info">
+                                    <span class="txt-label">Hot Coil</span>
+                                    <span class="txt-cont">Package 100</span>
+                                </div>
+                            </div>
+
+                            <div class="cont-con">
+                                <div>평택 유통기지</div>
+                                <div class="img">
+                                    <i class="icon_dot_line"></i>
+                                    <i class="icon_ti_home"></i>
+                                    <i class="icon_dot_line"></i>
+                                </div>
+                                <div>KRKAN</div>
+                            </div>
+
+                            <div class="cont-footer">
+                                <div>· 운송장 NO <span>#1234567PS</span></div>
+                                <div>· LOT NO <span>#1234567PS</span></div>
+                            </div>
+                        </div>
+
+                        <div class="truck_progress">
+
+                            <button type="button" class="pr_btn_prev icon-circle-prev">이전</button>
+                            <button type="button" class="pr_btn_next icon-circle-next">이후</button>
+
+                            <div class="tp_list_area">
+                                <div class="tp_list">
+                                    <div class="tp_first tpbox">
+                                        <div class="tf_img">
+
+                                            <div><i class="icon_ti_tp_car"></i></div>
+                                            <div><i class="icon_ti_tp_forklift"></i></div>
+                                            <div><i class="icon_ti_tp_pick_on"></i></div>
+                                        </div>
+
+                                        <div class="tf_con">평택 유통기지</div>
+                                        <div class="tf_txt">2023-04-01 <span>+1D</span></div>
+                                    </div>
+
+
+                                    <div class="tp_mid tpbox">
+                                        <div><i class="icon_ti_tm_truck"></i></div>
+                                        <div class="icon_ti_tm_bg"></div>
+                                        <div></div>
+                                    </div>
+
+                                    <div class="tp_last tpbox">
+                                        <div class="tl_img"><i class="icon_ti_tl_warehouse"></i></div>
+                                        <div class="tl_con blue">PH</div>
+                                        <div class="tl_txt">2023-04-01<span>+1D</span> </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="truck_information">
+                                <div class="tit"><i class="icon_ti_Driver"></i> 운전자 정보</div>
+                                <div>· 이태근<span>(01032922431)</span></div>
+                                <div>· 동연특수</div>
+
+                                <div class="tit"><i class="icon_ti_Car"></i> 차량정보</div>
+                                <div>· 전남97바4666</div>
+                                <div>· [25TT]25톤 탑트럭</div>
+
+                                <div>&nbsp;</div>
+                                <div>· [CHARTER]용차</div>
+                                <div>· [A10]코일전용트레일러</div>
+
+                                <div class="ti_btn_off ti_btn_off_img"></div>
+                            </div>
+
+                            <div class="ti_btn_on ti_btn_on_img"></div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- //운송 Process -->
+            </div>
+
+        </section>
+        <!-- //Main content -->
+    </div>
+    <!-- /wrapper -->
+
+    <!-- jQuery -->
+    <script src="../../js/jquery/dist/jquery.min.js"></script>
+    <script src="../../js/jquery-ui/dist/jquery-ui.min.js"></script>
+    <script src="../../js/jsrender/dist/jsrender.js"></script>
+    <!-- Select -->
+    <script src="../../js/tom-select/dist/js/tom-select.complete.min.js"></script>
+    <!-- 날짜 관련 -->
+    <script src="../../js/moment/dist/moment.min.js"></script>
+    <!-- //필수 plugin -->
+
+    <!-- ibleaders -->
+    <script src="../../js/ibsheet8/ibsheet.js"></script>
+    <script src="../../js/ibsheet8/ibleaders.js"></script>
+    <script src="../../js/ibsheet8/locale/ko.js"></script>
+    <!-- //ibleaders -->
+
+    <!-- 퍼블 사용하기 위한 JavaScript -->
+    <script src="../../style/js/include.js"></script>
+    <script src="../../style/js/alpinejs.min.js"></script>
+    <!-- //퍼블 사용하기 위한 JavaScript -->
+
+
+    <script type="text/javascript">
+        $(document).on("click", ".ti_btn_off", function () {
+            $(this).closest(".truck_information").fadeOut(500);
+        });
+
+        $(document).on("click", ".ti_btn_on", function () {
+            $(this).prevAll(".truck_information").fadeIn(500);
+        });
+    </script>
+</body>
+
+</html>

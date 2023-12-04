@@ -1,0 +1,267 @@
+// button style
+.btn-group {
+	display: flex;
+	gap: $btn-gap-spacer;
+	.content-scerch & {
+		justify-content: flex-end;
+	}
+}
+.btn-excel, .btn-reset, .btn-default {
+	@include defaultBtn();
+	.ibsheet-wrap &, .table-wrap & {
+		height: $table-btn-height;
+		min-width: $table-btn-min-width;
+		border-color: $color-smoky;
+		font-size: $font-size-sm;
+	}
+}
+.btn-close {
+	.badge-area & {
+		@include iconSizeChange($icon-badge-size);
+		@include maskIconChange($badge-close-color, ico_badge_close);
+	}
+	.modal-header & {
+		@include iconSizeChange($icon-modal-size);
+		@include maskIconChange($color-dim, ico_close);
+	}
+}
+.btn-excel {
+	@include iconBtnType(left, icon-excel);
+}
+.btn-search {
+	.content-scerch & {
+		@include defaultBtn(bg);
+		@include btnStyle($btn-color-primary);
+	}
+	.content-head & {
+		@include defaultIconBtn(bg);
+		@include iconBtnType(bg, icon-search);
+		border: $line-btn-base;
+	}
+}
+.btn-reset {
+	@include iconBtnType(left, icon-reset);
+}
+.btn-edit {
+	@include iconBtnType(left, icon-edit);
+	.btn-area & {
+		@include defaultBtn();
+		@include btnStyle($info-color);
+	}
+	.dialog-head & {
+		font-size: $font-size-md;
+		color: $color-gray;
+	}
+}
+.btn-menu {
+	@include btnBase;
+	span {
+		display: block;
+		@include textEllipsis;
+	}
+}
+.btn-more {
+	@include textStyle($font-size-sm, $txt-cont-color, base);
+	@include formBoxStyle($badge-info-height, $line-label-base);
+	background-color: $color-white;
+	min-width: $label-badge-md-width;
+}
+.btn-info {
+	@include btnBase;
+	@include iconBtnType(left, icon-info);
+	.txt-cont {
+		@include blind;
+	}
+}
+.btn-check {
+	.message-area & {
+		$spacer: math.div($form-btn-error-height, 2);
+		@include formBoxStyle($form-btn-error-height, none);
+		@include iconBtnType(left, icon-btn-check);
+		background-color: $color-white;
+		font-size: $font-error-btn-size;
+		padding-left: $spacer;
+		padding-right: $spacer;
+		font-weight: $font-weight-black;
+	}
+}
+// badge style
+.badge-area {
+	font-size: $txt-badge;
+	gap: $badge-gap-spacer;
+	height: $badge-height-size;
+	border-radius: $radius-badge;
+	@include btnBase;
+	.search-cont & {
+		padding-left: $badge-spacer;
+		padding-right: $badge-spacer;
+		@include badgeStyle ($badge-search-bg-color, $badge-search-txt-color, all);
+	}
+	.header-area & {
+		padding-left: $badge-spacer;
+		padding-right: $badge-spacer;
+		@include badgeTypes ($line-light-color, $line-default-color);
+	}
+	.map-info & {
+		@include badgeBase($badge-info-height, $color-white);
+	}
+}
+// form style
+.form-group {
+	position: relative;
+	z-index: 0;
+	&.active {
+		z-index: 1;
+	}
+	&.form-admin {
+		@include flexBoxContAlign(left, center);
+		gap: $spacer-sm;
+		padding-bottom: $spacer-base;
+		.input-group {
+			max-width: 200px;
+		}
+	}
+}
+.form-label {
+	&[span] {
+		display: inline-block;
+	}
+	&:not(span) {
+		cursor: pointer;
+	}
+	color: $txt-label-color;
+	font-weight: $font-label-weight;
+	position: relative;
+	.search-wrap & {
+		margin-bottom: $spacer-xs;
+	}
+}
+.require{width: 4px; height: 4px; border-radius: 4px; background: #F24B17; display: inline-block; position: absolute; top: 2px;}
+.check-label, .radio-label, .switch-label {
+	cursor: pointer;
+	color: $txt-label-check-color;
+	font-weight: $font-label-weight;
+	input:disabled + & {
+		cursor: default;
+	}
+}
+.form-input, .form-date {
+	.form-control {
+		cursor: pointer;
+		@include defaultStyle(form);
+		&:focus {
+			border-color: $line-form-select-color;
+		}
+		&.error {
+			border-color: $line-form-error-color;
+			background-color: $bg-form-error
+		}
+		&.disabled, &:disabled {
+			cursor: inherit;
+			color: $txt-disabled-color;
+			border-color: $line-form-color;
+			background-color: $bg-form-disabled;
+		}
+	}
+}
+.form-date {
+	@include iconAddPosition(right, icon-calendar, $form-spacer);
+	flex: 1;
+	&::after {
+		z-index: -1;
+	}
+	.form-control {
+		background-color: transparent;
+	}
+}
+.check-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: $form-spacer;
+	@include checkFormType(check);
+	@include checkFormType(radio);
+}
+.input-group, .date-group {
+	display: flex;
+	flex: 1;
+    justify-content: space-between;
+}
+.input-group {
+	flex-wrap: wrap;
+    gap: $form-gap-spacer;
+	.form-input, .form-select {
+		flex: 1 1 0;
+	}
+}
+.date-group {
+	gap: $form-txt-gap-spacer;
+	.form-date {
+		flex: 1 1 0;
+		& + .form-date {
+			&::before {
+				content: "~";
+				position: absolute;
+				left: -$form-txt-gap-spacer;
+				width: $form-txt-gap-spacer;
+				height: $form-height-size;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+		}
+	}
+}
+.textarea-area {
+	@include tableGrde(form, form-label, form-input, view);
+	min-height: $textarea-height-wrap;
+	.form-group {
+		height: $textarea-height-wrap;
+	}
+	.form-control {
+		height: $textarea-height;
+		width: 100%;
+	}
+}
+// Switch buttom
+.form-switch {
+	@include switchFormType($form-switch-width, $form-check-size);
+	@include switchFormStyle();
+}
+.map-switch {
+	padding: $spacer-sm;
+}
+
+// badge 칼라
+.badge-orange {
+	@include badgeColorType($badge-orange-color, $badge-orange-bg-color);
+	@include badgeColorText($badge-orange-color, orange);
+}
+.badge-green {
+	@include badgeColorType($badge-green-color, $badge-green-bg-color);
+	@include badgeColorText($badge-green-color, green);
+}
+.badge-blue {
+	@include badgeColorType($badge-blue-color, $badge-blue-bg-color);
+	@include badgeColorText($badge-blue-color, blue);
+}
+.badge-gray {
+	@include badgeColorType($badge-gray-color, $badge-gray-bg-color);
+	@include badgeColorText($color-slater, gray);
+}
+.badge-blind {
+	.txt-label, .txt-cont {
+		visibility: hidden;
+	}
+}
+.badge-product {
+	@include badgeTableType($product-color, adjust-color($bg-product-color, $lightness: 10%));
+}
+.badge-stone {
+	@include badgeTableType($cargo-stone-color, adjust-color($bg-cargo-stone-color, $lightness: 5%));
+}
+.badge-iron {
+	@include badgeTableType($cargo-iron-color, adjust-color($bg-cargo-iron-color, $lightness: 10%));
+}
+.badge-coal {
+	@include badgeTableType($cargo-coal-color, adjust-color($bg-cargo-coal-color, $lightness: 10%));
+}

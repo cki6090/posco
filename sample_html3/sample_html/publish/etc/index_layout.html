@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
+	<title>전체 Layout</title>
+
+	<!-- 필수 plugin -->
+	<!-- jQuery -->
+	<script src="../../js/jquery/dist/jquery.min.js"></script>
+	<script src="../../js/jquery-ui/dist/jquery-ui.min.js"></script>
+	<script src="../../js/jsrender/dist/jsrender.js"></script>
+	<!-- Select -->
+	<script src="../../js/tom-select/dist/js/tom-select.complete.min.js"></script>
+	<!-- 날짜 관련 -->
+	<script src="../../js/moment/dist/moment.min.js"></script>
+	<!-- //필수 plugin -->
+
+	<!-- UI Style -->
+	<link rel="stylesheet" href="../../style/css/style-ui.css">
+
+	<!-- UI Guide Style - 퍼블 페이지에서만 사용 -->
+	<!--link rel="stylesheet" href="../../style/css/guide-ui.css"-->
+	<!-- //UI Guide Style - 퍼블 페이지에서만 사용 -->
+</head>
+
+<body class="ui-layout">
+	<div class="wrapper">
+
+		<header class="header-wrap">
+			<include src="../_include/layout/header_ui.html"></include>
+		</header>
+
+		<!-- Main Sidebar -->
+		<aside class="sidebar-wrap">
+			<include src="../_include/layout/sidebar_ui.html"></include>
+		</aside>
+
+		<nav class="navs-wrap">
+			<include src="../_include/layout/navs_ui.html"></include>
+		</nav>
+
+
+		<!-- Content Wrapper. Contains page content -->
+		<main class="content-wrap">
+			<div class="iframe-area">
+				<iframe class="iframe-contents" loading="lazy" src="loding.html"></iframe>
+			</div>
+		</main>
+
+	</div>
+	<!-- ./wrapper -->
+
+	<!-- 퍼블 사용하기 위한 JavaScript -->
+    <script src="../../style/js/include.js"></script>
+    <script src="../../style/js/alpinejs.min.js"></script>
+    <!-- //퍼블 사용하기 위한 JavaScript -->
+</body>
+
+</html>

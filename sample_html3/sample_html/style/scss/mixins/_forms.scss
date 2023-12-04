@@ -1,0 +1,351 @@
+@mixin formBoxStyle($height, $line, $radius: oval) {
+	$spacer: math.div($height, 4);
+	@include btnBase;
+	height: $height;
+	border: $line;
+	@if $radius == circle {
+		width: $height;
+		@include radiusType(circle);
+		padding-left: $spacer-x;
+		padding-right: $spacer-x;
+	} @else if $radius == oval {
+		border-radius: $height;
+		padding-left: $spacer;
+		padding-right: $spacer;
+	} @else {
+		@include radiusType($radius);
+		padding-left: $spacer-base;
+		padding-right: $spacer-base;
+	}
+}
+@mixin iconBtnType($type: left, $name...) {
+	@if $type == left {
+		&::before {
+			content: '';
+			@extend .#{$name};
+			margin-right: $btn-icon-spacer;
+		}
+	} @else if $type == right {
+		&::after {
+			content: '';
+			@extend .#{$name};
+			margin-left:  $btn-icon-spacer;
+		}
+	} @else if $type == bg {
+		&::before {
+			content: '';
+			position: relative;
+			z-index: 1;
+			@extend .#{$name};
+		}
+	} @else if $typae == side {
+		&::before {
+			content: '';
+			@extend .#{$name};
+			margin-right: $btn-icon-spacer;
+		}
+		&::after {
+			content: '';
+			@extend .#{$name};
+			margin-left:  $btn-icon-spacer;
+		}
+	}
+}
+@mixin defaultBtn($type: line, $body: cont, $size: $form-btn-height) {
+	height: $size;
+	@include defaultStyle(btn);
+	@if $type == line {
+		border : $line-btn-base;
+	} @else if $type == bg {
+		border: $line-reset;
+	}
+}
+@mixin defaultIconBtn($type: bg, $size: $form-btn-height) {
+	color: transparent;
+	font-size: 0;
+	position: relative;
+	border-radius: $radius-btn;
+	@include squareSize($size);
+	@if $type == line {
+		border : $line-btn-base;
+	} @else if $type == bg {
+		border: $line-reset;
+		background-color: $color-white;
+		&:hover {
+			background-color: $color-ghost;
+		}
+	}
+}
+@mixin btnStyle($bg, $color: $color-white, $type: bg) {
+	@if $type == bg {
+		color: $color;
+		background-color: $bg;
+		border-color: transparent;
+	} @else if $type == line {
+		color: $bg;
+		border: 1px $bg solid;
+		background-color: $color;
+	} @else if $type == all {
+		color: $color;
+		border: 1px $color solid;
+		background-color: $bg;
+	}
+}
+@mixin btnIconStyle($type: bg, $color:transparent) {
+	@if $type == line {
+		border-color : $color;
+	} @else if $type == bg {
+		background-color: $color;
+	}
+}
+// badge 간단한 스타일
+@mixin badgeStyle($bg, $color: $bg, $type: line) {
+	line-height: 1;
+	@if $type == bg {
+		color: adjust-color($color, $saturation: -23%, $lightness: -50%);
+		border: 1px $bg solid;
+		background-color: $bg;
+	} @else if $type == line {
+		color: $color;
+		border: 1px $bg solid;
+		background-color: $color-white;
+	} @else if $type == all {
+		$line-color: adjust-color($bg, $saturation: 10%, $lightness: -10%);
+		color: $color;
+		border: 1px $line-color solid;
+		background-color: $bg;
+	}
+}
+@mixin badgeType() {}
+// badge area style
+@mixin badgeBase($size, $color, $style: bg, $type: oval) {
+	height: $size;
+	border: 1px solid $color;
+	line-height: 1;
+	@if $type == circle {
+		width: $size;
+		border-radius: $size;
+		padding-left: $spacer-x;
+		padding-right: $spacer-x;
+	} @else if $type == oval {
+		$spacer: math.div($size, 2);
+		border-radius: $size;
+		padding-left: $spacer;
+		padding-right: $spacer;
+	} @else if $type == radius {
+		border-radius: $radius-badge;
+		padding-left: $badge-spacer;
+		padding-right: $badge-spacer;
+	} @else if $type == "" {
+		$border-radius: 0;
+		padding-left: $badge-spacer;
+		padding-right: $badge-spacer;
+	}
+	@if $style == bg {
+		background-color: $color;
+		.txt-label {
+			mix-blend-mode: difference;
+		}
+	} @else if $style == line {
+		background-color: transparent;
+		color: $color;
+	}
+}
+@mixin badgeTypes($lineColor, $hrColor: $lineColor, $bgColor: $color-white) {
+	line-height: 1;
+	border: 1px $lineColor solid;
+	background-color: $bgColor;
+	.txt-cont {
+		position: relative;
+		&::before {
+			$left: math.div($badge-spacer, 2) * -1;
+			@include addBorderCenter(left, $txt-badge, $line-reset, $left);
+			border-color: $hrColor;
+		}
+	}
+}
+@mixin badgeColorType($color, $bg) {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	gap: $spacer-base;
+	width: $badge-step-width;
+	height: $form-height-size;
+	border-radius:  $form-height-size;
+	line-height: 1;
+	border: 1px $color solid;
+	background-color: $bg;
+	box-sizing: border-box;
+	padding: 0 $spacer-base;
+}
+@mixin badgeColorText($color, $type:gray) {
+	.txt-label {
+		color: $color;
+		font-weight: $font-weight-bold;
+		font-size: $font-size-default;
+	}
+	.txt-cont {
+		font-size: $font-size-md;
+		font-weight: $font-weight-base;
+	}
+	@if $type == gray {
+		.txt-cont {
+			color: $txt-cont-color;
+		}
+	} @else {
+		.txt-cont {
+			color: $txt-title-color;
+		}
+	}
+}
+@mixin badgeTableType($color, $bg: $color-white) {
+	@include btnBase;
+	@include textEllipsis;
+	color: $color;
+	font-size: $font-size-sm;
+	font-weight: $font-weight-bold;
+	background-color: $bg;
+	border: 1px $color solid;
+	border-radius: $radius-badge;
+	padding-left: $badge-spacer;
+	padding-right: $badge-spacer;
+	height: $badge-height-size;
+	width: $badge-table-width;
+	text-transform: uppercase;
+}
+@mixin checkStyle($type:off, $name) {
+	@include bgImgBase;
+	@include squareSize($form-check-size);
+	@if $type == off {
+		@include svgIconName($name);
+	} @else if $type == on {
+		@include svgIconName($name);
+	} @else if $type == dis {
+		@include svgIconName($name);
+	}
+}
+@mixin checkFormType($name) {
+	.form-#{$name} {
+		position: relative;
+		padding-left: $form-height-min-size;
+		flex: auto;
+		.#{$name}-input {
+			position: absolute;
+			top: 0;
+			left: 0;
+			@include Opacity(0);
+			@include squareSize($form-check-size);
+			& + .#{$name}-label {
+				&::before {
+					content: "";
+					position: absolute;
+					left: 0;
+					top: 0;
+					display: inline-block;
+					@include checkStyle(off, ico_#{$name}_off);
+				}
+			}
+			&:checked, &.check {
+				& + .#{$name}-label {
+					&::before {
+						@include checkStyle(on, ico_#{$name}_on);
+					}
+				}
+			}
+			&:disabled, &.disabled {
+				& + .#{$name}-label {
+					&::before {
+						@include checkStyle(dis, ico_#{$name}_disable);
+					}
+				}
+			}
+		}
+	}
+	&.row {
+		flex-direction: column;
+	}
+}
+@mixin switchFormType($sizeW, $sizeH, $type: base) {
+	@include shapeSize($sizeW, $sizeH);
+	position: relative;
+	border-radius: $sizeH;
+	input, label {
+		width: 100%;
+		height: 100%;
+		border-radius: $sizeH;
+	}
+	input {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 5;
+		cursor: pointer;
+	}
+	@if $type == base {
+		.switch-cont {
+			display: none;
+		}
+	}
+}
+@mixin switchFormStyle($color: $bg-gray-color, $active: $secondary-color) {
+	$size: 2px;
+	.switch-label {
+		background-color: $color;
+		&::before {
+			content: "";
+			display: block;
+			position: absolute;
+			width: calc(50% - ($size * 2));
+			height: calc(100% - ($size * 2));
+			top: $size;
+			left: $size;
+			transition: left cubic-bezier(.88, -.35, .565, 1.35) .4s;
+			background-color: $color-white;
+			border-radius: 50%;
+		}
+	}
+	.switch-input {
+		&:checked, &.check  {
+			& + .switch-label {
+				background-color: $secondary-color;
+				&::before {
+					left: calc($size + 50%);
+				}
+			}
+		}
+	}
+}
+@mixin switchStyle($sizeW, $sizeH, $gap) {
+	@include shapeSize($sizeW, $sizeH);
+	position: relative;
+	&::before {
+		content: "";
+		display: block;
+		position: absolute;
+		width: 50%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		transition: left cubic-bezier(.88, -.35, .565, 1.35) .4s;
+	}
+	&.active {
+		&::before {
+			left: 50%;
+		}
+	}
+}
+// txt-label Style
+@mixin badgeLabelStyle($color: inherit, $weight: $font-weight-base, $size: $font-size-sm) {
+	color: $color;
+	size: $size;
+	font-weight: $weight;
+	min-width: $label-badge-width;
+	@include formBoxStyle($label-badge-height, $line-label-base);
+}
+@mixin btnSmallType {
+	color: $color-dark;
+	font-size: $font-size-sm;
+	min-width: $label-badge-width;
+	background-color: $color-white;
+	@include formBoxStyle($badge-height-size, $line-label-base);
+}

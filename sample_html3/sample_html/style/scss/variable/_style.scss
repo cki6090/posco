@@ -1,0 +1,110 @@
+// 선스타일
+$line-hr 					: 1px solid $line-hr-color;
+$line-title-hr 				: 1px solid $line-title-color;
+$line-white-hr				: 1px solid adjust-color($color-white, $alpha: -0.8);
+$line-light-hr				: 1px solid $line-light-color;
+$line-reset					: 1px solid transparent;
+$line-header  				: $line-hr;// 해더
+$line-nav					: 1px solid $line-nav-menu-color;// 공통 탭 메뉴 그룹
+$line-nav-menu-hr-color		: 1px solid $line-nav-menu-hr-color;// 공통 탭 메뉴 구분
+$line-sidebar				: 1px solid transparent;// lnb
+$line-sidebar-hr			: $line-white-hr;// lnb
+$line-sidebar-sub 			: 1px solid adjust-color($line-sidebar-sub-color, $alpha: -0.4);
+$line-header-user			: $line-white-hr;
+$line-search-cont 			: $line-hr;
+$line-dialog				: 1px solid $line-dialog-color;
+$line-dialog-hr				: 1px dotted $line-dialog-hr-color;
+$line-table 				: 1px solid $line-table-color;
+$line-tbody 				: 1px solid $line-tbody-color;
+$line-form-base				: 1px solid $line-default-color;
+$line-label-base			: 1px solid $line-default-color;
+$line-btn-base				: 1px solid $line-btn-color;
+$line-select-badge			: 1px solid $badge-tom-select-line;
+$line-flag-icon				: 1px solid $line-icon-default-color;
+$line-badge-base			: 1px solid $line-light-color;
+$line-modal-head			: $line-hr;
+$line-modal-hr				: 1px dotted $line-gray-color;
+$line-bg-progress			: 2px dotted $line-gray-color;
+$line-tab-active			: 2px solid $txt-tab-active-color;
+// adjust-color($color, [$red], [$green], [$blue], [$saturation], [$lightness], [$alpha])
+
+// box shadow
+$box-sidebar-wrap			: -$spacer-xs 0 $spacer-sm 0 rgba(0,0,0,0.5);
+$box-nav-tab-wrap			: 0px 0px $spacer-md 0px $bg-nav-menu-bar-color;
+$box-select-option			: 0px 10px 10px 2px rgba(0, 0, 0, 0.05);
+$box-scerch-wrap			: 0px 0px $spacer-md 0px rgba(0, 0, 0, 0.1);
+$box-scerch-top-wrap		: 0px 0px ($spacer-sm * 0.5) 0px rgba(0, 0, 0, 0.1);
+$box-dialog-wrap			: 0px 0px $spacer-md 0px rgba(0, 0, 0, 0.1);
+$box-icon-shadow-white		: 0 0 $spacer-base $spacer-xs $color-white;
+$box-icon-shadow-in-white	: inset 0 0 $spacer-base $spacer-xs $color-white;
+$box-icon-shadow-black		: 0px 0px $spacer-md 0px rgba(0, 0, 0, 0.1);
+
+// Linear Gradients
+$gradient-nav-tab			: linear-gradient(to left, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+
+// map
+$txt-default: (
+	color					: $txt-cont-color,
+	font-size				: $font-size-default,
+	font-weight				: $font-weight-base
+);
+$txt-title-default: (
+	color 					: $txt-title-color,
+	font-weight 			: $font-weight-bold,
+	line-height 			: $line-height-sm
+);
+$layout-default: (
+	width					: 100%,
+	height					: 100%
+);
+$form-default: (
+	display 				: flex,
+	align-items				: center,
+	background-color		: $color-white,
+	color					: $txt-form-color,
+	font-size				: $txt-form,
+	font-weight				: $font-weight-base,
+	border					: $line-form-base,
+	border-radius			: $radius-form,
+	height					: $form-height-size,
+	width 					: 100%,
+	padding-left			: $form-spacer,
+	padding-right			: $form-spacer,
+);
+$btn-default: (
+	color					: $txt-btn-color,
+	font-size				: $txt-btn,
+	font-weight				: $font-btn-weight,
+	border-radius			: $radius-btn,
+	padding-left			: $btn-spacer,
+	padding-right			: $btn-spacer,
+	min-width				: $form-btn-min-width
+);
+$select-item-base: (
+	display					: flex,
+	flex					: auto,
+	justify-content			: space-between,
+	align-items				: center,
+	color 					: $badge-tom-select-txt,
+	height					: $badge-height-size,
+	padding-left			: $btn-spacer,
+	font-size				: $font-size-md
+);
+$select-badge-default: (
+	background-color		: $badge-tom-select-bg,
+	border					: $line-select-badge,
+	border-radius			: $radius-btn,
+	height					: $badge-height-size,
+	padding-left			: $btn-spacer,
+	padding-right			: math.div($btn-spacer, 2)
+);
+// mixin default mpa name
+$default-type: (
+	txt-title				: $txt-title-default,
+	text					: $txt-default,
+	box						: $layout-default,
+	btn						: $btn-default,
+	form					: $form-default,
+	tom-item				: $select-item-base,
+	tom-badge				: $select-badge-default
+);

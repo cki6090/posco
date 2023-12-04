@@ -1,0 +1,191 @@
+
+.ui-datepicker {
+	display: none;
+	position: relative;
+    width: $datepicker-width;
+    height: $datepicker-heigh;
+	padding: $datepicker-wrap-spacer;
+	&::before {
+		content: "";
+		display: block;
+		@include fixCenter;
+		border: $line-hr;
+		background-color: $bg-datepicker-color;
+		box-shadow: $box-dialog-wrap;
+		width: 100%;
+		height: calc(100% - $datepicker-wrap-spacer);
+		@include boxRadius(all, $radius-dialog);
+	}
+    .ui-datepicker-header {
+        @include boxRadius(top, $radius-dialog);
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        position: relative;
+        height: $datepicker-head-heigh;
+		.ui-corner-all {
+			@include squareIcon($icon-nav-size, ico_arr_left);
+			.ui-icon {
+				@include blind;
+			}
+		}
+		.ui-datepicker-prev {
+			@include maskIconChange($txt-datepicker-title-color, ico_arr_left);
+		}
+		.ui-datepicker-next {
+			order: 3;
+			@include maskIconChange($txt-datepicker-title-color, ico_arr_right);
+		}
+    }
+    .ui-datepicker-calendar {
+		width: 100%;
+		@include boxRadius(bottom, $radius-dialog);
+        text-align: center;
+		th, td {
+			height: $datepicker-date-heigh;
+			font-size: $txt-datepicker-cont;
+			font-weight: $font-datepicker-cont;
+		}
+		a {
+			text-decoration: none;
+		}
+    }
+	.ui-state-default {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+		position: relative;
+		&:hover {
+			@include datepickerColor($datepicker-today-color, line);
+		}
+	}
+	.ui-state-active {
+		color: $color-white;
+		@include datepickerColor($datepicker-select-color);
+		&:hover {
+			$iine-color: adjust-color($datepicker-select-color, $saturation: 5%, $lightness: -10%);
+			@include datepickerColor($iine-color, line);
+		}
+	}
+	.ui-datepicker-today {
+		.ui-state-active {
+			@include datepickerColor($datepicker-today-color, line);
+		}
+		.ui-state-default {
+			@include datepickerColor($datepicker-today-color);
+			&:hover {
+				$iine-color: adjust-color($datepicker-today-color, $saturation: 5%, $lightness: -10%);
+				@include datepickerColor($iine-color, line);
+			}
+		}
+	}
+	.ui-datepicker-other-month  .ui-state-default {
+		&:hover {
+			cursor: default;
+			&::before {
+				display: none;
+			}
+		}
+	}
+	.pointed {
+		.ui-state-default {
+			color: $color-white;
+			@include datepickerColor($datepicker-select-color);
+			&:hover {
+				$iine-color: adjust-color($datepicker-select-color, $saturation: 5%, $lightness: -10%);
+				@include datepickerColor($iine-color, line);
+			}
+		}
+	}
+	.data-red {
+		.ui-state-default {
+			color: $color-white;
+			@include datepickerColor($data-red-color);
+			&:hover {
+				$iine-color: adjust-color($data-red-color, $saturation: 5%, $lightness: -10%);
+				@include datepickerColor($iine-color, line);
+			}
+		}
+	}
+	.data-pink {
+		.ui-state-default {
+			color: $color-white;
+			@include datepickerColor($data-pink-color);
+			&:hover {
+				$iine-color: adjust-color($data-pink-color, $saturation: 5%, $lightness: -10%);
+				@include datepickerColor($iine-color, line);
+			}
+		}
+	}
+	.data-orange {
+		.ui-state-default {
+			color: $color-white;
+			@include datepickerColor($data-orange-color);
+			&:hover {
+				$iine-color: adjust-color($data-orange-color, $saturation: 5%, $lightness: -10%);
+				@include datepickerColor($iine-color, line);
+			}
+		}
+	}
+	.data-yellow {
+		.ui-state-default {
+			color: $color-white;
+			@include datepickerColor($data-yellow-color);
+			&:hover {
+				$iine-color: adjust-color($data-yellow-color, $saturation: 5%, $lightness: -10%);
+				@include datepickerColor($iine-color, line);
+			}
+		}
+	}
+	.data-purple {
+		.ui-state-default {
+			color: $color-white;
+			@include datepickerColor($data-purple-color);
+			&:hover {
+				$iine-color: adjust-color($data-purple-color, $saturation: 5%, $lightness: -10%);
+				@include datepickerColor($iine-color, line);
+			}
+		}
+	}
+	.data-green {
+		.ui-state-default {
+			color: $color-white;
+			@include datepickerColor($data-green-color);
+			&:hover {
+				$iine-color: adjust-color($data-green-color, $saturation: 5%, $lightness: -10%);
+				@include datepickerColor($iine-color, line);
+			}
+		}
+	}
+	.data-blue {
+		.ui-state-default {
+			color: $color-white;
+			@include datepickerColor($data-blue-color);
+			&:hover {
+				$iine-color: adjust-color($data-blue-color, $saturation: 5%, $lightness: -10%);
+				@include datepickerColor($iine-color, line);
+			}
+		}
+	}
+	.data-brown {
+		.ui-state-default {
+			color: $color-white;
+			@include datepickerColor($data-brown-color);
+			&:hover {
+				$iine-color: adjust-color($data-brown-color, $saturation: 5%, $lightness: -10%);
+				@include datepickerColor($iine-color, line);
+			}
+		}
+	}
+	.data-gray {
+		.ui-state-default {
+			color: $color-white;
+			@include datepickerColor($data-gray-color);
+			&:hover {
+				$iine-color: adjust-color($data-gray-color, $saturation: 5%, $lightness: -10%);
+				@include datepickerColor($iine-color, line);
+			}
+		}
+	}
+}

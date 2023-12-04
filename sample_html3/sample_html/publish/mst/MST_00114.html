@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
+    <title>선적/양하항 터미널 정보</title>
+
+    <!-- 필수 plugin -->
+    <!-- jQuery -->
+    <script src="../../js/jquery/dist/jquery.min.js"></script>
+    <script src="../../js/jquery-ui/dist/jquery-ui.min.js"></script>
+    <script src="../../js/jsrender/dist/jsrender.js"></script>
+    <!-- Select -->
+    <script src="../../js/tom-select/dist/js/tom-select.complete.min.js"></script>
+    <!-- 날짜 관련 -->
+    <script src="../../js/moment/dist/moment.min.js"></script>
+    <!-- //필수 plugin -->
+
+    <!-- UI Style -->
+    <link rel="stylesheet" href="../../style/css/style-ui.css" />
+</head>
+
+<body class="iframe-layout">
+    <div class="wrapper">
+        <!-- 타이틀 및 네비게이션 영역 : 2023.05.08 공통 영역 수정 -->
+        <section class="content-head">
+            <h2 class="page-title"><span>선적/양하항 터미널 정보</span></h2>
+            <div class="head-article" x-data="{open: false}">
+                <include src="../_include/content/content-head-article.html"></include>
+            </div>
+        </section>
+        <!-- //타이틀 및 네비게이션 영역 -->
+
+        <!-- Main content -->
+        <section class="content-body">
+            <!-- 검색된 컨텐츠 영역 -->
+            <div class="search-cont-area"><!-- class : off 추가시 검색영역 hide -->
+                <include src="../_include/search/search_content.html"></include>
+            </div>
+            <!-- //검색된 컨텐츠 영역 -->
+
+            <div class="content-area">
+                <!-- 컨텐츠 상단 해더 영역 -->
+                <!-- 2023.05.09 class 명 변경 : cont-head-area >> header-area -->
+                <div class="header-area" x-data="{ title: '광양항 서부 컨테이너 터미널', open: true }">
+                    <include src="../_include/content/content-sub-head.html"></include>
+                </div>
+                <!-- //컨텐츠 상단 해더 영역 -->
+
+                <!-- table-grid -->
+                <div class="table-grid info">
+                    <!-- view table template -->
+                    <div class="table-area">
+                        <p class="txt-title">일반 정보</p>
+                        <div class="table-wrap">
+                            <table class="view-table">
+                                <colgroup>
+                                    <col class="th">
+                                    <col class="td">
+                                    <col class="th">
+                                    <col class="td">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">해상터미널코드</th>
+                                        <td></td>
+                                        <th scope="row">해상터미널유형코드</th>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">해상터미널명(Local)</th>
+                                        <td></td>
+                                        <th scope="row">해상터미널유형명(Local)</th>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">해상터미널명(Eng)</th>
+                                        <td></td>
+                                        <th scope="row">해상터미널유형명(Eng)</th>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- //view table template -->
+                    <!-- view table template -->
+                    <div class="table-area">
+                        <p class="txt-title">항구 정보</p>
+                        <div class="table-wrap">
+                            <table class="view-table">
+                                <colgroup>
+                                    <col class="th">
+                                    <col class="td">
+                                    <col class="th">
+                                    <col class="td">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">항구코드</th>
+                                        <td></td>
+                                        <th scope="row"></th>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">국가코드(Local)</th>
+                                        <td></td>
+                                        <th scope="row">국가명(Eng)</th>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">홈페이지</th>
+                                        <td colspan="3"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- //view table template -->
+                    <!-- view table template -->
+                    <div class="table-area">
+                        <p class="txt-title">국가 정보</p>
+                        <div class="table-wrap">
+                            <table class="view-table">
+                                <colgroup>
+                                    <col class="th">
+                                    <col class="td">
+                                    <col class="th">
+                                    <col class="td">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">국가코드</th>
+                                        <td colspan="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">국가코드(Local)</th>
+                                        <td></td>
+                                        <th scope="row">국가명(Eng)</th>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- //view table template -->
+                    <!-- view table template -->
+                    <div class="table-area">
+                        <p class="txt-title">도시 정보</p>
+                        <div class="table-wrap">
+                            <table class="view-table">
+                                <colgroup>
+                                    <col class="th">
+                                    <col class="td">
+                                    <col class="th">
+                                    <col class="td">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">도시코드</th>
+                                        <td colspan="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">도시코드(Local)</th>
+                                        <td></td>
+                                        <th scope="row">도시명(Eng)</th>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- //view table template -->
+                </div>
+                <!-- //table-grid -->
+            </div>
+        </section>
+        <!-- //Main content -->
+    </div>
+    <!-- /wrapper -->
+
+    <!-- ibleaders -->
+    <script src="../../js/ibsheet8/ibsheet.js"></script>
+    <script src="../../js/ibsheet8/ibleaders.js"></script>
+    <script src="../../js/ibsheet8/locale/ko.js"></script>
+    <!-- //ibleaders -->
+
+    <!-- 퍼블 사용하기 위한 JavaScript -->
+    <script src="../../style/js/include.js"></script>
+    <script defer src="../../style/js/alpinejs.min.js"></script>
+    <!-- //퍼블 사용하기 위한 JavaScript -->
+</body>
+
+</html>

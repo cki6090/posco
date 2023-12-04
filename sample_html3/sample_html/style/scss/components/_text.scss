@@ -1,0 +1,494 @@
+// 타이틀
+.page-title {
+	font-size: $txt-pages-title;
+	@include titleStyle(black);
+}
+.modal-title {
+	font-size: $txt-popup-title;
+	@include titleStyle(black);
+}
+.txt-title {
+	@include defaultStyle(txt-title);
+	&:link {
+		text-decoration: none;
+	}
+	.message-area & {
+		font-size: $font-error-title-size;
+		@include titleStyle(bold, $color-white);
+	}
+	.dialog-head & {
+		font-size: $font-size-lg;
+		font-weight: $font-weight-black;
+		line-height: 1;
+	}
+	.card-dialog .card-header & {
+		font-size: $txt-popup-title;
+	}
+	.search-wrap & {
+		font-size: $txt-search-title;
+		font-weight: $font-search-title;
+	}
+	.header-area & {
+		font-size: $txt-header-title;
+		text-transform: uppercase;
+	}
+	.table-area &, .timeline-area & {
+		font-size: $txt-table-title;
+	}
+	.map-info & {
+		font-size: $txt-info-map-title;
+		color: $txt-map-info-color;
+		text-transform: capitalize;
+	}
+	.legend-list & {
+		color: $color-gray;
+		font-size: $txt-legend-size;
+		font-weight: $font-weight-black;
+	}
+	.panl-list .area-left & {
+		font-size: $txt-info-title;
+	}
+	.summary-body .cont-head & {
+		font-size: $font-summary-min-size;
+		font-weight: $font-weight-black;
+	}
+	.weather-area .weather-info & {
+		@include iconAddPosition(left, icon-location);
+		padding-left: $icon-form-txt-size + $spacer-xs;
+	}
+	.truck-info & {
+		font-size: $font-size-sm;
+		font-weight: $font-weight-base;
+	}
+}
+.link-item {
+	text-decoration: none;
+	.transport-info .cont-head & {
+		.txt-label, .txt-title, .txt-info {
+			font-size: $txt-info-title;
+		}
+		.txt-label {
+			font-weight: $font-weight-5;
+		}
+	}
+}
+.txt-port {
+	color: $txt-title-color;
+	.transport-visual & {
+		color: $txt-cont-color;
+		font-weight: $font-weight-bold;
+	}
+	.schedule-item & {
+		font-size: $txt-cont-lg-title;
+		font-weight: $font-weight-black;
+	}
+	.IBMainTable & {
+		font-size: $font-size-md;
+		font-weight: $font-weight-bold;
+	}
+}
+.txt-label {
+	font-size: $txt-label;
+	color: $txt-label-color;
+	.search-cont & {
+		color: inherit;
+		word-break: keep-all;
+	}
+	.info-item & {
+		font-weight: $font-info-map-label-weight;
+		text-transform: uppercase;
+		.panl-box & {
+			color: $txt-cont-color;
+		}
+		.panl-box.active &, .panl-box:hover & {
+			color: $color-white;
+		}
+		.summary-body .transport-info & {
+			@include badgeLabelStyle($color-slater);
+		}
+		.route-area .info-list & {
+			font-weight: $font-weight-light;
+		}
+		.widget-area & {
+			font-weight: $font-weight-light;
+		}
+		.widget-area .weather-list & {
+			color: $color-slater;
+		}
+	}
+	.info-item.today & {
+		.widget-area .weather-list & {
+			color: $color-smoky;
+			font-weight: $font-weight-bold;
+		}
+	}
+	.map-info .port-info & {
+		color: $color-slater;
+		font-size: $txt-cont-bar;
+		font-weight: $font-weight-light;
+	}
+	.map-info .info-item & {
+		font-size: $txt-info-map-label;
+		color: $txt-map-info-color;
+	}
+	.summary-area & {
+		font-size: $txt-cont;
+		color: $txt-title-color;
+	}
+	.transport-info .cont-head & {
+		font-weight: $font-weight-black;
+	}
+	.trans-info & {
+		color: $txt-label-check-color;
+		.info-item &, .schedule-item &  {
+			@include badgeLabelStyle();
+		}
+		.port-area &, .progress-bar & {
+			font-weight: $font-weight-bold;
+		}
+		.port-area & {
+			min-width: $txt-charter-width;
+			font-size: $font-size-sm;
+		}
+		.progress-bar & {
+			color: $txt-label-trans-color;
+			.route-area & {
+				font-weight: $font-weight-black;
+				@include iconAddPosition(left, icon-speed);
+				padding-left: $icon-form-txt-size + $spacer-xs;
+			}
+		}
+	}
+	.barge-cont & {
+		color: $txt-label-trans-color;
+		font-weight: $font-weight-bold;
+	}
+	.legend-list & {
+		font-weight: $font-weight-light;
+		font-size: $font-size-sm;
+	}
+}
+.txt-cont {
+	.message-area & {
+		@include textStyle($font-error-text-size, $color-white);
+	}
+	.nav-sidebar .sub-header & {
+		font-size: $txt-sideber-sub-title;
+		color: $side-sub-head-txt-color;
+	}
+	.search-cont & {
+		color: $color-smoky;
+	}
+	.header-area .badge-group & {
+		color: $txt-cont-color;
+	}
+	.transport-info .cont-head & {
+		color: $color-gray;
+		font-weight: $font-weight-base;
+	}
+	.route .route-info & {
+		color: $color-smoky;
+		font-weight: $font-weight-bold;
+	}
+	.trans-info & {
+		font-size: $font-size-md;
+		font-weight: $font-trans-info-weight;
+		.progress-bar & {
+			font-size: $txt-cont-bar;
+			color: $txt-cont-bar-color;
+		}
+	}
+	.barge-cont & {
+		color: $txt-label-trans-color;
+		font-size: $txt-barge-cont;
+		font-weight: $font-weight-bold;
+	}
+	.info-item & {
+		.transport-info & {
+			.summary-body & {
+				color: $txt-cont-color;
+				font-size: $font-size-md;
+			}
+		}
+		.route-area .info-list & {
+			font-weight: $font-weight-bold;
+		}
+		.widget-area .info-list & {
+			color: $color-smoky;
+			font-weight: $font-weight-bold;
+		}
+		.widget-area .weather-list & {
+			color: $color-gray;
+			font-weight: $font-weight-light;
+		}
+		.truck-info & {
+			font-size: $font-size-sm;
+			font-weight: $font-weight-light;
+		}
+	}
+	.info-item.today & {
+		.widget-area .weather-list & {
+			color: $color-smoky;
+		}
+	}
+}
+.txt-date {
+	.schedule-item & {
+		color: $txt-exp-color;
+		font-weight: $font-weight-light;
+	}
+	.route .port-area & {
+		font-weight: $font-weight-light;
+		font-size: $font-size-md;
+	}
+}
+.txt-num {
+	font-size: $txt-num;
+	font-weight: $font-num-weight;
+	.summary-area &, .panl-box & {
+		font-size: $font-summary-size;
+		line-height: 1;
+	}
+	.summary-area.row & {
+		color: $info-color;
+	}
+	.summary-area.row .delay & {
+		color: $warning-color;
+	}
+	.panl-box & {
+		color: $color-smoky;
+		font-weight: $font-weight-black;
+	}
+	.panl-box.active &, .panl-box:hover & {
+		color: $color-white;
+	}
+	.panl-list & {
+		font-size: $font-size-default;
+		color: $txt-title-color;
+	}
+	.panl-list .cont-head & {
+		color: $secondary-color;
+	}
+	.widget-area .weather-info & {
+		font-size: $font-summary-size;
+	}
+}
+.txt-unit  {
+	font-size: $txt-unit;
+	font-weight: $font-unit-weight;
+	margin-left: $spacer-xs;
+	text-transform: capitalize;
+	.schedule-item & {
+		color: $color-silver;
+		margin-left: 0;
+		font-weight: $font-weight-base;
+	}
+	.trans-info & {
+		font-size: $font-size-sm;
+		font-weight: $font-weight-black;
+	}
+	&.plus {
+		color: $txt-plus-color;
+	}
+	&.minus {
+		color: $txt-minus-color;
+	}
+	.info-item & {
+		.transport-info & {
+			.summary-body & {
+				margin-left: 0;
+				font-weight: $font-weight-black;
+			}
+		}
+	}
+	.widget-area .weather-info & {
+		font-size: $font-summary-size;
+	}
+}
+.txt-email {
+	font-size: $font-size-sm;
+	.card-dialog & {
+		color: $txt-exp-color;
+	}
+}
+.txt-help {
+	color: $color-gray;
+	font-size: $txt-help;
+	.form-group &, .legend-area & {
+		@include iconAddPosition(left, icon-help);
+		font-size: $txt-form-help;
+		padding-left: $icon-form-txt-size + $spacer-xs;
+	}
+	.table-area & {
+		@include iconAddPosition(left, icon-help);
+		font-size: $txt-header-cont;
+		padding-left: $icon-form-txt-size + $spacer-xs;
+	}
+}
+.txt-alert {
+	@include textStyle($txt-alert, $txt-alert-color, bold);
+	.alert-area & {
+		font-size: $txt-dialog;
+	}
+}
+.txt-warn {
+	@include textStyle($font-size-default, $warning-color, black);
+}
+.txt-exp {
+	color: $txt-exp-color;
+	.summary-area & {
+		display: inline-flex;
+		align-items: center;
+		gap: $default-spacer;
+		&::before {
+			content: '';
+			display: inline-block;
+			@extend .icon-exp-time;
+		}
+	}
+	.header-area & {
+		display: inline-flex;
+		align-items: center;
+		&::before {
+			content: '';
+			display: inline-block;
+			margin: 0 $spacer-base;
+			width: 1px;
+			height: $font-size-default;
+			background-color: $bg-gray-color;
+		}
+	}
+	.panl-list .area-left & {
+		color: $txt-placeholder-color;
+		font-size: $font-size-md;
+		font-weight: $font-weight-light;
+		line-height: 1.3;
+		white-space: nowrap;
+	}
+	.summary-modal .transport-info & {
+		font-size: $font-size-md;
+		font-weight: $font-weight-light;
+	}
+	.truck-info & {
+		font-size: $font-size-sm;
+		font-weight: $font-weight-light;
+	}
+}
+.txt-msg {
+	@include textStyle($font-size-default, $color-gray);
+}
+.table-info {
+	height: $table-info-heigh;
+	color: $info-color;
+	padding-right: 2px;
+	&::before {
+		content: '전체 ';
+		color: $txt-cont-color;
+		padding-left: 2px;
+	}
+}
+.txt-info {
+	color: $info-color;
+	font-weight: $font-weight-bold;
+	.IBCellBase > & {
+		padding-left: $table-td-spacer;
+		padding-right: $table-td-spacer;
+	}
+	// .transport-info & {
+	// 	color: $secondary-color;
+	// }
+	.summary-area & {
+		display: inline-flex;
+		align-items: center;
+		gap: $default-spacer;
+		color: $txt-exp-color;
+		font-weight: $font-weight-base;
+	}
+}
+// 단위추가
+.txt-ordinal {
+	display: inline-block;
+	position: relative;
+	padding-right: $spacer-md;
+	min-width: $font-size-default * 2.5;
+	text-align: right;
+	line-height: 1;
+	&[data-ordinal$="1"] {
+		&::after {
+			content: 'st';
+		}
+	}
+	&[data-ordinal$="2"] {
+		&::after {
+			content: 'nd';
+		}
+	}
+	&[data-ordinal$="3"] {
+		&::after {
+			content: 'rd';
+		}
+	}
+	&:not([data-ordinal$="1"]):not([data-ordinal$="2"]):not([data-ordinal$="3"]) {
+		&::after {
+			content: 'th';
+		}
+	}
+	&::after {
+		font-size: $font-size-xs;
+		font-weight: $font-weight-light;
+		color: $color-black;
+		position: absolute;
+		right: 1px;
+		top: 0;
+		font-family: monospace;
+		letter-spacing: 1px;
+	}
+	&::before {
+		content: attr(data-ordinal);
+	}
+}
+.txt-bold {
+	font-weight: $font-weight-bold;
+}
+.txt-blue {
+	color: $secondary-color;
+}
+.txt-red {
+	color: $error-color;
+}
+.txt-gray {
+	color: $color-gray;
+}
+// text align
+.txt-left {
+	text-align: left;
+	justify-content: flex-start;
+}
+.txt-right {
+	text-align: right;
+	justify-content: flex-end;
+}
+.txt-center {
+	text-align: center;
+	justify-content: center;
+}
+// datepicker
+.ui-datepicker-calendar thead {
+	th {
+		color: $txt-datepicker-week-color;
+	}
+}
+.ui-datepicker-title {
+	font-size: $font-size-lg;
+	font-weight: $font-datepicker-title;
+	color: $txt-datepicker-title-color;
+}
+.ui-state-default {
+	color: $txt-datepicker-date-color;
+	.ui-datepicker-other-month & {
+		color: $txt-datepicker-other-color;
+	}
+	.ui-datepicker-today & {
+		color: $txt-datepicker-bg-color;
+	}
+}

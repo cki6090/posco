@@ -1,0 +1,176 @@
+<div class="flex-area">
+	<div class="area-left">
+		<button type="button" class="nav-togle" @click="menuOpen = !menuOpen"><i class="icon-arrow">menu</i></button>
+		<!-- 20230720 - 버튼 클릭시 ui-layout > wrapper 에 menu-off 추가 삭제 -->
+		<!--<h1 class="brind-logo icon-logo">posco flow</h1>-->
+		<p class="project-name"><i class="icon-project">smart 통합물류플랫폼</i></p>
+	</div>
+	<div class="area-right">
+		<div class="info-nav">
+			<!-- 20230706 마크업 수정 -->
+			<details class="nav-item">
+				<summary class="nav-icon"><i class="icon-favorites">북마크</i></summary>
+				<div class="card-dialog">
+					<div class="dialog-head">
+						<p class="txt-title">즐겨찾기 리스트</p>
+						<button type="button" class="btn-edit">편집하기</button>
+					</div>
+					<div class="dialog-body" x-data="{activeTab: 0, message: true}">
+						<div class="dialog-tab">
+							<ul class="tab-menu">
+								<li class="nav-item active" :class="{'active': activeTab === 0}">
+									<button type="button" class="btn-menu" @click="activeTab = 0"><span>선박</span></button>
+								</li>
+								<li class="nav-item" :class="{'active': activeTab === 1}">
+									<button type="button" class="btn-menu" @click="activeTab = 1"><span>항구</span></button>
+								</li>
+							</ul>
+						</div>
+						<div class="dialog-tab-content">
+							<div class="tab-item" :class="{ 'tab-show': activeTab === 0 }">
+								<div class="message-box">
+									<div class="msg-nodata">
+										<i class="icon-msg"></i>
+										<p class="txt-msg">데이터가 없습니다.</p>
+									</div>
+								</div>
+								<ul class="alert-list">
+									<li class="list-item">
+										<i class="fi-kr"></i>
+										<div class="alert-cont">
+											<p class="txt-cont">STELLAR VENTURE</p>
+										</div>
+										<button type="button" class="btn-more">바로가기</button>
+									</li>
+									<li class="list-item">
+										<i class="fi-kr"></i>
+										<div class="alert-cont">
+											<p class="txt-cont">STELLAR VENTURE</p>
+										</div>
+										<button type="button" class="btn-more">바로가기</button>
+									</li>
+									<li class="list-item">
+										<i class="fi-kr"></i>
+										<div class="alert-cont">
+											<p class="txt-cont">STELLAR VENTURE</p>
+										</div>
+										<button type="button" class="btn-more">바로가기</button>
+									</li>
+									<li class="list-item">
+										<i class="fi-kr"></i>
+										<div class="alert-cont">
+											<p class="txt-cont">STELLAR VENTURE</p>
+										</div>
+										<button type="button" class="btn-more">바로가기</button>
+									</li>
+									<li class="list-item">
+										<i class="fi-kr"></i>
+										<div class="alert-cont">
+											<p class="txt-cont">STELLAR VENTURE</p>
+										</div>
+										<button type="button" class="btn-more">바로가기</button>
+									</li>
+								</ul>
+							</div>
+							<div class="tab-item" :class="{ 'tab-show': activeTab === 1 }">
+								<div class="message-box">
+									<div class="msg-nodata">
+										<i class="icon-msg"></i>
+										<p class="txt-msg">데이터가 없습니다.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</details>
+			<details class="nav-item" x-data="{newData: true}">
+				<!-- 2023.07.11 새로운 알림이 있을 경우 class : new 추가 -->
+				<summary class="nav-icon" :class="{'new': newData == true}">
+					<!-- 알림갯수 표현 : data-alert="98" -->
+					<i class="icon-alert" data-alert="98">알림</i>
+				</summary>
+				<div class="card-dialog">
+					<div class="dialog-head">
+						<p class="txt-title">알림 리스트</p>
+					</div>
+					<div class="dialog-body">
+						<div class="message-box">
+							<div class="msg-nodata">
+								<i class="icon-msg"></i>
+								<p class="txt-msg">데이터가 없습니다.</p>
+							</div>
+						</div>
+						<ul class="alert-list">
+							<li class="list-item" :class="{'new': newData == true}">
+								<i class="icon-alert-truck"></i>
+								<div class="alert-cont">
+									<p class="txt-cont">STELLAR VENTURE</p>
+									<p class="txt-date">2023.03.21 08:37</p>
+								</div>
+								<button type="button" class="btn-more">바로가기</button>
+							</li>
+							<li class="list-item" :class="{'new': newData == true}">
+								<i class="icon-alert-ship"></i>
+								<div class="alert-cont">
+									<p class="txt-cont">STELLAR VENTURE</p>
+									<p class="txt-date">2023.03.21 08:37</p>
+								</div>
+								<button type="button" class="btn-more">바로가기</button>
+							</li>
+							<li class="list-item" :class="{'new': newData == false}">
+								<i class="icon-alert-store"></i>
+								<div class="alert-cont">
+									<p class="txt-cont">STELLAR VENTURE</p>
+									<p class="txt-date">2023.03.21 08:37</p>
+								</div>
+								<button type="button" class="btn-more">바로가기</button>
+							</li>
+							<li class="list-item" :class="{'new': newData == false}">
+								<i class="icon-alert-ship"></i>
+								<div class="alert-cont">
+									<p class="txt-cont">STELLAR VENTURE</p>
+									<p class="txt-date">2023.03.21 08:37</p>
+								</div>
+								<button type="button" class="btn-more">바로가기</button>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</details>
+			<!-- //20230706 마크업 수정 -->
+		</div>
+		<!-- 20230802 마크업 수정 및 추가 -->
+		<div class="info-nav">
+			<details class="info-language">
+				<summary class="nav-icon"><i class="icon-language">언어정보</i></summary>
+				<div class="card-dialog">
+					<div class="dialog-body">
+						<ul class="alert-list">
+							<li class="list-item">
+								<i class="fi-kr"></i>
+								<p class="txt-cont">한국어</p>
+							</li>
+							<li class="list-item">
+								<i class="fi-us"></i>
+								<p class="txt-cont">영어</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</details>
+			<details class="info-user">
+				<summary class="nav-icon"><i class="icon-user">사용자정보</i></summary>
+				<div class="card-dialog">
+					<div class="dialog-body">
+						<p class="txt-title">경영지원팀 과장경영지원팀 과장</p>
+						<p class="txt-email">skyblue@posco.com</p>
+					</div>
+				</div>
+			</details>
+		</div>
+		<!-- //20230802 마크업 수정 및 추가 -->
+	</div>
+</div>
+
+

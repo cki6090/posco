@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
+    <title>스마트조끼 모니터링(평택)</title>
+
+    <!-- 필수 plugin -->
+    <!-- jQuery -->
+    <script src="../../js/jquery/dist/jquery.min.js"></script>
+    <script src="../../js/jquery-ui/dist/jquery-ui.min.js"></script>
+    <script src="../../js/jsrender/dist/jsrender.js"></script>
+    <!-- Select -->
+    <script src="../../js/tom-select/dist/js/tom-select.complete.min.js"></script>
+    <!-- 날짜 관련 -->
+    <script src="../../js/moment/dist/moment.min.js"></script>
+    <!-- //필수 plugin -->
+
+    <!-- UI Style -->
+    <link rel="stylesheet" href="../../style/css/style-ui.css" />
+</head>
+
+<body class="iframe-layout">
+    <div class="wrapper">
+        <!-- 타이틀 및 네비게이션 영역 -->
+        <section class="content-head">
+            <h2 class="page-title"><span>스마트조끼 모니터링(평택)</span></h2>
+            <div class="head-article" x-data="{open: false}">
+                <include src="../_include/content/content-head-article.html"></include>
+            </div>
+        </section>
+        <!-- //타이틀 및 네비게이션 영역 -->
+
+        <!-- Main content -->
+        <section class="content-body">
+            <!-- 검색된 컨텐츠 영역 -->
+            <div class="search-cont-area">
+                <!-- class : off 추가시 검색영역 hide -->
+                <include src="../_include/search/search_content.html"></include>
+            </div>
+            <!-- //검색된 컨텐츠 영역 -->
+
+            <div class="content-area fixed">
+                <div class="info-area row">
+                    <!-- 상위 안전 조끼 알림 -->
+                    <div class="summary-area">
+                        <div class="info-item">
+                            <i class="icon-info vest-total"></i>
+                            <div class="txt-label">안전조끼 전체 수량</div>
+                            <div class="txt-cont">
+                                <div class="date-cont">
+                                    <span class="txt-num">2</span>
+                                    <!-- 20230808 추가 -->
+                                    <div class="txt-info">aaaaaaaa</div>
+                                    <!-- //20230808 추가 -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="icon-info vest-alert"></i>
+                            <div class="txt-label">긴급 알림</div>
+                            <div class="txt-cont">
+                                <div class="date-cont">
+                                    <span class="txt-num">A1</span>
+                                    <span class="txt-exp">A1 - 6분 전 위험신호 발생</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //상위 안전 조끼 알림 -->
+                    <!-- table -->
+                    <div class="table-area">
+                        <div class="form-group">
+                            <div class="form-select">
+                                <select id="form-select" class="form-control" placeholder="하나만 선택 가능합니다.">
+                                    <option>option 01</option>
+                                    <option selected>option 02</option>
+                                    <option>option 03</option>
+                                    <option>option 04</option>
+                                    <option>option 05</option>
+                                    <option>option 06</option>
+                                    <option>option 07</option>
+                                    <option>option 08</option>
+                                    <option>option 09</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- ibsheet-wrap -->
+                        <div class="ibsheet-wrap">
+                            <div id="sheetDiv" style="height: 100%;"></div>
+                        </div>
+                    </div>
+                    <!-- //table -->
+                    <!-- form -->
+                    <div class="textarea-area">
+                        <div class="form-group">
+                            <!-- 20230808 수정 -->
+                            <label class="form-label txt-center" for="form-textarea">상세내역</label>
+                            <!-- //20230808 수정 -->
+                            <div class="form-input">
+                                <textarea id="form-textarea" class="form-control" readonly>
+해당 위험신호 발생에 대한 조취를 완벽하게 진행했습니다.
+                                </textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //form -->
+                </div>
+                <div class="map-area">
+                    <!-- 지도 영역 -->
+                    <div class="map-wrap" style="background-color: #C5C5C6;">
+                        실제 지도가 들어갈 영역
+                    </div>
+                    <!-- //지도 영역 -->
+                </div>
+            </div>
+        </section>
+        <!-- //Main content -->
+    </div>
+    <!-- /wrapper -->
+
+    <!-- ibleaders -->
+    <script src="../../js/ibsheet8/ibsheet.js"></script>
+    <script src="../../js/ibsheet8/ibleaders.js"></script>
+    <script src="../../js/ibsheet8/locale/ko.js"></script>
+    <!-- //ibleaders -->
+
+    <!-- 퍼블 사용하기 위한 JavaScript -->
+    <script src="../../style/js/include.js"></script>
+    <script src="../../style/js/alpinejs.min.js"></script>
+    <!-- //퍼블 사용하기 위한 JavaScript -->
+
+    <script>
+        document.querySelectorAll('.form-group .form-select .form-control').forEach((el) => {
+            let settings = {};
+            new TomSelect(el, {
+                create: true,
+                plugins: ["remove_button", "checkbox_options"],
+                // maxItems: 10,
+                // 셀럭테에 포커스가 오면 해당 form-group 에 active class 추가
+                onFocus: function () {
+                    document.querySelectorAll(".form-group").forEach((el2) => {
+                        el2.classList.remove("active");
+                    });
+                    el.closest('.form-group').classList.add("active");
+                }
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        var ib = ib || {};
+        ib = {
+            init: {
+                Def: {                   	// 공통 속성 설정
+                    Col: {},
+                    Row: {},
+                    Header: {
+                        Align: "Center",
+                        TextStyle: 1
+                    },
+                },
+                Cfg: {// 전역 기능 설정(cfg property)
+                    // 공통으로 사용
+                    FitWidth: 1,            //우측에 더미 열(Column)을 추가
+                    HeaderMerge: 3,
+                    HoverScope: 1,          //헤더 영역에 Hover 동작하지 않음
+                    CanColResize: false,    //사용자 너비 조절 기능 X
+                    CanSort: false,         //열 정렬(Sort) 기능 X
+                    SearchMode: 2,
+                    borderCursors: 0,       //hover시 Border active X
+                    IgnoreFocused: true,    // 조회 후 포커스를 가져오지 않게 한다.
+                    // 경우에 따라 사용
+                },
+                Cols: [               // 기본 열 설정(가운데영역)  (col property)
+                    {
+                        Header: "안전조끼 ID",
+                        Type: "Text",
+                        Name: "cell01",
+                        Align: "Center",
+                        Width: 100
+                    }, {
+                        Header: "위험신호 발생 일시",
+                        Type: "Date",
+                        DataFormat: "yyyy-MM-dd HH:mm:ss",
+                        Name: "cell02",
+                        Align: "Center",
+                        MinWidth: 100,
+                        RelWidth: 0
+                    }, {
+                        Header: "긴급여부",
+                        Type: "Text",
+                        Name: "cell03",
+                        Align: "Center",
+                        Width: 100
+                    }, {
+                        Header: "작업자 위치",
+                        Type: "Text",
+                        Name: "cell04",
+                        Align: "Center",
+                        Width: 100
+                    }, {
+                        Header: "알림",
+                        Type: "Html",
+                        Name: "cell05",
+                        Align: "Center",
+                        Width: 100
+                    }, {
+                        Header: "조치여부",
+                        Type: "Html",
+                        Name: "cell06",
+                        Align: "Center",
+                        Width: 100
+                    }
+                ],     	// 필터 행 추가/정의
+            },
+            //시트객체 생성
+            create: function () {
+                var options = this.init;
+                IBSheet.create({
+                    id: "sheet", 		// 생성할 시트의 id
+                    el: "sheetDiv", 	// 시트를 생성할 Dom 객체 및 id
+                    options: options,   // 생성될 시트의 속성
+                    data: this.data 	// 생성될 시트의 정적데이터
+                });
+            },
+            data: [
+                {
+                    cell01: "AI",
+                    cell02: "202304050900",
+                    cell03: "Y",
+                    cell04: "옥내",
+                    cell05: "<span class='txt-warn'>SOS</span>",
+                    cell06: "<button type='button' class='btn-default'>Y</button>",
+                },
+                {
+                    cell01: "AI",
+                    cell02: "202304050900",
+                    cell03: "N",
+                    cell04: "옥내",
+                    cell05: "<span class='txt-cont'>수신</span>",
+                    cell06: "-",
+                },
+                {
+                    cell01: "AI",
+                    cell02: "202304050900",
+                    cell03: "N",
+                    cell04: "옥내",
+                    cell05: "<span class='txt-cont'>수신</span>",
+                    cell06: "-",
+                },
+                {}, {}, {}, {}, {}, {}, {}, {}, {},
+            ]
+        };
+        ib.create();
+    </script>
+</body>
+
+</html>

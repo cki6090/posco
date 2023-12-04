@@ -1,0 +1,33 @@
+<div class="flex-area">
+	<div class="area-left" x-data="{ activeTab: 7, tabs: [
+		{ url: '#url', name: '대시보드' },
+		{ url: '#url', name: '벌크 운송 현황' },
+		{ url: '#url', name: '선박 운항 이력' },
+		{ url: '#url', name: '트럭 운송 현황' },
+		{ url: '#url', name: '선적/하역항 ETA List' },
+		{ url: '#url', name: '선적/양하항 작업 이력' },
+		{ url: '#url', name: '스마트조끼 모니터링(평택)' },
+		{ url: '#url', name: '운송업체 정보' },
+		{ url: '#url', name: '선적/양하항 터미널 정보' },
+	]}">
+		<!-- 페이지가 열려있는 Tab group - 퍼블 공통 -->
+		<ul class="tab-menu">
+			<template x-for="(tab, index) in tabs" key="index">
+				<li class="nav-item" :class="{ 'active': activeTab === index}">
+					<a :href="tab.url + index" class="btn-menu" @click="activeTab = index"><span
+							x-text="tab.name"></span></a>
+					<button type="button" class="btn-open"><i class="icon-open">full screen</i></button>
+					<button type="button" class="btn-close"><i class="icon-close">close</i></button>
+				</li>
+			</template>
+		</ul>
+		<!-- //페이지가 열려있는 Tab group - 퍼블 공통 -->
+	</div>
+	<div class="area-right">
+		<div class="nav-contol">
+			<button type="button" class="btn-menu"><i class="icon-close-all">모든 창 닫기</i></button>
+			<!--button type="button" class="btn-menu"><i class="icon-arr-left">왼쪽 이동</i></button>
+			<button type="button" class="btn-menu"><i class="icon-arr-right">오른쪽 이동</i></button -->
+		</div>
+	</div>
+</div>

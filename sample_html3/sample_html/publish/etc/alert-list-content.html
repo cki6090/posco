@@ -1,0 +1,23 @@
+<div class="alert-list-area">
+    <div class="alert-item">
+        <!-- 제품선 icon class: ship-product / 원료선 icon class: ship-material -->
+        <div class="ship-item" :class="iconClass">
+            <i class="icon-ship"></i>
+            <div class="txt-title" x-text="iconTitle"></div>
+        </div>
+        <ul class="alert-list">
+            <template x-for="item in items" key="item.class">
+                <li>
+                    <div class="info-item">
+                        <!-- icon class 명 - deviate : Deviation / delay : Delay/Forward / stop : Stoppage / ais : Not Received AIS -->
+                        <i class="icon-info" :class="item.class"></i>
+                        <div class="txt-label" x-text="item.title"></div>
+                        <div class="txt-cont">
+                            <div class="date-cont"><span class="txt-num" x-text="item.data"></span></div>
+                        </div>
+                    </div>
+                </li>
+            </template>
+        </ul>
+    </div>
+</div>

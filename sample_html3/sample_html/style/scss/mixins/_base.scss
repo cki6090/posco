@@ -1,0 +1,272 @@
+// media breakpoint
+@mixin media($type) {
+	@if $type==phone {
+		@media only screen and (min-width: $screen-phone) {
+			@content;
+		}
+	} @else if $type==tablet {
+		@media only screen and (min-width: $screen-tablet) {
+			@content;
+		}
+	} @else if $type==laptop {
+		@media only screen and (min-width: $screen-laptop) {
+			@content;
+		}
+	} @else if $type==desktop {
+		@media only screen and (min-width: $screen-desktop) {
+			@content;
+		}
+	}
+}
+// full screen
+@mixin fullScreen {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+@mixin fixFullScreen($zindex: 1) {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	overflow: hidden;
+	z-index: $zindex;
+}
+// Opacity
+@mixin Opacity($num) {
+	opacity: math.div($num, 100);
+	filter: alpha(opacity=#{$num});
+}
+@mixin clearFix() {
+	&::after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+}
+@mixin btnBase {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	line-height: 1;
+	box-sizing: border-box;
+	vertical-align: middle;
+	text-decoration: none;
+}
+@mixin bgIconBase {
+	display: inline-block;
+	box-sizing: border-box;
+	overflow: hidden;
+	color: transparent;
+	font-size: 0;
+	line-height: inherit;
+}
+@mixin iconWrap {
+	display: inline-flex;
+	align-items: center;
+	line-height: 1;
+}
+//blind
+@mixin blind {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	line-height: 1;
+	font-size: 1px;
+	visibility: hidden;
+	overflow: hidden;
+	margin: 0;
+	text-indent: -100%;
+	color: transparent;
+	clip: rect(1px, 1px, 1px, 1px);
+	@include Opacity(0);
+}
+// 정사각형
+@mixin squareSize($size) {
+	width: $size;
+	height: $size;
+}
+// 사각형
+@mixin shapeSize($sizeW, $sizeH) {
+	width: $sizeW;
+	height: $sizeH;
+}
+// 원
+@mixin circleSize($size) {
+	width: $size;
+	height: $size;
+	border-radius: $radius-circle;
+}
+// 깃발 size
+@mixin flagIconSize($sizeW) {
+	width: $sizeW;
+	height: $sizeW * 0.75;
+}
+@mixin flagDatumType($datum: width, $size) {
+	@if $datum == width {
+		@include flagIconSize($size);
+	} @else if $datum == height {
+		width: $size * 1.25;
+		height: $size;
+	}
+}
+// imges & icon
+// background images
+@mixin bgImgOrigin($style: padding) {
+	@if $style == padding {
+		background-origin: padding-box;	// Default value - padding 가장자리 상단
+	} @else if $style == border {
+		background-origin: border-box;	// border 가장자리 상단
+	} @else if $style == content {
+		background-origin: content-box;	// content 가장자리 상단 - padding 값도 함께 먹힘
+	}
+}
+// background, mask
+@mixin iconName($name, $property: background) {
+	$url: "#{$img-icon-path}/#{$name}";
+	#{$property}-image: url($url);
+}
+@mixin svgIconName($name, $property: background) {
+	$url: #{$img-icon-path}/#{$name};
+	#{$property}-image: url("#{$url}.svg");
+}
+@mixin iconNameChange($name, $property: background) {
+	$url: #{$img-icon-path}/#{$name};
+	#{$property}-image: url("#{$url}.svg") !important;
+}
+@mixin imgFolderChange($folder, $name, $property: background) {
+	$url: "#{$img-path}/#{$folder}/#{$name}";
+	#{$property}-image: url($url);
+}
+@mixin bgRepeat($property: background) {
+	#{$property}-repeat: no-repeat;
+}
+@mixin bgPositionType($type: center, $property: background) {
+	@if $type == center {
+		#{$property}-position: center center;
+	} @else if $type == 0 {
+		#{$property}-position: left top;
+	} @else if $type == left {
+		#{$property}-position: left center;
+	} @else if $type == top {
+		#{$property}-position: center top;
+	} @else if $type == bottom {
+		#{$property}-position: center bottom;
+	} @else if $type == right {
+		#{$property}-position: right center;
+	} @else if $type == cont($x, $y) {
+		#{$property}-position: $x $y;
+	}
+}
+@mixin bgImgSize($type: contain, $property: background) {
+	@if $type == auto {
+		#{$property}-size: auto; //Default value - 이미지 원래 크기
+	} @else if $type == cover {
+		#{$property}-size: cover; // 이미지가 잘려도 넓이는 다 보이게 함
+	} @else if $type == contain {
+		#{$property}-size: contain; // 이미지 크기를 조정해 이미지가 다 보이개 함
+	} @else if $type == X {
+		#{$property}-size: 100% auto; // 넓이에 맞게 이미지 조정
+	} @else if $type == Y {
+		#{$property}-size: auto 100%; // 높이에 맞게 이미지 조정
+	}
+}
+@mixin bgImgBase($type: img, $property: background) {
+	@if $type == img {
+		@include bgRepeat();
+		@include bgPositionType($type: center);
+		@include bgImgSize($type: contain);
+	} @else if $type == mask {
+		@include bgRepeat($property: mask);
+		@include bgPositionType($type: center, $property: mask);
+		@include bgImgSize($type: contain, $property: mask);
+	}
+}
+// Border style
+@mixin boxRadius($type, $radius) {
+	@if $type == all {
+		border-radius: $radius;
+	} @else if $type == top {
+		border-top-left-radius: $radius;
+		border-top-right-radius: $radius;
+	} @else if $type == bottom {
+		border-bottom-left-radius: $radius;
+		border-bottom-right-radius: $radius;
+	} @else if $type == left {
+		border-top-left-radius: $radius;
+		border-bottom-left-radius: $radius;
+	} @else if $type == right {
+		border-top-right-radius: $radius;
+		border-bottom-right-radius: $radius;
+	}
+}
+@mixin radiusType($radius: base) {
+	@if $radius == circle {
+		border-radius: 50%;
+	} @else if $radius == base {
+		border-radius: $radius-base;
+	} @else if $radius == min {
+		$border-radius: $radius-base-min;
+	} @else if $radius == thin {
+		$border-radius: 2px;
+	} @else if $radius == 0 {
+		$border-radius: 0;
+	} @else {
+		border-radius: $radius;
+	}
+}
+@mixin borderStyle($position: all, $style) {
+	@if $position == all {
+		border: $style;
+	} @else if $position == X {
+		border-top: $style;
+		border-bottom: $style;
+	} @else if $position == Y {
+		border-left: $style;
+		border-right: $style;
+	} @else {
+		border-#{$position}: $style;
+	}
+}
+@mixin absolutePosition($position, $x: 0, $y: 0){
+	position: absolute;
+	@if $position == top {
+		top: $y;
+		left: $x;
+	} @else if $position == bottom {
+		left: $x;
+		bottom: $y;
+	} @else if $position == left {
+		top: $y;
+		left: $x;
+	} @else if $position == right {
+		top: $y;
+		right: $x;
+	} @else if $position == all {
+		top: $y;
+		right: $x;
+		bottom: $y;
+		left: $x;
+	}
+}
+// Truncating text
+@mixin textEllipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	word-wrap: normal;
+}
+@mixin textEllipsisLine($line) {
+	//ie, firefox는 display:inline-block;으로 나타납니다. 작성시 최대 높이(max-height)를 입력해주세요. (개발에서의 말줄임필요)
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: normal;
+	word-wrap: break-word;
+	display: inline-block; //순서 주의 ie, firefox
+	*display: inline;
+	*zoom: 1;
+	display: -webkit-box; //순서 주의 chrome, safari, opera
+	-webkit-line-clamp: $line;
+	-webkit-box-orient: vertical;
+}

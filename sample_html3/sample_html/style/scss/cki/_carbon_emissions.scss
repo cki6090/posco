@@ -1,0 +1,240 @@
+.carbon_emissions {
+    .head-article {
+        .legend-list {
+            li {
+                i {
+                    border-radius: 25%;
+                }
+            }
+        }
+    }
+
+    .tab-wrap {
+        .tab-menu::before {
+            width: 35%;
+        }
+
+        .tab-menu.active::before {
+            left: 35%;
+            width: 65%;
+        }
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 240px;
+        background-color: #D4F3D9;
+    }
+
+    .ce_bg_zone {
+        flex-shrink: 0;
+        flex-basis: 240px;
+        position: relative;
+        padding: 40px;
+        text-align: right;
+        margin-bottom: 100px;
+        background-position: top right;
+        background-size: auto;
+
+        .cbz_tit1 {
+            font-weight: 400;
+            font-size: 28px;
+            color: #000000;
+
+            span {
+                font-weight: 700;
+                font-size: 28px;
+            }
+        }
+
+        .cbz_tit2 {
+            font-weight: 400;
+            font-size: 48px;
+            color: #000000;
+
+            span {
+                font-weight: 700;
+                font-size: 48px;
+                color: #018E39;
+            }
+        }
+
+        .ce_tit_box {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            min-width: 500px;
+            min-height: 270px;
+            padding: 32px;
+            border-radius: 6px;
+            background: linear-gradient(163deg, rgba(31, 111, 63, 0.85) 0%, rgba(0, 92, 156, 0.85) 100%);
+            backdrop-filter: blur(7.5px);
+
+            .cetb_img {
+                position: absolute;
+                top: 20px;
+                right: -29px;
+            }
+
+            .cetb_info {
+                font-weight: 400;
+                font-size: 14px;
+                color: #999999;
+                position: absolute;
+                bottom: 17px;
+                left: 103%;
+                width: max-content;
+            }
+
+            .cetb_txt {
+                display: flex;
+                align-items: flex-end;
+                justify-content: space-between;
+                color: #ffffff;
+                flex-grow: 1;
+                gap: 35px;
+
+                &.tit {
+                    margin-bottom: 30px;
+                    padding-bottom: 25px;
+                    border-bottom: 1px solid rgba(217, 217, 217, 0.20);
+
+                    .ctt_txt1 {
+                        p:nth-child(1) {
+                            font-weight: 600;
+                            font-size: 18px;
+                            text-align: left;
+                        }
+
+                        p:nth-child(2) {
+                            font-weight: 700;
+                            font-size: 48px;
+                            line-height: 26px;
+                            margin-top: 10px;
+
+                            span {
+                                font-weight: 400;
+                                font-size: 14px;
+                            }
+                        }
+                    }
+
+                    .ctt_txt2 {
+                        text-align: left;
+                        font-weight: 400;
+                        font-size: 16px;
+                    }
+                }
+
+                &.list {
+                    .tit {
+                        text-align: left;
+                        font-weight: 500;
+                        font-size: 16px;
+                    }
+
+                    .num {
+                        font-weight: 700;
+                        font-size: 32px;
+
+                        span {
+                            font-weight: 400;
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    .ce_graph {
+        flex-shrink: 0;
+        flex-basis: 280px;
+        overflow: hidden;
+        padding: $body-cont-area-spacer;
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+
+
+        .circular_graph {
+            width: 450px;
+
+            >div {
+                height: 200px;
+            }
+
+            .cg_wrap {
+                position: relative;
+
+                .cg_txt {
+                    position: absolute;
+                    top: 54%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    font-size: 34px;
+                    font-weight: 700;
+                    color: #000000;
+                    text-align: center;
+                    line-height: 18px;
+
+                    span {
+                        font-size: 13px;
+                        font-weight: 400;
+                        color: #999999;
+                    }
+                }
+
+                #circular_graph {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+
+        .line_bar_graph {
+            position: relative;
+            flex-grow: 1;
+
+            .head-article {
+                position: absolute;
+                right: 0px;
+                top: -40px;
+
+                .legend-list {
+                    .txt-title {
+                        background-color: #005C9C;
+                        color: #ffffff;
+                        border-radius: 15px;
+                        padding: 4px 8px;
+                        font-size: 1px;
+                        font-weight: 700;
+                    }
+                }
+            }
+
+            .tab-menu {
+                width: 256px;
+                margin: 10px 0px 20px 0px;
+                height: 32px;
+            }
+
+            #line_graph,
+            #bar_graph {
+                width: 100%;
+                height: 140px;
+            }
+
+        }
+    }
+
+    .ce_ib {
+        padding: $body-cont-area-spacer;
+    }
+}
+

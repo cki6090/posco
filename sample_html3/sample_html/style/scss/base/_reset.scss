@@ -1,0 +1,142 @@
+@charset "utf-8";
+// css 초기화
+
+// 초기화
+* {
+	margin: 0;
+	padding: 0;
+	isolation: inherit;
+	font-family: inherit;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+	line-height: inherit;
+	&, &:before, &:after {
+		// 부모로부터 상속받기(html default)
+		box-sizing: inherit;
+	}
+}
+// 스크롤 설정
+html:focus-within {
+	scroll-behavior: smooth;
+}
+body {
+	// 폰트 재설정
+	font-size: 62.50%;//10px 기준 rem 을 사용할경우 대비
+	line-height: 1.5;// WCAG 기준 - 1.5 이상 (난독증)
+	-webkit-font-smoothing: antialiased;// 폰트 선명하게
+	text-rendering: optimizeSpeed;//가독성보다 렌더링 속도 강조
+	//text-rendering: optimizeLegibility;// 텍스트 가독성 강조 - 0.5 반 올림
+}
+html, body {
+	height: 100%;
+	box-sizing: border-box;
+	isolation: isolate;//새 누적 컨텐츠 생성여부(background-blend-mode,  mix-blend- mode 사용시 유용)
+	overflow-wrap: break-word;
+}
+// 폰트 초기화
+h1, h2, h3, h4, h5, h6, strong, b, em, i, cite, address, figure, blockquote {
+	font-weight: normal;
+	font-style: normal;
+}
+small, sub, sup {
+	font-size: 0.875em;
+}
+a, button, summary {
+	background-color: transparent;
+	&:not(:disabled) {
+		cursor: pointer;
+	}
+}
+a, u, abbr {
+	text-underline-position: under;// 언더라인 위치 지정 (간격있게)
+	&:not([class]) {
+		text-decoration-skip-ink: auto;//class 없는 태그만 기본스타일
+	}
+}
+abbr[title] {
+	cursor: help;
+}
+mark, label, output {
+	display: inline-block;
+}
+pre, code, kbd, samp, var, kbd {
+	all: revert;// 미리 지정된 서식사용
+	color: inherit;
+	word-break: normal;
+}
+// 미터요소의 최소 스타일
+meter, progress {
+	appearance: revert;
+}
+// media 재설정
+img, svg, picture, embed, fieldset, object, video, canvas, audio {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	border: 0;
+    border-style: none;
+}
+iframe {
+	border: none;
+}
+img {
+	// 이미지가 컨텐츠 밖으로 나가지 않게 방지
+    max-inline-size: 100%;
+    max-block-size: 100%;
+	height: auto;
+}
+hr {
+	color: inherit;
+	border: 0;
+	opacity: 0;
+}
+// 스타일 zero
+ul, ol, dd, menu, details, summary {
+	list-style: none;
+}
+// form 관련 초기화
+button, input, select, textarea, optgroup, fieldset {
+	all: unset;// 속성초기화
+	font: inherit;
+}
+input, select, textarea {
+	cursor: revert;//커서 설청 초기화
+}
+button, [type=button], [type=reset], [type=submit] {
+	appearance: button;//자체 구성요소변경
+}
+textarea {
+    white-space: revert;//Safari 에서 속성 초기화
+	resize: none;// 임의로 사이즈 변경 불가
+}
+input, textarea {
+    user-select: auto;// <body>에 user-select:none 사용할때 입력 문제해결
+}
+// table 설정
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+// 선택자 설정
+:disabled {
+	cursor: not-allowed;
+}
+::placeholder {
+    color: unset;
+}
+::marker {
+    content: initial;// "•" 기호 제거
+}
+// 개인 브라우저 옵션에 따라 에니메이션 효과 제거한 사람을 위한 미디어쿼리
+@media (prefers-reduced-motion: reduce) {
+	html:focus-within {
+		scroll-behavior: auto;
+	}
+	*, *::before, *::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}

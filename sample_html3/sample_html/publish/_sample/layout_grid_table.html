@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
+    <title>전체 Layout</title>
+
+    <!-- 필수 plugin -->
+    <!-- jQuery -->
+    <script src="../../js/jquery/dist/jquery.min.js"></script>
+    <script src="../../js/jquery-ui/dist/jquery-ui.min.js"></script>
+    <script src="../../js/jsrender/dist/jsrender.js"></script>
+    <!-- Select -->
+    <script src="../../js/tom-select/dist/js/tom-select.complete.min.js"></script>
+    <!-- 날짜 관련 -->
+    <script src="../../js/moment/dist/moment.min.js"></script>
+    <!-- //필수 plugin -->
+
+    <!-- UI Style -->
+    <link rel="stylesheet" href="../../style/css/style-ui.css" />
+    <link rel="stylesheet" href="../../style/css/guide-ui.css" />
+</head>
+
+<body class="iframe-layout">
+    <div class="wrapper">
+        <!-- 타이틀 및 네비게이션 영역 : 2023.05.08 공통 영역 수정 -->
+        <section class="content-head">
+            <h2 class="page-title"><span>table-grid</span></h2>
+            <div class="head-article" x-data="{open: false}">
+                <include src="../_include/content/content-head-article.html"></include>
+            </div>
+        </section>
+        <!-- //타이틀 및 네비게이션 영역 -->
+
+        <!-- Main content -->
+        <section class="content-body">
+            <!-- 검색된 컨텐츠 영역 -->
+            <div class="search-cont-area off"><!-- class : off 삭제하면 검색된 영역이 보인다 -->
+                <include src="../_include/search/search_content.html"></include>
+            </div>
+            <!-- //검색된 컨텐츠 영역 -->
+
+            <div class="content-area fixed-full guide-after" data-text="class: fixed-full - 높이 100% 기준">
+
+                <div class="table-grid info">
+                    <!-- view table template -->
+                    <div class="table-area" style="background-color: aqua;">
+                        <div class="guide-cont">
+                            <p class="guide-tit">default 테이블 영역1</p>
+                            <p class="guide-code">class: <mark>table-area</mark></p>
+                        </div>
+                    </div>
+                    <!-- //view table template -->
+                    <!-- view table template -->
+                    <div class="table-area row" style="background-color: darksalmon;">
+                        <div class="guide-cont">
+                            <p class="guide-tit">default 테이블 영역2</p>
+                            <p class="guide-code">class: table-area <mark>row</mark></p>
+                        </div>
+                    </div>
+                    <!-- //view table template -->
+                    <!-- view table template -->
+                    <div class="table-area full" style="background-color: aqua;">
+                        <div class="guide-cont">
+                            <p class="guide-tit">default 테이블 영역3</p>
+                            <p class="guide-code">class: table-area <mark>full</mark></p>
+                        </div>
+                    </div>
+                    <!-- //view table template -->
+                    <!-- view table template -->
+                    <div class="table-area" style="background-color: darksalmon;">
+                        <div class="guide-cont">
+                            <p class="guide-tit">default 테이블 영역4</p>
+                            <p class="guide-code">class: <mark>table-area</mark></p>
+                        </div>
+                    </div>
+                    <!-- //view table template -->
+                </div>
+            </div>
+        </section>
+        <!-- //Main content -->
+    </div>
+    <!-- /wrapper -->
+
+    <!-- ibleaders -->
+    <script src="../../js/ibsheet8/ibsheet.js"></script>
+    <script src="../../js/ibsheet8/ibleaders.js"></script>
+    <script src="../../js/ibsheet8/locale/ko.js"></script>
+    <!-- //ibleaders -->
+
+    <!-- 퍼블 사용하기 위한 JavaScript -->
+    <script src="../../style/js/include.js"></script>
+    <script defer src="../../style/js/alpinejs.min.js"></script>
+    <!-- //퍼블 사용하기 위한 JavaScript -->
+</body>
+
+</html>

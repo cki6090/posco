@@ -1,0 +1,178 @@
+@mixin listTablethead {
+	border-bottom: $line-table;
+	border-left: $line-table;
+	&:first-child {
+		border-left: none;
+	}
+}
+@mixin listTabletbody {
+	border-bottom: $line-tbody;
+	border-left:  $line-tbody;
+}
+@mixin tableBase {
+	width: 100%;
+	border-collapse: collapse;
+	background-color: $bg-table-color;
+	padding: 0;
+	margin: 0;
+	font-size: $txt-table;
+	&, * {
+		box-sizing: border-box;
+	}
+	th {
+		color: $txt-th-color;
+		background-color: $bg-th-color;
+	}
+	td {
+		color: $txt-td-color;
+	}
+	tbody {
+		th, td {
+			@include listTabletbody;
+		}
+		th:first-child, td:first-child {
+			border-left: none;
+		}
+		tr:last-child {
+			th, td {
+				border-bottom: none;
+			}
+		}
+	}
+}
+@mixin tableVew($size, $group: 4) {
+	$sizeGroup: math.div(100%, $group);
+	$sizeTd: calc($sizeGroup - $size);
+	colgroup .th, th {
+		width: $size;
+	}
+	td {
+		width: $sizeTd;
+	}
+	@if $group != 1 {
+		@for $i from 1 through ($group - 1) {
+			$j : ($i * 2) + 1;
+			$i : $i + 1;
+			[colspan="#{$j}"] {
+				width: calc($sizeGroup * $i - $size);
+			}
+		}
+	}
+	th {
+		height: $table-row-height;
+		text-align: left;
+	}
+	th, td {
+		padding: $table-th-spacer;
+	}
+}
+@mixin tableList {
+	thead {
+		th {
+			height: $table-thead-heigh;
+			@include listTablethead;
+		}
+	}
+	tbody {
+		td {
+			height: $table-row-height;
+			padding: $table-th-spacer;
+		}
+	}
+}
+@mixin tableStyle($type, $size: '', $group: '') {
+	@if $type == view {
+		.#{$type}-table {
+			table-layout: fixed;
+			@include tableVew($size, $group);
+		}
+	} @else if $type == list {
+		.#{$type}-table {
+			@include tableList;
+		}
+	}
+}
+@mixin tableWrap {
+	@include fullScreen;
+	border: $line-table;
+    border-radius: $radius-table;
+	.table-area & {
+		height: auto;
+	}
+	table {
+		@include tableBase;
+		border-radius: $radius-table;
+	}
+}
+@mixin tableGrde($group, $th, $td, $type: list) {
+	@include flexBoxContAlignX(full);
+	border: $line-table;
+    border-radius: $radius-table;
+	width: 100%;
+	font-size: $txt-table;
+	background-color: $bg-table-color;
+	overflow: hidden;
+	@if $type == view {
+		.#{$group}-group {
+			display: flex;
+			flex: 1 1 0;
+			width: 100%;
+			height: 100%;
+			justify-content: stretch;
+			align-content: center;
+			align-items: stretch;
+			.#{$th}, .#{$td} {
+				display: flex;
+				padding: $table-th-spacer;
+				height: 100%;
+				align-items: center;
+			}
+			.#{$th} {
+				text-align: left;
+				background-color: $bg-th-color;
+				min-width: $table-view-th-max-width;
+			}
+			.#{$td} {
+				flex: auto;
+				border-left: $line-tbody;
+			}
+		}
+	} @else if $type == list {
+		.#{$group}-group {
+			display: flex;
+			flex-direction: column;
+			flex: 1 1 0;
+			&:first-child {
+				.txt-#{$th}, .txt-#{$td} {
+					border-left: none;
+				}
+			}
+			&.w-md {
+				min-width: 40%;
+			}
+		}
+		.txt-#{$th}, .txt-#{$td} {
+			display: flex;
+			align-items: center;
+		}
+		.txt-#{$th} {
+			border-bottom: $line-table;
+			border-left: $line-table;
+			color: $txt-th-color;
+			height: $table-thead-heigh;
+			background-color: $bg-th-color;
+			justify-content: center;
+		}
+		.txt-#{$td} {
+			@include listTabletbody;
+			color: $txt-td-color;
+			height: $table-row-height;
+			padding: $table-th-spacer;
+			&:last-child {
+				border-bottom: none;
+			}
+		}
+	} @else if $type == auto {
+		grid-auto-flow: dense;
+	}
+}

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
+    <title>창고 정보</title>
+
+    <!-- 필수 plugin -->
+    <!-- jQuery -->
+    <script src="../../js/jquery/dist/jquery.min.js"></script>
+    <script src="../../js/jquery-ui/dist/jquery-ui.min.js"></script>
+    <script src="../../js/jsrender/dist/jsrender.js"></script>
+    <!-- Select -->
+    <script src="../../js/tom-select/dist/js/tom-select.complete.min.js"></script>
+    <!-- 날짜 관련 -->
+    <script src="../../js/moment/dist/moment.min.js"></script>
+    <!-- //필수 plugin -->
+
+    <!-- UI Style -->
+    <link rel="stylesheet" href="../../style/css/style-ui.css" />
+</head>
+
+<body class="iframe-layout">
+    <div class="wrapper">
+        <!-- 타이틀 및 네비게이션 영역 : 2023.05.08 공통 영역 수정 -->
+        <section class="content-head">
+            <h2 class="page-title"><span>창고 정보</span></h2>
+            <div class="head-article" x-data="{open: false}">
+                <include src="../_include/content/content-head-article.html"></include>
+            </div>
+        </section>
+        <!-- //타이틀 및 네비게이션 영역 -->
+
+        <!-- Main content -->
+        <section class="content-body">
+            <!-- 검색된 컨텐츠 영역 -->
+            <div class="search-cont-area"><!-- class : off 추가시 검색영역 hide -->
+                <include src="../_include/search/search_content.html"></include>
+            </div>
+            <!-- //검색된 컨텐츠 영역 -->
+
+            <div class="content-area">
+
+                <!-- table-grid -->
+                <div class="table-grid info">
+                    <!-- view table template -->
+                    <div class="table-area">
+                        <p class="txt-title">일반 정보</p>
+                        <div class="table-wrap">
+                            <table class="view-table">
+                                <colgroup>
+                                    <col class="th">
+                                    <col class="td">
+                                    <col class="th">
+                                    <col class="td">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">물류거점 코드</th>
+                                        <td>-</td>
+                                        <th scope="row">물류거점 유형코드</th>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">물류거점명</th>
+                                        <td>-</td>
+                                        <th scope="row">물류거점 유형명</th>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">국가 코드</th>
+                                        <td colspan="3">-</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- //view table template -->
+                    <!-- view table template -->
+                    <div class="table-area">
+                        <p class="txt-title">상세 정보</p>
+                        <div class="table-wrap">
+                            <table class="view-table">
+                                <colgroup>
+                                    <col class="th">
+                                    <col class="td">
+                                    <col class="th">
+                                    <col class="td">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">NODE 코드</th>
+                                        <td>-</td>
+                                        <th scope="row">표준거점 코드</th>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">NODE명(Local)</th>
+                                        <td>-</td>
+                                        <th scope="row">거래처 코드</th>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">NODE명(Eng)</th>
+                                        <td>-</td>
+                                        <th scope="row">회사명(Local)</th>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">NODE유형</th>
+                                        <td>-</td>
+                                        <th scope="row">회사명(Eng)</th>
+                                        <td>-</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- //view table template -->
+                    <!-- view table template -->
+                    <div class="table-area">
+                        <p class="txt-title">관리 정보</p>
+                        <div class="table-wrap">
+                            <table class="view-table">
+                                <colgroup>
+                                    <col class="th">
+                                    <col class="td">
+                                    <col class="th">
+                                    <col class="td">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">창고관리 여부</th>
+                                        <td colspan="3">
+                                            <div class="check-list">
+                                                <div class="form-radio">
+                                                    <input class="radio-input" id="check1-04" type="radio" name="radio1">
+                                                    <label class="radio-label" for="check1-04">항구관리 여부</label>
+                                                </div>
+                                                <div class="form-radio">
+                                                    <input class="radio-input" id="check1-05" type="radio" name="radio1">
+                                                    <label class="radio-label" for="check1-05">공로운송 관리 여부</label>
+                                                </div>
+                                                <div class="form-radio">
+                                                    <input class="radio-input" id="check1-06" type="radio" name="radio1">
+                                                    <label class="radio-label" for="check1-06">철도운송 관리 여부</label>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- //view table template -->
+                </div>
+                <!-- //table-grid -->
+            </div>
+        </section>
+        <!-- //Main content -->
+    </div>
+    <!-- /wrapper -->
+
+    <!-- ibleaders -->
+    <script src="../../js/ibsheet8/ibsheet.js"></script>
+    <script src="../../js/ibsheet8/ibleaders.js"></script>
+    <script src="../../js/ibsheet8/locale/ko.js"></script>
+    <!-- //ibleaders -->
+
+    <!-- 퍼블 사용하기 위한 JavaScript -->
+    <script src="../../style/js/include.js"></script>
+    <script defer src="../../style/js/alpinejs.min.js"></script>
+    <!-- //퍼블 사용하기 위한 JavaScript -->
+</body>
+
+</html>

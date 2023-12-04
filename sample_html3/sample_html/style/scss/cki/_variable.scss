@@ -1,0 +1,96 @@
+$sky :#77C1FE;
+$Yellow: #FEBA32;
+$Orange: #F16D41;
+$red :#E24548;
+$Purple: #9E4493;
+$Indigo: #6B42CB;
+
+$colors: (
+    "sky" :$sky,
+    "Yellow":$Yellow,
+    "Orange":$Orange,
+    "red" :$red,
+    "Purple":$Purple,
+    "Indigo":$Indigo,
+);
+
+// adjust-color($color, [$red], [$green], [$blue], [$saturation], [$lightness], [$alpha]);
+@each $name,
+$value in $colors {
+    .#{$name} {
+        background-color: $value;
+    }
+}
+
+select{padding:7px 35px 7px 8px; border: 1px solid #DDDDDD; border-radius: 6px;
+	background-repeat: no-repeat;
+	background-position: right center;
+	background-size: contain;
+	background-image: url("../../img/icon/ico_select_down.svg");
+	background-size: 16px 16px;
+	background-position: right 4px center;
+}
+
+
+
+
+
+//*cki 신규 추가*/
+.icon_yd {
+	@include shapeIcon(36px, 36px, icon_yd);
+}
+.icon_home {
+	@include shapeIcon(36px, 36px, icon_home);
+}
+.icon_sw_in {
+	@include shapeIcon(16px, 16px, icon_sw_in);
+}
+.icon_sw_out {
+	@include shapeIcon(16px, 16px, icon_sw_out);
+}
+.icon_txt_info {
+	@include shapeIcon(20px, 20px, icon_txt_info);
+}
+.icon_error_page_img {
+	@include shapeIcon(80px, 80px, icon_error_page_img);
+}
+.icon_error_check_img {
+	@include shapeIcon(20px, 20px, icon_error_check_img);
+}
+.icon_error_url_img {
+	@include shapeIcon(80px, 80px, icon_error_url_img);
+}
+.icon_cp_truck {
+	@include shapeIcon(98px, 28px, icon_cp_truck);
+}
+.icon_tc_ship {
+	@include squareIcon(24px, 24px, icon_tc_ship);
+}
+.icon_tc_truck {
+	@include shapeIcon(24px, 24px, icon_tc_truck);
+}
+.icon_ce_mbg_img {
+	@include shapeIcon(55px, 40px, icon_ce_mbg_img);
+}
+.icon_ce_mbg_earth {
+	@include shapeIcon(72px, 72px, icon_ce_mbg_earth);
+}
+.icon_ce_mbg {
+	@include shapeIcon(100%, 240px, icon_ce_mbg);
+}
+
+.icon_open_pu {
+	@include shapeIcon(24px, 24px, icon_open_pu);
+}
+
+.icon_close_pu {
+	@include shapeIcon(24px, 24px, icon_close_pu);
+}
+
+.icon_n_page {
+	@include shapeIcon(17px, 17px, icon_n_page);
+	flex-shrink: 0;
+}
+.icon_n_page:hover {
+transform: scale( 1.1 )
+}

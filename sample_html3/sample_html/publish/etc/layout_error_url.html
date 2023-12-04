@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
+    <title>error_page</title>
+
+    <!-- 필수 plugin -->
+    <!-- jQuery -->
+    <script src="../../js/jquery/dist/jquery.min.js"></script>
+    <script src="../../js/jquery-ui/dist/jquery-ui.min.js"></script>
+    <script src="../../js/jsrender/dist/jsrender.js"></script>
+    <!-- Select -->
+    <script src="../../js/tom-select/dist/js/tom-select.complete.min.js"></script>
+    <!-- 날짜 관련 -->
+    <script src="../../js/moment/dist/moment.min.js"></script>
+    <!-- //필수 plugin -->
+
+    <!-- UI Style -->
+    <link rel="stylesheet" href="../../style/css/style-ui.css" />
+</head>
+
+<body class="ui-layout">
+    <div class="wrapper">
+
+        <header class="header-wrap">
+            <include src="../_include/layout/header_ui.html"></include>
+        </header>
+
+        <!-- Main Sidebar -->
+        <aside class="sidebar-wrap">
+            <include src="../_include/layout/sidebar_ui.html"></include>
+        </aside>
+
+        <nav class="navs-wrap">
+            <include src="../_include/layout/navs_ui.html"></include>
+        </nav>
+
+
+        <!-- Content Wrapper. Contains page content -->
+        <main class="content-wrap">
+            <div class="iframe-area">
+                <iframe class="iframe-contents" loading="lazy" src="PWH_00131.html"></iframe>
+            </div>
+        </main>
+
+        <!-- 2023.08.01 코딩수정 -->
+        <div class="message-area">
+            <div class="message-box url-error">
+                <i class="icon-error-url"></i>
+                <div class="txt-title">로그인 정보가 유효하지 않습니다.</div>
+                <div class="txt-cont">다시 접속을 시도해 주세요.</div>
+                <button type="button" class="btn-check">확인하기</button>
+            </div>
+        </div>
+        <!-- //2023.08.01 코딩수정 -->
+
+    </div>
+    <!-- ./wrapper -->
+
+    <!-- 퍼블 사용하기 위한 JavaScript -->
+    <script src="../../style/js/include.js"></script>
+    <script src="../../style/js/alpinejs.min.js"></script>
+    <!-- //퍼블 사용하기 위한 JavaScript -->
+</body>
+
+</html>

@@ -1,0 +1,3742 @@
+
+.IBDialogButton {
+    line-height: inherit
+}
+
+.IBHeaderFont *,
+.IBRowAbove .IBTabHtmlBase *,
+.IBRowBelow .IBTabHtmlBase *,
+.IBMessage *,
+.IBMenuItemText *,
+.IBMenuControl *,
+.IBPickCell *,
+.IBPick2CellM *,
+.IBPick2CellY *,
+.IBDialogButton * {
+    line-height: inherit
+}
+.IBMain i,
+.IBMain .SheetBlue {
+    font-style: normal
+}
+.IBMain em,
+.IBMain .SheetRed {
+    font-style: normal
+}
+
+.IBMain s,
+.IBMain .SheetGray {
+    text-decoration: none
+}
+
+.IBHasSpace4 {
+    border-bottom: none;
+}
+
+.IBSpaceEditReadOnly {
+    min-height: 18px
+}
+
+.IBTabHtmlBase {
+    text-align: center;
+}
+
+.IBTabDrag {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.IBToolHtml,
+.IBToolHtml1,
+.IBToolHtmlIcon,
+.IBToolHtmlIcon1 {
+    text-align: center
+}
+
+.IBPagesLink {
+    text-decoration: none !important
+}
+
+.IBPagesLinkActive {
+    color: inherit;
+    text-decoration: none !important
+}
+
+.IBDropCols table {
+    border-spacing: 10px 0
+}
+
+.IBHeaderGroupCustom {
+    font-style: italic;
+}
+
+.IBCellBase {
+    border:none;
+}
+
+.IBClassReadOnly {
+    opacity: 1
+}
+
+.IBColorHoveredCell {
+    background-color: $bg-td-hover-color;
+}
+
+.IBColorHoveredCellIndex {
+    background-color: $bg-td-hover-color;
+}
+
+.IBColorDefaultRow {
+    background-color: $bg-td-color;
+}
+
+.IBHoverRowBackground,
+.IBHoverPanelBackground {
+    background-color: $bg-td-hover-color;
+}
+.IBHoverCellBorder {
+    border: none;
+    padding: 0 !important;
+}
+
+.IBFocusCellBorder {
+    border: none;
+}
+
+.IBEditCellBorder {
+    border: none;
+}
+
+.IBEditInput,
+.IBEditTextarea {
+    background-color: transparent !important
+}
+
+.IBMenuCaption,
+.IBMenuLevel {
+    text-align: center;
+}
+
+.IBPickTableParent,
+.IBPick2TableParent {
+    border-top: 0 none;
+}
+
+.IBPickNE {
+    text-decoration: line-through;
+}
+
+.IBPickNE button {
+    text-decoration: line-through;
+}
+
+.IBMessageButtons,
+.IBProgressButtons {
+    background: transparent;
+}
+
+.IBTouch .IBLeftSplitter,
+.IBTouch .IBRightSplitter {
+    width: 5px;
+}
+.IBMain input {
+    height: inherit
+}
+
+.IBMain button,
+.IBMain input[type="button"] {
+    height: auto
+}
+
+.IBSection img {
+    vertical-align: middle
+}
+
+.IBMainTable {
+    border-collapse: separate
+}
+
+.IBRtl .IBMainTable {
+    text-align: right
+}
+
+.IBRowSpaceFirst.IBRowSpace0 {
+    padding-top: 0
+}
+
+.IBRowSpaceLast.IBRowSpace4 {
+    padding-top: 0
+}
+
+.IBTabberRow {
+    padding: 0
+}
+
+.IBRowAbove {
+    margin-top: 0
+}
+
+.IBRowBelow {
+    margin-bottom: 0
+}
+
+.IBVAlignTop.IBCellHeader {
+    background-position-y: 0
+}
+
+.IBIndexSmall {
+    margin-top: -8px;
+    margin-bottom: -50px
+}
+
+.IBCellHidden {
+    background: transparent !important;
+    border: none !important
+}
+
+.IBCellBorder,
+.IBCellHeaderBorder,
+.IBCellNoBorder {
+    border-left: 2px solid transparent;
+    border-top: 2px solid transparent
+}
+
+.IBCellNoBorder {
+    border-color: transparent
+}
+
+.IBCellClassInner {
+    padding: 0;
+}
+
+.IBCellBorderFF3 {
+    border-left:none;
+    border-top: none;
+}
+
+.IBType {
+    white-space: nowrap
+}
+
+.IBNoRight.IBType,
+.IBNoRight .IBType {
+    padding-right: 2px
+}
+
+.IBLow .IBButton {
+    padding-left: 5px;
+    padding-right: 5px
+}
+
+.IBSmall .IBButton {
+    padding-top: 0;
+    padding-bottom: 0
+}
+
+.IBInt,
+.IBFloat,
+.IBDate {
+    text-align: right
+}
+
+.IBImg,
+.IBHtml {
+    padding: 0;
+}
+
+.IBBool {
+    text-align: center;
+    line-height: 0
+}
+
+.IBLink {
+    cursor: pointer
+}
+
+.IBMain .IBBool {
+    padding: 0 5px 0 5px
+}
+
+.IBLow .IBBool {
+    padding: 0;
+}
+
+.IBIcon {
+    background-repeat: no-repeat
+}
+
+.IBAbs {
+    padding: 0;
+    vertical-align: top !important
+}
+
+.IBUser {
+    padding: 0
+}
+
+.IBIndexText {
+    text-align: center
+}
+
+
+.IBMain.IBIE .IBOverflowDisable {
+    opacity: 1;
+    position: relative
+}
+
+.IBMain.IBIE .IBMulti.IBOverflowDisable {
+    opacity: 1;
+    position: inherit
+}
+
+button.IBRightButton {
+    padding: 0 2px 0 2px;
+    margin: 0;
+    line-height: 1;
+    box-sizing: border-box !important;
+}
+
+.IBDataRow button.IBRightButton {
+    line-height: 1;
+}
+
+u.IBRightButton {
+    padding: 0 7px 0 7px;
+    margin: 0 5px 0 5px;
+    text-decoration: none;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    vertical-align: middle
+}
+
+.IBDataRow u.IBRightButton {
+    margin: 0;
+    line-height: 1;
+}
+
+.IBMain .IBRightHtml {
+    padding: 0;
+    color: inherit;
+}
+
+.IBDataRow .IBRightHtml {
+    padding: 0;
+}
+
+.IBLevels {
+    padding: 0;
+}
+
+.IBLevels>table {
+    width: 100%;
+}
+
+.IBMergedCellV {
+    padding: 0;
+}
+
+.IBHeaderResize {
+    border: none;
+}
+
+.IBDropCols {
+    padding: 0;
+}
+
+.IBHeaderGroup {
+    padding: 4px 8px 4px 8px;
+}
+
+.IBHeaderGroupCustom {
+    padding: 4px 0 4px 5px;
+}
+
+.IBResizingRow {
+    border: none;
+}
+
+.IBCellSpace,
+.IBCellSpaceIcon {
+    padding-left: 10px;
+    padding-right: 10px
+}
+
+.IBCellSpace,
+.IBSpaceIconInner {
+    padding-top: 5px;
+    padding-bottom: 5px
+}
+
+.IBCellSpaceIcon {
+    padding: 0;
+}
+
+.IBSpaceIconInner>div {
+    overflow: hidden
+}
+
+.IBCellSpaceEmpty {
+    padding: 0;
+}
+
+.IBMain .IBCellSpaceButton,
+.IBMain .IBSpaceButtonIconInner {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    white-space: nowrap
+}
+
+.IBMain .IBCellSpaceButtonIcon {
+    padding: 0;
+    white-space: nowrap
+}
+
+.IBMain .IBCellSpaceTool {
+    padding: 0
+}
+
+.IBMain .IBCellSpaceBool {
+    line-height: 0;
+    padding-top: 0;
+    padding-bottom: 0
+}
+
+.IBCellSpaceRadio {
+    padding-top: 0;
+    padding-bottom: 0
+}
+
+.IBCellSpaceSelect {
+    padding: 0
+}
+
+.IBSpaceSelectInnerIcon {
+    padding: 0 20px 0 0;
+}
+
+.IBSpaceSelectIconInner {
+    padding: 4px 6px 4px 6px
+}
+
+
+.IBCellSpaceEdit {
+    padding: 0;
+}
+
+.IBSpaceEditInner,
+.IBSpaceEditIconInner,
+.IBSpaceEditReadOnly {
+    padding: 4px 6px 4px 6px
+}
+
+.IBSpaceEditInnerIcon {
+    padding: 0 2px 0 1px
+}
+
+.IBSpaceEditButtonIconInner {
+    padding-top: 0;
+    padding-bottom: 0
+}
+
+.IBMain .IBSpaceClassInner {
+    padding-top: 0;
+    padding-bottom: 0
+}
+
+.IBMain .IBSpaceWrap {
+    padding-left: 8px;
+    padding-right: 8px;
+    white-space: normal
+}
+
+.IBMain .IBCellSpaceWrap {
+    display: inline-block;
+    margin-top: 4px;
+    margin-bottom: 4px
+}
+
+.IBMain .IBCellSpaceWrap.IBEmpty {
+    height: 26px;
+    padding-top: 0;
+    padding-bottom: 0
+}
+
+.IBCellRotate1 {
+    vertical-align: bottom;
+    text-align: center
+}
+
+.IBCellRotate2 {
+    vertical-align: top;
+    text-align: center
+}
+
+.IBMain .IBCellRotate {
+    padding-left: 0;
+    padding-right: 0
+}
+
+.IBRotate1,
+.IBRotate2 {
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    writing-mode: vertical-rl
+}
+
+.IBRotate1 {
+    -ms-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg)
+}
+
+.IBIconRotate {
+    padding-top: 30px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    background-position: center 5px !important
+}
+
+.IBIconRotateHeader {
+    padding-top: 25px !important;
+    padding-bottom: 6px !important
+}
+
+.IBIconRotate.IBAlignLeft {
+    background-position-x: 2px !important
+}
+
+.IBIconRotate.IBAlignCenter {
+    background-position-x: center !important
+}
+
+.IBIconRotate.IBAlignRight {
+    background-position-x: right 2px !important
+}
+
+.IBCellRotate.IBNoLeft {
+    background-position-y: 5px !important
+}
+
+.IBWrap0 {
+    white-space: nowrap
+}
+
+.IBWrap1 {
+    white-space: normal
+}
+
+.IBVAlignMiddle {
+    vertical-align: middle;
+    display: table-cell
+}
+
+.IBVAlignBottom {
+    vertical-align: bottom;
+    display: table-cell
+}
+
+.IBVAlignTop {
+    vertical-align: top;
+    display: table-cell
+}
+
+.IBTextItalic,
+.IBTextItalic>div {
+    font-style: italic
+}
+
+.IBTextUnderline,
+.IBTextUnderline>div {
+    text-decoration: underline
+}
+
+.IBTextStrike,
+.IBTextStrike>div {
+    text-decoration: line-through
+}
+
+.IBTextOverline,
+.IBTextOverline>div {
+    text-decoration: overline
+}
+
+.IBTextUnderlineStrike,
+.IBTextUnderlineStrike>div {
+    text-decoration: underline line-through
+}
+
+.IBTextUnderlineOverline,
+.IBTextUnderlineOverline>div {
+    text-decoration: underline overline
+}
+
+.IBTextStrikeOverline,
+.IBTextStrikeOverline>div {
+    text-decoration: line-through overline
+}
+
+.IBTextUnderlineStrikeOverline,
+.IBTextUnderlineStrikeOverline>div {
+    text-decoration: underline line-through overline
+}
+
+.IBTextSmall,
+.IBTextSmall>div {
+    font-variant: small-caps
+}
+
+.IBMain .IBIndentLeft8 {
+    padding-left: 80px
+}
+
+.IBMain .IBIndentRight8 {
+    padding-right: 80px
+}
+
+.IBMain .IBIndentLeft9 {
+    padding-left: 90px
+}
+
+.IBMain .IBIndentRight9 {
+    padding-right: 90px
+}
+
+.IBMain .IBIndentLeft10 {
+    padding-left: 100px
+}
+
+.IBMain .IBIndentRight10 {
+    padding-right: 100px
+}
+
+.IBMain .IBIndentLeft15 {
+    padding-left: 150px
+}
+
+.IBMain .IBIndentRight15 {
+    padding-right: 150px
+}
+
+.IBMain .IBIndentLeft20 {
+    padding-left: 200px
+}
+
+.IBMain .IBIndentRight20 {
+    padding-right: 200px
+}
+
+.IBMain .IBIndentLeft25 {
+    padding-left: 250px
+}
+
+.IBMain .IBIndentRight25 {
+    padding-right: 250px
+}
+
+.IBMain .IBIndentLeft30 {
+    padding-left: 300px
+}
+
+.IBMain .IBIndentRight30 {
+    padding-right: 300px
+}
+
+.IBMain .IBIndentLeft35 {
+    padding-left: 350px
+}
+
+.IBMain .IBIndentRight30 {
+    padding-right: 350px
+}
+
+.IBMain .IBIndentLeft40 {
+    padding-left: 400px
+}
+
+.IBMain .IBIndentRight40 {
+    padding-right: 400px
+}
+
+.IBMain .IBIndentLeft45 {
+    padding-left: 450px
+}
+
+.IBMain .IBIndentRight40 {
+    padding-right: 450px
+}
+
+.IBMain .IBIndentLeft50 {
+    padding-left: 500px
+}
+
+.IBMain .IBIndentRight50 {
+    padding-right: 500px
+}
+
+.IBNoLeft,
+.IBNoSpaceLeft {
+    border-left: none !important;
+    border-bottom-left-radius: 0 !important;
+    border-top-left-radius: 0 !important
+}
+
+.IBMain .IBNoSpaceLeft {
+    padding-left: 0;
+}
+.IBNoRight,
+.IBNoSpaceRight {
+    border-right: none !important;
+    border-bottom-right-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    background-image: none
+}
+
+.IBMain .IBNoSpaceRight {
+    padding-right: 0;
+}
+
+.IBNoSpaceLeft.IBNoSpaceRight {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.IBEmpty {
+    text-decoration: none !important;
+}
+
+.IBPages {
+    overflow: visible;
+    padding: 0 !important
+}
+
+.IBPages,
+.IBPages>div {
+    text-overflow: clip;
+}
+
+.IBPagesLink,
+.IBPagesLinkActive {
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.IBTouch .IBPagesLink,
+.IBTouch .IBPagesLinkActive {
+    margin-left: 6px;
+    margin-right: 6px
+}
+
+.IBTree {
+    padding: 0;
+    white-space: nowrap;
+    line-height: 0;
+    height: 0;
+    text-overflow: clip
+}
+
+.IBFF .IBTree {
+    height: 100%
+}
+
+.IBNoTreeLines1,
+.IBNoTreeLines2,
+.IBNoTreeLines3 {
+    text-align: right
+}
+
+.IBSpannedTree {
+    line-height: 0;
+    height: 0
+}
+
+.IBTreeAlign {
+    vertical-align: middle
+}
+
+.IBTreeTop,
+.IBTreeMiddle,
+.IBTreeBottom {
+    background-repeat: no-repeat !important
+}
+
+.IBTreeTop.IBTreeIcon {
+    background-position: center top
+}
+
+.IBTreeMiddle.IBTreeIcon {
+    background-position: center center
+}
+
+.IBTreeBottom.IBTreeIcon {
+    background-position: center bottom
+}
+
+.IBTreeImage,
+.IBTreeImageIE {
+    display: inline-block;
+    height: 100%;
+    width: 0
+}
+
+.IBNTree,
+.IBNTreeImage {
+    background-size: 16px 16px;
+    background-position: right 6px center;
+    background-repeat: no-repeat
+}
+.IBNTreeImage {
+    display: inline-block;
+    width: 28px;
+    height: 29px
+}
+
+.IBDataRow .IBNTreeImage {
+    height: 17px
+}
+
+.IBNWidth {
+    width: 20px
+}
+.IBFilter0,
+.IBFilter1,
+.IBGroup0,
+.IBGroup1,
+.IBSearch0,
+.IBSearch1 {
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: inline-block
+}
+
+.IBFilter0,
+.IBFilter1 {
+    height: 29px;
+    background-size: 16px 16px;
+    width: 16px
+}
+.IBGroup0,
+.IBGroup1,
+.IBSearch0,
+.IBSearch1 {
+    height: 26px;
+    background-size: 20px 20px;
+    width: 20px
+}
+
+.IBMain .IBPSpace1 {
+    width: 29px;
+    text-align: center
+}
+
+.IBMain .IBPSpace2 {
+    width: 53px;
+    text-align: center
+}
+
+.IBMain .IBPSpace3 {
+    width: 77px;
+    text-align: center
+}
+
+.IBMain .IBPSpace4 {
+    width: 101px;
+    text-align: center
+}
+
+.IBTabHtmlBase * {
+    line-height: inherit
+}
+
+.IBMain .IBTabSep {
+    padding-left: 3px;
+    padding-right: 0;
+    cursor: default !important
+}
+
+.IBMain .IBTabSepRight,
+.IBMain .IBTabSepLeft {
+    padding: 5px;
+    width: 5px
+}
+
+.IBTabSepLast {
+    display: none
+}
+
+.IBTabSepFirst {
+    display: none
+}
+
+.IBMain .IBToolButton {
+    text-align: center;
+    padding: 0;
+    overflow: hidden
+}
+
+button.IBToolButtonButton,
+button.IBToolButtonButton1 {
+    margin-top: 5px;
+    margin-bottom: 4px;
+    padding: 0;
+    line-height: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+    display: block;
+    color: inherit
+}
+
+.IBDataRow button.IBToolButtonButton,
+.IBDataRow button.IBToolButtonButton1 {
+    line-height: 1;
+}
+
+button.IBToolSpaceButton,
+button.IBToolSpaceButton1 {
+    padding: 4px 6px 4px 6px;
+    cursor: pointer;
+    white-space: nowrap
+}
+
+u.IBToolButtonButton,
+u.IBToolButtonButton1,
+u.IBToolSpaceButton,
+u.IBToolSpaceButton1 {
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap
+}
+
+u.IBToolButtonButton,
+u.IBToolButtonButton1 {
+    margin: 0;
+}
+
+.IBAlignCenter>u.IBToolButtonButton,
+.IBAlignCenter>u.IBToolButtonButton1 {
+    margin: 0;
+}
+
+.IBAlignRight>u.IBToolButtonButton,
+.IBAlignRight>u.IBToolButtonButton1 {
+    margin: 0;
+}
+
+.IBDataRow u.IBToolButtonButton,
+.IBDataRow u.IBToolButtonButton1 {
+    margin: 0;
+    line-height: 13px
+}
+
+.IBMain i.IBToolButtonIconInner {
+    background-size: 11px 11px;
+    display: inline-block;
+    font-style: normal
+}
+
+u.IBToolSpaceButton,
+u.IBToolSpaceButton1,
+.IBMain .IBToolSpaceIconInner {
+    padding: 4px 5px 4px 5px
+}
+
+.IBMain u.IBToolSpaceIcon {
+    padding-top: 0;
+    padding-bottom: 0
+}
+
+.IBMain .IBToolSpaceIconInner {
+    display: inline-block;
+    font-style: normal
+}
+
+.IBMain .IBToolButtonEmpty,
+.IBMain .IBToolSpaceEmpty {
+    width: 0;
+    overflow: hidden;
+    display: inline-block
+}
+
+.IBMain .IBToolButtonEmpty {
+    height: 13px
+}
+
+.IBMain .IBToolSpaceEmpty {
+    height: 19px
+}
+
+.IBGiant .IBToolSpaceEmpty {
+    height: 24px
+}
+
+.IBToolHtml,
+.IBToolHtml1 {
+    padding-left: 10px;
+    padding-right: 10px
+}
+
+.IBToolHtmlIconLeft {
+    text-align: left
+}
+
+.IBToolHtmlIconRight {
+    text-align: right
+}
+
+.IBToolHtmlEmpty {
+    height: 16px;
+    width: 0;
+    overflow: hidden;
+    display: inline-block
+}
+
+.IBDisabledButton {
+    opacity: 0.3
+}
+
+.IBPopupLeft {
+    background-position: -4px calc(50% - 1px);
+    padding-left: 12px
+}
+
+.IBPopupRight {
+    background-position: right -4px top calc(50% - 1px);
+    padding-right: 12px
+}
+
+.IBPopupNone {
+    padding-right: 16px
+}
+
+.IBMain .IBToolAlignSingle {
+    background-size: 21px 21px;
+    padding-left: 24px;
+    padding-right: 6px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 0.7
+}
+
+.IBToolAlignSingle.IBHasLine {
+    padding-left: 0
+}
+
+.IBMain .IBToolAlignLeft {
+    background-size: 21px 21px;
+    padding-left: 25px;
+    padding-right: 10px;
+    background-position: left center;
+    background-repeat: no-repeat;
+    opacity: 0.7
+}
+
+.IBMain .IBToolAlignRight {
+    background-size: 21px 21px;
+    padding-right: 25px;
+    padding-left: 10px;
+    background-position: right center;
+    background-repeat: no-repeat;
+    opacity: 0.7
+}
+
+.IBMain .IBToolAlignTop {
+    background-size: 21px 21px;
+    padding: 23px 5px 3px 5px;
+    background-position: center top;
+    background-repeat: no-repeat;
+    opacity: 0.7
+}
+
+.IBMain .IBToolAlignBottom {
+    background-size: 21px 21px;
+    padding: 5px 5px 25px 5px;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    opacity: 0.7
+}
+
+.IBToolLineAlignSingle {
+    margin: 10px 11px -14px 0;
+    height: 0;
+    width: 20px
+}
+
+.IBCellSpaceTool .IBToolLine {
+    margin: 23px 3px -27px 0 !important
+}
+
+.IBToolLineAlignLeft {
+    margin: 18px 0 -22px -26px;
+    height: 0
+}
+
+.IBToolLineAlignRight {
+    margin: 18px -26px -22px 0;
+    height: 0
+}
+
+.IBToolLineAlignTop {
+    margin: -2px auto -2px auto;
+    height: 0
+}
+
+.IBCellSpaceTool .IBToolLineAlignTop {
+    margin-top: 20px !important;
+    margin-bottom: -24px !important
+}
+
+.IBToolLineAlignBottom {
+    margin: 40px auto -44px auto;
+    height: 0
+}
+
+.IBCellSpaceTool .IBToolLineAlignBottom {
+    margin: 45px 3px -49px 0 !important
+}
+
+.IBToolLineAlignText {
+    margin: 17px auto -21px auto;
+    height: 0
+}
+
+.IBToolLineNone {
+    border-bottom: 4px solid;
+    padding-top: 0
+}
+
+.IBToolLineEmpty {
+    padding-top: 2px
+}
+
+.IBToolLine0 {
+    border-bottom: 0;
+    padding-top: 0;
+}
+
+.IBToolLine1 {
+    border-bottom: none;
+    padding-top: 0;
+}
+
+.IBToolLine2 {
+    border-bottom: none;
+    padding-top: 0;
+}
+
+.IBToolLine3 {
+    border-bottom: none;
+    // padding-top: 1px
+    padding-top:0;
+}
+
+.IBToolLine4 {
+    border-bottom: 1px dotted;
+    padding-top: 0;
+}
+
+.IBToolLine5 {
+    border-bottom: 2px dotted;
+    padding-top: 2px
+}
+
+.IBToolLine6 {
+    border-bottom: 1px dashed;
+    padding-top: 2px
+}
+
+.IBToolLine7 {
+    border-bottom: 2px dashed;
+    padding-top: 2px
+}
+.IBMain .IBToolUndo,
+.IBMain .IBToolRedo {
+    opacity: 0.3
+}
+
+.IBMain .IBToolSort,
+.IBMain .IBToolCalc {
+    opacity: 0.3
+}
+
+.IBMain .IBToolPagerFirst,
+.IBMain .IBToolPagerPrev,
+.IBMain .IBToolPagerNext,
+.IBMain .IBToolPagerLast {
+    opacity: 0.3
+}
+
+.IBMain .IBToolZoomIn,
+.IBMain .IBToolZoomOut {
+    opacity: 0.3
+}
+
+.IBToolColorText,
+.IBToolColorBackground,
+.IBToolColorShadow,
+.IBToolBorder {
+    background-position: left center, right center !important
+}
+
+.IBToolImage.IBToolColorText,
+.IBToolImage.IBToolColorBackground,
+.IBToolImage.IBToolColorShadow,
+.IBToolImage.IBToolBorder {
+    padding-left: 30px
+}
+
+.IBToolColorTextRight,
+.IBToolColorBackgroundRight,
+.IBToolColorShadowRight,
+.IBToolBorderRight {
+    background-position: right 16px center, right center !important;
+    padding-right: 44px !important
+}
+
+.IBToolColorTextTop,
+.IBToolColorBackgroundTop,
+.IBToolColorShadowTop,
+.IBToolBorderTop {
+    background-position: center top, right top !important;
+    min-width: 40px
+}
+
+.IBToolColorTextBottom,
+.IBToolColorBackgroundBottom,
+.IBToolColorShadowBottom,
+.IBToolBorderBottom {
+    background-position: center bottom, right bottom !important;
+    min-width: 40px
+}
+
+.IBToolResize {
+    visibility: hidden
+}
+
+.IBMain .IBToolImage {
+    display: inline-block;
+    height: 26px;
+    width: 0;
+    overflow: hidden
+}
+
+.IBToolImageLeftText,
+.IBToolImageRightText,
+.IBToolImageTopText,
+.IBToolImageBottomText {
+    display: inline-block;
+    text-decoration: none
+}
+
+.IBToolImageLeftText,
+.IBToolImageRightText {
+    line-height: 26px
+}
+
+.IBToolIconSingle {
+    background-position: center center
+}
+
+.IBToolIconLeft {
+    background-position: left center
+}
+
+.IBToolIconRight {
+    background-position: right center
+}
+
+.IBToolIconTop {
+    background-position: center top
+}
+
+.IBToolIconBottom {
+    background-position: center bottom
+}
+
+.IBPagerEdit>div {
+    text-align: center
+}
+
+.IBMain .IBSideCenter {
+    padding-left: 25px;
+    background-position: center center
+}
+
+.IBMain .IBSideRight {
+    padding-right: 25px;
+    background-position: right 4px center
+}
+
+.IBMain .IBSideTop {
+    padding-top: 15px;
+    background-position: center top
+}
+
+.IBMain .IBSideBottom {
+    padding-bottom: 15px;
+    background-position: center bottom
+}
+
+.IBMain .IBButtonImage {
+    height: 25px;
+    display: inline-block;
+    padding-left: 0;
+    padding-right: 0
+}
+
+.IBIconLink {
+    text-decoration: none;
+    width: 1000px;
+    display: inline-block
+}
+
+.IBIconLeft {
+    background-position: left center;
+    padding-left: 25px;
+    background-repeat: no-repeat
+}
+
+.IBIconRight {
+    background-position: right center;
+    padding-right: 25px;
+    background-repeat: no-repeat
+}
+
+.IBIconCenter {
+    background-position: center center;
+    background-repeat: no-repeat
+}
+
+.IBIconTop {
+    padding-top: 20px;
+    background-position: center 0;
+    background-repeat: no-repeat
+}
+
+.IBIconBottom {
+    padding-bottom: 21px;
+    background-position: center 20px;
+    background-repeat: no-repeat
+}
+
+.IBIconTopVAlignTop {
+    padding-top: 20px
+}
+
+.IBIconTopVAlignMiddle {
+    padding-top: 21px
+}
+
+.IBIconTopVAlignBottom {
+    padding-top: 22px
+}
+
+.IBIconBottomVAlignTop {
+    padding-bottom: 22px
+}
+
+.IBIconBottomVAlignMiddle {
+    padding-bottom: 21px
+}
+
+.IBIconBottomVAlignBottom {
+    padding-bottom: 21px
+}
+
+.IBFilterAllMenu {
+    background-size: 16px 16px;
+    width: 23px;
+    height: 16px;
+    overflow: hidden;
+    background-position-y: center;
+    background-repeat: no-repeat
+}
+
+.IBMain .IBSortLeft {
+    background-size: 21px 21px;
+    background-position: 3px center;
+    background-repeat: no-repeat
+}
+
+.IBMain .IBSortRight {
+    background-size: 21px 21px;
+    background-position: right 3px center;
+    background-repeat: no-repeat
+}
+
+.IBRadioBase {
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    padding-top: 0;
+    padding-bottom: 0
+}
+
+.IBRadioLeft,
+.IBRadioIconLeft {
+    padding-left: 20px;
+    padding-right: 6px;
+    background-position: left center
+}
+
+.IBRadioRight,
+.IBRadioIconRight {
+    padding-right: 20px;
+    padding-left: 6px;
+    background-position: right center
+}
+
+.IBRadioNone {
+    background-image: none
+}
+
+.IBRadio {
+    padding-top: 4px;
+    padding-bottom: 4px
+}
+
+.IBRadioNone {
+    padding-left: 5px;
+    padding-right: 5px
+}
+
+.IBRadioIconLeft {
+    background-position: left center
+}
+
+.IBRadioIconRight {
+    background-position: right center
+}
+
+span.IBRadioBase,
+nobr.IBRadioBase {
+    display: inline-block
+}
+
+.IBRadioCell {
+    white-space: nowrap;
+    vertical-align: top
+}
+
+.IBRadioInput {
+    margin: 4px 4px 3px 4px;
+    padding: 0
+}
+
+.IBRadioText {
+    padding-right: 6px
+}
+
+nobr.IBRadioCell,
+span.IBRadioCell {
+    display: inline-block
+}
+
+.IBBoolBase,
+.IBBoolImage {
+    background-size: 14px 14px;
+    background-repeat: no-repeat;
+    background-position: center center
+}
+
+.IBBoolImage {
+    display: inline-block;
+    height: 29px;
+    width: 24px;
+    overflow: hidden;
+    padding: 0
+}
+
+.IBBoolRO {
+    opacity: 0.5
+}
+
+.IBMain .IBBoolBaseSpace,
+.IBMain .IBBoolImageSpace {
+    background-size: 20px 20px;
+    padding-left: 22px;
+    padding-right: 10px;
+    background-position: center center;
+    background-repeat: no-repeat
+}
+
+.IBNoSpaceLeft.IBBoolBaseSpace,
+.IBNoSpaceLeft.IBBoolImageSpace {
+    background-position-x: 3px
+}
+
+.IBNoSpaceRight.IBBoolBaseSpace,
+.IBNoSpaceRight.IBBoolImageSpace {
+    background-position-x: calc(100% - 3px)
+}
+
+.IBMain .IBBoolImageSpace {
+    display: inline-block;
+    width: 0;
+    height: 26px;
+    overflow: hidden
+}
+
+.IBBool0SpaceRO,
+.IBBool1SpaceRO,
+.IBBoolXSpaceRO,
+.IBBool2SpaceRO,
+.IBBool3SpaceRO {
+    opacity: 0.5
+}
+
+.IBBoolInput {
+    margin: 8px auto 8px auto;
+    padding: 0;
+    display: inline-block
+}
+
+.IBDataRow .IBBoolInput {
+    margin: 0;
+}
+
+.IBBoolInputSpace {
+    margin-top: 5px;
+    margin-bottom: 3px;
+    padding: 0;
+    display: inline-block
+}
+
+.IBBoolChar {
+    height: 11px;
+    width: 10px;
+    font: bold 11px Arial;
+    margin: 7px auto 7px auto;
+    padding-left: 1px;
+    border: 1px ridge transparent;
+    text-align: center;
+    overflow: hidden;
+    display: inline-block
+}
+
+.IBDataRow .IBBoolChar {
+    margin: 0;
+}
+
+.IBBoolChar0RO,
+.IBBoolChar1RO,
+.IBBoolChar2RO {
+    color: gray
+}
+
+.IBPagerCaption {
+    white-space: nowrap;
+    vertical-align: middle;
+    display: table-cell
+}
+
+.IBPagerItem {
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.IBMain b.IBPagerSort1 {
+    color: inherit;
+}
+
+.IBPagerFocus,
+.IBPagerFocus2,
+.IBPagerFocus3 {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    opacity: 0.3
+}
+
+.IBPagerHover {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden
+}
+
+.IBClassHoveredCellSpaceBool0 {
+    opacity: 0.6
+}
+
+.IBClassHoveredCellSpaceBool1 {
+    opacity: 0.6
+}
+
+.IBClassHoveredCellSpaceBoolX {
+    opacity: 0.6
+}
+
+.IBClassHoveredCellSpaceBoolIcon {
+    opacity: 0.6
+}
+
+.IBClassHoveredCellButton {
+    opacity: 0.5
+}
+
+.IBClassHoveredCellButton1 {
+    opacity: 0.5
+}
+
+.IBSmall .IBClassHoveredCellTab,
+.IBSmall .IBClassHoveredCellTab1 {
+    border: 0 none;
+}
+
+.IBHoverRowBorder {
+    z-index: 1;
+    cursor: default
+}
+
+.IBHoverCellBorder {
+    z-index: 1;
+    padding: 0;
+}
+
+.IBHoverRowBorder {
+    z-index: 1;
+    cursor: default
+}
+
+.IBHoverCellBorder {
+    z-index: 1;
+    padding: 0;
+}
+
+.IBFocusRowBorder {
+    z-index: 1;
+}
+
+.IBFocusCellBorder {
+    z-index: 1;
+}
+
+.IBFocusCellSpaceBorder {
+    z-index: 1;
+}
+
+.IBFocusCellCorner {
+    position: relative;
+    padding: 0;
+    margin-left: -3px;
+    margin-top: -5px;
+    width: 7px;
+    height: 7px;
+    z-index: 4;
+    cursor: crosshair
+}
+
+.IBTouch .IBFocusCellCorner {
+    width: 10px;
+    height: 10px;
+    margin-left: 0
+}
+
+.IBEditCellBorder {
+    z-index: 4
+}
+
+.IBEditCellSpaceBorder {
+    z-index: 4
+}
+
+.IBEditCellCorner {
+    position: relative;
+    padding: 0;
+    margin-left: -3px;
+    margin-top: -5px;
+    width: 7px;
+    height: 7px;
+    z-index: 4;
+    cursor: crosshair
+}
+
+.IBTouch .IBEditCellCorner {
+    width: 10px;
+    height: 10px;
+    margin-left: 0
+}
+
+.IBEditCellInput {
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+    padding: 0;
+    line-height: 0;
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.IBCursorBackground {
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+    border: none;
+    & > div {
+        padding-top: 1px;
+        height: calc(100% - 1px);
+    }
+}
+
+.IBCursorBorderLeft,
+.IBCursorBorderRight,
+.IBCursorBorderTop,
+.IBCursorBorderBottom {
+    position: relative;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    padding: 0;
+    border: none;
+}
+
+.IBEditInput,
+.IBEditTextarea {
+    border: 0 none !important;
+    padding: 0 3px 0 0 !important;
+    outline: none !important;
+    box-sizing: content-box !important;
+    resize: none !important;
+    min-height: 0 !important;
+    line-height: 18px !important;
+    border-radius: 0 !important;
+    transition: none !important;
+}
+
+.IBEditTextarea {
+    margin: 0 !important;
+    word-break: normal
+}
+
+.IBEditInput::-ms-clear {
+    height: 13px !important
+}
+
+.IBEditInt,
+.IBEditFloat,
+.IBEditDate,
+.IBEditRight {
+    text-align: right
+}
+
+.IBEditInt::-ms-clear,
+.IBEditFloat::-ms-clear,
+.IBEditDate::-ms-clear,
+.IBEditRight::-ms-clear {
+    display: none
+}
+
+.IBWK .IBEditInt,
+.IBWK .IBEditFloat,
+.IBWK .IBEditDate,
+.IBWK .IBEditRight {
+    margin-left: 0 !important
+}
+
+.IBEditTab {
+    text-align: center;
+}
+
+.IBHigh.IBIE .IBEditTab,
+.IBHigh.IBFF .IBEditTab {
+    // margin-top: -1px;
+    margin: 0;
+}
+
+.IBMouseObject {
+    opacity: 0.5;
+    z-index: 300;
+    overflow: hidden
+}
+
+.IBVLine {
+    width: 0;
+    border-left: none;
+    overflow: hidden;
+    cursor: e-resize
+}
+
+.IBHLine {
+    height: 0;
+    border-top: none;
+    overflow: hidden;
+    cursor: e-resize
+}
+
+.IBDragObject {
+    z-index: 300;
+    margin-left: 5px;
+    margin-top: 5px;
+    padding: 5px;
+}
+
+.IBDragColInsideTop,
+.IBDragColInsideBottom,
+.IBDragColOutsideTop,
+.IBDragColOutsideBottom,
+.IBDragRowLeft,
+.IBDragRowRight {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    overflow: hidden;
+    z-index: 301;
+    background-repeat: no-repeat;
+    background-size: 16px 16px
+}
+
+.IBDisabled,
+.IBDisabledHard {
+    position: absolute;
+    z-index: 264;
+    opacity: 0
+}
+
+.IBDisabledHard {
+    opacity: 0.5
+}
+
+.IBMessage {
+    white-space: nowrap;
+    text-align: center;
+    visibility: hidden;
+    z-index: 266;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 20px;
+    min-width: 120px
+}
+
+.IBMessageShadow {
+    position: absolute;
+    display: none
+}
+
+.IBPageMessage {
+    padding: 20px
+}
+
+.IBPrompt {
+    padding-top: 30px;
+    padding-bottom: 10px
+}
+
+.IBPrompt input {
+    padding: 5px 6px 5px 6px;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 200px
+}
+
+.IBProgressCaption {
+    margin-bottom: 15px
+}
+
+.IBProgressText {
+    margin-bottom: 15px
+}
+
+.IBProgressOuter {
+    text-align: left;
+    width: 300px;
+    margin: 0 30px 10px 30px;
+}
+
+.IBProgressInner {
+    height: 14px;
+}
+
+.IBMessageButtons {
+    margin: 10px 0 0 0
+}
+
+.IBProgressButtons {
+    margin: 10px -20px -20px -20px;
+    padding: 15px
+}
+
+.IBProgressButton,
+.IBMessageButton {
+    padding: 4px 5px 4px 5px;
+    margin: 0;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    min-width: 70px
+}
+
+.IBMenuMain {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 258;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(84, 105, 120, 0.3)
+}
+
+.IBMenuShadow {
+    position: absolute;
+    display: none
+}
+
+.IBMenuOuter {
+    overflow: hidden
+}
+
+.IBMenuMainTop {
+    // margin-top: -2px;
+    margin: 0;
+
+}
+
+.IBDB.IBMenuMainTop {
+    // margin-top: -1px
+    margin: 0;
+}
+
+.IBMenuHeader {
+    overflow: hidden;
+    position: absolute;
+    z-index: 258;
+    cursor: pointer;
+    user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none
+}
+
+.IBMenuHeader>div {
+    vertical-align: middle;
+    display: table-cell
+}
+
+.IBMenuHead {
+    padding: 7px 0 7px 23px;
+    text-align: center;
+    cursor: default
+}
+
+.IBMenuBody {
+    cursor: default;
+    margin: 0;
+    // width: calc(100% - 2px)
+}
+
+.IBMenuFoot {
+    padding: 7px 6px 7px 6px;
+    text-align: center;
+    white-space: nowrap
+}
+
+.IBMenuButton {
+    padding: 4px 5px 3px 5px;
+    margin: 3px 4px 3px 4px;
+    width: 70px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    border: transparent 0
+}
+.IBMenuItem {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+}
+
+.IBMenuCheckedIconLeft,
+.IBMenuUncheckedIconLeft,
+.IBMenuCheckedRadioLeft,
+.IBMenuUncheckedRadioLeft {
+    padding-left: 20px;
+    background-position: left center;
+    background-size: 16px 16px
+}
+
+.IBMenuCheckedIconRight,
+.IBMenuUncheckedIconRight,
+.IBMenuCheckedRadioRight,
+.IBMenuUncheckedRadioRight {
+    padding-right: 20px;
+    background-position: right center;
+    background-size: 16px 16px
+}
+
+.IBMenuCursorIcon {
+    padding-left: 0 !important
+}
+
+.IBMenuHoverIcon {
+    padding-left: 0 !important
+}
+
+.IBMenuCursorIconRtl {
+    padding-left: 0 !important
+}
+
+.IBMenuHoverIconRtl {
+    padding-left: 0 !important
+}
+
+.IBMenuExpandedIcon>div,
+.IBMenuCollapsedIcon>div {
+    background: transparent;
+    border: 0 none;
+    padding-left: 20px;
+    text-align: left !important
+}
+
+.IBMenuItemText {
+    white-space: nowrap;
+    overflow: hidden
+}
+
+.IBMenuItemText * {
+    line-height: inherit
+}
+
+.IBMenuItemIcon {
+    background-repeat: no-repeat;
+    background-position: center center
+}
+
+.IBMenuItemDisabled {
+    opacity: 0.70
+}
+
+.IBMenuEnumParent {
+    padding-left: 5px
+}
+
+.IBMenuEnum,
+.IBMenuEnumHeaderLeft {
+    white-space: nowrap;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    background-position: 2px center
+}
+
+.IBMenuEnumParent,
+.IBMenuEnum,
+.IBMenuEnumHeaderLeft {
+    width: 90px
+}
+
+.IBMenuEnumMain {
+    margin-top: 0
+}
+
+.IBMenuEditParent {
+    padding-left: 5px
+}
+
+.IBMenuEdit {
+    padding-left: 3px;
+    padding-right: 3px;
+    overflow: hidden;
+    white-space: nowrap
+}
+
+.IBMenuEditParent,
+.IBMenuEdit {
+    width: 30px
+}
+
+.IBMenuEditParentPDFName,
+.IBMenuEditParentPDFName>.IBMenuEdit,
+.IBMenuEditParentExportName,
+.IBMenuEditParentExportName>.IBMenuEdit {
+    width: 104px
+}
+
+.IBMenuEditMulti {
+    white-space: normal
+}
+
+input.IBMenuEditInput,
+textarea.IBMenuEditTextarea {
+    border: 0;
+    margin: 0;
+    padding: none;
+    height: 18px;
+    outline: none;
+    background: transparent;
+    resize: none
+}
+
+.IBMenuEditInput::-ms-clear {
+    height: 13px
+}
+
+.IBMenuEditInt,
+.IBMenuEditFloat,
+.IBMenuEditDate {
+    text-align: right
+}
+
+.IBMenuCaption {
+    padding: 0;
+}
+
+.IBMenuSeparator {
+    margin: 0;
+    height: 0;
+    overflow: hidden;
+}
+.IBMenuVSeparator {
+    width: 0;
+}
+
+.IBHelpOuter {
+    overflow: hidden;
+    width: 500px
+}
+
+.IBHelpCategory:focus {
+    outline: auto;
+}
+
+.IBHelpListItem:focus {
+    outline: auto;
+}
+
+.IBFilterMenuMainTop,
+.IBFilterMenuMainBottom {
+    motion: 0;
+    // margin-left: -1px;
+    // margin-top: -1px
+}
+
+.IBFilterMenuHeader {
+    margin: 0;
+    padding: 0;
+    // margin-left: -1px;
+    // padding: 0 3px 0 5px
+}
+
+.IBFilterMenuHeaderTop {
+    // border-top: 0 none;
+    // margin-top: -1px;
+    // padding-bottom: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.IBFilterMenuHeaderBottom {
+    // border-bottom: 0 none;
+    // margin-top: -1px;
+    // padding-top: 1px
+    // padding-top:0;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.IBFilterMenuHeader .IBFilterAllMenu {
+    width: 20px;
+    height: 21px
+}
+
+.IBFilterMenuHeaderTop .IBFilterAllMenu {
+    background-position-y: 6px
+}
+
+.IBFilterMenuHeaderBottom .IBFilterAllMenu {
+    background-position-y: 3px
+}
+
+.IBFilterMenuItem {
+    padding: 0;
+}
+
+.IBMenuMainSpace.IBEnumMenuMain {
+    margin-left: 2px;
+    margin-right: 3px
+}
+
+.IBDB.IBEnumMenuMain {
+    margin-left: -5px
+}
+
+.IBDB.IBEnumMenuMainTop {
+    margin-top: -3px
+}
+
+.IBDB.IBEnumMenuMainBottom {
+    margin-top: -5px
+}
+
+.IBDB .IBEnumMenuOuter {
+    margin-right: 2px
+}
+
+.IBEnumMenuHeader {
+    padding: 0 2px 2px 1px;
+    margin-left: -2px
+}
+
+.IBEnumMenuHeaderBottom,
+.IBEnumMenuHeaderTop {
+    padding-top: 2px;
+    padding-bottom: 1px;
+    margin-top: -2px
+}
+
+.IBDB.IBEnumMenuHeaderBottom,
+.IBDB.IBEnumMenuHeaderTop {
+    margin-top: -5px;
+    padding-bottom: 2px;
+    margin-left: -5px;
+    padding-left: 4px;
+    padding-right: 0
+}
+
+.IBMain .IBEnumHeaderLeft,
+.IBMain .IBEnumHeaderRight,
+.IBMain .IBEnumHeaderNone {
+    box-sizing: border-box !important
+}
+
+.IBEnumHeaderLeft,
+.IBEnumHeaderRight,
+.IBEnumHeaderNone {
+    padding: 5px 10px 3px 10px;
+    white-space: nowrap;
+    cursor: pointer
+}
+
+.IBEnumHeaderLeft {
+    padding-left: 25px;
+    background-position: 5px 5px
+}
+
+.IBEnumHeaderRight {
+    padding-right: 25px;
+    background-position: right 3px top 5px
+}
+
+.IBDB .IBEnumHeaderLeft,
+.IBDB .IBEnumHeaderRight,
+.IBDB .IBEnumHeaderNone {
+    padding-top: 10px;
+    padding-bottom: 4px
+}
+
+.IBDB .IBEnumHeaderLeft {
+    background-position: 5px 11px;
+    padding-left: 25px
+}
+
+.IBDB .IBEnumHeaderRight {
+    background-position: right 5px top 11px;
+    padding-right: 25px
+}
+
+.IBToolMenuHeader {
+    display: none
+}
+
+.IBColumnsMenuItemText {
+    white-space: nowrap
+}
+
+.IBCfgMenuItem,
+.IBColumnsMenuItem {
+    // padding-top: 1px;
+    padding: 0;
+}
+
+.IBPopupSheetOuter {
+    overflow: visible
+}
+
+.IBPopupSheetHead {
+    padding: 0;
+}
+
+.IBPopupSheetBody {
+    padding: 0;
+}
+
+.IBPopupSheetFoot {
+    padding: 0
+}
+
+.IBPopupSheetButton {
+    width: 50px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.IBMenuItemBorderStyle {
+    margin-bottom: 9px;
+    height: 7px;
+    width: 50px;
+}
+
+.IBMenuItemBorderEmpty {
+    border: none;
+}
+
+.IBMenuItemBorder0 {
+    border: none;
+}
+
+.IBMenuItemBorder1 {
+    border: none;;
+}
+
+.IBMenuItemBorder2 {
+    border-bottom-width: 2px;
+    border-bottom-style: solid
+}
+
+.IBMenuItemBorder3 {
+    border-bottom-width: 3px;
+    border-bottom-style: solid
+}
+
+.IBMenuItemBorder4 {
+    border-bottom-width: 1px;
+    border-bottom-style: dotted
+}
+
+.IBMenuItemBorder5 {
+    border-bottom-width: 2px;
+    border-bottom-style: dotted
+}
+
+.IBMenuItemBorder6 {
+    border-bottom-width: 1px;
+    border-bottom-style: dashed
+}
+
+.IBMenuItemBorder7 {
+    border-bottom-width: 2px;
+    border-bottom-style: dashed
+}
+
+.IBMenuItemBorderEdge {
+    height: 23px;
+    width: 24px;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: center center
+}
+
+.IBBig .IBMenuItemBorderEdge {
+    height: 28px;
+    background-size: 24px 24px
+}
+
+.IBPickMain {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 258
+}
+
+.IBPickShadow {
+    position: absolute;
+    display: none
+}
+
+.IBPickOuter {
+    border: none;
+    padding: 0;
+    overflow: hidden
+}
+
+.IBPickBody {
+    cursor: default;
+    padding: 0;
+    margin: 0;
+    width: 100%
+}
+
+.IBPickHeader {
+    position: absolute;
+    z-index: 258;
+    overflow: hidden;
+    cursor: pointer
+}
+
+.IBPickHeaderBottom {
+    border-bottom: none;
+}
+
+.IBPickHeaderTop {
+    border-top: none;
+}
+
+.IBPickHead,
+.IBPickFoot {
+    padding: 0;
+    cursor: default
+}
+
+.IBPickClose {
+    display: none
+}
+
+.IBPickMY {
+    padding: 8px 0 7px 0;
+    cursor: default;
+    text-align: center
+}
+
+.IBPickMYDown,
+.IBPickMYUp {
+    padding-right: 18px;
+    background-size: 16px 16px;
+    background-position: right calc(50% - 1px);
+    background-repeat: no-repeat;
+    cursor: pointer
+}
+
+.IBPickMYRtl {
+    padding-right: 0;
+    padding-left: 13px
+}
+
+.IBPickBL,
+.IBPickBR {
+    width: 24px;
+    height: 24px;
+    background-size: 16px 16px;
+    padding: 0;
+    overflow: hidden;
+    cursor: pointer;
+    display: none
+}
+
+.IBPickA11yMY {
+    text-align: center
+}
+
+.IBPickTableParent {
+    border-top: 0 none;
+    clear: both
+}
+
+.IBPickTable {
+    table-layout: fixed;
+    width: 0
+}
+
+.IBPickA11yRow div {
+    padding: 0;
+}
+
+.IBPickA11yRow button {
+    width: 5px;
+    border: 0;
+    background: transparent;
+    margin: 0 auto;
+    cursor: pointer
+}
+
+.IBPickCell {
+    width: 36px;
+    line-height: inherit
+}
+
+.IBPickWDN {
+    margin: 0;
+    padding: 0;
+    line-height: 22px;
+    text-align: center;
+    cursor: default
+}
+
+.IBPickHover,
+.IBPickSelHover,
+.IBPickWD,
+.IBPickSa,
+.IBPickSu,
+.IBPickSel,
+.IBPickNow,
+.IBPickWDNE,
+.IBPickSaNE,
+.IBPickSuNE,
+.IBPickSelNE,
+.IBPickNowNE,
+.IBPickOM,
+.IBPickOMNE {
+    margin: 0;
+    padding: 0;
+    line-height: 22px;
+    text-align: center;
+    cursor: pointer
+}
+
+.IBPickWN,
+.IBPickWNE {
+    padding: 2px 4px 2px 4px;
+    line-height: 22px;
+    text-align: center;
+    cursor: pointer
+}
+
+.IBPickWNE {
+    cursor: default
+}
+
+.IBPickNE {
+    cursor: default
+}
+
+.IBPick2TableParent {
+    padding: 0;
+    display: block;
+    overflow: hidden;
+    clear: both
+}
+
+.IBPick2Table {
+    table-layout: fixed;
+    width: 0;
+    margin: 0;
+}
+
+.IBPick2CellM {
+    width: 70px;
+}
+
+.IBPick2CellY {
+    width: 53px
+}
+
+.IBPick2CellSep {
+    width: 5px
+}
+
+.IBPick2SepH {
+    display: none
+}
+
+.IBPick2A11yCellY div,
+.IBPick2A11yCellM div {
+    padding: 0;
+}
+
+.IBPick2M,
+.IBPick2Y {
+    margin: 0;
+    padding: 0;
+    line-height: 20px;
+    cursor: pointer;
+    text-align: center;
+    overflow: hidden
+}
+
+.IBPick2M button {
+    width: 66px;
+    height: 22px;
+    border: none;
+    background-color: transparent;
+    margin: 0 auto;
+    cursor: pointer
+}
+
+.IBPick2Y button,
+.IBPick2CellY button {
+    width: 34px;
+    height: 22px;
+    border: none;
+    background-color: transparent;
+    margin: 0 auto;
+    cursor: pointer
+}
+
+.IBPick2Sep {
+    height: 24px;
+    width: 0;
+    overflow: hidden;
+    margin: 0;
+}
+
+.IBPick2BL,
+.IBPick2BR {
+    width: 53px;
+    cursor: pointer;
+    height: 31px;
+    background-repeat: no-repeat;
+    background-position: center 7px;
+    background-size: 16px 16px
+}
+
+.IBPickA11yMY>.IBPickBL,
+.IBPickA11yMY>.IBPickBR {
+    height: 24px;
+    padding: 0;
+}
+
+.IBPick2A11yBL,
+.IBPick2A11yBR {
+    width: 53px;
+    cursor: pointer;
+    height: 31px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 16px 16px
+}
+
+.IBPickTimeCell {
+    padding: 12px 14px 13px 0;
+    // margin-top: -1px;
+    text-align: right;
+    line-height: 0;
+    height: 15px
+}
+.IBPickTime {
+    margin: 0;
+    padding: 0;
+    border: 0 none;
+    white-space: nowrap;
+    text-align: right;
+    outline: none;
+    background: transparent
+}
+
+.IBPickFooter,
+.IBPick2Footer {
+    padding: 2px 0 2px 0;
+    cursor: default;
+    text-align: center;
+    // margin-top: -1px
+}
+
+.IBPickButton {
+    padding: 4px 5px 3px 5px;
+    margin: 0 4px 0 4px;
+    width: 70px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden
+}
+
+.IBPickTimeCell {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between
+}
+
+.IBPickTimeCell>div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between
+}
+
+.IBPickTimeCell>div>div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center
+}
+
+.IBPickTimeCell input[type=text] {
+    padding: 0 !important;
+    border: 0 none !important;
+    border-radius: 0 !important;
+    line-height: unset !important
+}
+
+.IBTimePicker {
+    width: 161px;
+    height: 90px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.IBTimePicker>div {
+    margin: 3px 2px;
+    padding: 2px 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 5;
+}
+
+.IBTimePicker>div>div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center
+}
+
+.IBTimePicker input {
+    width: 21px;
+    text-align: center;
+    padding: 0;
+    border-radius: 0;
+}
+
+.IBTimePicker .IBButtonHourUp::after {
+    content: "â–²"
+}
+
+.IBTimePicker .IBButtonHourUp {
+    cursor: pointer;
+}
+
+.IBTimePicker .IBButtonHourDown::after {
+    content: "â–¼"
+}
+
+.IBTimePicker .IBButtonHourDown {
+    cursor: pointer;
+}
+
+.IBTimePicker .IBButtonMinUp::after {
+    content: "â–²"
+}
+
+.IBTimePicker .IBButtonMinUp {
+    cursor: pointer;
+}
+
+.IBTimePicker .IBButtonMinDown::after {
+    content: "â–¼"
+}
+
+.IBTimePicker .IBButtonMinDown {
+    cursor: pointer;
+}
+
+.IBTimePicker .IBButtonSecUp::after {
+    content: "â–²"
+}
+
+.IBTimePicker .IBButtonSecUp {
+    cursor: pointer;
+}
+
+.IBTimePicker .IBButtonSecDown::after {
+    content: "â–¼"
+}
+
+.IBTimePicker .IBButtonSecDown {
+    cursor: pointer;
+}
+.IBTimePicker+div {
+    text-align: center;
+    height: 37px
+}
+
+.IBTimePicker+div button {
+    margin: 6px
+}
+
+@media all and (-ms-high-contrast: none),
+(-ms-high-contrast: active) {
+    .IBTimePicker {
+        width: 180px
+    }
+
+    .IBTimePicker input {
+        width: 25px
+    }
+}
+
+@-moz-document url-prefix() {
+    .IBTimePicker {
+        width: 161px
+    }
+
+    .IBTimePicker input {
+        width: 17px
+    }
+}
+
+.IBEditParent {
+    position: absolute;
+    z-index: 258;
+    overflow: hidden
+}
+
+.IBEdit,
+.IBEditInline {
+    padding: 2px 4px 2px 4px;
+    white-space: nowrap;
+    overflow: hidden
+}
+
+.IBEditInline {
+    display: inline-block;
+    vertical-align: bottom
+}
+
+.IBEditMulti {
+    white-space: normal
+}
+
+.IBEnumControl,
+.IBEnumInline {
+    background-position: 2px 5px;
+    padding: 2px 4px 2px 20px;
+    overflow: hidden
+}
+
+.IBEnumInline {
+    display: inline-block;
+    vertical-align: bottom
+}
+
+.IBEnumHeader {
+    background-position: 2px 6px;
+    padding: 3px 4px 2px 20px
+}
+
+.IBMouseOrig {
+    background: yellow !important;
+    opacity: 0.5
+}
+
+.IBMouseDragObject {
+    position: absolute;
+    z-index: 260;
+    opacity: 0.5
+}
+
+.SheetDebugTag,
+.SheetDebugTagMax {
+    overflow: auto;
+    overflow-y: scroll;
+}
+
+.SheetDebugTag,
+.SheetDebugTagMax,
+.SheetDebugButtons,
+.SheetDebugButtonsMax {
+    position: fixed;
+    z-index: 256;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    height: 200px;
+    padding: 4px
+}
+
+.SheetDebugTagMax,
+.SheetDebugButtonsMax {
+    top: 5px;
+    height: auto
+}
+
+.SheetDebugButtons,
+.SheetDebugButtonsMax {
+    text-align: right;
+    margin-right: 25px;
+    width: 130px;
+    left: auto
+}
+
+.SheetDebugButton {
+    width: 40px;
+    padding: 0
+}
+
+.SheetDebugTitle {
+    font-style: normal;
+}
+
+.IBAnimateOverflow {
+    overflow: hidden
+}
+
+@keyframes IBExpandH {
+    from {
+        height: 0
+    }
+}
+
+@keyframes IBCollapseH {
+    to {
+        height: 0
+    }
+}
+
+.IBAnimateTransparent {
+    opacity: 0
+}
+
+@keyframes IBShow {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes IBHide {
+    from {
+        opacity: 1
+    }
+
+    to {
+        opacity: 0
+    }
+}
+
+.IBAnimateHidden {
+    display: none
+}
+
+.IBAnimateVisible {
+    display: inherit
+}
+
+.IBAnimateLeftTop {
+    overflow: hidden;
+    transform-origin: 0% 0%
+}
+
+.IBAnimateCenterTop {
+    overflow: hidden;
+    transform-origin: 50% 0%
+}
+
+.IBAnimateRightTop {
+    overflow: hidden;
+    transform-origin: 100% 0%
+}
+
+.IBAnimateLeftBottom {
+    overflow: hidden;
+    transform-origin: 0% 100%
+}
+
+.IBAnimateRightBottom {
+    overflow: hidden;
+    transform-origin: 100% 100%
+}
+
+.IBAnimateCenterBottom {
+    overflow: hidden;
+    transform-origin: 50% 100%
+}
+
+.IBAnimateLeftCenter {
+    overflow: hidden;
+    transform-origin: 0% 50%
+}
+
+.IBAnimateRightCenter {
+    overflow: hidden;
+    transform-origin: 100% 50%
+}
+
+.IBAnimateCenterCenter {
+    overflow: hidden;
+    transform-origin: 50% 50%
+}
+
+@keyframes IBZoomInH {
+    from {
+        height: 0;
+        transform: scale(1, 0)
+    }
+
+    to {
+        transform: scale(1, 1)
+    }
+}
+
+@keyframes IBZoomOutH {
+    from {
+        transform: scale(1, 1)
+    }
+
+    to {
+        transform: scale(1, 0);
+        height: 0
+    }
+}
+
+@keyframes IBZoomInY {
+    from {
+        transform: scale(1, 0)
+    }
+
+    to {
+        transform: scale(1, 1)
+    }
+}
+
+@keyframes IBZoomOutY {
+    from {
+        transform: scale(1, 1)
+    }
+
+    to {
+        transform: scale(1, 0)
+    }
+}
+
+@keyframes IBZoomInX {
+    from {
+        transform: scale(0, 1)
+    }
+
+    to {
+        transform: scale(1, 1)
+    }
+}
+
+@keyframes IBZoomOutX {
+    from {
+        transform: scale(1, 1)
+    }
+
+    to {
+        transform: scale(0, 1)
+    }
+}
+
+@keyframes IBZoomIn {
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
+
+@keyframes IBZoomOut {
+    from {
+        transform: scale(1)
+    }
+
+    to {
+        transform: scale(0)
+    }
+}
+
+@keyframes IBRotateX90 {
+    0% {
+        transform: rotateX(0deg)
+    }
+
+    50% {
+        transform: rotateX(90deg)
+    }
+
+    100% {
+        transform: rotateX(0deg)
+    }
+}
+
+@keyframes IBRotateX90To {
+    from {
+        transform: rotateX(0deg)
+    }
+
+    to {
+        transform: rotateX(90deg)
+    }
+}
+
+@keyframes IBRotateX90From {
+    from {
+        transform: rotateX(90deg)
+    }
+
+    to {
+        transform: rotateX(0deg)
+    }
+}
+
+@keyframes IBRotateY90 {
+    0% {
+        transform: rotateY(0deg)
+    }
+
+    50% {
+        transform: rotateY(90deg)
+    }
+
+    100% {
+        transform: rotateY(0deg)
+    }
+}
+
+@keyframes IBRotateY90To {
+    from {
+        transform: rotateY(0deg)
+    }
+
+    to {
+        transform: rotateY(90deg)
+    }
+}
+
+@keyframes IBRotateY90From {
+    from {
+        transform: rotateY(90deg)
+    }
+
+    to {
+        transform: rotateY(0deg)
+    }
+}
+
+@keyframes IBFocus {
+    0% {
+        color: inherit
+    }
+
+    50% {
+    }
+
+    100% {
+        color: inherit
+    }
+}
+
+@keyframes IBCopy {
+    0% {
+        transform: translateX(0px)
+    }
+
+    25% {
+        transform: translateX(1px)
+    }
+
+    75% {
+        transform: translateX(-1px)
+    }
+
+    100% {
+        transform: translateX(0px)
+    }
+}
+
+@keyframes IBOpacityBlink {
+    0% {
+        opacity: 1
+    }
+
+    50% {
+        opacity: 0.2
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+.IBBodyPrint,
+.IBBodyPrintPDF {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 none !important;
+    background: none !important;
+    -webkit-print-color-adjust: exact;
+}
+
+.IBPrintPage {
+    page-break-inside: avoid;
+    page-break-after: always
+}
+
+.IBPrintPage:last-child {
+    page-break-after: auto
+}
+
+.IBResizeBorder {
+    border: 1px dashed black !important
+}
+
+.SheetNoMomentumScroll * {
+    -webkit-overflow-scrolling: auto !important
+}
+
+.SheetTmpTag {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    visibility: hidden
+}
+
+.SheetCalcWidth table {
+    width: auto !important
+}
+
+.SheetDisabled {
+    position: absolute;
+    z-index: 256;
+    opacity: 0.5
+}
+
+
+
+.IBLoaded {
+    border: 1px solid black !important
+}
+
+BODY[class*=BodyPrint]>DIV[class*=PrintPage] {
+    margin: 0 auto;
+}
+
+BODY[class*=BodyPrint]>DIV[class*=PrintPage]>DIV {
+    visibility: visible;
+    position: static;
+}
+
+BODY[class*=BodyPrint]>DIV[class*=PrintPage]>DIV>DIV>DIV[class*=PaddingWrapper] {
+    line-height: 1rem;
+}
+
+.IBFindDlgTop {
+    padding: 10px 5px 4px 5px;
+    width: 100%
+}
+
+.IBFindDlgTop span {
+    text-align: center;
+    margin: 0 3px 0 3px;
+}
+
+.IBFindDlgTop div {
+    float: left
+}
+
+.IBFindDlgTop input {
+    padding-left: 5px
+}
+
+.IBFindDlgTop div:first-child {
+    width: 210px;
+    padding: 1px 2px 2px 1px
+}
+
+.IBFindDlgTop button {
+    margin-left: 5px;
+    padding: 4px 5px 4px 5px;
+    line-height: 18px;
+    text-decoration: none;
+    cursor: pointer
+}
+
+.IBFindDlgBottom {
+    padding: 6px 5px 10px 5px;
+    box-sizing: border-box;
+    width: 100%
+}
+
+.IBFindDlgBottom div:first-child {
+    float: left;
+    width: 50%
+}
+
+.IBFindDlgBottom div:last-child {
+    float: right;
+    width: 50%
+}
+
+.IBFindDlgBottom button {
+    margin-left: 5px;
+    padding: 4px 5px 4px 5px;
+    line-height: 18px;
+    text-decoration: none;
+    cursor: pointer
+}
+
+.IBMemo.IBHeaderText {
+    position: relative
+}
+
+.IBMemo.IBHeaderText:after {
+    position: absolute;
+    content: '';
+    width: 0;
+    right: 0;
+    top: -10px;
+    left: 0;
+    border: 10px solid transparent;
+    border-left: 10px solid red;
+    opacity: 1;
+}
+
+.IBMemo.IBCellClassInner {
+    position: relative
+}
+
+.IBMemo.IBCellClassInner:after {
+    position: absolute;
+    content: '';
+    width: 0;
+    right: 0;
+    top: -10px;
+    left: 0;
+    border: 10px solid transparent;
+    border-left: 10px solid red;
+    opacity: 1;
+}
+.IBMemoEdit h4 {
+    text-align: center
+}
+
+.IBMemoEdit textarea {
+    width: 200px;
+    height: 150px;
+    padding: 2px;
+}
+
+.IBMemoEdit+div {
+    height: 34px;
+    text-align: center;
+}
+
+.IBMemoEdit+div .IBMenuButton {
+    margin-top: 4px
+}
+
+.IBFilterDiv input {
+    width: 72px;
+    height: 26px;
+    line-height: 24px;
+    border-radius: 3px;
+    padding: 0 10px;
+    margin: 2px 2px 2px 2px;
+    transition: all 0.3s;
+    outline: none
+}
+
+.IBFilterDiv input[type=number] {
+    -moz-appearance: textfield
+}
+
+.IBFilterDiv input::-webkit-outer-spin-button,
+.IBFilterDiv input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0
+}
+
+.IBFilterDiv select {
+    width: 72px;
+    height: 26px;
+    line-height: 24px;
+    border-radius: 3px;
+    padding: 0 10px;
+    margin: 2px 2px 2px 2px;
+    transition: all 0.3s;
+    outline: none
+}
+
+.IBFilterDiv button {
+    margin: 2px 2px 2px 2px;
+    padding: 2px 8px 2px 8px;
+    border: none;
+    outline: none
+}
+
+.ibsheet-wrap .IBMain {
+    @include ibsheetBase;
+    border-radius: $radius-table;
+    border: $line-table;
+    height: 100% !important;
+}
+.IBMainTable {
+    width: 100% !important;
+    height: 100%;
+    border-collapse: separate;
+    border-radius: $radius-table;
+    & > tbody {
+        height: 100%;
+    }
+    & > tbody > tr {
+        & > td[style="overflow:hidden;"] {
+            max-width: 100%;
+            .IBHeadLeft, .IBHeadMid, .IBBodyLeft, .IBBodyMid {
+                width: 100%;
+            }
+            &:first-child {
+                .IBHeadLeft {
+                    &, & > div {
+                        border-top-left-radius: $radius-table;
+                    }
+                    .IBSection {
+                        table-layout: auto;
+                    }
+                }
+                .IBBodyLeft {
+                    position: relative;
+                    &::before {
+                        @include addBorderStyle(right, 0, 0, 100%, $line-hr);
+                        z-index: 1;
+                    }
+                    .IBSection {
+                        table-layout: auto;
+                    }
+                }
+            }
+            & + td[style="overflow:hidden;"] {
+                flex: auto;
+                .IBHeadMid {
+                    &, & > div {
+                        border-top-right-radius: $radius-table;
+                    }
+                }
+            }
+        }
+    }
+    [dir="ltr"] {
+        padding: 0;
+        height: 100%;
+    }
+}
+.IBCellBase {
+    vertical-align: middle;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: $table-td-sm-spacer $table-td-spacer;
+    & > div {
+        overflow: hidden;
+    }
+    img {
+        display: inline-block;
+    }
+    .IBDataRow & {
+        cursor: pointer;
+        height: $table-row-height;
+        border: none;
+        background-color: $bg-td-color !important;
+        border-bottom: $line-tbody;
+    }
+}
+.IBHeaderRow, .IBHeaderRowHeight {
+    height: $table-thead-heigh;
+}
+.IBDataRow, .IBRowHeight, .IBFilterRowHeight {
+    height: $table-row-height;
+}
+[class*="IBHead"] {
+    .IBSectionScroll {
+        border-bottom: $line-table;
+    }
+}
+.IBHeaderRow {
+    .IBCellHeader {
+        color: $txt-thead-color;
+        @include ibsheetTh;
+        line-height: 1;
+        &:not(.IBCellHeaderEmpty) {
+            border-right: $line-table;
+        }
+    }
+}
+.IBSpaceRow {
+    div {
+        height: 100%;
+    }
+}
+.IBColorHoveredCellHeader {
+    background-color: $bg-th-color;
+}
+.IBCell, .IBCellIndex {
+    color: $txt-tbody-color;
+}
+.IBWidth, .IBSpaceWidth, .IBRowSpace, .IBSpaceRow, .IBSpaceWidthInner {
+    width: 100% !important;
+}
+.IBSpaceMargin {
+    margin: 0;
+}
+.IBColorHoveredCell, .IBColorSelected, .IBClassChanged {
+    background-color: $bg-td-hover-color;
+}
+.IBWidthPad {
+    width: $table-icon-height;
+}
+.IBBool {
+    .IBBool1 {
+        @include squareSize($form-check-size);
+    }
+}
+.IBInfoRow, .IBTipMain, .TipBody, .IBHintMain,.IBHintOuter {
+	color: $txt-cont-color;
+}
+.IBRowSpace, .IBInfoRow, .IBPickMY, .IBColorAlternate {
+	background-color: $bg-table-color !important;
+}
+.IBDialogButton, .IBSheetButton {
+	border-radius: $radius-btn;
+	color: $txt-cont-color;
+	background-color: $bg-table-color;
+}
+.IBBodyLeft .IBCellBase {
+	color: $txt-tbody-color;
+    background-color: $bg-table-color;
+}
+.IBBodyRight .IBCellBase {
+	color: $txt-tbody-color;
+    background-color: $bg-table-color;
+}
+.IBSolidRow {
+    line-height: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 0;
+}
+.IBSolidRow .IBSheetButton {
+	background-color: $bg-table-color;
+	color: $txt-btn-color;
+	border-radius: $radius-btn;
+}
+.IBPickMY .IBHeaderFont {
+	color: $txt-cont-color;
+}
+.IBCellSpaceButton, .IBSpaceButtonIconInner, .IBCellSpaceButtonIcon {
+    white-space: nowrap;
+}
+.IBSpaceButtonIconInner, .IBSpaceSelectIconInner, .IBSpaceEditIconInner {
+    & > div {
+        overflow: hidden;
+    }
+}
+.IBClassFocusedCell
+.IBColorFocusedCell,
+.IBColorFocusedCellRelative {
+    background-color: $bg-td-hover-color;
+}
+// 테이블 정보
+.IBSection, .IBSectionFF3 {
+    width: 0;
+    line-height: 0;
+    contain: paint;
+}
+.IBSectionFF3 {
+    border-collapse: collapse;
+}
+
+.IBRowAbove, .IBRowBelow {
+    margin-left: 0;
+    margin-right: 0;
+    overflow: hidden;
+}
+.IBCheck0Left {
+    display: inline-block !important;
+    box-sizing: border-box !important;
+    @include squareSize($form-check-size);
+    @include checkStyle(off, ico_check_off)
+}
+.IBCheck1Left {
+    display: inline-block !important;
+    box-sizing: border-box !important;
+    @include squareSize($form-check-size);
+    @include checkStyle(off, ico_check_on)
+}
+.IBBool {
+    .IBBoolImage {
+        @include squareSize($form-check-size);
+        @include checkStyle(off, ico_check_off);
+    }
+    .IBBool0 {
+        @include checkStyle(off, ico_check_off);
+
+    }
+    .IBBool1 {
+        @include checkStyle(on, ico_check_on);
+    }
+}
+// cell
+.IBHintDataMain {
+    visibility: hidden;
+}
+.IBHtml {
+    position: relative;
+    padding: 0 !important;
+    left: 0;
+    top: 0;
+    * {
+        box-sizing: border-box !important;
+    }
+    .steps-area {
+        overflow: auto hidden !important;
+        @include scrollWrap($brand-gray, $scroll-sm-size, x);
+        &::before {
+            content: '';
+            position: absolute;
+            display: block;
+            height: 100%;
+            width: 3px;
+            top: 0;
+            right: 0;
+            z-index: 1;
+            background-color: $color-white;
+        }
+    }
+}
+.IBLines, .IBRadio, .IBHtml, .IBList {
+    white-space: normal;
+}
+.IBHiddenSpace {
+    display: none;
+}
+.IBHiddenValue, .IBHiddenValue * {
+    color: transparent !important;
+}
+.IBOverflowVisible, .IBOverflowLeftVisible {
+    overflow: visible;
+}
+.IBOverflowLeftVisible>div {
+    float: right;
+}
+.IBOverflowDisable {
+    background-color: transparent;
+    opacity: 0.99;
+}
+// 정렬
+.IBAlignLeft {
+    text-align: left;
+}
+.IBAlignCenter {
+    text-align: center;
+}
+.IBAlignJustify {
+    text-align: justify;
+}
+.IBAlignRight {
+    text-align: right;
+}
+// text
+.IBWrap0 {
+    white-space: nowrap;
+}
+// form
+.IBEditHeaderInput,
+.IBEditHeaderTextarea {
+    overflow: visible;
+    visibility: hidden;
+}
+.IBBool0SpaceRO,
+.IBBool1SpaceRO,
+.IBBoolXSpaceRO,
+.IBBool2SpaceRO,
+.IBBool3SpaceRO {
+    opacity: 0.5
+}
+.IBNone {
+    display: none;
+}
+.IBSheetButton {
+    @include btnBase;
+}
+// Scroll
+@include ibsheetScrollBase;
+.IBLeftSplitter, .IBRightSplitter {
+    width: $scroll-sm-size;
+    overflow: hidden;
+    cursor: e-resize;
+}
+.IBSplitterDisabled {
+    cursor: default
+}
+.IBLevelButtonSpace {
+    width: $scroll-sm-size;
+}
+.IBMergedCellH {
+    padding: 0;
+    padding-right: $scroll-sm-size;
+}
+.IBHeaderDrag {
+    cursor: default;
+    overflow: hidden;
+}
+
+//
+.IBPagerMain {
+    overflow: hidden;
+    white-space: nowrap;
+}
+.IBPagerHeader {
+    cursor: default;
+}
+.IBHeaderGroup {
+    background-clip: padding-box;
+    overflow: hidden;
+}
+.IBHeaderGroupCustom {
+    white-space: nowrap;
+}
+.IBCellSpaceBase {
+    vertical-align: middle;
+}
+.IBHScrollLeftResize, .IBHScrollRightResize {
+    &, .IBTouch & {
+        padding-right: $scroll-sm-size;
+    }
+}
+.IBHScrollMidLeftResize, .IBHScrollMidLeftResize {
+    &, .IBTouch & {
+        padding-left: $scroll-sm-size;
+    }
+}
+.IBHScrollHidden {
+    overflow: visible !important;
+}
+.IBCustScroll1RightHidden, .IBCustScroll2RightHidden {
+    height: $scroll-sm-size;
+}
+// NO Data
+.IBNoDataRow {
+    @include flexBox();
+    height: $table-row-height * 3;
+    table, .IBSpaceWidthInner {
+        height: 100%;
+    }
+    .IBSpaceWidthInner {
+        @include textStyle($font-size-lg, $color-gray);
+        @include directionAlign(center, center);
+        gap: $spacer-sm;
+    }
+    .IBNoDataIcon {
+        @include squareIcon($icon-info-size, ico_nodata);
+        margin-bottom: $spacer-base;
+    }
+}
+// tooltip, hint
+.IBMain {
+    position: fixed;
+    z-index: 10000;
+    .ibsheet-wrap & {
+        position: static;
+        overflow: hidden;
+        z-index: 0;
+    }
+}
+.IBHintMain, .IBTipMain {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 262;
+    visibility: hidden
+}
+.IBHintMain {
+    margin: 0;
+    padding: 0;
+    cursor: default
+}
+.IBHintShadow, .IBTipShadow {
+    position: absolute;
+    display: none
+}
+.IBHintMain, .IBTipBody {
+    white-space: nowrap;
+    @include alertType(tooltip);
+    font-size: $font-size-sm;
+    font-weight: $font-weight-light;
+}

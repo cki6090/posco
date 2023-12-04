@@ -1,0 +1,34 @@
+<!-- 메뉴에 따라 보여주는 부분 -->
+<div class="legend-area" x-show="open">
+    <ul class="legend-list">
+        <li><span class="txt-title">원료선</span></li>
+        <li><i class="icon-cargo-coal"></i><span class="txt-label">석탄</span></li>
+        <li><i class="icon-cargo-iron"></i><span class="txt-label">철광석</span></li>
+        <li><i class="icon-cargo-stone"></i><span class="txt-label">석회석</span></li>
+    </ul>
+    <ul class="legend-list">
+        <li><span class="txt-title">제품선</span></li>
+        <li><i class="icon-cargo-product"></i><span class="txt-label">전체</span></li>
+    </ul>
+    <ul class="legend-list">
+        <li><span class="txt-title">공로</span></li>
+        <li><i class="icon-node"></i><span class="txt-label">NODE</span></li>
+        <li><i class="icon-transport"></i><span class="txt-label">운송 구간</span></li>
+    </ul>
+    <ul class="legend-list">
+        <li><span class="txt-title">해상</span></li>
+        <li><i class="icon-sea-port"></i><span class="txt-label">PORT</span></li>
+    </ul>
+    <ul class="legend-list">
+        <li><span class="txt-title">포트</span></li>
+        <li><i class="icon-port-ph"></i><span class="txt-label">포항</span></li>
+        <li><i class="icon-port-gy"></i><span class="txt-label">광양</span></li>
+    </ul>
+</div>
+<!-- //메뉴에 따라 보여주는 부분 -->
+
+<!-- 항상 보여주는 검색버튼 -->
+<div class="btn-group">
+    <button type="button" class="btn-excel">엑셀 다운로드</button>
+    <button type="button" class="btn-search" @click="searchOpen = true">검색</button>
+</div>

@@ -1,0 +1,147 @@
+<h1 class="brind-logo"><i class="icon-logo-min">posco</i></h1>
+<!-- Sidebar Menu -->
+<nav class="nav-sidebar" x-data="{menuSubOpen: false}">
+	<ul class="menu-list">
+		<!-- menu 추가 -->
+		<li class="nav-item line-bottom">
+			<a href="#" class="nav-link">
+				<i class="icon-nav-dash"></i>
+				<span class="nav-txt">대시보드</span>
+			</a>
+		</li>
+		<li class="nav-item active" :class="{ 'open': menuSubOpen}"><!-- 서브 메뉴 보여질때: open, 현재메뉴 위치 active class 추가 -->
+			<a href="#" class="nav-link" @click="menuSubOpen = !menuSubOpen">
+				<i class="icon-nav-ocn"></i>
+				<span class="nav-txt">해상</span>
+			</a>
+			<div class="sub-area">
+				<div class="sub-header">
+					<span class="txt-cont">해상업무에 관한 항목입니다.<br>
+					배선, 선박의 모니터링 및 각종 운항정보를 확인하실 수 있습니다.</span>
+				</div>
+				<ul class="sub-list">
+					<li class="nav-item">
+						<a href="#" class="nav-link">벌크 운송 현황</a>
+						<button type="button" class="btn-favor" :class="'active': favorActive"
+							@clack="favorActive = !favorActive"><i class="icon-star">북마크</i></button>
+					</li>
+					<li class="nav-item">
+						<a href="#" class="nav-link">서브메뉴명</a>
+						<button type="button" class="btn-favor"><i class="icon-star">북마크</i></button>
+					</li>
+					<li class="nav-item">
+						<a href="#" class="nav-link">서브메뉴명</a>
+						<button type="button" class="btn-favor"><i class="icon-star">북마크</i></button>
+					</li>
+				</ul>
+			</div>
+		</li>
+		<li class="nav-item">
+			<a href="#" class="nav-link">
+				<i class="icon-nav-prd"></i>
+				<span class="nav-txt">공로</span>
+			</a>
+			<div class="sub-area">
+				<div class="sub-header">
+					<span class="txt-cont">해상업무에 관한 항목입니다.<br>
+					배선, 선박의 모니터링 및 각종 운항정보를 확인하실 수 있습니다.</span>
+				</div>
+				<ul class="sub-list">
+					<li class="nav-item">
+						<a href="#" class="nav-link">서브메뉴명</a>
+						<button type="button" class="btn-favor"><i class="icon-star">북마크</i></button>
+					</li>
+					<li class="nav-item">
+						<a href="#" class="nav-link">서브메뉴명</a>
+						<button type="button" class="btn-favor"><i class="icon-star">북마크</i></button>
+					</li>
+					<li class="nav-item">
+						<a href="#" class="nav-link">서브메뉴명</a>
+						<button type="button" class="btn-favor"><i class="icon-star">북마크</i></button>
+					</li>
+				</ul>
+			</div>
+		</li>
+		<li class="nav-item">
+			<a href="#" class="nav-link">
+				<i class="icon-nav-pwh"></i>
+				<span class="nav-txt">창고/항만</span>
+			</a>
+			<div class="sub-area">
+				<div class="sub-header">
+					<span class="txt-cont">해상업무에 관한 항목입니다.<br>
+					배선, 선박의 모니터링 및 각종 운항정보를 확인하실 수 있습니다.</span>
+				</div>
+				<ul class="sub-list">
+					<li class="nav-item">
+						<a href="#" class="nav-link">서브메뉴명</a>
+						<button type="button" class="btn-favor"><i class="icon-star">북마크</i></button>
+					</li>
+					<li class="nav-item">
+						<a href="#" class="nav-link">서브메뉴명</a>
+						<button type="button" class="btn-favor"><i class="icon-star">북마크</i></button>
+					</li>
+					<li class="nav-item">
+						<a href="#" class="nav-link">서브메뉴명</a>
+						<button type="button" class="btn-favor"><i class="icon-star">북마크</i></button>
+					</li>
+				</ul>
+			</div>
+		</li>
+		<li class="nav-item">
+			<a href="#" class="nav-link">
+				<i class="icon-nav-mst"></i>
+				<span class="nav-txt">기본정보</span>
+			</a>
+			<div class="sub-area">
+				<div class="sub-header">
+					<span class="txt-cont">해상업무에 관한 항목입니다.<br>
+					배선, 선박의 모니터링 및 각종 운항정보를 확인하실 수 있습니다.</span>
+				</div>
+				<ul class="sub-list">
+					<li class="nav-item">
+						<a href="#" class="nav-link">서브메뉴명</a>
+						<button type="button" class="btn-favor"><i class="icon-star">북마크</i></button>
+					</li>
+					<li class="nav-item">
+						<a href="#" class="nav-link">서브메뉴명</a>
+						<button type="button" class="btn-favor"><i class="icon-star">북마크</i></button>
+					</li>
+					<li class="nav-item">
+						<a href="#" class="nav-link">서브메뉴명</a>
+						<button type="button" class="btn-favor"><i class="icon-star">북마크</i></button>
+					</li>
+				</ul>
+			</div>
+		</li>
+		<li class="nav-item line-top">
+			<a href="#" class="nav-link">
+				<i class="icon-nav-adm"></i>
+				<span class="nav-txt">Admin</span>
+			</a>
+			<div class="sub-area">
+				<div class="sub-header">
+					<span class="txt-cont">해상업무에 관한 항목입니다.<br>
+					배선, 선박의 모니터링 및 각종 운항정보를 확인하실 수 있습니다.</span>
+				</div>
+				<ul class="sub-list">
+					<li class="nav-item">
+						<a href="#" class="nav-link">서브메뉴명</a>
+						<button type="button" class="btn-favor"><i class="icon-star">북마크</i></button>
+					</li>
+					<li class="nav-item">
+						<a href="#" class="nav-link">서브메뉴명</a>
+						<button type="button" class="btn-favor"><i class="icon-star">북마크</i></button>
+					</li>
+					<li class="nav-item">
+						<a href="#" class="nav-link">서브메뉴명</a>
+						<button type="button" class="btn-favor"><i class="icon-star">북마크</i></button>
+					</li>
+				</ul>
+			</div>
+		</li>
+	</ul>
+	<!-- 서브메뉴가 보여질때 생기는 버튼 : active / 서브메뉴가 접힐때 active class 삭제 -->
+	<button class="btn-close active"><i class="icon-close">닫기</i></button>
+</nav>
+<!-- /.sidebar-menu -->

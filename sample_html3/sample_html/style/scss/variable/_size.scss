@@ -1,0 +1,181 @@
+// Layout size
+$header-height			    : 60px;
+$body-head-height           : 72px;
+$body-head-max-height       : 96px;
+$main-tab-height		    : 36px;
+$main-tab-min-width		    : 110px;
+$main-tab-max-width		    : 250px;
+$sidebar-width-min		    : 68px;
+$sidebar-sub-width 		    : 300px;
+$sidebar-icon-size		    : 52px;
+$sidebar-off-width		    : ($sidebar-width-min - $sidebar-icon-size) * 0.5;
+$content-body-min-width	    : $screen-default-min - $sidebar-width-min;
+$content-body-half-width    : math.div($content-body-min-width, 2);
+$content-body-min-height    : 450px;
+$sidebar-sub-height		    : 47px;
+$search-wrap-width		    : 320px;
+$search-cont-heigh 		    : 50px;
+$datepicker-width	        : 256px;
+$datepicker-heigh	        : 300px;
+$datepicker-head-heigh      : 60px;
+$datepicker-date-heigh      : 30px;
+$dialog-head-heigh          : 60px;
+$dialog-body-min-heigh      : 59px;
+$dialog-body-max-heigh      : $dialog-body-min-heigh * 4;
+$dialog-xs-width            : 220px;
+$dialog-sm-width            : 300px;
+$dialog-md-width            : 600px;
+$dialog-lg-width            : 900px;
+$map-info-width	            : 720px;
+$map-info-height	        : 120px;
+$map-section-height         : 540px;
+$map-section-info-width     : 480px;
+$map-section-info-height    : 410px;
+$transport-info-width	    : 500px;
+$transport-info-item-width  : 240px;
+$transport-bar-height	    : 120px;
+$progress-bar-width         : 360px;
+$progress-bar-min-width     : 210px;
+$progress-bar-height        : 24px;
+$progress-bar-min-height    : 12px;
+$progress-gap-width         : 28px;
+$port-name-height	        : $progress-bar-height;
+$port-name-width	        : 110px;
+$store-name-width	        : 182px;
+$truck-info-name-width	    : 90px;
+$port-list-height           : 58px;
+$timeline-width             : 600px;
+$timeline-date-width        : 150px;
+$timeline-date-min-height   : 100px;
+$schedule-bar-width         : 4px;
+$schedule-head-height       : 28px;
+$port-tooltip-width         : 320px;
+$summary-height             : 100px;
+$summary-vest-min-width     : 260px;
+$summary-item-width         : 140px;
+$panl-min-height            : 90px;
+$panl-box-width             : 270px;
+$panl-list-head-width       : 75px;
+$switch-tab-menu            : 40px;
+
+// content
+$cont-head-body-gap         : $body-head-max-height - $body-head-height;
+$cont-header-height	        : 45px;
+$cont-tab-height	        : 42px;
+
+// padding size
+$spacer-base			    : 8px;
+$spacer-xs	 			    : math.div($spacer-base, 2);
+$spacer-sm 	 			    : 10px;
+$spacer-md 	 			    : $spacer-base * 2;
+$spacer-lg 	 			    : $spacer-base * 3;
+$spacer-xl 	 			    : $spacer-base * 4;
+
+$spacer-gap-group           : $spacer-sm * 2;
+
+// radius
+$radius-base			    : $spacer-base;
+$radius-base-min		    : 6px;
+
+// font size
+$font-size-default 		    : 14px;
+$font-size-xs 			    : 11px;
+$font-size-sm 			    : 12px;
+$font-size-md 			    : 13px;
+$font-size-lg 			    : 16px;
+$font-size-xl 			    : 18px;
+$font-size-xxl 			    : 20px;
+$font-size-page			    : 24px;
+
+$font-summary-size          : 28px;
+$font-summary-min-size      : 24px;
+$font-error-title-size      : 32px;
+$font-error-text-size       : $font-size-lg;
+$font-error-btn-size        : $font-size-default;
+
+// font weight
+$font-weight-base 		    : $font-weight-5;
+$font-weight-thin		    : $font-weight-3;
+$font-weight-light		    : $font-weight-4;
+$font-weight-bold		    : $font-weight-6;
+$font-weight-black		    : $font-weight-7;
+
+// line height
+$line-height-default	    : 1.5;
+$line-height-img 		    : 1;
+$line-height-sm 		    : 1.2;
+
+// icon size
+$icon-xs-size			    : 16px;
+$icon-sm-size			    : 20px;
+$icon-md-size			    : 24px;
+$icon-lg-size			    : 36px;
+
+$icon-info-size	            : 40px;
+$icon-info-min-size         : $icon-md-size;
+$icon-info-txt-size         : $icon-xs-size;
+$icon-circle-arr-size       : 40px;
+
+$icon-logo-width		    : 56px;
+$icon-project-width		    : 191px;
+
+$icon-flag-head-width       : 32px;
+$icon-flag-bage-width       : $icon-md-size;
+
+$icon-weather-big           : 60px;
+$icon-weather-md            : 32px;
+
+$icon-legend-size           : 12px;
+$icon-route-size            : $icon-md-size;
+$icon-port-height           : 40px;
+$icon-store-width           : 136px;
+$icon-ship-width            : 98px;
+$icon-ship-height           : 28px;
+$icon-tooltip-width         : 16px;
+$icon-tooltip-height        : 8px;
+$icon-item-alert-size       : 32px;
+$icon-error-size            : 80px;
+$icon-error-btn-size        : $icon-sm-size;
+
+// form size
+$form-height-size		    : 32px;
+$form-height-min-size	    : 28px;
+$form-width-min-size        : 120px;
+$form-check-size		    : 20px;
+$form-switch-width		    : $form-check-size * 2;
+$form-font-size 		    : $font-size-md;
+$form-btn-height		    : $form-height-size;
+$form-btn-min-width		    : 55px;
+$form-btn-error-height      : 40px;
+$select-dropdown-height     : 200px;
+$textarea-height-wrap       : 90px;
+$textarea-height            : 70px;
+
+$badge-height-size		    : $form-height-min-size;
+$badge-info-height   	    : 24px;
+$label-badge-width 	        : 46px;
+$label-badge-md-width       : 65px;
+$label-badge-height 	    : 22px;
+$txt-charter-width          : 27px;
+$txt-date-width             : 75px;
+$badge-info-date-width      : $label-badge-width + $txt-date-width + $spacer-xs;
+$badge-step-width           : 100px;
+$badge-table-width          : 70px;
+
+// layout components
+$navs-columns-grid		    : 20;
+
+// table
+$table-info-heigh           : 28px;
+$table-thead-heigh          : 36px;
+$table-row-height		    : 42px;
+$table-view-th-max-width    : 200px;
+$table-btn-height		    : $form-height-min-size;
+$table-btn-min-width	    : $form-height-size;
+$table-icon-height		    : $form-check-size;
+$table-line-height	        : $line-height-sm;
+
+// scroll size
+$scroll-size-base		    : 20px;
+$scroll-size			    : $spacer-sm;
+$scroll-sm-size			    : $spacer-base;

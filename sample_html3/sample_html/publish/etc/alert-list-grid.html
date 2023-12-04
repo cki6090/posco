@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
+    <title>선박 상세</title>
+
+    <!-- 필수 plugin -->
+    <!-- jQuery -->
+    <script src="../../js/jquery/dist/jquery.min.js"></script>
+    <script src="../../js/jquery-ui/dist/jquery-ui.min.js"></script>
+    <script src="../../js/jsrender/dist/jsrender.js"></script>
+    <!-- Select -->
+    <script src="../../js/tom-select/dist/js/tom-select.complete.min.js"></script>
+    <!-- 날짜 관련 -->
+    <script src="../../js/moment/dist/moment.min.js"></script>
+    <!-- //필수 plugin -->
+
+    <!-- UI Style -->
+    <link rel="stylesheet" href="../../style/css/style-ui.css" />
+</head>
+
+<body class="iframe-layout">
+    <!-- 임시 알람리스트 3 X 3 화면 레이아웃 -->
+    <div class="iframe-grid">
+        <section class="grid-alert-area" x-data="{
+            iconClass: 'ship-product', iconTitle: '벌크(제품선)',
+            items: [
+                {class: 'deviate', title: 'Deviation', data: '25'},
+                {class: 'delay', title: 'Delay/Forward', data: '10'},
+                {class: 'stop', title: 'Stoppage', data: '7'},
+                {class: 'ais', title: 'Not Received AIS', data: '12'},
+            ]
+        }">
+            <h2 class="alert-title">알림리스트</h2>
+            <include src="alert-list-content.html"></include>
+        </section>
+        <section class="grid-alert-area" x-data="{
+            iconClass: 'ship-product', iconTitle: '벌크(제품선)',
+            items: [
+                {class: 'deviate', title: 'Deviation', data: '15'},
+                {class: 'delay', title: 'Delay/Forward', data: '8'},
+                {class: 'stop', title: 'Stoppage', data: '12'},
+                {class: 'ais', title: 'Not Received AIS', data: '3'},
+            ]
+        }">
+            <h2 class="alert-title">알림리스트</h2>
+            <include src="alert-list-content.html"></include>
+        </section>
+        <section class="grid-alert-area" x-data="{
+            iconClass: 'ship-material', iconTitle: '벌크(원료선)',
+            items: [
+                {class: 'deviate', title: 'Deviation', data: '62'},
+                {class: 'delay', title: 'Delay/Forward', data: '32'},
+                {class: 'stop', title: 'Stoppage', data: '12'},
+                {class: 'ais', title: 'Not Received AIS', data: '8'},
+            ]
+        }">
+            <h2 class="alert-title">알림리스트</h2>
+            <include src="alert-list-content.html"></include>
+        </section>
+        <section class="grid-alert-area" x-data="{
+            iconClass: 'ship-material', iconTitle: '벌크(원료선)',
+            items: [
+                {class: 'deviate', title: 'Deviation', data: '82'},
+                {class: 'delay', title: 'Delay/Forward', data: '45'},
+                {class: 'stop', title: 'Stoppage', data: '13'},
+                {class: 'ais', title: 'Not Received AIS', data: '6'},
+            ]
+        }">
+            <h2 class="alert-title">알림리스트</h2>
+            <include src="alert-list-content.html"></include>
+        </section>
+    </div>
+    <!-- 임시 알람리스트 3 X 3 화면 레이아웃 -->
+
+</div>
+<!-- ./wrapper -->
+
+<!-- 퍼블 사용하기 위한 JavaScript -->
+<script src="../../style/js/include.js"></script>
+<script src="../../style/js/alpinejs.min.js"></script>
+<!-- //퍼블 사용하기 위한 JavaScript -->
+</body>
+
+</html>

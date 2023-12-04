@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
+    <title>트럭 운송 현황</title><!-- 필수 plugin -->
+
+    <!-- jQuery -->
+    <script src="../../js/jquery/dist/jquery.min.js"></script>
+    <script src="../../js/jquery-ui/dist/jquery-ui.min.js"></script>
+    <script src="../../js/jsrender/dist/jsrender.js"></script>
+    <!-- Select -->
+    <script src="../../js/tom-select/dist/js/tom-select.complete.min.js"></script>
+    <!-- 날짜 관련 -->
+    <script src="../../js/moment/dist/moment.min.js"></script>
+    <!-- //필수 plugin -->
+
+    <!-- UI Style -->
+    <link rel="stylesheet" href="../../style/css/style-ui.css" />
+</head>
+
+<body class="iframe-layout">
+    <div class="wrapper">
+        <!-- 타이틀 및 네비게이션 영역 -->
+        <section class="content-head">
+            <h2 class="page-title"><span>트럭 운송 현황</span></h2>
+            <div class="head-article" x-data="{open: true}">
+                <include src="../_include/content/content-head-article.html"></include>
+            </div>
+        </section>
+        <!-- //타이틀 및 네비게이션 영역 -->
+
+        <!-- Main content -->
+        <section class="content-body">
+            <!-- 검색된 컨텐츠 영역 -->
+            <div class="search-cont-area">
+                <!-- class : off 추가시 검색영역 hide -->
+                <include src="../_include/search/search_content.html"></include>
+            </div>
+            <!-- //검색된 컨텐츠 영역 -->
+
+            <div class="content-area transport">
+                <!-- 운송 Process -->
+                <div class="transport-wrap">
+                    <!-- No Data -->
+                    <div class="transport-area">
+                        <div class="message-box">
+                            <div class="msg-nodata">
+                                <i class="icon-msg"></i>
+                                <p class="txt-msg">데이터가 없습니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //No Data -->
+
+                    <!-- 운송 list item 반복 - 운송준비중 -->
+                    <div class="transport-area store">
+                        <div class="transport-info">
+                            <div class="cont-head">
+                                <button type="button" class="btn-favor" x-data="{ show: true }" @click="show = !show"
+                                    :class="{ 'active': show }"><i class="icon-star">북마크</i></button>
+                                <a href="#" class="txt-title">HL PORT HEDLANE</a>
+                                <div class="trans-info">
+                                    <span class="txt-label">Hot Coil</span>
+                                    <span class="txt-cont">Package 100</span>
+                                </div>
+                            </div>
+                            <div class="cont-body">
+                                <!-- icon-route 모양 변경 : 트럭: route-truck / 배 : route-ship / 창고: route-store -->
+                                <div class="route-info route-store">
+                                    <div class="txt-cont">KRKANT1</div>
+                                    <div class="icon-item"><i class="icon-route"></i></div>
+                                    <div class="txt-cont">KRPUSY1</div>
+                                </div>
+                                <ul class="info-list">
+                                    <li class="info-item">
+                                        <span class="txt-label">운송장 NO</span>
+                                        <span class="txt-cont">#1234567PS</span>
+                                    </li>
+                                    <li class="info-item">
+                                        <span class="txt-label">LOT NO</span>
+                                        <!-- 20230728 소스 수정 -->
+                                        <div class="cont-list">
+                                            <span class="txt-cont">#123456789PSAA</span>
+                                            <ul class="list-info">
+                                                <li class="txt-cont">#1234567PS</li>
+                                                <li class="txt-cont">#1234567PS</li>
+                                                <li class="txt-cont">#1234567PS</li>
+                                                <li class="txt-cont">#1234567PS</li>
+                                                <li class="txt-cont">#1234567PS</li>
+                                            </ul>
+                                        </div>
+                                        <!-- //20230728 소스 수정 -->
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="transport-visual">
+                            <div class="btn-group">
+                                <button type="button" class="btn-prev">이전</button>
+                                <button type="button" class="btn-next">이후</button>
+                            </div>
+                            <div class="progress-area">
+                                <div class="path-list">
+                                    <!-- port 정보 : 제품이동 -->
+                                    <!-- 유통기지 진행상황 : 1단계 - store-in, 2단계 - store-move, 3단계 - store-out / port-area 클래스에 추가-->
+                                    <div class="port-area store-in">
+                                        <div class="port-name store-port">
+                                            <span class="txt-port">평택 유통기지</span>
+                                        </div>
+                                        <div class="txt-cont">
+                                            <span class="txt-date">2023-04-01</span>
+                                            <span class="txt-unit plus">+ 1D</span>
+                                        </div>
+                                    </div>
+                                    <!-- //port 정보 -->
+                                    <!-- port 정보(전재여부에 따라 생성) : 활성 - active -->
+                                    <div class="port-area">
+                                        <!-- 광양(port-gy) 포항(port-ph) 창고(port-active) 일경우 class 추가  -->
+                                        <div class="port-name port-active">
+                                            <span class="txt-port">KRKANT1</span>
+                                        </div>
+                                        <div class="txt-cont">
+                                            <span class="txt-date">0000-00-00</span>
+                                            <span class="txt-unit plus">+ 1D</span>
+                                        </div>
+                                    </div>
+                                    <!-- //port 정보 -->
+                                    <!-- 운행상태 : 활성: on -->
+                                    <div class="progress-bar">
+                                        <!-- 육로/ 해상에 따라 색 변경 -->
+                                        <!-- route-road: 육로 / route-ship: 해상 -->
+                                        <div class="trans-progress route-road">
+                                            <!-- 선박 icon : 원료선 / 제품선 에따라 아이콘 변경 -->
+                                            <div class="icon-cont"><i class="icon-route"></i></div>
+                                        </div>
+                                    </div>
+                                    <!-- //운행상태 -->
+                                    <!-- port 정보 -->
+                                    <!-- 창고 도착 : 활성: store-bourne -->
+                                    <div class="port-area">
+                                        <div class="port-name port-gy">
+                                            <span class="txt-port">KRKANT1</span>
+                                        </div>
+                                        <div class="txt-cont">
+                                            <span class="txt-date">2023-04-01</span>
+                                            <span class="txt-unit plus">+ 1D</span>
+                                        </div>
+                                    </div>
+                                    <!-- //port 정보 -->
+                                </div>
+                                <div class="truck-info" x-data="{activeTab: true}" :class="{'active': activeTab === true}">
+                                    <button type="button" class="btn-info" @click="activeTab = !activeTab"><span class="txt-cont">정보보기</span></button>
+                                    <div class="info-item">
+                                        <div class="info-head">
+                                            <i class="icon-info driver"></i>
+                                            <div class="txt-title">운전자 정보</div>
+                                        </div>
+                                        <ul class="info-list">
+                                            <li>
+                                                <span class="txt-cont">이태근</span>
+                                                <span class="txt-exp">(000-0000-0000)</span>
+                                            </li>
+                                            <li>
+                                                <span class="txt-cont">동연특수</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="info-item">
+                                        <div class="info-head">
+                                            <i class="icon-info car"></i>
+                                            <div class="txt-title">차량정보</div>
+                                        </div>
+                                        <ul class="info-list">
+                                            <li>
+                                                <span class="txt-cont">전남97바4666</span>
+                                            </li>
+                                            <li>
+                                                <span class="txt-cont">[25TT]25톤 탑트럭</span>
+                                            </li>
+                                            <li>
+                                                <span class="txt-cont">[CHARTER]용차</span>
+                                            </li>
+                                            <li>
+                                                <span class="txt-cont">[A10]코일전용트레일러</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //운송 list item 반복 -->
+
+                    <!-- 운송 list item 반복 - 평택 유통기지에서 다른 포트에서 출발일 경우 -->
+                    <div class="transport-area store">
+                        <div class="transport-info">
+                            <div class="cont-head">
+                                <button type="button" class="btn-favor" x-data="{ show: true }" @click="show = !show"
+                                    :class="{ 'active': show }"><i class="icon-star">북마크</i></button>
+                                <a href="#" class="txt-title">HL PORT HEDLANE</a>
+                                <div class="trans-info">
+                                    <span class="txt-label">Hot Coil</span>
+                                    <span class="txt-cont">Package 100</span>
+                                </div>
+                            </div>
+                            <div class="cont-body">
+                                <!-- icon-route 모양 변경 : 트럭: route-truck / 배 : route-ship / 창고: route-store -->
+                                <div class="route-info route-store">
+                                    <div class="txt-cont">KRKANT1</div>
+                                    <div class="icon-item"><i class="icon-route"></i></div>
+                                    <div class="txt-cont">KRPUSY1</div>
+                                </div>
+                                <ul class="info-list">
+                                    <li class="info-item">
+                                        <span class="txt-label">운송장 NO</span>
+                                        <span class="txt-cont">#1234567PS</span>
+                                    </li>
+                                    <li class="info-item">
+                                        <span class="txt-label">LOT NO</span>
+                                        <span class="txt-cont">#1234567PS</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="transport-visual">
+                            <div class="btn-group">
+                                <button type="button" class="btn-prev">이전</button>
+                                <button type="button" class="btn-next">이후</button>
+                            </div>
+                            <div class="progress-area">
+                                <div class="path-list">
+                                    <!-- port 정보 : 제품이동 -->
+                                    <!-- 유통기지 진행상황 : 1단계 - store-in, 2단계 - store-move, 3단계 - store-out / port-area 클래스에 추가-->
+                                    <div class="port-area">
+                                        <div class="port-name store-port">
+                                            <span class="txt-port">평택 유통기지</span>
+                                        </div>
+                                        <div class="txt-cont">
+                                            <span class="txt-date">2023-04-01</span>
+                                            <span class="txt-unit plus">+ 1D</span>
+                                        </div>
+                                    </div>
+                                    <!-- //port 정보 -->
+                                    <!-- port 정보(전재여부에 따라 생성) : 활성 - active -->
+                                    <div class="port-area active">
+                                        <!-- 광양(port-gy) 포항(port-ph) 창고(port-active) 일경우 class 추가  -->
+                                        <div class="port-name port-active">
+                                            <span class="txt-port">KRKANT1</span>
+                                        </div>
+                                        <div class="txt-cont">
+                                            <span class="txt-date">2023-04-01</span>
+                                            <span class="txt-unit plus">+ 1D</span>
+                                        </div>
+                                    </div>
+                                    <!-- //port 정보 -->
+                                    <!-- 운행상태 : 활성: on : 출발: start -->
+                                    <div class="progress-bar start">
+                                        <!-- 육로/ 해상에 따라 색 변경 -->
+                                        <!-- route-road: 육로 / route-ship: 해상 -->
+                                        <div class="trans-progress route-road">
+                                            <!-- 선박 icon : 원료선 / 제품선 에따라 아이콘 변경 -->
+                                            <div class="icon-cont"><i class="icon-route"></i></div>
+                                        </div>
+                                    </div>
+                                    <!-- //운행상태 -->
+                                    <!-- port 정보 -->
+                                    <!-- 창고 도착 : 활성: store-bourne -->
+                                    <div class="port-area">
+                                        <div class="port-name port-gy">
+                                            <span class="txt-port">KRKANT1</span>
+                                        </div>
+                                        <div class="txt-cont">
+                                            <span class="txt-date">2023-04-01</span>
+                                            <span class="txt-unit plus">+ 1D</span>
+                                        </div>
+                                    </div>
+                                    <!-- //port 정보 -->
+                                </div>
+                                <div class="truck-info" x-data="{activeTab: true}" :class="{'active': activeTab === true}">
+                                    <button type="button" class="btn-info" @click="activeTab = !activeTab"><span class="txt-cont">정보보기</span></button>
+                                    <div class="info-item">
+                                        <div class="info-head">
+                                            <i class="icon-info driver"></i>
+                                            <div class="txt-title">운전자 정보</div>
+                                        </div>
+                                        <ul class="info-list">
+                                            <li>
+                                                <span class="txt-cont">이태근</span>
+                                                <span class="txt-exp">(01032922431)</span>
+                                            </li>
+                                            <li>
+                                                <span class="txt-cont">동연특수</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="info-item">
+                                        <div class="info-head">
+                                            <i class="icon-info car"></i>
+                                            <div class="txt-title">차량정보</div>
+                                        </div>
+                                        <ul class="info-list">
+                                            <li>
+                                                <span class="txt-cont">전남97바4666</span>
+                                            </li>
+                                            <li>
+                                                <span class="txt-cont">[25TT]25톤 탑트럭</span>
+                                            </li>
+                                            <li>
+                                                <span class="txt-cont">[CHARTER]용차</span>
+                                            </li>
+                                            <li>
+                                                <span class="txt-cont">[A10]코일전용트레일러</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //운송 list item 반복 -->
+
+                    <!-- 운송 list item 반복 - 운송중 -->
+                    <div class="transport-area store">
+                        <div class="transport-info">
+                            <div class="cont-head">
+                                <button type="button" class="btn-favor" x-data="{ show: true }" @click="show = !show"
+                                    :class="{ 'active': show }"><i class="icon-star">북마크</i></button>
+                                <a href="#" class="txt-title">HL PORT HEDLANE</a>
+                                <div class="trans-info">
+                                    <span class="txt-label">Hot Coil</span>
+                                    <span class="txt-cont">Package 100</span>
+                                </div>
+                            </div>
+                            <div class="cont-body">
+                                <!-- icon-route 모양 변경 : 트럭: route-truck / 배 : route-ship / 창고: route-store -->
+                                <div class="route-info route-truck">
+                                    <div class="txt-cont">KRKANT1</div>
+                                    <div class="icon-item"><i class="icon-route"></i></div>
+                                    <div class="txt-cont">KRPUSY1</div>
+                                </div>
+                                <ul class="info-list">
+                                    <li class="info-item">
+                                        <span class="txt-label">운송장 NO</span>
+                                        <span class="txt-cont">#1234567PS</span>
+                                    </li>
+                                    <li class="info-item">
+                                        <span class="txt-label">LOT NO</span>
+                                        <span class="txt-cont">#1234567PS</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="transport-visual">
+                            <div class="btn-group">
+                                <button type="button" class="btn-prev">이전</button>
+                                <button type="button" class="btn-next">이후</button>
+                            </div>
+                            <div class="progress-area">
+                                <div class="path-list">
+                                    <!-- port 정보 : 제품이동 -->
+                                    <!-- 유통기지 진행상황 : 1단계 - store-in, 2단계 - store-move, 3단계 - store-out / port-area 클래스에 추가-->
+                                    <div class="port-area">
+                                        <div class="port-name store-port">
+                                            <span class="txt-port">평택 유통기지</span>
+                                        </div>
+                                        <div class="txt-cont">
+                                            <span class="txt-date">2023-04-01</span>
+                                            <span class="txt-unit plus">+ 1D</span>
+                                        </div>
+                                    </div>
+                                    <!-- //port 정보 -->
+                                    <!-- port 정보(전재여부에 따라 생성) : 활성 - active -->
+                                    <div class="port-area">
+                                        <!-- 광양(port-gy) 포항(port-ph) 창고(port-active) 일경우 class 추가  -->
+                                        <div class="port-name port-active">
+                                            <span class="txt-port">KRKANT1</span>
+                                        </div>
+                                        <div class="txt-cont">
+                                            <span class="txt-date">2023-04-01</span>
+                                            <span class="txt-unit plus">+ 1D</span>
+                                        </div>
+                                    </div>
+                                    <!-- //port 정보 -->
+                                    <!-- 운행상태 : 활성: on -->
+                                    <div class="progress-bar on">
+                                        <!-- 육로/ 해상에 따라 색 변경 -->
+                                        <!-- route-road: 육로 / route-ship: 해상 -->
+                                        <div class="trans-progress route-road">
+                                            <!-- 선박 icon : 원료선 / 제품선 에따라 아이콘 변경 -->
+                                            <div class="icon-cont"><i class="icon-route"></i></div>
+                                        </div>
+                                    </div>
+                                    <!-- //운행상태 -->
+                                    <!-- port 정보 -->
+                                    <!-- 창고 도착 : 활성: store-bourne -->
+                                    <div class="port-area">
+                                        <div class="port-name port-gy">
+                                            <span class="txt-port">KRKANT1</span>
+                                        </div>
+                                        <div class="txt-cont">
+                                            <span class="txt-date">2023-04-01</span>
+                                            <span class="txt-unit plus">+ 1D</span>
+                                        </div>
+                                    </div>
+                                    <!-- //port 정보 -->
+                                </div>
+                                <div class="truck-info" x-data="{activeTab: true}" :class="{'active': activeTab === true}">
+                                    <button type="button" class="btn-info" @click="activeTab = !activeTab"><span class="txt-cont">정보보기</span></button>
+                                    <div class="info-item">
+                                        <div class="info-head">
+                                            <i class="icon-info driver"></i>
+                                            <div class="txt-title">운전자 정보</div>
+                                        </div>
+                                        <ul class="info-list">
+                                            <li>
+                                                <span class="txt-cont">이태근</span>
+                                                <span class="txt-exp">(01032922431)</span>
+                                            </li>
+                                            <li>
+                                                <span class="txt-cont">동연특수</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="info-item">
+                                        <div class="info-head">
+                                            <i class="icon-info car"></i>
+                                            <div class="txt-title">차량정보</div>
+                                        </div>
+                                        <ul class="info-list">
+                                            <li>
+                                                <span class="txt-cont">전남97바4666</span>
+                                            </li>
+                                            <li>
+                                                <span class="txt-cont">[25TT]25톤 탑트럭</span>
+                                            </li>
+                                            <li>
+                                                <span class="txt-cont">[CHARTER]용차</span>
+                                            </li>
+                                            <li>
+                                                <span class="txt-cont">[A10]코일전용트레일러</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //운송 list item 반복 -->
+
+                    <!-- 운송 list item 반복 - 운송완료 -->
+                    <div class="transport-area store">
+                        <div class="transport-info">
+                            <div class="cont-head">
+                                <button type="button" class="btn-favor" x-data="{ show: true }" @click="show = !show"
+                                    :class="{ 'active': show }"><i class="icon-star">북마크</i></button>
+                                <a href="#" class="txt-title">HL PORT HEDLANE</a>
+                                <div class="trans-info">
+                                    <span class="txt-label">Hot Coil</span>
+                                    <span class="txt-cont">Package 100</span>
+                                </div>
+                            </div>
+                            <div class="cont-body">
+                                <!-- icon-route 모양 변경 : 트럭: route-truck / 배 : route-ship / 창고: route-store -->
+                                <div class="route-info route-store">
+                                    <div class="txt-cont">KRKANT1</div>
+                                    <div class="icon-item"><i class="icon-route"></i></div>
+                                    <div class="txt-cont">KRPUSY1</div>
+                                </div>
+                                <ul class="info-list">
+                                    <li class="info-item">
+                                        <span class="txt-label">운송장 NO</span>
+                                        <span class="txt-cont">#1234567PS</span>
+                                    </li>
+                                    <li class="info-item">
+                                        <span class="txt-label">LOT NO</span>
+                                        <span class="txt-cont">#1234567PS</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="transport-visual">
+                            <div class="btn-group">
+                                <button type="button" class="btn-prev">이전</button>
+                                <button type="button" class="btn-next">이후</button>
+                            </div>
+                            <div class="progress-area">
+                                <div class="path-list">
+                                    <!-- port 정보 : 제품이동 -->
+                                    <!-- 유통기지 진행상황 : 1단계 - store-in, 2단계 - store-move, 3단계 - store-out / port-area 클래스에 추가-->
+                                    <div class="port-area">
+                                        <div class="port-name store-port">
+                                            <span class="txt-port">평택 유통기지</span>
+                                        </div>
+                                        <div class="txt-cont">
+                                            <span class="txt-date">2023-04-01</span>
+                                            <span class="txt-unit plus">+ 1D</span>
+                                        </div>
+                                    </div>
+                                    <!-- //port 정보 -->
+                                    <!-- port 정보(전재여부에 따라 생성) : 활성 - active -->
+                                    <div class="port-area">
+                                        <!-- 광양(port-gy) 포항(port-ph) 창고(port-active) 일경우 class 추가  -->
+                                        <div class="port-name port-active">
+                                            <span class="txt-port">KRKANT1</span>
+                                        </div>
+                                        <div class="txt-cont">
+                                            <span class="txt-date">2023-04-01</span>
+                                            <span class="txt-unit plus">+ 1D</span>
+                                        </div>
+                                    </div>
+                                    <!-- //port 정보 -->
+                                    <!-- 운행상태 : 활성: on -->
+                                    <div class="progress-bar">
+                                        <!-- 육로/ 해상에 따라 색 변경 -->
+                                        <!-- route-road: 육로 / route-ship: 해상 -->
+                                        <div class="trans-progress route-road">
+                                            <!-- 선박 icon : 원료선 / 제품선 에따라 아이콘 변경 -->
+                                            <div class="icon-cont"><i class="icon-route"></i></div>
+                                        </div>
+                                    </div>
+                                    <!-- //운행상태 -->
+                                    <!-- port 정보 -->
+                                    <!-- 창고 도착 : 활성: store-bourne -->
+                                    <div class="port-area store-bourne">
+                                        <div class="port-name port-gy">
+                                            <span class="txt-port">KRKANT1</span>
+                                        </div>
+                                        <div class="txt-cont">
+                                            <span class="txt-date">2023-04-01</span>
+                                            <span class="txt-unit plus">+ 1D</span>
+                                        </div>
+                                    </div>
+                                    <!-- //port 정보 -->
+                                </div>
+                                <div class="truck-info" x-data="{activeTab: true}" :class="{'active': activeTab === true}">
+                                    <button type="button" class="btn-info" @click="activeTab = !activeTab"><span class="txt-cont">정보보기</span></button>
+                                    <div class="info-item">
+                                        <div class="info-head">
+                                            <i class="icon-info driver"></i>
+                                            <div class="txt-title">운전자 정보</div>
+                                        </div>
+                                        <ul class="info-list">
+                                            <li>
+                                                <span class="txt-cont">이태근</span>
+                                                <span class="txt-exp">(01032922431)</span>
+                                            </li>
+                                            <li>
+                                                <span class="txt-cont">동연특수</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="info-item">
+                                        <div class="info-head">
+                                            <i class="icon-info car"></i>
+                                            <div class="txt-title">차량정보</div>
+                                        </div>
+                                        <ul class="info-list">
+                                            <li>
+                                                <span class="txt-cont">전남97바4666</span>
+                                            </li>
+                                            <li>
+                                                <span class="txt-cont">[25TT]25톤 탑트럭</span>
+                                            </li>
+                                            <li>
+                                                <span class="txt-cont">[CHARTER]용차</span>
+                                            </li>
+                                            <li>
+                                                <span class="txt-cont">[A10]코일전용트레일러</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //운송 list item 반복 -->
+
+                    <!-- 운송 list item 반복 - 운송준비중 -->
+                    <div class="transport-area store">
+                        <div class="transport-info">
+                            <div class="cont-head">
+                                <button type="button" class="btn-favor" x-data="{ show: true }" @click="show = !show"
+                                    :class="{ 'active': show }"><i class="icon-star">북마크</i></button>
+                                <a href="#" class="txt-title">HL PORT HEDLANE</a>
+                                <div class="trans-info">
+                                    <span class="txt-label">Hot Coil</span>
+                                    <span class="txt-cont">Package 100</span>
+                                </div>
+                            </div>
+                            <div class="cont-body">
+                                <!-- icon-route 모양 변경 : 트럭: route-truck / 배 : route-ship / 창고: route-store -->
+                                <div class="route-info route-store">
+                                    <div class="txt-cont">KRKANT1</div>
+                                    <div class="icon-item"><i class="icon-route"></i></div>
+                                    <div class="txt-cont">KRPUSY1</div>
+                                </div>
+                                <ul class="info-list">
+                                    <li class="info-item">
+                                        <span class="txt-label">운송장 NO</span>
+                                        <span class="txt-cont">#1234567PS</span>
+                                    </li>
+                                    <li class="info-item">
+                                        <span class="txt-label">LOT NO</span>
+                                        <span class="txt-cont">#1234567PS</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="transport-visual">
+                            <div class="btn-group">
+                                <button type="button" class="btn-prev">이전</button>
+                                <button type="button" class="btn-next">이후</button>
+                            </div>
+                            <div class="progress-area">
+                                <div class="path-list">
+                                    <!-- port 정보 : 제품이동 -->
+                                    <!-- 유통기지 진행상황 : 1단계 - store-in, 2단계 - store-move, 3단계 - store-out / port-area 클래스에 추가-->
+                                    <div class="port-area store-out">
+                                        <div class="port-name store-port">
+                                            <span class="txt-port">평택 유통기지</span>
+                                        </div>
+                                        <div class="txt-cont">
+                                            <span class="txt-date">2023-04-01</span>
+                                            <span class="txt-unit plus">+ 1D</span>
+                                        </div>
+                                    </div>
+                                    <!-- //port 정보 -->
+                                    <!-- port 정보(전재여부에 따라 생성) : 활성 - active -->
+                                    <div class="port-area">
+                                        <!-- 광양(port-gy) 포항(port-ph) 창고(port-active) 일경우 class 추가  -->
+                                        <div class="port-name port-active">
+                                            <span class="txt-port">KRKANT1</span>
+                                        </div>
+                                        <div class="txt-cont">
+                                            <span class="txt-date">2023-04-01</span>
+                                            <span class="txt-unit plus">+ 1D</span>
+                                        </div>
+                                    </div>
+                                    <!-- //port 정보 -->
+                                    <!-- 운행상태 : 활성: on -->
+                                    <div class="progress-bar">
+                                        <!-- 육로/ 해상에 따라 색 변경 -->
+                                        <!-- route-road: 육로 / route-ship: 해상 -->
+                                        <div class="trans-progress route-road">
+                                            <!-- 선박 icon : 원료선 / 제품선 에따라 아이콘 변경 -->
+                                            <div class="icon-cont"><i class="icon-route"></i></div>
+                                        </div>
+                                    </div>
+                                    <!-- //운행상태 -->
+                                    <!-- port 정보 -->
+                                    <!-- 창고 도착 : 활성: store-bourne -->
+                                    <div class="port-area">
+                                        <div class="port-name port-gy">
+                                            <span class="txt-port">KRKANT1</span>
+                                        </div>
+                                        <div class="txt-cont">
+                                            <span class="txt-date">2023-04-01</span>
+                                            <span class="txt-unit plus">+ 1D</span>
+                                        </div>
+                                    </div>
+                                    <!-- //port 정보 -->
+                                </div>
+                                <div class="truck-info" x-data="{activeTab: true}" :class="{'active': activeTab === true}">
+                                    <button type="button" class="btn-info" @click="activeTab = !activeTab"><span class="txt-cont">정보보기</span></button>
+                                    <div class="info-item">
+                                        <div class="info-head">
+                                            <i class="icon-info driver"></i>
+                                            <div class="txt-title">운전자 정보</div>
+                                        </div>
+                                        <ul class="info-list">
+                                            <li>
+                                                <span class="txt-cont">이태근</span>
+                                                <span class="txt-exp">(01032922431)</span>
+                                            </li>
+                                            <li>
+                                                <span class="txt-cont">동연특수</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="info-item">
+                                        <div class="info-head">
+                                            <i class="icon-info car"></i>
+                                            <div class="txt-title">차량정보</div>
+                                        </div>
+                                        <ul class="info-list">
+                                            <li>
+                                                <span class="txt-cont">전남97바4666</span>
+                                            </li>
+                                            <li>
+                                                <span class="txt-cont">[25TT]25톤 탑트럭</span>
+                                            </li>
+                                            <li>
+                                                <span class="txt-cont">[CHARTER]용차</span>
+                                            </li>
+                                            <li>
+                                                <span class="txt-cont">[A10]코일전용트레일러</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //운송 list item 반복 -->
+
+                    <!-- 운송 list item 반복 - 운송준비중 -->
+                    <div class="transport-area store">
+                        <div class="transport-info">
+                            <div class="cont-head">
+                                <button type="button" class="btn-favor" x-data="{ show: true }" @click="show = !show"
+                                    :class="{ 'active': show }"><i class="icon-star">북마크</i></button>
+                                <a href="#" class="txt-title">HL PORT HEDLANE</a>
+                                <div class="trans-info">
+                                    <span class="txt-label">Hot Coil</span>
+                                    <span class="txt-cont">Package 100</span>
+                                </div>
+                            </div>
+                            <div class="cont-body">
+                                <!-- icon-route 모양 변경 : 트럭: route-truck / 배 : route-ship / 창고: route-store -->
+                                <div class="route-info route-store">
+                                    <div class="txt-cont">KRKANT1</div>
+                                    <div class="icon-item"><i class="icon-route"></i></div>
+                                    <div class="txt-cont">KRPUSY1</div>
+                                </div>
+                                <ul class="info-list">
+                                    <li class="info-item">
+                                        <span class="txt-label">운송장 NO</span>
+                                        <span class="txt-cont">#1234567PS</span>
+                                    </li>
+                                    <li class="info-item">
+                                        <span class="txt-label">LOT NO</span>
+                                        <span class="txt-cont">#1234567PS</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="transport-visual">
+                            <div class="btn-group">
+                                <button type="button" class="btn-prev">이전</button>
+                                <button type="button" class="btn-next">이후</button>
+                            </div>
+                            <div class="progress-area">
+                                <div class="path-list">
+                                    <!-- port 정보 : 제품이동 -->
+                                    <!-- 유통기지 진행상황 : 1단계 - store-in, 2단계 - store-move, 3단계 - store-out / port-area 클래스에 추가-->
+                                    <div class="port-area store-move">
+                                        <div class="port-name store-port">
+                                            <span class="txt-port">평택 유통기지</span>
+                                        </div>
+                                        <div class="txt-cont">
+                                            <span class="txt-date">2023-04-01</span>
+                                            <span class="txt-unit plus">+ 1D</span>
+                                        </div>
+                                    </div>
+                                    <!-- //port 정보 -->
+                                    <!-- port 정보(전재여부에 따라 생성) : 활성 - active -->
+                                    <div class="port-area">
+                                        <!-- 광양(port-gy) 포항(port-ph) 창고(port-active) 일경우 class 추가  -->
+                                        <div class="port-name port-active">
+                                            <span class="txt-port">KRKANT1</span>
+                                        </div>
+                                        <div class="txt-cont">
+                                            <span class="txt-date">2023-04-01</span>
+                                            <span class="txt-unit plus">+ 1D</span>
+                                        </div>
+                                    </div>
+                                    <!-- //port 정보 -->
+                                    <!-- 운행상태 : 활성: on -->
+                                    <div class="progress-bar">
+                                        <!-- 육로/ 해상에 따라 색 변경 -->
+                                        <!-- route-road: 육로 / route-ship: 해상 -->
+                                        <div class="trans-progress route-road">
+                                            <!-- 선박 icon : 원료선 / 제품선 에따라 아이콘 변경 -->
+                                            <div class="icon-cont"><i class="icon-route"></i></div>
+                                        </div>
+                                    </div>
+                                    <!-- //운행상태 -->
+                                    <!-- port 정보 -->
+                                    <!-- 창고 도착 : 활성: store-bourne -->
+                                    <div class="port-area">
+                                        <div class="port-name port-gy">
+                                            <span class="txt-port">KRKANT1</span>
+                                        </div>
+                                        <div class="txt-cont">
+                                            <span class="txt-date">2023-04-01</span>
+                                            <span class="txt-unit plus">+ 1D</span>
+                                        </div>
+                                    </div>
+                                    <!-- //port 정보 -->
+                                </div>
+                                <div class="truck-info" x-data="{activeTab: true}" :class="{'active': activeTab === true}">
+                                    <button type="button" class="btn-info" @click="activeTab = !activeTab"><span class="txt-cont">정보보기</span></button>
+                                    <div class="info-item">
+                                        <div class="info-head">
+                                            <i class="icon-info driver"></i>
+                                            <div class="txt-title">운전자 정보</div>
+                                        </div>
+                                        <ul class="info-list">
+                                            <li>
+                                                <span class="txt-cont">이태근</span>
+                                                <span class="txt-exp">(01032922431)</span>
+                                            </li>
+                                            <li>
+                                                <span class="txt-cont">동연특수</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="info-item">
+                                        <div class="info-head">
+                                            <i class="icon-info car"></i>
+                                            <div class="txt-title">차량정보</div>
+                                        </div>
+                                        <ul class="info-list">
+                                            <li>
+                                                <span class="txt-cont">전남97바4666</span>
+                                            </li>
+                                            <li>
+                                                <span class="txt-cont">[25TT]25톤 탑트럭</span>
+                                            </li>
+                                            <li>
+                                                <span class="txt-cont">[CHARTER]용차</span>
+                                            </li>
+                                            <li>
+                                                <span class="txt-cont">[A10]코일전용트레일러</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //운송 list item 반복 -->
+
+                </div>
+                <!-- //운송 Process -->
+            </div>
+
+        </section>
+        <!-- //Main content -->
+    </div>
+    <!-- /wrapper -->
+    <!-- //필수 plugin -->
+
+    <!-- ibleaders -->
+    <script src="../../js/ibsheet8/ibsheet.js"></script>
+    <script src="../../js/ibsheet8/ibleaders.js"></script>
+    <script src="../../js/ibsheet8/locale/ko.js"></script>
+    <!-- //ibleaders -->
+
+    <!-- 퍼블 사용하기 위한 JavaScript -->
+    <script src="../../style/js/include.js"></script>
+    <script src="../../style/js/alpinejs.min.js"></script>
+    <!-- //퍼블 사용하기 위한 JavaScript -->
+</body>
+
+</html>

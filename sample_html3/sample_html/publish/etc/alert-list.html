@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
+    <title>선박 상세</title>
+
+    <!-- 필수 plugin -->
+    <!-- jQuery -->
+    <script src="../../js/jquery/dist/jquery.min.js"></script>
+    <script src="../../js/jquery-ui/dist/jquery-ui.min.js"></script>
+    <script src="../../js/jsrender/dist/jsrender.js"></script>
+    <!-- Select -->
+    <script src="../../js/tom-select/dist/js/tom-select.complete.min.js"></script>
+    <!-- 날짜 관련 -->
+    <script src="../../js/moment/dist/moment.min.js"></script>
+    <!-- //필수 plugin -->
+
+    <!-- UI Style -->
+    <link rel="stylesheet" href="../../style/css/style-ui.css" />
+</head>
+
+<body class="iframe-layout">
+    <div class="alert-list-area" x-data="{
+        iconClass: 'ship-material', iconTitle: '벌크(원료선)',
+        items: [
+            {class: 'deviate', title: 'Deviation', data: '62'},
+            {class: 'delay', title: 'Delay/Forward', data: '32'},
+            {class: 'stop', title: 'Stoppage', data: '12'},
+            {class: 'ais', title: 'Not Received AIS', data: '8'},
+        ]
+    }">
+        <div class="alert-item">
+            <!-- 제품선 icon class: ship-product / 원료선 icon class: ship-material -->
+            <div class="ship-item" :class="iconClass">
+                <i class="icon-ship"></i>
+                <div class="txt-title" x-text="iconTitle"></div>
+            </div>
+            <ul class="alert-list">
+                <template x-for="item in items" key="item.class">
+                    <li>
+                        <div class="info-item">
+                            <!-- icon class 명 - deviate : Deviation / delay : Delay/Forward / stop : Stoppage / ais : Not Received AIS -->
+                            <i class="icon-info" :class="item.class"></i>
+                            <div class="txt-label" x-text="item.title"></div>
+                            <div class="txt-cont">
+                                <div class="date-cont"><span class="txt-num" x-text="item.data"></span></div>
+                            </div>
+                        </div>
+                    </li>
+                </template>
+            </ul>
+        </div>
+    </div>
+<!-- ./wrapper -->
+
+<!-- 퍼블 사용하기 위한 JavaScript -->
+<script src="../../style/js/include.js"></script>
+<script src="../../style/js/alpinejs.min.js"></script>
+<!-- //퍼블 사용하기 위한 JavaScript -->
+</body>
+</html>

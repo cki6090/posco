@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
+    <title>벌크 운송 현황</title>
+
+    <!-- 필수 plugin -->
+    <!-- jQuery -->
+    <script src="../../js/jquery/dist/jquery.min.js"></script>
+    <script src="../../js/jquery-ui/dist/jquery-ui.min.js"></script>
+    <script src="../../js/jsrender/dist/jsrender.js"></script>
+    <!-- Select -->
+    <script src="../../js/tom-select/dist/js/tom-select.complete.min.js"></script>
+    <!-- 날짜 관련 -->
+    <script src="../../js/moment/dist/moment.min.js"></script>
+    <!-- //필수 plugin -->
+
+    <!-- UI Style -->
+    <link rel="stylesheet" href="../../style/css/style-ui.css" />
+</head>
+
+<body class="iframe-layout">
+    <div class="wrapper">
+        <!-- 타이틀 및 네비게이션 영역 : 2023.05.08 공통 영역 수정 -->
+        <section class="content-head">
+            <h2 class="page-title"><span>벌크 운송 현황</span></h2>
+            <div class="head-article" x-data="{open: true}">
+                <include src="../_include/content/content-head-article.html"></include>
+            </div>
+        </section>
+        <!-- //타이틀 및 네비게이션 영역 -->
+
+        <!-- Main content -->
+        <section class="content-body" x-data="{ activeTab: 0, tabs: ['전체 현황 98', '원료선 63', '제품선 16']}">
+            <!-- content tab -->
+            <div class="content-tab">
+                <include src="../_include/components/tab-menu.html"></include>
+            </div>
+            <!-- //content tab -->
+
+            <!-- 검색된 컨텐츠 영역 -->
+            <div class="search-cont-area off"><!-- class : off 삭제하면 검색된 영역이 보인다 -->
+                <include src="../_include/search/search_content.html"></include>
+            </div>
+            <!-- //검색된 컨텐츠 영역 -->
+
+            <div class="content-area transport">
+                <!-- 운송 Process -->
+                <div class="transport-wrap">
+                    <!-- No Data -->
+                    <div class="transport-area">
+                        <div class="message-box">
+                            <div class="msg-nodata">
+                                <i class="icon-msg"></i>
+                                <p class="txt-msg">데이터가 없습니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //No Data -->
+
+                    <!-- 운송 list -->
+                    <!-- 운송 list item 반복 -->
+                    <div class="transport-area">
+                        <div class="transport-info">
+                            <div class="cont-head">
+                                <button type="button" class="btn-favor active" x-data="{ show: true }" @click="show = !show" :class="{ 'active': show }">
+                                    <i class="icon-star">북마크</i></button>
+                                    <a href="#" class="txt-title">
+                                       <span>HL PORT HEDLANE</span>
+                                       <span class="txt-cont">(250K)</span>
+                                    </a>
+
+                                <div class="trans-info">
+                                    <!-- <span class="txt-label">PLS</span> -->
+                                    <span class="txt-cont">40200384</span>
+                                    <span class="txt-cont">EO23201228</span>
+                                </div>
+                            </div>
+                            <div class="cont-body">
+                                <include src="transport/trans_info_item.html"></include>
+                            </div>
+                        </div>
+
+                        <div class="transport-visual">
+                            <div class="btn-group">
+                                <button type="button" class="btn-prev">이전</button>
+                                <button type="button" class="btn-next">이후</button>
+                            </div>
+                            <div class="progress-area">
+                                <!-- 경로 순서 :  -->
+                                <div class="path-list">
+                                    <!-- 항구정보 : 반복 -->
+                                    <!-- 2023.05.23 progress-bar on 인 양 옆의 일반 포트명일때 : port-active 추가 -->
+                                    <div class="port-area port-active">
+                                        <!-- 아이콘 명 : anchor 묘박 / berth 정박 / departure 출발 / dock 도착 -->
+                                        <div class="port-icon departure">
+                                            <i class="icon-port"></i>
+                                            <!-- alert - port icon 마우스 오버시 알림 show -->
+                                            <div class="alert-area">
+                                                <div class="info-alert">
+                                                    <span class="txt-alert">묘박 중</span>
+                                                </div>
+                                            </div>
+                                            <!-- //alert -->
+                                        </div>
+                                        <!-- 광양(port-gy) 포항(port-ph) 일경우 class 추가  -->
+                                        <div class="port-name port-ph">
+                                            <span class="txt-port">PH</span>
+                                            <!-- tooltip - Port name 마우스 오버시 상세내용 show -->
+                                            <div class="tooltip-area left">
+                                                <div class="port-tooltip">
+                                                    <div class="txt-title">
+                                                        <i class="fi-km"></i>
+                                                        <span>STELLAR HERMES</span>
+                                                    </div>
+                                                    <div class="barge-cont">
+                                                        <div class="item in">
+                                                            <div class="txt-label">양하</div>
+                                                            <div class="txt-cont">2.5D</div>
+                                                        </div>
+                                                        <div class="item out">
+                                                            <div class="txt-label">선적</div>
+                                                            <div class="txt-cont">2.5D</div>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="info-list">
+                                                        <li class="trans-info">
+                                                            <span class="txt-label">LAY</span>
+                                                            <span class="txt-cont">2021-07-17</span>
+                                                        </li>
+                                                        <li class="trans-info">
+                                                            <span class="txt-label">CAN</span>
+                                                            <span class="txt-cont">2021-07-17</span>
+                                                        </li>
+                                                        <li class="trans-info">
+                                                            <span class="txt-label">ETA</span>
+                                                            <span class="txt-cont">2021-07-17</span>
+                                                            <span class="txt-unit plus">+0D</span>
+                                                        </li>
+                                                        <li class="trans-info">
+                                                            <span class="txt-label">ETD</span>
+                                                            <span class="txt-cont">2021-07-17</span>
+                                                            <span class="txt-unit minus">-0D</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <!-- //tooltip -->
+                                        </div>
+                                    </div>
+                                    <!-- //항구정보 : 반복 -->
+                                    <!-- 운행중 -->
+                                    <div class="progress-bar on">
+                                        <!-- 원료선일 경우 원료에따라 색상 변경 -->
+                                        <!-- ship-product: 제품선 / ship-stone: 석회석 / ship-iron: 철광석 / ship-coal: 석탄 -->
+                                        <div class="trans-progress ship-stone" data-dist="2"><!-- 2023.05.26 거리관련 점의 갯수 최대 10개 -->
+                                            <!-- 선박 icon : 원료선 / 제품선 에따라 아이콘 변경 -->
+                                            <div class="icon-cont" data-role="30"><i class="icon-ship"></i></div>
+                                            <div class="trans-info">
+                                                <span class="txt-label">16.8D</span>
+                                                <span class="txt-cont">4,666nm/11.48Kts</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- //운행중 -->
+                                    <!-- 항구정보 : 반복 -->
+                                    <!-- 2023.05.23 progress-bar on 인 양 옆의 일반 포트명일때 : port-active 추가 -->
+                                    <div class="port-area port-active">
+                                        <!-- 아이콘 명 : anchor 묘박 / berth 정박 / departure 출발 / dock 도착 -->
+                                        <div class="port-icon dock">
+                                            <i class="icon-port"></i>
+                                            <!-- alert - port icon 마우스 오버시 알림 show -->
+                                            <div class="alert-area">
+                                                <div class="info-alert">
+                                                    <span class="txt-alert">묘박 중</span>
+                                                </div>
+                                            </div>
+                                            <!-- //alert -->
+                                        </div>
+                                        <!-- 광양(port-gy) 포항(port-ph) 일경우 class 추가  -->
+                                        <div class="port-name port-gy">
+                                            <span class="txt-port">GY</span>
+                                            <!-- tooltip - Port name 마우스 오버시 상세내용 show -->
+                                            <div class="tooltip-area">
+                                                <div class="port-tooltip">
+                                                    <div class="txt-title">
+                                                        <i class="fi-km"></i>
+                                                        <span>STELLAR HERMES</span>
+                                                    </div>
+                                                    <div class="barge-cont">
+                                                        <div class="item in">
+                                                            <div class="txt-label">양하</div>
+                                                            <div class="txt-cont">2.5D</div>
+                                                        </div>
+                                                        <div class="item out">
+                                                            <div class="txt-label">선적</div>
+                                                            <div class="txt-cont">2.5D</div>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="info-list">
+                                                        <li class="trans-info">
+                                                            <span class="txt-label">LAY</span>
+                                                            <span class="txt-cont">2021-07-17</span>
+                                                        </li>
+                                                        <li class="trans-info">
+                                                            <span class="txt-label">CAN</span>
+                                                            <span class="txt-cont">2021-07-17</span>
+                                                        </li>
+                                                        <li class="trans-info">
+                                                            <span class="txt-label">ETA</span>
+                                                            <span class="txt-cont">2021-07-17</span>
+                                                            <span class="txt-unit">+0D</span>
+                                                        </li>
+                                                        <li class="trans-info">
+                                                            <span class="txt-label">ETD</span>
+                                                            <span class="txt-cont">2021-07-17</span>
+                                                            <span class="txt-unit">+0D</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <!-- //tooltip -->
+                                        </div>
+                                    </div>
+                                    <!-- //항구정보 : 반복 -->
+                                    <!-- 항구정보 : 반복 -->
+                                    <div class="port-area">
+                                        <!-- 아이콘 명 : anchor 묘박 / berth 정박 / departure 출발 / dock 도착 -->
+                                        <div class="port-icon">
+                                            <i class="icon-port"></i>
+                                            <!-- alert - port icon 마우스 오버시 알림 show -->
+                                            <div class="alert-area">
+                                                <div class="info-alert">
+                                                    <span class="txt-alert">묘박 중</span>
+                                                </div>
+                                            </div>
+                                            <!-- //alert -->
+                                        </div>
+                                        <!-- 광양(port-gy) 포항(port-ph) 일경우 class 추가  -->
+                                        <div class="port-name">
+                                            <span class="txt-port">Port Name</span>
+                                            <!-- tooltip - Port name 마우스 오버시 상세내용 show -->
+                                            <div class="tooltip-area">
+                                                <div class="port-tooltip">
+                                                    <div class="txt-title">
+                                                        <i class="fi-km"></i>
+                                                        <span>STELLAR HERMES</span>
+                                                    </div>
+                                                    <div class="barge-cont">
+                                                        <div class="item in">
+                                                            <div class="txt-label">양하</div>
+                                                            <div class="txt-cont">2.5D</div>
+                                                        </div>
+                                                        <div class="item out">
+                                                            <div class="txt-label">선적</div>
+                                                            <div class="txt-cont">2.5D</div>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="info-list">
+                                                        <li class="trans-info">
+                                                            <span class="txt-label">LAY</span>
+                                                            <span class="txt-cont">2021-07-17</span>
+                                                        </li>
+                                                        <li class="trans-info">
+                                                            <span class="txt-label">CAN</span>
+                                                            <span class="txt-cont">2021-07-17</span>
+                                                        </li>
+                                                        <li class="trans-info">
+                                                            <span class="txt-label">ETA</span>
+                                                            <span class="txt-cont">2021-07-17</span>
+                                                            <span class="txt-unit">+0D</span>
+                                                        </li>
+                                                        <li class="trans-info">
+                                                            <span class="txt-label">ETD</span>
+                                                            <span class="txt-cont">2021-07-17</span>
+                                                            <span class="txt-unit">+0D</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <!-- //tooltip -->
+                                        </div>
+                                    </div>
+                                    <!-- //항구정보 : 반복 -->
+                                    <!-- 항구정보 : 반복 -->
+                                    <div class="port-area">
+                                        <!-- 아이콘 명 : anchor 묘박 / berth 정박 / departure 출발 / dock 도착 -->
+                                        <div class="port-icon">
+                                            <i class="icon-port"></i>
+                                            <!-- alert - port icon 마우스 오버시 알림 show -->
+                                            <div class="alert-area">
+                                                <div class="info-alert">
+                                                    <span class="txt-alert">묘박 중</span>
+                                                </div>
+                                            </div>
+                                            <!-- //alert -->
+                                        </div>
+                                        <!-- 광양(port-gy) 포항(port-ph) 일경우 class 추가  -->
+                                        <div class="port-name">
+                                            <span class="txt-port">Port Name</span>
+                                            <!-- tooltip - Port name 마우스 오버시 상세내용 show -->
+                                            <div class="tooltip-area">
+                                                <div class="port-tooltip">
+                                                    <div class="txt-title">
+                                                        <i class="fi-km"></i>
+                                                        <span>STELLAR HERMES</span>
+                                                    </div>
+                                                    <div class="barge-cont">
+                                                        <div class="item in">
+                                                            <div class="txt-label">양하</div>
+                                                            <div class="txt-cont">2.5D</div>
+                                                        </div>
+                                                        <div class="item out">
+                                                            <div class="txt-label">선적</div>
+                                                            <div class="txt-cont">2.5D</div>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="info-list">
+                                                        <li class="trans-info">
+                                                            <span class="txt-label">LAY</span>
+                                                            <span class="txt-cont">2021-07-17</span>
+                                                        </li>
+                                                        <li class="trans-info">
+                                                            <span class="txt-label">CAN</span>
+                                                            <span class="txt-cont">2021-07-17</span>
+                                                        </li>
+                                                        <li class="trans-info">
+                                                            <span class="txt-label">ETA</span>
+                                                            <span class="txt-cont">2021-07-17</span>
+                                                            <span class="txt-unit">+0D</span>
+                                                        </li>
+                                                        <li class="trans-info">
+                                                            <span class="txt-label">ETD</span>
+                                                            <span class="txt-cont">2021-07-17</span>
+                                                            <span class="txt-unit">+0D</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <!-- //tooltip -->
+                                        </div>
+                                    </div>
+                                    <!-- //항구정보 : 반복 -->
+                                    <!-- 항구정보 : 반복 -->
+                                    <div class="port-area">
+                                        <!-- 아이콘 명 : anchor 묘박 / berth 정박 / departure 출발 / dock 도착 -->
+                                        <div class="port-icon">
+                                            <i class="icon-port"></i>
+                                            <!-- alert - port icon 마우스 오버시 알림 show -->
+                                            <div class="alert-area">
+                                                <div class="info-alert">
+                                                    <span class="txt-alert">묘박 중</span>
+                                                </div>
+                                            </div>
+                                            <!-- //alert -->
+                                        </div>
+                                        <!-- 광양(port-gy) 포항(port-ph) 일경우 class 추가  -->
+                                        <div class="port-name">
+                                            <span class="txt-port">Port Name</span>
+                                            <!-- tooltip - Port name 마우스 오버시 상세내용 show -->
+                                            <div class="tooltip-area">
+                                                <div class="port-tooltip">
+                                                    <div class="txt-title">
+                                                        <i class="fi-km"></i>
+                                                        <span>STELLAR HERMES</span>
+                                                    </div>
+                                                    <div class="barge-cont">
+                                                        <div class="item in">
+                                                            <div class="txt-label">양하</div>
+                                                            <div class="txt-cont">2.5D</div>
+                                                        </div>
+                                                        <div class="item out">
+                                                            <div class="txt-label">선적</div>
+                                                            <div class="txt-cont">2.5D</div>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="info-list">
+                                                        <li class="trans-info">
+                                                            <span class="txt-label">LAY</span>
+                                                            <span class="txt-cont">2021-07-17</span>
+                                                        </li>
+                                                        <li class="trans-info">
+                                                            <span class="txt-label">CAN</span>
+                                                            <span class="txt-cont">2021-07-17</span>
+                                                        </li>
+                                                        <li class="trans-info">
+                                                            <span class="txt-label">ETA</span>
+                                                            <span class="txt-cont">2021-07-17</span>
+                                                            <span class="txt-unit">+0D</span>
+                                                        </li>
+                                                        <li class="trans-info">
+                                                            <span class="txt-label">ETD</span>
+                                                            <span class="txt-cont">2021-07-17</span>
+                                                            <span class="txt-unit">+0D</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <!-- //tooltip -->
+                                        </div>
+                                    </div>
+                                    <!-- //항구정보 : 반복 -->
+                                    <!-- 항구정보 : 반복 -->
+                                    <div class="port-area">
+                                        <!-- 아이콘 명 : anchor 묘박 / berth 정박 / departure 출발 / dock 도착 -->
+                                        <div class="port-icon">
+                                            <i class="icon-port"></i>
+                                            <!-- alert - port icon 마우스 오버시 알림 show -->
+                                            <div class="alert-area">
+                                                <div class="info-alert">
+                                                    <span class="txt-alert">묘박 중</span>
+                                                </div>
+                                            </div>
+                                            <!-- //alert -->
+                                        </div>
+                                        <!-- 광양(port-gy) 포항(port-ph) 일경우 class 추가  -->
+                                        <div class="port-name">
+                                            <span class="txt-port">Port Name</span>
+                                            <!-- tooltip - Port name 마우스 오버시 상세내용 show -->
+                                            <!-- 툴팁 내용이 짤릴경우 : right class 추가 -->
+                                            <div class="tooltip-area right">
+                                                <div class="port-tooltip">
+                                                    <div class="txt-title">
+                                                        <i class="fi-km"></i>
+                                                        <span>STELLAR HERMES</span>
+                                                    </div>
+                                                    <div class="barge-cont">
+                                                        <div class="item in">
+                                                            <div class="txt-label">양하</div>
+                                                            <div class="txt-cont">2.5D</div>
+                                                        </div>
+                                                        <div class="item out">
+                                                            <div class="txt-label">선적</div>
+                                                            <div class="txt-cont">2.5D</div>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="info-list">
+                                                        <li class="trans-info">
+                                                            <span class="txt-label">LAY</span>
+                                                            <span class="txt-cont">2021-07-17</span>
+                                                        </li>
+                                                        <li class="trans-info">
+                                                            <span class="txt-label">CAN</span>
+                                                            <span class="txt-cont">2021-07-17</span>
+                                                        </li>
+                                                        <li class="trans-info">
+                                                            <span class="txt-label">ETA</span>
+                                                            <span class="txt-cont">2021-07-17</span>
+                                                            <span class="txt-unit">+0D</span>
+                                                        </li>
+                                                        <li class="trans-info">
+                                                            <span class="txt-label">ETD</span>
+                                                            <span class="txt-cont">2021-07-17</span>
+                                                            <span class="txt-unit">+0D</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <!-- //tooltip -->
+                                        </div>
+                                    </div>
+                                    <!-- 반복 -->
+                                </div>
+                                <!-- //경로순서 -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- //운송 list item 반복 -->
+                    <div class="transport-area" x-data="{
+                        shipName: 'GLOBAL HARMONY',
+                        portStart: 'BRPDM',
+                        portStartIcon: '',
+                        portEnd: 'KRKAN',
+                        portEndIcon: '',
+                        progressColor: 'ship-iron',
+                        progressRole: '1',
+                        progressDist: '5',
+                    }">
+                        <include src="transport/transport_bar.html"></include>
+                    </div>
+                    <div class="transport-area" x-data="{
+                        shipName: 'MONA PEGASUS',
+                        portStart: 'KRKPO',
+                        portStartIcon: '',
+                        portEnd: 'BRPDM',
+                        portEndIcon: '',
+                        progressColor: 'ship-coal',
+                        progressRole: '10',
+                        progressDist: '7',
+                    }">
+                        <include src="transport/transport_bar.html"></include>
+                    </div>
+                    <div class="transport-area" x-data="{
+                        shipName: 'PAN COSMOS',
+                        portStart: 'AUPWL',
+                        portStartIcon: '',
+                        portEnd: 'KRKAN',
+                        portEndIcon: '',
+                        progressColor: 'ship-product',
+                        progressRole: '20',
+                        progressDist: '10',
+                    }">
+                        <include src="transport/transport_bar.html"></include>
+                    </div>
+                    <div class="transport-area" x-data="{
+                        shipName: 'GLOBAL COMMANDER',
+                        portStart: 'KRKPO',
+                        portStartIcon: '',
+                        portEnd: 'AUPKL',
+                        portEndIcon: '',
+                        progressColor: 'ship-stone',
+                        progressRole: '100',
+                        progressDist: '5',
+                    }">
+                        <include src="transport/transport_bar.html"></include>
+                    </div>
+                    <div class="transport-area" x-data="{
+                        shipName: 'CAPE RELIANCE',
+                        portStart: 'KRKAN',
+                        portStartIcon: '',
+                        portEnd: 'AUPWL',
+                        portEndIcon: '',
+                        progressColor: 'ship-iron',
+                        progressRole: '95',
+                        progressDist: '8',
+                    }">
+                        <include src="transport/transport_bar.html"></include>
+                    </div>
+                    <div class="transport-area" x-data="{
+                        shipName: 'BERGE GROSSGLOCKNER',
+                        portStart: 'MXVER',
+                        portStartIcon: '',
+                        portEnd: 'KRKPO',
+                        portEndIcon: '',
+                        progressColor: 'ship-coal',
+                        progressRole: '98',
+                        progressDist: '3',
+                    }">
+                        <include src="transport/transport_bar.html"></include>
+                    </div>
+                    <div class="transport-area" x-data="{
+                        shipName: 'SPAR LYRA',
+                        portStart: 'KRKPO',
+                        portStartIcon: 'anchor',
+                        portEnd: 'MXVER',
+                        portEndIcon: '',
+                        progressColor: 'ship-product',
+                        progressRole: '0',
+                        progressDist: '5',
+                    }">
+                        <include src="transport/transport_bar.html"></include>
+                    </div>
+                    <div class="transport-area" x-data="{
+                        shipName: 'OCEAN AMAZING',
+                        portStart: 'ITVCE',
+                        portStartIcon: 'berth',
+                        portEnd: 'MASFI',
+                        portEndIcon: '',
+                        progressColor: 'ship-stone',
+                        progressRole: '0',
+                        progressDist: '3',
+                    }">
+                        <include src="transport/transport_bar.html"></include>
+                    </div>
+                    <div class="transport-area" x-data="{
+                        shipName: 'WOOYANG BANDERS',
+                        portStart: 'IDSRG',
+                        portStartIcon: 'departure',
+                        portEnd: 'KRKAN',
+                        portEndIcon: '',
+                        progressColor: 'ship-iron',
+                        progressRole: '0',
+                        progressDist: '5',
+                    }">
+                        <include src="transport/transport_bar.html"></include>
+                    </div>
+                    <div class="transport-area" x-data="{
+                        shipName: 'BULGARIA',
+                        portStart: 'KRKAN',
+                        portStartIcon: '',
+                        portEnd: 'KRKPO',
+                        portEndIcon: 'dock',
+                        progressColor: 'ship-coal',
+                        progressRole: '100',
+                        progressDist: '7',
+                    }">
+                        <include src="transport/transport_bar.html"></include>
+                    </div>
+                    <!-- 운송 list -->
+                </div>
+                <!-- //운송 Process -->
+            </div>
+        </section>
+        <!-- //Main content -->
+    </div>
+    <!-- /wrapper -->
+
+    <!--div class="loding-area">
+        <div class="loding-bar"></div>
+    </!--div-->
+
+    <!-- ibleaders -->
+    <script src="../../js/ibsheet8/ibsheet.js"></script>
+    <script src="../../js/ibsheet8/ibleaders.js"></script>
+    <script src="../../js/ibsheet8/locale/ko.js"></script>
+    <!-- //ibleaders -->
+
+    <!-- 퍼블 사용하기 위한 JavaScript -->
+    <script src="../../style/js/include.js"></script>
+    <script src="../../style/js/alpinejs.min.js"></script>
+    <!-- //퍼블 사용하기 위한 JavaScript -->
+
+
+    <script>
+        // const itemData = [
+        //     { iconClass: 'anchor', activeClass: 'port-active', textAlert: '묘박 중', portClass: 'port-gy', portName: 'GY', tooltipClass:'left', progressClass: 'on', barClass: 'ship-iron'},
+        //     { iconClass: 'berth', activeClass: 'port-active', textAlert: '정박 중', portClass: '', portName: 'R.BANK', tooltipClass:'left', progressClass: '', barClass: ''},
+        //     { iconClass: 'departure', activeClass: '', textAlert: '출항준비 완료', portClass: 'port-ph', portName: 'PH', tooltipClass:'left', progressClass: '', barClass: ''},
+        //     { iconClass: 'dock', activeClass: '', textAlert: 'Dry Docking', portClass: '', portName: 'DONGHAE', tooltipClass:'right', progressClass: '', barClass: ''},
+        //     { iconClass: '', activeClass: '', textAlert: '', portClass: '', portName: 'DONGHAE', tooltipClass:'right', progressClass: '', barClass: ''}
+        // ]
+
+        // portArarHtml(itemData, '.path-list');
+
+        // function portArarHtml(data, selector) {
+        //     let htmlTemp = '';
+        //     data.forEach(function (value, index) {
+        //         console.log(value, index);
+        //         if (value.iconClass !== undefined) {
+        //             htmlTemp += `<div class="port-area ${value.activeClass}">
+        //             <div class="port-icon ${value.iconClass}">
+        //                 <i class="icon-port"></i>
+        //                 <!-- alert - port icon 마우스 오버시 알림 show -->
+        //                 <div class="alert-area">
+        //                     <div class="info-alert">
+        //                         <span class="txt-alert">${value.textAlert}</span>
+        //                     </div>
+        //                 </div>
+        //                 <!-- //alert -->
+        //             </div>`;
+        //         }
+
+        //         if (value.portClass !== undefined) {
+        //             htmlTemp += `<div class="port-name ${value.portClass}">
+        //                 <span class="txt-port">${value.portName}</span>
+        //                 <!-- tooltip - Port name 마우스 오버시 상세내용 show -->
+        //                 <div class="tooltip-area ${value.tooltipClass}">
+        //                     <div class="port-tooltip">
+        //                         <div class="txt-title">
+        //                             <i class="fi-kr"></i>
+        //                             <span>STELLAR HERMES</span>
+        //                         </div>
+        //                         <div class="barge-cont">
+        //                             <div class="item in">
+        //                                 <div class="txt-label">양하</div>
+        //                                 <div class="txt-cont">2.5D</div>
+        //                             </div>
+        //                             <div class="item out">
+        //                                 <div class="txt-label">선적</div>
+        //                                 <div class="txt-cont">2.5D</div>
+        //                             </div>
+        //                         </div>
+        //                         <ul class="info-list">
+        //                             <li class="trans-info">
+        //                                 <span class="txt-label">LAY</span>
+        //                                 <span class="txt-cont">2021-07-17</span>
+        //                             </li>
+        //                             <li class="trans-info">
+        //                                 <span class="txt-label">CAN</span>
+        //                                 <span class="txt-cont">2021-07-17</span>
+        //                             </li>
+        //                             <li class="trans-info">
+        //                                 <span class="txt-label">ETA</span>
+        //                                 <span class="txt-cont">2021-07-17</span>
+        //                                 <span class="txt-unit">+0D</span>
+        //                             </li>
+        //                             <li class="trans-info">
+        //                                 <span class="txt-label">ETD</span>
+        //                                 <span class="txt-cont">2021-07-17</span>
+        //                                 <span class="txt-unit">+0D</span>
+        //                             </li>
+        //                         </ul>
+        //                     </div>
+        //                 </div>
+        //                 <!-- //tooltip -->
+        //             </div>
+        //         </div>`;
+        //         }
+
+        //         if (value.progressClass !== undefined) {
+        //             htmlTemp += `<div class="progress-bar ${value.progressClass}">
+        //             <!-- 원료선일 경우 원료에따라 색상 변경 -->
+        //             <!-- ship-product: 제품선 / ship-stone: 석회석 / ship-iron: 철광석 / ship-coal: 석탄 -->
+        //             <div class="trans-progress ${value.barClass}" data-dist="2">
+        //                 <!-- 선박 icon : 원료선 / 제품선 에따라 아이콘 변경 -->
+        //                 <div class="icon-cont" data-role="20"><i class="icon-ship"></i></div>
+        //                 <div class="trans-info">
+        //                     <span class="txt-label">16.8D</span>
+        //                     <span class="txt-cont">4,666nm/11.48Kts</span>
+        //                 </div>
+        //             </div>
+        //         </div>`;
+        //         }
+        //     });
+
+        //     const port_area = document.querySelector(selector);
+        //     port_area.innerHTML = htmlTemp;
+        // }
+    </script>
+</body>
+
+</html>

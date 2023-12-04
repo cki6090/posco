@@ -1,0 +1,91 @@
+@charset "utf-8";
+// @guide : 변수 설정
+
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap');
+$guide-font-family      	:    "Nanum Gothic Coding", dotum, monospace, serif !default;
+
+// color
+$guide-color-line 			:		#d3d3d8;
+$guide-color-td 			:		#e6e6e9;
+$guide-color-disabled 		:		#6a6a75;
+$guide-color-aem-bg			:		#f4f4f5;
+$guide-color-ok-bg			:		#ffecec;
+$guide-color-img-bg			:		#ddeff5;
+$guide-color-edit-bg		:		#e1f7d3;
+$guide-color-add-bg			:		#eedffb;
+$guide-color-aem 			:		#9e9ea7;
+$guide-color-ok 			:		#2a2a2e;
+$guide-color-img 			:		#3552d6;
+$guide-color-mark 			:		#f51919;
+$guide-color-mark-bg		:		#ffff9d;
+$guide-color-box-mark 		:		#f0ff00;
+$guide-color-box-mark-bg	:		#fd555a;
+
+$guide-title-color  		:		#222222;
+$guide-text-color     		:		#666666;
+$guide-code-color     		:		#ffffff;
+$guide-color-edit-title		:		#5cb1f5;
+$guide-color-tab-on			:		#0bc2da;
+
+// size
+$guide-size-base 			:		10px;
+$guide-td-base				:		60px;
+
+$pd-base                    :       20px;
+$pd-md                      :       30px;
+$pd-xs                      :       5px;
+$pd-xxs                     :       2px;
+
+// font size
+$guide-font-title 			:		14px;
+$guide-font-base 			:		12px;
+$guide-font-sm	 			:		10px;
+
+// table line
+$guide-line-table			: 		1px solid $guide-color-line;
+$guide-line-td 				: 		1px solid $guide-color-td;
+
+$guide-area-line            :       inset 0 0px 0px $pd-xxs $guide-color-box-mark-bg;
+
+@mixin markStyle {
+    color: $guide-color-mark;
+    background-color: $guide-color-box-mark;
+    padding: 0 $pd-xxs;
+    line-height: 1.2;
+    border-radius: 2px;
+}
+@mixin guideText($type: text) {
+    @if $type == title {
+        font-size: $guide-font-title;
+        font-weight: 600;
+        color: $guide-title-color;
+    } @else if $type == text {
+        font-size: $guide-font-base;
+        font-weight: 400;
+        color: $guide-text-color;
+    } @else if $type == code {
+        font-size: $guide-font-base;
+        font-family: dotum, monospace;
+        color: $guide-code-color;
+        background-color: $guide-title-color;
+        padding: $pd-xxs $pd-xs;
+        border-radius: 4px;
+    }
+}
+@mixin codeText {
+    font-size: $guide-font-base;
+    font-family: dotum, monospace;
+    color: $guide-color-ok;
+}
+@mixin guideData($X: $pd-xs, $Y:$pd-xs) {
+    content: attr(data-text);
+    display: block;
+    padding: $spacer-xs $spacer-sm;
+    background-color: $guide-color-mark-bg;
+    border-radius: $pd-xs;
+    position: absolute;
+    z-index: 1;
+    top: $Y;
+    left: $X;
+    @include codeText;
+}

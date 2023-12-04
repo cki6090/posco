@@ -1,0 +1,8 @@
+//* 변수 선언 */
+@import "base";			// default 변수
+@import "color";		// default color 값 정의
+@import "color_mix";	// layout color 변수 지정
+@import "size";			// default size 변수 정의
+@import "size_mix"; 	// layout size 변수 지정
+@import "mixin_map";	// 변수 grouping
+@import "style";		// style 변수

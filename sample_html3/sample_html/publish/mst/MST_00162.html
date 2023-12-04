@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
+    <title>관심 항구 등록/조회</title>
+
+    <!-- 필수 plugin -->
+    <!-- jQuery -->
+    <script src="../../js/jquery/dist/jquery.min.js"></script>
+    <script src="../../js/jquery-ui/dist/jquery-ui.min.js"></script>
+    <script src="../../js/jsrender/dist/jsrender.js"></script>
+    <!-- Select -->
+    <script src="../../js/tom-select/dist/js/tom-select.complete.min.js"></script>
+    <!-- 날짜 관련 -->
+    <script src="../../js/moment/dist/moment.min.js"></script>
+    <!-- //필수 plugin -->
+
+    <!-- UI Style -->
+    <link rel="stylesheet" href="../../style/css/style-ui.css" />
+</head>
+
+<body class="iframe-layout">
+    <div class="wrapper">
+        <!-- 타이틀 및 네비게이션 영역 : 2023.05.08 공통 영역 수정 -->
+        <section class="content-head">
+            <h2 class="page-title"><span>관심 항구 등록/조회</span></h2>
+            <div class="head-article" x-data="{open: false}">
+                <include src="../_include/content/content-head-article.html"></include>
+            </div>
+        </section>
+        <!-- //타이틀 및 네비게이션 영역 -->
+
+        <!-- Main content -->
+        <section class="content-body">
+            <!-- 검색된 컨텐츠 영역 -->
+            <div class="search-cont-area"><!-- class : off 추가시 검색영역 hide -->
+                <include src="../_include/search/search_content.html"></include>
+            </div>
+            <!-- //검색된 컨텐츠 영역 -->
+
+            <div class="content-area">
+                <!-- 2023.06.27 : 데이터 종 갯수 따로 표현 -->
+                <div class="table-area">
+                    <p class="table-info">7</p>
+                    <div class="ibsheet-wrap">
+                        <div id="sheetDiv"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- //Main content -->
+    </div>
+    <!-- /wrapper -->
+
+    <!-- ibleaders -->
+    <script src="../../js/ibsheet8/ibsheet.js"></script>
+    <script src="../../js/ibsheet8/ibleaders.js"></script>
+    <script src="../../js/ibsheet8/locale/ko.js"></script>
+    <!-- //ibleaders -->
+
+    <!-- 퍼블 사용하기 위한 JavaScript -->
+    <script src="../../style/js/include.js"></script>
+    <script defer src="../../style/js/alpinejs.min.js"></script>
+    <!-- //퍼블 사용하기 위한 JavaScript -->
+
+    <script type="text/javascript">
+        var ib = ib || {};
+        ib = {
+            init: {
+                Def: {                   	// 공통 속성 설정
+                    Col: {},
+                    Row: {},
+                    Header: {
+                        Align: "Center",
+                        TextStyle: 1
+                    },
+                },
+                Cfg: {// 전역 기능 설정(cfg property)
+                    // 공통으로 사용
+                    FitWidth: 1,            //우측에 더미 열(Column)을 추가
+                    HeaderMerge: 3,
+                    HoverScope: 1,          //헤더 영역에 Hover 동작하지 않음
+                    CanColResize: false,    //사용자 너비 조절 기능 X
+                    CanSort: false,         //열 정렬(Sort) 기능 X
+                    SearchMode: 2,
+                    borderCursors: 0,       //hover시 Border active X
+                    IgnoreFocused: true,    // 조회 후 포커스를 가져오지 않게 한다.
+					// 경우에 따라 사용
+                    // InfoRowConfig: { Visible: 1, Layout: ["Count"], Space: "Top", Format: "TOTALROWS"}
+                },
+                Cols: [               // 기본 열 설정(가운데영역)  (col property)
+                    {
+                        Header: " ",
+                        Type: "Text",
+                        Name: "favor",
+                        Align: "Center",
+                        CanEdit: 1,
+                        Width: 60,
+                        Format: {
+                            0: "<button type='button' class='btn-favor'><i class='icon-star'>북마크</i></button>",
+                            1: "<button type='button' class='btn-favor active'><i class='icon-star'>북마크</i></button>"
+                        }
+                    }, {
+                        Header: "항구코드",
+                        Type: "Text",
+                        Name: "cell01",
+                        Align: "Center",
+                        CanEdit: 0,
+                        Width: 100
+                    }, {
+                        Header: "항구명",
+                        Type: "Text",
+                        Name: "cell02",
+                        Align: "Left",
+                        Width: 400
+                    }, {
+                        Header: "항구유형",
+                        Type: "Text",
+                        Name: "cell03",
+                        Align: "Center",
+                        CanEdit: 0,
+                        Width: 150
+                    }, {
+                        Header: "국가코드",
+                        Type: "Text",
+                        Name: "cell04",
+                        Align: "Center",
+                        CanEdit: 0,
+                        Width: 150
+                    }, {
+                        Header: "도시코드",
+                        Type: "Text",
+                        Name: "cell05",
+                        Align: "Left",
+                        CanEdit: 0,
+                        Width: 150
+                    }, {
+                        Header: "Location",
+                        Type: "Text",
+                        Name: "cell06",
+                        Align: "Left",
+                        CanEdit: 0,
+                        RelWidth: 1
+                    }
+                ],     	// 필터 행 추가/정의
+            },
+            //시트객체 생성
+            create: function () {
+                var options = this.init;
+                IBSheet.create({
+                    id: "sheet", 		// 생성할 시트의 id
+                    el: "sheetDiv", 	// 시트를 생성할 Dom 객체 및 id
+                    options: options,   // 생성될 시트의 속성
+                    data: this.data 	// 생성될 시트의 정적데이터
+                });
+            },
+            data: [
+                {
+                    favor: 1,
+                    cell01: "HLRT",
+                    cell02: "SEA QINGDAO",
+                    cell03: "Ore Carrier",
+                    cell04: "95776633",
+                    cell05: "135,000",
+                    cell06: "-",
+                },
+                {
+                    favor: 0,
+                    cell01: "HLRT",
+                    cell02: "SEA QINGDAO",
+                    cell03: "Ore Carrier",
+                    cell04: "95776633",
+                    cell05: "135,000",
+                    cell06: "-",
+                },
+                {}, {}, {}, {}, {}, {}, {}, {}, {}, {},
+                {}, {}, {}, {}, {}, {}, {}, {}, {}, {},
+            ]
+        };
+        ib.create();
+    </script>
+</body>
+</html>

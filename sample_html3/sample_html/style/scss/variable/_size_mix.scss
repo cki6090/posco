@@ -1,0 +1,173 @@
+// breakpoint
+$screen-phone 				: $screen-phone-min;
+$screen-tablet 				: $screen-tablet-min;
+$screen-laptop 				: $screen-laptop-min;
+$screen-desktop 			: $screen-desktop-min;
+
+// icon size
+$icon-logo-height			: $icon-sm-size;
+$icon-logo-min-height		: $icon-lg-size;
+$icon-project-height		: $icon-sm-size;
+$icon-head-size	 			: $icon-md-size;
+$icon-menu-size				: $icon-md-size;
+$icon-side-size	 			: $icon-md-size;
+$icon-side-sub-size			: $icon-sm-size;
+$icon-nav-tab-size			: $icon-xs-size;
+$icon-nav-size				: $icon-sm-size;
+$icon-form-btn-size			: $form-height-size - 2px;
+$icon-form-txt-size			: $icon-sm-size;
+$icon-form-bg-size			: $icon-xs-size;
+$icon-table-size 			: $icon-sm-size;
+$icon-badge-size			: $icon-xs-size;
+$icon-alert-size			: $icon-xs-size;
+$icon-alert-list-size		: $icon-lg-size;
+$icon-modal-size	        : $icon-sm-size;
+
+// font size
+$txt-pages-title			: $font-size-page;
+$txt-header-title           : $font-size-xxl;
+$txt-sideber-sub-title		: $font-size-sm;
+$txt-popup-title			: $font-size-xl;
+$txt-search-title			: $font-size-xl;
+$txt-cont-title				: $font-size-default;
+$txt-cont-lg-title          : $font-size-lg;
+$txt-table-title            : $font-size-lg;
+$txt-info-map-title         : $font-size-lg;
+$txt-info-title             : $font-size-lg;
+
+$txt-header-cont			: $font-size-default;
+$txt-sideber-menu 			: $font-size-sm;
+$txt-sideber-sub 			: $font-size-default;
+$txt-nav-tabs				: $font-size-md;
+$txt-cont 					: $font-size-default;
+$txt-cont-bar				: $font-size-sm;
+$txt-table 					: $font-size-default;
+// $txt-th 					: $font-size-default;
+// $txt-td 					: $font-size-default;
+$txt-label 					: $font-size-md;
+$txt-form					: $form-font-size;
+$txt-btn 					: $font-size-md;
+$txt-badge		 			: $font-size-md;
+$txt-help					: $font-size-xl;
+$txt-num					: $font-size-lg;
+$txt-unit					: $font-size-md;
+$txt-form-help				: $font-size-sm;
+$txt-alert	                : $font-size-lg;
+$txt-dialog	                : $font-size-md;
+$txt-barge-cont             : $font-size-md;
+$txt-info-map-label			: $font-size-sm;
+$txt-legend-size            : $font-size-sm;
+
+$txt-datepicker-title       : $font-size-lg;
+$txt-datepicker-cont        : $font-size-sm;
+
+// font weight
+$font-sideber-base 			: $font-weight-light;
+$font-sideber-active		: $font-weight-bold;
+$font-search-title			: $font-weight-black;
+
+$font-page-weight			: $font-weight-black;
+$font-btn-weight			: $font-weight-base;
+$font-th-weight 			: $font-weight-bold;
+$font-td-weight 			: $font-weight-light;
+$font-label-weight			: $font-weight-light;
+$font-trans-info-weight		: $font-weight-light;
+$font-info-map-label-weight	: $font-weight-bold;
+$font-num-weight	        : $font-weight-bold;
+$font-unit-weight	        : $font-weight-light;
+$font-tab-weight	        : $font-weight-black;
+
+$font-datepicker-title      : $font-weight-black;
+$font-datepicker-cont       : $font-weight-light;
+$font-datepicker-today      : $font-weight-black;
+$font-datepicker-date-active: $font-weight-black;
+
+// spacer
+$head-spacer 				: $spacer-sm * 2;
+$icon-spacer 				: $spacer-md;
+$menu-spacer 				: $spacer-sm;
+$alert-spacer               : $spacer-sm * 2;
+$togle-spacer 				: $head-spacer;
+// $togle-spacer 			: math.div(($sidebar-width-min - $icon-menu-size), 2);
+$side-sub-spacer			: $spacer-sm * 2;
+$body-head-spacer 			: 0 $spacer-xl;
+$body-cont-spacer			: $spacer-xl;
+$body-cont-area-spacer		: $spacer-xl;
+$body-cont-title-spacer		: $spacer-md;
+$nav-tab-link-spacer		: 0 $spacer-xs 0 ($spacer-sm * 2);
+$nav-tab-btn-spacer			: math.div($spacer-sm, 2);
+$nav-tab-first-link-spacer	: ($spacer-sm * 2) + $icon-nav-tab-size;
+$gap-group-spacer           : $spacer-gap-group;
+
+$default-spacer				: $spacer-xs;
+$search-form-spacer			: $spacer-xl;
+$search-form-gap-spacer		: $spacer-lg - $spacer-xs;
+$search-cont-btn-spacer 	: $spacer-sm + $form-btn-height;
+$grid-gap-spacer            : $spacer-lg;
+$table-gap-spacer           : $grid-gap-spacer;
+$table-th-spacer            : $spacer-xs $spacer-sm * 2;
+$table-td-spacer 			: $spacer-sm;
+$table-td-sm-spacer			: $spacer-xs;
+$form-spacer 				: $spacer-base;
+$form-gap-spacer			: $spacer-xs;
+$form-txt-gap-spacer		: $spacer-sm * 2;
+$btn-spacer 				: $spacer-base;
+$btn-gap-spacer				: $spacer-xs;
+$btn-icon-spacer			: $spacer-xs;
+$tab-spacer 				: $spacer-base;
+$tab-gap-spacer				: $spacer-lg;
+$badge-spacer				: $spacer-base;
+$badge-gap-spacer			: $spacer-sm;
+$badge-tom-gap-spacer		: $spacer-xs;
+$map-info-spacer            : $spacer-xl;
+$map-info-in-spacer         : $spacer-md $spacer-xl;
+$summary-info-spacer        : $spacer-xl;
+$panl-info-spacer           : $spacer-lg;
+$dialog-gap-spacer	        : $alert-spacer;
+$alert-gap-spacer           : $spacer-base $spacer-md;
+$alert-icon-spacer 	        : $spacer-base $dialog-gap-spacer $spacer-xl;
+$transport-gap-spacer	    : $spacer-sm * 2;
+$progress-path-gap-spacer   : $spacer-xs;
+$schedule-path-gap-spacer   : $spacer-base;
+
+// form spacer
+$select-multi-dropdown-spacer : $form-height-size + $badge-height-size + $spacer-base;
+
+$list-spacer-base 			: $spacer-xs * 3;
+$box-spacer-base            : $spacer-sm * 2;
+$box-spacer-md              : $box-spacer-base * 1.5;
+$box-spacer-big             : $box-spacer-base * 2;
+$card-spacer-x 				: $spacer-lg;
+$card-spacer-y 				: $box-spacer-base;
+$card-footer-y 				: $box-spacer-base;
+$dialog-spacer-x            : $spacer-xl;
+$dialog-spacer-y            : $box-spacer-big;
+
+$datepicker-wrap-spacer     : $spacer-sm;
+
+// radius
+$radius-xs 					: math.div($radius-base, 4);
+$radius-sm 					: math.div($radius-base, 2);
+$radius-md 					: $radius-base * 1.5;
+$radius-lg 					: $radius-base * 2;
+$radius-circle 				: 50%;
+
+// btn, table, form
+$radius-sideber-icon		: $radius-sm;
+$radius-transport			: $radius-base-min;
+$radius-table				: $radius-base-min;
+$radius-table-list			: $radius-sm;
+$radius-map 				: $radius-base;
+$radius-form 				: $radius-sm;
+$radius-btn 				: $radius-sm;
+$radius-badge				: $radius-sm;
+$radius-dialog				: $radius-base;
+$radius-flag-head           : $radius-sm;
+$radius-flag-badge          : $radius-xs;
+
+// map
+$section-map-width	        : calc(100vh - ($body-head-max-height + $cont-head-body-gap));
+$section-map-width-min      : calc($section-map-width - ($grid-gap-spacer * 2) - ($body-cont-spacer * 2) - $cont-header-height);
+
+// table
+$table-title-height         : $body-cont-title-spacer + $txt-table-title;

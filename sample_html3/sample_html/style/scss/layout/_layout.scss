@@ -1,0 +1,235 @@
+.iframe-layout {
+	@include scrollWrap($brand-gray, $scroll-size, $type: default);
+}
+.iframe-grid {
+	width: 100%;
+	height: 100%;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+	padding: $spacer-xl;
+	gap: $spacer-base;
+	background-color: $bg-light-color;
+	.grid-alert-area {
+		background-color: $color-white;
+		min-height: 200px;
+		min-width: 336px;
+		display: grid;
+		grid-template-rows: 34px 1fr;
+		&:nth-child(1) {
+			grid-column: 1 / span 1;
+			grid-row: 1 / span 1;
+		}
+		&:nth-child(2) {
+			grid-column: 2 / span 2;
+			grid-row: 1 / span 1;
+		}
+		&:nth-child(3) {
+			grid-column: 1 / span 1;
+			grid-row: 2 / span 2;
+		}
+		&:nth-child(4) {
+			grid-column: 2 / span 2;
+			grid-row: 2 / span 2;
+		}
+		.alert-title {
+			height: 34px;
+			padding: $spacer-xs $spacer-sm;
+			line-height: 1;
+			border-bottom: $line-hr;
+			@include textStyle($font-size-md, $txt-label-color, bold);
+			@include flexBoxContAlignX(left)
+		}
+		// 336 X 200 title: 34
+	}
+}
+.wrapper {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	@include defaultStyle(text);
+	.ui-layout & {
+		overflow: hidden;
+		display: grid;
+		grid-template-columns: $sidebar-width-min 1fr;
+		grid-template-rows: $header-height $main-tab-height 1fr;
+		@include transMotion(all);
+	}
+	.iframe-layout & {
+		@include directionAlign();
+		min-width: $content-body-min-width;
+	}
+	&.menu-off {
+		.ui-layout & {
+			grid-template-columns: $sidebar-off-width 1fr;
+		}
+	}
+}
+.header-wrap {
+	grid-area: $header-grid;
+	height: $header-height;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	background: $bg-header-color;
+	@include borderStyle(bottom, $line-header);
+}
+.navs-wrap {
+	grid-area: $nav-tab-grid;
+	width: 100%;
+	height: $main-tab-height;
+	position: -webkit-sticky;
+	position: sticky;
+	top: $header-height;
+	z-index: 1;
+	background-color: $bg-nav-menu-bar-color;
+	@include borderStyle(bottom, $line-nav);
+	.flex-area {
+		.area-left {
+			display: grid;
+			justify-content: stretch;
+			width: 100%;
+		}
+	}
+}
+.sidebar-wrap {
+	grid-area: $sidebar-grid;
+	width: $sidebar-width-min;
+	position: fixed;
+	left: 0;
+	z-index: 15;
+	height: 100%;
+	background-color: $bg-sidebar;
+	@include borderStyle(right, $line-sidebar);
+	@include transMotion(all);
+	box-shadow: $box-sidebar-wrap;
+	.menu-off & {
+		left: -($sidebar-width-min - $sidebar-off-width);
+		@include boxRadius(right, $radius-base-min);
+		cursor: pointer;
+	}
+}
+.content-wrap {
+	grid-area: $content-grid;
+	min-width: $content-body-min-width;
+	position: relative;
+	z-index: 0;
+	@include defaultStyle(text);
+}
+.iframe-area, .iframe-contents {
+	@include defaultStyle(box);
+	min-width: $content-body-min-width;
+	overflow-y: hidden;
+	// overflow: auto;
+}
+.iframe-area {
+	background-color: $bg-body-color;
+	position: absolute;
+	top: 0;
+	z-index: -1;
+	&.active {
+		z-index: 0;
+	}
+}
+
+// dialog 종류
+.summary-modal[open] {
+	position: absolute;
+	z-index: 10;
+	left: 60px;
+	top: 20px;
+	@include dialogRadius(base);
+	@include dialogStyle(base, summary);
+	overflow: visible;
+
+	.summary-btn{
+		cursor: pointer;
+		width: 42px;
+		height: 40px;
+		border-radius:3px 0px 0px 3px ;
+		background:#ffffff url("../../img/icon/icon_open_pu.svg")no-repeat center center;
+		position:absolute;
+		top: 0px;
+		left: -38px;
+	}
+	.summary-btn.on{
+		width: 42px;
+		height: 40px;
+		border-radius:5px ;
+		background:#ffffff url("../../img/icon/icon_close_pu.svg")no-repeat center center;
+		position:absolute;
+		top: 0px;
+		left: -38px;
+	}
+
+	.summary-body{
+		@include shapeSize($map-section-info-width, $map-section-info-height);
+		overflow: hidden;
+	}
+}
+
+		
+// popup
+.modal-sm {
+	width: $dialog-sm-width;
+}
+.modal-md {
+	width: $dialog-md-width;
+}
+.modal-lg {
+	width: $dialog-lg-width;
+}
+.dialog-area {
+&.msg{background: none;}
+	@include dialogMaskStyle;
+	.modal-wrap {
+		box-shadow: 0px 0px 5px #e2e2e2;
+		@include fixCenter;
+		@include cardStyleWrap(base, modal);
+		max-height: 90%;
+		@include flexDirection;
+		top:55%
+	}
+	position: fixed;
+	z-index: 90;
+}
+
+
+.modal-wrap {
+	.modal-header {
+		min-height: $dialog-head-heigh;
+		@include flexBoxContAlignX(full);
+		border-bottom: $line-modal-head;
+		& + .modal-body {
+			height: calc(100% - $dialog-head-heigh);
+		}
+	}
+	.modal-body {
+		@include flexDirection;
+		flex: auto;
+		overflow: hidden;
+	}
+	.table-area {
+		flex: auto;
+		width: 100%;
+	}
+	.txt-alert {
+		text-align: center;
+		padding-bottom: $dialog-gap-spacer;
+	}
+	.info-view {
+		.btn-area {
+			text-align: right;
+			height: $form-btn-height;
+			margin: $dialog-gap-spacer 0;
+		}
+		& + .table-area {
+			.head-area {
+				border-top: $line-modal-hr;
+				padding: $dialog-gap-spacer 0 0;
+				width: 100%;
+			}
+		}
+	}
+}

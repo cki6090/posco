@@ -1,0 +1,209 @@
+<dialog class="summary-modal" open>
+    <div class="summary-btn"></div>
+    
+    <div class="summary-body">
+        <div class="tab-wrap" x-data="{tab:'route'}">
+            <ul class="tab-menu" :class="{'active': tab === 'weather'}">
+                <li class="nav-item active" :class="{'active': tab === 'route'}">
+                    <button type="button" class="btn-menu route" @click="tab = 'route'"><span>운항 요약</span></button>
+                </li>
+                <li class="nav-item" :class="{'active': tab === 'weather'}">
+                    <button type="button" class="btn-menu weather" @click="tab = 'weather'"><span>날씨 정보</span></button>
+                </li>
+            </ul>
+            
+            <div class="tab-content">
+                <div class="tab-cont" :class="{'active': tab === 'route'}">
+                    <div class="transport-area">
+                        <div class="transport-info">
+                            <div class="cont-head">
+                                <span class="txt-exp">Departure</span>
+                                <span class="txt-title">STP</span>
+                            </div>
+                            <div class="cont-body">
+                                <div class="info-item">
+                                    <span class="txt-label">ATA</span>
+                                    <span class="txt-cont">2021-07-17</span>
+                                    <span class="txt-unit plus">+0D</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="transport-info">
+                            <div class="cont-head">
+                                <span class="txt-exp">Arrival</span>
+                                <span class="txt-title">P.WALCOTT</span>
+                            </div>
+                            <div class="cont-body">
+                                <div class="info-item">
+                                    <span class="txt-label">ATA</span>
+                                    <span class="txt-cont">2021-07-17</span>
+                                    <span class="txt-unit minus">+0D</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="route-area">
+                        <div class="progress-bar">
+                            <div class="trans-info">
+                                <span class="txt-label">7.77Kts</span>
+                                <span class="txt-cont">82%</span>
+                            </div>
+                            <!-- ship-product: 제품선 / ship-stone: 석회석 / ship-iron: 철광석 / ship-coal: 석탄 -->
+                            <!-- port 상태 : anchor 묘박 / berth 정박 / departure 출발 / dock 도착 -->
+                            <div class="trans-progress ship-stone">
+                                <!-- 선박 icon : 원료선 / 제품선 에따라 아이콘 변경 -->
+                                <div class="icon-cont" data-role="50"><i class="icon-item"></i></div>
+                            </div>
+                        </div>
+                        <ul class="info-list">
+                            <li class="info-item">
+                                <span class="txt-label">지나온 경로</span>
+                                <span class="txt-cont">818nm/14Kts (2D)</span>
+                            </li>
+                            <li class="info-item">
+                                <span class="txt-label">남은 경로</span>
+                                <span class="txt-cont">2,660nm/14Kts (8D)</span>
+                            </li>
+                            <li class="info-item">
+                                <span class="txt-label">선적화물</span>
+                                <span class="txt-cont">철광석/HIY.F/얀디광/135,000</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab-cont" :class="{'active': tab === 'weather'}">
+                    <div class="weather-area row">
+                        <div class="widget-area">
+                            <div class="weather-info">
+                                <div class="txt-title">Hay Point QLD, Australia</div>
+                                <div class="info-item">
+                                    <i class="icon-weather weather-09d"></i>
+                                    <div class="txt-cont">
+                                        <span class="txt-num">17.7</span><span class="txt-unit">°C</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="info-list">
+                                <li class="info-item">
+                                    <div class="txt-label">Rain Fall</div>
+                                    <div class="txt-cont">59 mm/h (100%)</div>
+                                </li>
+                                <li class="info-item">
+                                    <div class="txt-label">ATM</div>
+                                    <div class="txt-cont">1,022hPa</div>
+                                </li>
+                                <li class="info-item">
+                                    <div class="txt-label">Dew Point</div>
+                                    <div class="txt-cont">16.2°C</div>
+                                </li>
+                                <li class="info-item">
+                                    <div class="txt-label">Humdity</div>
+                                    <div class="txt-cont">93%</div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="widget-area">
+                            <ul class="weather-list">
+                                <li class="info-item">
+                                    <div class="txt-label">화요일</div>
+                                    <i class="icon-weather weather-01d"></i>
+                                    <div class="txt-cont">25/12°</div>
+                                </li>
+                                <li class="info-item">
+                                    <div class="txt-label">수요일</div>
+                                    <i class="icon-weather weather-03d"></i>
+                                    <div class="txt-cont">25/12°</div>
+                                </li>
+                                <li class="info-item today">
+                                    <div class="txt-label">목요일</div>
+                                    <i class="icon-weather weather-50d"></i>
+                                    <div class="txt-cont">27/17.7°</div>
+                                </li>
+                                <li class="info-item">
+                                    <div class="txt-label">금요일</div>
+                                    <i class="icon-weather weather-13d"></i>
+                                    <div class="txt-cont">25/12°</div>
+                                </li>
+                                <li class="info-item">
+                                    <div class="txt-label">토요일</div>
+                                    <i class="icon-weather weather-11d"></i>
+                                    <div class="txt-cont">25/12°</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</dialog>
+
+<script>
+
+    $(document).ready(function () {
+        let weatherIcon = {
+            "01d": "weather-01d",
+            "02d": "weather-02d",
+            "03d": "weather-03d",
+            "04d": "weather-04d",
+            "09d": "weather-09d",
+            "10d": "weather-10d",
+            "11d": "weather-11d",
+            "13d": "weather-13d",
+            "50d": "weather-50d",
+            "01n": "weather-01n",
+            "02n": "weather-02n",
+            "03n": "weather-03n",
+            "04n": "weather-04n",
+            "09n": "weather-09n",
+            "10n": "weather-10n",
+            "11n": "weather-11n",
+            "13n": "weather-13n",
+            "50n": "weather-50n",
+        };
+        $.getJSON('http://api.openweathermap.org/data/2.5/onecall?lat=36.0322&lon=129.365&lang=kr&APPID=f8b8761c25df03a84389bdbb6a97a6c5&units=metric', function (data) {
+            // 오늘 날씨 API
+            var $temp = data.current.temp; //온도
+            var $icon = data.current.weather[0].icon;//날씨 아이콘
+            var $sky = data.current.weather[0].main;//날씨상태
+            var $rain = data.hourly[0].rain;//강우량 mm/h
+            var $pop = data.hourly[0].pop;//강수확율 %
+            var $uvi = data.current.uvi;//UV 지수
+            var $pressure = data.current.pressure;//기압 hPa
+            var $humidity = data.current.humidity; //습도 %
+            var $dew = data.current.dew_point;//이슬점
+
+            // if($sky == "Clouds") {
+            // 	$sky = "구름";
+            // } else if($sky == "Rain") {
+            // 	$sky = "비";
+            // }else {
+            // 	$sky = "맑음";
+            // }
+            if ($rain == null) {
+                $rain = 0;
+            }
+
+            $('#temp').prepend($temp + "&deg;");
+            $('#icon').prepend('<i class="' + weatherIcon[$icon] + '"></i>');
+            $('#sky').prepend($sky);
+            $('#rain').prepend($rain + "mm/h");
+            $('#pop').prepend("(" + $pop + "%)");
+            $('#uvi').prepend($uvi);
+            $('#pressure').prepend($pressure + "hPa");
+            $('#humidity').prepend($humidity + "%");
+            $('#dew').prepend($dew + "&#8451;");
+        });
+    });
+</script>
+<!--
+	weather-01d / weather-01n 	clear sky			맑음
+	weather-02d / weather-02n 	few clouds			약간 흐림
+	weather-03d / weather-03n 	scattered clouds	흐림
+	weather-04d / weather-04n 	broken clouds		구름 많음
+	weather-09d / weather-09n 	shower rain			소나기
+	weather-10d / weather-10n 	rain				비
+	weather-11d / weather-11n 	thunderstorm		번개
+	weather-13d / weather-13n 	snow				눈
+	weather-50d / weather-50n 	mist				안개
+-->

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
+    <title>탄소배출 모니터링</title>
+
+
+    <!--cki UI Style -->
+    <script src="../../js/echarts/echarts.min.js"></script>
+
+    <!-- UI Style -->
+    <link rel="stylesheet" href="../../style/css/style-ui.css" />
+</head>
+
+<body class="iframe-layout">
+    <div class="wrapper">
+
+        <!-- 타이틀 및 네비게이션 영역 : 2023.05.08 공통 영역 수정 -->
+        <section class="content-head">
+            <h2 class="page-title"><span>탄소배출 모니터링</span></h2>
+        </section>
+        <!-- //타이틀 및 네비게이션 영역 -->
+
+        <!-- Main content -->
+        <section class="content-body">
+            <div class="content-area top-fixed carbon_emissions">
+
+                <div class="ce_bg_zone icon_ce_mbg">
+                    <p class="cbz_tit1"><span>탄소중립을 향한</span> 변화의 주인공<br></p>
+                    <p class="cbz_tit2"><span>포스코플로우</span>가 함께합니다.</p>
+
+                    <div class="ce_tit_box">
+                        <div class="cetb_img"><i class="icon_ce_mbg_img"></i></div>
+                        <div class="cetb_info"><i class="icon_txt_info"></i> 2023년 6월 22일까지 취합된 내역입니다.</div>
+                        <div class="cetb_txt tit">
+                            <div><i class="icon_ce_mbg_earth"></i></div>
+                            <div class="ctt_txt1">
+                                <p>총 절감 용량</p>
+                                <p>8.7 <span>Tonnes</span></p>
+                            </div>
+                            <div class="ctt_txt2">
+                                2023년 1월 1일부터 현재까지<br>
+                                8.7톤의 탄소배출을 감소하였습니다.
+                            </div>
+                        </div>
+
+                        <div class="cetb_txt list">
+                            <div>
+                                <p class="tit">해상</p>
+                                <p class="num">345<span>kg</span></p>
+                            </div>
+                            <div>
+                                <p class="tit">공로</p>
+                                <p class="num">345<span>kg</span></p>
+                            </div>
+                            <div>
+                                <p class="tit">항만</p>
+                                <p class="num">345<span>kg</span></p>
+                            </div>
+                            <div>
+                                <p class="tit">창고</p>
+                                <p class="num">345<span>kg</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ce_graph">
+                    <div class="circular_graph">
+                        <p class="txt-title">Co2 배출량 (tCo2)</p>
+                        <div class="cg_wrap">
+                            <div class="cg_txt">
+                                <p>21.5<br><span>tCo2</span></p>
+                            </div>
+                            <div id="circular_graph"></div>
+                        </div>
+                    </div>
+
+                    <div class="line_bar_graph">
+                        <p class="txt-title">Co2 배출량 추이 (tCo2)</p>
+                        <div class="tab-wrap" x-data="{tab:'route'}">
+                            <ul class="tab-menu" :class="{'active': tab === 'weather'}">
+                                <li class="nav-item active" :class="{'active': tab === 'route'}">
+                                    <button type="button" class="btn-menu" @click="tab = 'route'"><span>월별
+                                            추이</span></button>
+                                </li>
+                                <li class="nav-item bar_graph" :class="{'active': tab === 'weather'}">
+                                    <button type="button" class="btn-menu" @click="tab = 'weather'"><span>월별 운송수단별
+                                            배출량</span></button>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-cont" :class="{'active': tab === 'route'}">
+                                    <div class="head-article">
+                                        <div class="legend-area" x-show="open">
+                                            <ul class="legend-list">
+                                                <li><span class="txt-title">우리의 목표 12,000 KgCO2</span></li>
+
+                                                <li><i class="icon-cargo-product"></i><span
+                                                        class="txt-label">목표수치</span></li>
+                                                <li><i class="icon-cargo-stone"></i><span class="txt-label">월별추이</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div id="line_graph"></div>
+                                </div>
+
+                                <div class="tab-cont" :class="{'active': tab === 'weather'}">
+                                    <div class="head-article">
+                                        <div class="legend-area" x-show="open">
+                                            <ul class="legend-list">
+                                                <li><i class="icon-cargo-product"></i><span
+                                                        class="txt-label">해상운송</span></li>
+                                                <li><i class="icon-port-gy"></i><span class="txt-label">공로운송</span></li>
+                                                <li><i class="icon-cargo-stone"></i><span class="txt-label">항만하역</span>
+                                                </li>
+                                                <li><i class="icon-cargo-iron"></i><span
+                                                        class="txt-label">철도운송(내수)</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div id="bar_graph"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="ce_ib">
+                    <p class="txt-title">상세정보</p>
+                    <div style="border:1px solid #e2e2e2; height: 120px;">
+                        그리드 들어 가는 곳
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- //Main content -->
+    </div>
+    <!-- /wrapper -->
+
+    <!-- jQuery -->
+    <script src="../../js/jquery/dist/jquery.min.js"></script>
+    <script src="../../js/jquery-ui/dist/jquery-ui.min.js"></script>
+    <script src="../../js/jsrender/dist/jsrender.js"></script>
+    <!-- Select -->
+    <script src="../../js/tom-select/dist/js/tom-select.complete.min.js"></script>
+    <!-- 날짜 관련 -->
+    <script src="../../js/moment/dist/moment.min.js"></script>
+    <!-- //필수 plugin -->
+
+    <!-- ibleaders -->
+    <script src="../../js/ibsheet8/ibsheet.js"></script>
+    <script src="../../js/ibsheet8/ibleaders.js"></script>
+    <script src="../../js/ibsheet8/locale/ko.js"></script>
+    <!-- //ibleaders -->
+
+    <!-- 퍼블 사용하기 위한 JavaScript -->
+    <script src="../../style/js/include.js"></script>
+    <script src="../../style/js/alpinejs.min.js"></script>
+    <!-- //퍼블 사용하기 위한 JavaScript -->
+
+
+    <script type="text/javascript">
+
+        function circular_graph() {
+            //https://echarts.apache.org/examples/en/editor.html?c=pie-doughnut
+            let dom = document.getElementById('circular_graph');
+            let myChart = echarts.init(dom, null, {
+                renderer: 'canvas',
+                useDirtyRect: false
+            });
+            let app = {};
+
+            let option;
+
+            option = {
+                tooltip: {
+                    trigger: 'item',
+                    //show: false,
+                },
+
+                legend: {
+                    top: '5%',
+                    left: 'center',
+                    show: false,
+                },
+
+                series: [
+                    {
+                        name: '상세를 보세요',
+                        type: 'pie',
+                        radius: ['80%', '95%'],
+                        avoidLabelOverlap: false,
+                        label: {
+                            show: false,
+                            position: 'center'
+                        },
+                        emphasis: {
+                            label: {
+                                show: false,
+                                fontSize: 40,
+                                fontWeight: 'bold'
+                            }
+                        },
+                        labelLine: {
+                            show: false
+                        },
+
+                        data: [
+                            { value: 548, name: 'Search Engine' },
+                            { value: 735, name: 'Direct' },
+                            { value: 80, name: 'Email' },
+                            { value: 184, name: 'Union Ads' },
+                            { value: 300, name: 'Video Ads' },
+                            { value: 30, name: '마지막 데이터' }
+                        ]
+                    }
+                ]
+            };
+
+            if (option && typeof option === 'object') {
+                myChart.setOption(option);
+            }
+
+            window.addEventListener('resize', myChart.resize);
+        }
+        circular_graph();
+
+        function line_graph() {
+            let dom = document.getElementById('line_graph');
+            let myChart = echarts.init(dom, null, {
+                renderer: 'canvas',
+                useDirtyRect: false
+            });
+            let app = {};
+
+            let option;
+
+            option = {
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '우리의 목표 <br/> 30KgCO2 '
+                    //show: false,
+                },
+
+                xAxis: {
+                    type: 'category',
+                    data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    axisLabel: {
+                        color: '#CCCCCC'
+                    },
+                    axisLine: {
+                        show: false,
+                        lineStyle: {
+                            color: '#e2e2e2',
+                        },
+                    },
+                    boundaryGap: false,
+                },
+
+                yAxis: {
+                    type: 'value',
+                    axisLabel: {
+                        formatter: '{value} 톤',
+                        color: '#CCCCCC'
+                    },
+
+                },
+
+                grid: {
+                    top: 10,
+                    bottom: 20,
+                    left: 40,
+                    right: 40
+                },
+
+                series: [
+                    {
+                        data: [20, 40, 60, 50, 0, 20, 20, 40, 20, 60, 20, 40],
+                        type: 'line',
+                        markLine: {
+                            symbol: ['none', 'none'],
+                            data: [{ yAxis: '30' }],
+                            lineStyle: {
+                                color: '#005C9C'
+                            },
+                        },
+
+                        lineStyle: {
+                            color: '#F7C338'
+                        },
+
+                        showSymbol: false,
+                    }
+                ]
+
+            };
+
+            if (option && typeof option === 'object') {
+                myChart.setOption(option);
+            }
+
+            window.addEventListener('resize', myChart.resize);
+        }
+        line_graph();
+
+        function bar_graph() {
+            let dom = document.getElementById('bar_graph');
+            let myChart = echarts.init(dom, null, {
+                renderer: 'canvas',
+                useDirtyRect: false
+            });
+            let app = {};
+
+            let option;
+
+
+            option = {
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'shadow'
+                    }
+                },
+
+                xAxis: [
+                    {
+                        type: 'category',
+                        axisTick: { show: false },
+                        data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                        axisLabel: {
+                            color: '#CCCCCC'
+                        },
+                        axisLine: {
+                            show: false,
+                            lineStyle: {
+                                color: '#e2e2e2',
+                            },
+                        },
+                    }
+
+                ],
+
+                yAxis: [
+                    {
+                        type: 'value',
+                        axisLabel: {
+                            formatter: '{value} 톤',
+                            color: '#CCCCCC'
+                        },
+                    },
+
+                ],
+
+                grid: {
+                    top: 10,
+                    bottom: 20,
+                    left: 40,
+                    right: 40
+                },
+
+                series: [
+                    {
+                        name: 'Forest',
+                        type: 'bar',
+                        barGap: 0,
+                        // label: labelOption,
+                        emphasis: {
+                            focus: 'series'
+                        },
+                        data: [50, 40, 60, 50, 10, 10, 20, 40, 20, 60, 20, 40],
+                    },
+
+                    {
+                        name: 'Steppe',
+                        type: 'bar',
+                        //label: labelOption,
+                        emphasis: {
+                            focus: 'series'
+                        },
+                        data: [20, 30, 40, 20, 40, 20, 20, 40, 20, 60, 20, 10],
+                    },
+
+                    {
+                        name: 'Desert',
+                        type: 'bar',
+                        //label: labelOption,
+                        emphasis: {
+                            focus: 'series'
+                        },
+                        data: [30, 40, 60, 50, 10, 60, 30, 10, 50, 40, 10, 40],
+                    },
+
+                    {
+                        name: 'Wetland',
+                        type: 'bar',
+                        //label: labelOption,
+                        emphasis: {
+                            focus: 'series'
+                        },
+                        data: [10, 10, 10, 10, 10, 20, 20, 40, 20, 50, 50, 10],
+                    }
+                ]
+            };
+
+            if (option && typeof option === 'object') {
+                myChart.setOption(option);
+            }
+
+            window.addEventListener('resize', myChart.resize);
+        }
+        $('.bar_graph').click(function () {
+            setTimeout(function () {
+                bar_graph();
+            }, 500);
+        });
+    </script>
+</body>
+
+</html>

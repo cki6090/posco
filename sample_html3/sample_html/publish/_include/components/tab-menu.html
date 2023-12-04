@@ -1,0 +1,9 @@
+<!--  tab menu -->
+<ul class="tab-menu">
+    <template x-for="(tab, index) in tabs" key="index">
+        <li class="nav-item" :class="{ 'active': activeTab === index}">
+            <button type="button" class="btn-menu" @click="activeTab = index"><span x-text="tab"></span></button>
+        </li>
+    </template>
+</ul>
+<!-- // tab menu -->

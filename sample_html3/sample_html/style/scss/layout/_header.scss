@@ -1,0 +1,252 @@
+.header-wrap {
+	.brind-logo {
+		margin-right: $head-spacer;
+	}
+	.nav-togle {
+		@include iconWrap;
+		margin-left: $togle-spacer;
+		margin-right: $togle-spacer;
+	}
+	.project-name {
+		@include iconWrap;
+	}
+	.area-right {
+		.info-nav {
+			display: flex;
+			& + .info-nav {
+				border-left: $line-light-hr;
+				padding-left: $head-spacer;
+			}
+		}
+		.nav-icon {
+			height: $icon-head-size;
+			@include iconWrap;
+		}
+	}
+	.nav-item, .info-language, .info-user {
+		position: relative;
+		height: $icon-head-size;
+		padding-right: $head-spacer;
+		&:not([open]) {
+			.card-dialog {
+				height: 0;
+			}
+		}
+	}
+	.nav-item {
+		.card-dialog {
+			right: 0;
+			min-width: $dialog-sm-width;
+		}
+		.nav-icon.new {
+			.icon-alert {
+				&::before {
+					$size: $icon-head-size - 14px;
+					content: attr(data-alert);
+					@include absolutePosition(top, $size, -2px);
+					@include circleSize(14px);
+					background-color: $alert-error-color;
+					z-index: 1;
+					color: $color-white;
+					font-size: 10px;
+					font-weight: $font-weight-light;
+					@include flexBox(center);
+					box-shadow: 0 0 0 1px $color-white;
+				}
+			}
+		}
+	}
+	.info-language {
+		.card-dialog {
+			right: 0;
+		}
+	}
+	.info-user {
+		.nav-icon {
+			color: $header-txt-color;
+			padding-right: $icon-head-size + $spacer-base;
+			@extend %icon-down;
+			&::after {
+				@include addBorderCenter(left, $txt-header-cont, $line-header-user);
+			}
+		}
+		&[open] {
+			.nav-icon {
+				@extend %icon-up;
+			}
+		}
+		.card-dialog {
+			right: $head-spacer;
+			min-width: $dialog-xs-width;
+		}
+		.dialog-body {
+			padding: $spacer-md $dialog-gap-spacer;
+		}
+		.txt-email {
+			margin-top: $spacer-xs;
+		}
+	}
+	.dialog-tab {
+		.tab-menu {
+			height: $form-height-size;
+			padding: 0 $tab-gap-spacer;
+			gap: $tab-gap-spacer;
+			&::before {
+				@include addBorderStyle(bottom, 0, 0, 100%, $line-hr);
+			}
+		}
+		.btn-menu {
+			color: $color-silver;
+			font-weight: $font-tab-weight;
+			padding: 0 $tab-spacer;
+		}
+		.active .btn-menu {
+			color: $txt-tab-active-color;
+			&::before {
+				@include addBorderCenter(bottom, 100%, $line-tab-active);
+			}
+		}
+		.nav-item {
+			padding-right: 0;
+			height: 100%;
+		}
+	}
+	.dialog-tab-content {
+		overflow: hidden;
+		margin-top: -1px;
+		.tab-item {
+			min-height: $dialog-body-min-heigh;
+			max-height: $dialog-body-max-heigh;
+			@include scrollWrap($brand-gray, $scroll-sm-size, y);
+		}
+	}
+	.card-dialog {
+		position: absolute;
+		white-space: nowrap;
+		top: math.div($header-height, 2);
+		box-shadow: $box-dialog-wrap;
+		border-radius: $radius-base-min;
+		height: auto;
+		transition: height 2s;
+	}
+	.dialog-head {
+		@include flexBoxContAlignX(full);
+		padding: $dialog-gap-spacer $dialog-gap-spacer $spacer-md;
+	}
+	.dialog-body {
+		.info-item {
+			gap: 0;
+		}
+	}
+	.alert-list {
+		[class*="fi-"] {
+			margin-right: 0;
+		}
+	}
+	.list-item {
+		@include borderStyle(top, $line-hr);
+		@include flexBoxContAlignX(left);
+		padding: $spacer-md $dialog-gap-spacer;
+		gap: $spacer-base;
+		.alert-cont {
+			flex: auto;
+			font-weight: $font-weight-bold;
+		}
+		.txt-date {
+			@include textStyle($font-size-sm, $color-silver);
+		}
+		.btn-more {
+			display: none;
+		}
+		&:hover {
+			background-color: $bg-ghost-color;
+			.txt-cont {
+				color: $color-smoky;
+			}
+			.txt-date {
+				color: $color-dark;
+			}
+			.btn-more {
+				display: flex;
+			}
+		}
+	}
+}
+.navs-wrap {
+	.flex-area {
+		.area-right {
+			width: $main-tab-height;
+		}
+	}
+	.tab-menu, .nav-contol {
+		height: $main-tab-height;
+	}
+	.tab-menu {
+		width: 100%;
+		.btn-menu {
+			justify-content: flex-start;
+			padding: $nav-tab-link-spacer;
+		}
+	}
+	.nav-contol {
+		display: flex;
+		align-items: stretch;
+		.btn-menu {
+			@include borderStyle(left, $line-nav);
+			&:first-child {
+				border-color: transparent;
+			}
+		}
+	}
+	.btn-menu {
+		color: $nav-txt-color;
+		flex: auto;
+		width: $main-tab-height;
+		span {
+			display: block;
+			@include textEllipsis;
+		}
+	}
+	.btn-open, .btn-close {
+		padding: $nav-tab-btn-spacer;
+	}
+	.nav-item {
+		padding-right: $nav-tab-btn-spacer;
+		font-size: $txt-nav-tabs;
+		flex: auto;
+		// width: calc(100% / $navs-columns-grid);
+		min-width: $main-tab-min-width;
+		max-width: $main-tab-max-width;
+		background-color: $bg-nav-menu-off-color;
+		@include borderStyle(right, $line-nav-menu-hr-color);
+		&::before {
+			@include addBorderStyle(bottom, 0, 0, 100%, $line-nav);
+		}
+		&:first-child {
+			.btn-menu {
+				padding-right: $nav-tab-first-link-spacer;
+			}
+		}
+		&:last-child {
+			border-right-color: $line-nav-menu-color;
+		}
+		&:not(.active) {
+			.btn-open {
+				display: none;
+			}
+		}
+		&.active {
+			background-color: $bg-nav-menu-on-color;
+			.btn-menu {
+				color: $nav-txt-active-color;
+			}
+			&::before {
+				border-bottom-color: $bg-nav-menu-on-color;
+			}
+			&::after {
+				$size: $icon-nav-tab-size + ($nav-tab-btn-spacer * 3);
+				@include addBorderCenter(right, $icon-nav-tab-size, $line-light-hr, $size);
+			}
+		}
+	}
+}

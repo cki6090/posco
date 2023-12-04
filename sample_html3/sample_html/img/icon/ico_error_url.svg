@@ -1,0 +1,14 @@
+<svg width="81" height="80" viewBox="0 0 81 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_304_504)">
+<path d="M26.75 38.75L33.4167 45.4167" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M47.5833 38.75L54.25 45.4167" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M26.75 45.4167L33.4167 38.75" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M47.5833 45.4167L54.25 38.75" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M65.5 70H15.5C11.8166 70 8.83331 67.0167 8.83331 63.3333V16.6667C8.83331 12.9833 11.8166 10 15.5 10H65.5C69.1833 10 72.1666 12.9833 72.1666 16.6667V63.3333C72.1666 67.0167 69.1833 70 65.5 70Z" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M8.83331 26.6667H72.1666" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M26.75 53.375C26.1977 53.375 25.75 53.8227 25.75 54.375C25.75 54.9273 26.1977 55.375 26.75 55.375H45.75V58.125C45.75 60.7484 47.8766 62.875 50.5 62.875C53.1234 62.875 55.25 60.7484 55.25 58.125V54.375C55.25 53.8227 54.8023 53.375 54.25 53.375H26.75ZM53.25 55.375H47.75V58.125C47.75 59.6438 48.9812 60.875 50.5 60.875C52.0188 60.875 53.25 59.6438 53.25 58.125V55.375Z" fill="white"/>
+<path d="M18.8333 16.6667C17.8333 16.6667 17.1666 17.3333 17.1666 18.3333C17.1666 19.3333 17.8333 20 18.8333 20C19.8333 20 20.5 19.3333 20.5 18.3333C20.5 17.3333 19.8333 16.6667 18.8333 16.6667Z" fill="white"/>
+<path d="M27.31 16.6667C26.31 16.6667 25.6433 17.3333 25.6433 18.3333C25.6433 19.3333 26.31 20 27.31 20C28.31 20 28.9766 19.3333 28.9766 18.3333C28.9766 17.3333 28.31 16.6667 27.31 16.6667Z" fill="white"/>
+<path d="M35.7767 16.6667C34.7767 16.6667 34.11 17.3333 34.11 18.3333C34.11 19.3333 34.7767 20 35.7767 20C36.7766 20 37.4433 19.3333 37.4433 18.3333C37.4433 17.3333 36.4433 16.6667 35.7767 16.6667Z" fill="white"/>
+</g>
+</svg>

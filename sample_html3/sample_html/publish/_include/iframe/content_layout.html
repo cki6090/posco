@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
+	<title>전체 Layout</title>
+
+	<!-- ibsheet css -->
+	<link rel="stylesheet" href="https://demo.ibleaders.com/ibsheet/v8/samples/customer-sample/assets/ibsheet/css/default/main.css">
+	<link rel="stylesheet" href="https://demo.ibleaders.com/ibsheet/v8/samples/customer-sample/assets/ibsheet/css/compatible/light/main.css">
+
+	<!-- 필수 plugin -->
+	<!-- jQuery -->
+	<script src="../../../js/jquery/dist/jquery.min.js"></script>
+	<script src="../../../js/jquery-ui/dist/jquery-ui.min.js"></script>
+	<script src="../../../js/jsrender/dist/jsrender.js"></script>
+	<!-- Select -->
+	<script src="../../../js/tom-select/dist/js/tom-select.complete.min.js"></script>
+	<!-- 날짜 관련 -->
+	<script src="../../../js/moment/dist/moment.min.js"></script>
+	<!-- //필수 plugin -->
+
+	<!-- UI Style -->
+	<link rel="stylesheet" href="../../../style/css/style-ui.css">
+</head>
+
+<body class="iframe-layout">
+	<div class="wrapper" x-data="{searchOpen: false}">
+		<!-- 타이틀 및 네비게이션 영역 -->
+		<section class="content-head">
+			<!-- 2023.04.18 class 명 변경 - txt-title >> page-title -->
+			<h2 class="page-title">타이틀</h2>
+			<div class="head-article" x-data="{open: false}">
+				<include src="../content/content-head-article.html"></include>
+			</div>
+		</section>
+		<!-- //타이틀 및 네비게이션 영역 -->
+
+		<!-- 공통 검색영역 -->
+		<!-- 20230720 : hide 에서 scerch-off 로 class 명칭 변경-->
+		<section class="content-scerch scerch-off" :class="{'scerch-off': searchOpen === false }"><!-- 보여줄 경우 hide 삭제 -->
+
+			<div class="search-wrap">
+				<h2 class="txt-title">조회영역</h2>
+				<div class="find-area">
+					<!-- multiple select -->
+					<div class="form-group">
+						<label class="form-label" for="form-data-01">멀티셀렉트 <span class="require"></span></label>
+						<div class="form-select">
+							<select id="form-data-01" class="form-control" multiple placeholder="최대 5개까지 선택가능">
+								<option>01</option>
+								<option>02</option>
+								<option>03</option>
+								<option>item 04</option>
+								<option>길게한줄 나오면 나머진</option>
+								<option>item 06</option>
+								<option>item 07</option>
+								<option>item 08</option>
+								<option>item 09</option>
+							</select>
+						</div>
+					</div>
+					<!-- //multiple select -->
+					<div class="form-group">
+						<label class="form-label" for="form-data-02">멀티셀렉트 disabled</label>
+						<div class="form-select">
+							<select id="form-data-02" class="form-control" disabled multiple placeholder="최대 5개까지 선택가능">
+								<option>option 01</option>
+								<option selected>option 02</option>
+								<option>option 03</option>
+								<option>option 04</option>
+								<option>option 05</option>
+								<option>option 06</option>
+								<option>option 07</option>
+								<option>option 08</option>
+								<option>option 09</option>
+							</select>
+						</div>
+					</div>
+					<!-- single select -->
+					<div class="form-group">
+						<label class="form-label" for="form-data-03">싱글셀렉트</label>
+						<div class="form-select">
+							<select id="form-data-03" class="form-control" placeholder="하나만 선택 가능합니다.">
+								<option>option 01</option>
+								<option>option 02</option>
+								<option>option 03</option>
+								<option>option 04</option>
+								<option>option 05</option>
+								<option>option 06</option>
+								<option>option 07</option>
+								<option>option 08</option>
+								<option>option 09</option>
+							</select>
+						</div>
+					</div>
+					<!-- //single select -->
+					<!-- single select -->
+					<div class="form-group">
+						<label class="form-label" for="form-data-08">싱글셀렉트 2개 이상</label>
+						<div class="input-group">
+							<div class="form-select">
+								<select id="form-data-08" class="form-control" placeholder="하나만 선택 가능합니다.">
+									<option>option 01</option>
+									<option>option 02</option>
+									<option>option 03</option>
+									<option>option 04</option>
+									<option>option 05</option>
+									<option>option 06</option>
+									<option>option 07</option>
+									<option>option 08</option>
+									<option>option 09</option>
+								</select>
+							</div>
+							<div class="form-select">
+								<select id="form-data-08-2" class="form-control" placeholder="하나만 선택 가능합니다.">
+									<option>option 01</option>
+									<option>option 02</option>
+									<option>option 03</option>
+									<option>option 04</option>
+									<option>option 05</option>
+									<option>option 06</option>
+									<option>option 07</option>
+									<option>option 08</option>
+									<option>option 09</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<!-- //single select -->
+					<div class="form-group">
+						<label class="form-label" for="form-data-04">싱글셀렉트 disabled</label>
+						<div class="form-select">
+							<select id="form-data-04" class="form-control" disabled placeholder="하나만 선택 가능합니다.">
+								<option>option 01</option>
+								<option selected>option 02</option>
+								<option>option 03</option>
+								<option>option 04</option>
+								<option>option 05</option>
+								<option>option 06</option>
+								<option>option 07</option>
+								<option>option 08</option>
+								<option>option 09</option>
+							</select>
+						</div>
+					</div>
+					<!-- single input -->
+					<div class="form-group">
+						<label class="form-label" for="form-data-04">Input 1개 일때</label>
+						<div class="form-input">
+							<input type="text" id="form-data-04" class="form-control" autocomplete="off" placeholder="입력해주세요.">
+						</div>
+					</div>
+					<!-- //single input -->
+					<!-- input group -->
+					<div class="form-group">
+						<label class="form-label" for="form-data-05">Input 2개 이상 일때</label>
+						<div class="input-group">
+							<div class="form-input">
+								<input type="text" id="form-data-05" class="form-control" autocomplete="on"
+									placeholder="입력해주세요.">
+							</div>
+							<div class="form-input">
+								<input type="text" class="form-control" autocomplete="on" disabled placeholder="입력해주세요.">
+							</div>
+							<div class="form-input">
+								<input type="text" class="form-control error" autocomplete="on" placeholder="입력해주세요.">
+							</div>
+						</div>
+					</div>
+					<!-- //input group -->
+					<div class="form-group">
+						<span class="form-label">Check Group 01</span>
+						<div class="check-list">
+							<div class="form-check">
+								<input class="check-input" id="check1-01" type="checkbox">
+								<label class="check-label" for="check1-01">Checkbox</label>
+							</div>
+							<div class="form-check">
+								<input class="check-input" id="check1-02" type="checkbox" checked>
+								<label class="check-label" for="check1-02">Checked</label>
+							</div>
+							<div class="form-check">
+								<input class="check-input" id="check1-03" type="checkbox" disabled>
+								<label class="check-label" for="check1-03">Disabled</label>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<span class="form-label">Check Group 02</span>
+						<div class="check-list row">
+							<div class="form-check">
+								<input class="check-input" id="check2-01" type="checkbox">
+								<label class="check-label" for="check2-01">Checkbox</label>
+							</div>
+							<div class="form-check">
+								<input class="check-input" id="check2-02" type="checkbox" checked>
+								<label class="check-label" for="check2-02">Checked</label>
+							</div>
+							<div class="form-check">
+								<input class="check-input" id="check2-03" type="checkbox" disabled>
+								<label class="check-label" for="check2-03">Disabled</label>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<span class="form-label">Radio Group</span>
+						<div class="check-list">
+							<div class="form-radio">
+								<input class="radio-input" id="check1-04" type="radio" name="radio1">
+								<label class="radio-label" for="check1-04">Radio</label>
+							</div>
+							<div class="form-radio">
+								<input class="radio-input" id="check1-05" type="radio" name="radio1" checked>
+								<label class="radio-label" for="check1-05">Checked</label>
+							</div>
+							<div class="form-radio">
+								<input class="radio-input" id="check1-06" type="radio" disabled>
+								<label class="radio-label" for="check1-06">Disabled</label>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<span class="form-label">Radio Group</span>
+						<div class="check-list row">
+							<div class="form-radio">
+								<input class="radio-input" id="check2-04" type="radio" name="radio2">
+								<label class="radio-label" for="check2-04">Radio</label>
+							</div>
+							<div class="form-radio">
+								<input class="radio-input" id="check2-05" type="radio" name="radio2" checked>
+								<label class="radio-label" for="check2-05">Checked</label>
+							</div>
+							<div class="form-radio">
+								<input class="radio-input" id="check2-06" type="radio" disabled>
+								<label class="radio-label" for="check2-06">Disabled</label>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<span class="form-label">Switch</span>
+						<div class="form-switch">
+							<input class="switch-input" type="checkbox" id="flexSwitchCheckDefault">
+							<label class="switch-label" for="flexSwitchCheckDefault">
+								<span class="switch-cont">Default Switch</span>
+							</label>
+						</div>
+					</div>
+					<!-- 날짜 -->
+					<div class="form-group">
+						<label class="form-label" for="form-data-06">날짜</label>
+						<div class="form-date">
+							<input type="date" id="form-data-06" class="form-control" placeholder="입력해주세요." value="2023-07-25">
+						</div>
+					</div>
+					<!-- //날짜 -->
+					<!-- 기간 -->
+					<div class="form-group">
+						<label class="form-label" for="form-data-07">기간</label>
+						<div class="date-group">
+							<div class="form-date">
+								<input type="date" id="form-data-07" class="form-control" placeholder="입력해주세요.">
+							</div>
+							<div class="form-date">
+								<input type="date" class="form-control" placeholder="입력해주세요.">
+							</div>
+						</div>
+						<div class="txt-help">aaaaaa</div>
+					</div>
+					<!-- //기간 -->
+				</div>
+				<div class="btn-group">
+					<button type="button" class="btn-reset">초기화</button>
+					<button type="button" class="btn-search">검색</button>
+				</div>
+				<button class="btn-close" @click="searchOpen = false"><i class="icon-close">닫기</i></button>
+			</div>
+
+		</section>
+		<!-- 공통 검색영역 -->
+
+		<!-- Main content -->
+		<section class="content-body">
+			<!-- 검색된 컨텐츠 영역 -->
+			<div class="search-cont-area"><!-- class : off 추가시 검색영역 hide -->
+				<include src="../search/search_content.html"></include>
+			</div>
+			<!-- //검색된 컨텐츠 영역 -->
+			<div class="content-area">
+				<div class="txt-help">컨텐츠 영역</div>
+			</div>
+		</section>
+		<!-- //Main content -->
+	</div>
+	<!-- /wrapper -->
+
+	<!-- ibleaders -->
+	<script src="../../../js/ibsheet8/ibsheet.js"></script>
+	<script src="../../../js/ibsheet8/ibleaders.js"></script>
+	<script src="../../../js/ibsheet8/locale/ko.js"></script>
+	<!-- //ibleaders -->
+	<!-- //ibleaders -->
+
+	<!-- 퍼블 사용하기 위한 JavaScript -->
+    <script src="../../../style/js/include.js"></script>
+    <script src="../../../style/js/alpinejs.min.js"></script>
+    <!-- //퍼블 사용하기 위한 JavaScript --><script>
+		document.querySelectorAll('.form-group .form-select .form-control').forEach((el) => {
+			let settings = {};
+			new TomSelect(el, {
+				create: true,
+				plugins: ["remove_button", "checkbox_options"],
+				// maxItems: 10,
+				// 셀럭테에 포커스가 오면 해당 form-group 에 active class 추가
+				onFocus: function () {
+					document.querySelectorAll(".form-group").forEach((el2) => {
+						el2.classList.remove("active");
+					});
+					el.closest('.form-group').classList.add("active");
+				}
+			});
+		});
+	</script>
+	<script>
+		$.datepicker.setDefaults({
+			dateFormat: 'yy-mm-dd',
+			prevText: '이전 달',
+			nextText: '다음 달',
+			monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+			monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+			dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+			dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+			dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+			showMonthAfterYear: true,
+			yearSuffix: '년',
+			minDate: "-1M", //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
+			maxDate: "+1M", //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)
+			// beforeShowDay: className
+		});
+		$(function () {
+			$(".form-date .form-control").datepicker({
+				showOtherMonths: true,
+				selectOtherMonths: true,
+			});
+			$(".form-date .form-control").datepicker("setDate", "today");
+		});
+		// data color 설정 class
+		// pointed 		: 데이터있는 class
+		// data-red 	: 이벤트성 배경 class 명
+		// data-pink 	: 이벤트성 배경 class 명
+		// data-orange 	: 이벤트성 배경 class 명
+		// data-yellow 	: 이벤트성 배경 class 명
+		// data-purple 	: 이벤트성 배경 class 명
+		// data-green 	: 이벤트성 배경 class 명
+		// data-blue 	: 이벤트성 배경 class 명
+		// data-brown 	: 이벤트성 배경 class 명
+		// data-gray 	: 이벤트성 배경 class 명
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,694 @@
+// iframe 안의 컨텐츠 영역 layout 큰단위
+.content-head {
+  // height: $body-head-height;
+  z-index: 100;
+  background-color: #ffffff;
+  min-height: $body-head-max-height;
+  padding: $body-head-spacer;
+  @include flexContArea("page-title", "article", center);
+}
+.head-article {
+  @include flexBoxContAlignX();
+  .legend-area,
+  .legend-list {
+    display: flex;
+  }
+  .legend-area {
+    gap: $gap-group-spacer * 2;
+    margin-right: $gap-group-spacer;
+  }
+  .legend-list {
+    gap: $icon-spacer;
+    li {
+      display: flex;
+      align-items: center;
+      i {
+        margin-right: $btn-gap-spacer;
+      }
+    }
+    & + .legend-list {
+      position: relative;
+      &::before {
+        @include addBorderCenter(
+          left,
+          $icon-legend-size,
+          $line-form-base,
+          -$gap-group-spacer
+        );
+      }
+    }
+  }
+}
+.content-body {
+  display: flex;
+  flex-direction: column;
+  flex: auto;
+  min-height: $content-body-min-height;
+}
+.header-area {
+  min-height: $cont-header-height;
+  height: $cont-header-height;
+  @include flexContArea("txt-title", "badge-group", top);
+  @include borderStyle(bottom, $line-title-hr);
+  .badge-group {
+    gap: $default-spacer;
+  }
+  & + .table-area {
+    height: 100%;
+  }
+}
+.content-tab {
+  margin-top: -($body-head-max-height - $body-head-height);
+  padding-left: $body-cont-area-spacer;
+  padding-right: $body-cont-area-spacer;
+  .tab-menu {
+    gap: $tab-gap-spacer;
+  }
+  .btn-menu {
+    height: $cont-tab-height;
+    color: $color-silver;
+    font-weight: $font-tab-weight;
+    padding: 0 $tab-spacer;
+  }
+  .active .btn-menu {
+    color: $txt-tab-active-color;
+    &::before {
+      @include addBorderCenter(bottom, 100%, $line-tab-active);
+    }
+  }
+}
+.tab-content-area {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.tab-item {
+  position: absolute;
+  visibility: hidden;
+  z-index: -1;
+  left: 100%;
+  top: 0;
+  &.tab-show {
+    position: static;
+    visibility: visible;
+    z-index: 0;
+    left: 0;
+  }
+}
+.search-cont-area {
+  z-index: 100;
+  @include borderStyle(top, $line-search-cont);
+  overflow: hidden;
+  &.off {
+    height: 0;
+    .search-cont {
+      @include Opacity(0);
+      height: 0;
+      display: 0;
+    }
+  }
+}
+.content-area {
+  @include flexDirection;
+  flex: 1 1 0;
+  @include scrollWrap($brand-gray, $scroll-size, $type: default);
+  .content-body & {
+    position: relative;
+    min-width: $content-body-min-width;
+    padding: $body-cont-area-spacer;
+    width: 100%;
+  }
+  // &:first-child {
+  // 	margin-top: $body-head-max-height - $body-head-height;
+  // }
+  &.fixed {
+    padding: 0;
+    flex-direction: row;
+    @include flexContChange("info-area", "map-area");
+    .info-area {
+      width: calc(100% - $section-map-width);
+      min-width: $content-body-half-width;
+      flex: 1 1 auto;
+      padding: $body-cont-area-spacer;
+      &.row {
+        flex-direction: column;
+        gap: $grid-gap-spacer;
+        .table-area {
+          flex: 1 1 auto;
+          min-height: calc(
+            100% - $summary-height - $textarea-height-wrap -
+              ($grid-gap-spacer * 2)
+          );
+        }
+        .summary-area {
+          min-height: $summary-height;
+        }
+        .textarea-area {
+          min-height: $textarea-height-wrap;
+        }
+      }
+    }
+    .map-area {
+      flex: auto;
+      width: $section-map-width;
+      &::before {
+        @include squareSize($section-map-width);
+        padding-top: $section-map-width;
+      }
+    }
+    &-full {
+      height: 100%;
+    }
+  }
+  &.top-fixed {
+    padding: 0;
+    height: 100%;
+    .map-area {
+      min-height: $map-section-height;
+      flex: auto;
+    }
+    .grid-area {
+      display: flex;
+      min-height: 100%;
+      // overflow: hidden;
+      border-top: $line-hr;
+      flex: 1 1 auto;
+    }
+    .timeline-area,
+    .table-grid {
+      padding: $body-cont-spacer 0;
+    }
+    .timeline-area {
+      width: $timeline-width;
+      border-right: $line-hr;
+      .txt-title {
+        padding: 0 $body-cont-spacer;
+      }
+      .schedule-list {
+        height: calc(100% - $table-title-height);
+        @include scrollWrap($bg-scroll-cut, $scroll-sm-size, y);
+      }
+    }
+    .table-grid {
+      width: calc(100% - $timeline-width);
+      grid-template-columns: none;
+      grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
+      // grid-template-rows: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    .table-area {
+      padding: 0 $body-cont-spacer;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .ibsheet-wrap {
+      // min-width: fit-content;
+      // width: min-content;
+      // max-width: max-content;
+      width: calc(100% - $scroll-sm-size);
+      box-sizing: border-box;
+    }
+  }
+  &.grid {
+    @include gridArea();
+    grid-auto-flow: row dense;
+    overflow: hidden;
+    .header-area {
+      grid-column: 1 / span 2;
+    }
+    .info-area {
+      @include gridBase;
+      grid-column: auto;
+      grid-auto-rows: max-content;
+      padding-right: $spacer-xs;
+      @include scrollWrap($bg-scroll-cut, $scroll-sm-size, y);
+    }
+    .map-area {
+      width: $section-map-width-min;
+      &::before {
+        @include squareSize($section-map-width-min);
+        padding-top: $section-map-width-min;
+      }
+    }
+    .map-area,
+    .map-wrap {
+      border-radius: $radius-map;
+    }
+  }
+  &.row {
+    gap: $grid-gap-spacer;
+  }
+  &.transport,
+  &.dashboard {
+    background-color: $bg-transport-color;
+  }
+  &.dashboard {
+    @include gridArea(3, 1fr);
+    grid-auto-flow: row dense;
+    overflow: hidden;
+    .area-left,
+    .area-right,
+    .area-full {
+      background-color: $color-white;
+      border-radius: $spacer-base;
+    }
+    .area-left {
+      grid-column: 1 / span 2;
+    }
+    .area-right {
+      grid-column: 3 / span 1;
+    }
+    .area-full {
+      grid-column: 1 / span 3;
+    }
+  }
+  .timeline-area,
+  .section-area {
+    .txt-title {
+      height: $table-title-height;
+    }
+  }
+}
+// 운송관련
+.transport-wrap {
+  @include flexDirection;
+  gap: $transport-gap-spacer;
+}
+.transport-area {
+  @include flexBoxContAlignX(full);
+  .transport-wrap & {
+    background-color: $color-white;
+    height: $transport-bar-height;
+    border-radius: $spacer-base;
+    padding-left: $spacer-lg;
+    &:hover {
+      z-index: 1;
+    }
+    .transport-info {
+      min-width: $transport-info-width;
+      max-width: $transport-info-width;
+      padding-left: $spacer-lg;
+      padding-right: $spacer-lg;
+    }
+  }
+  &.route,
+  &.store {
+    .transport-info {
+      gap: $spacer-base;
+      padding-left: 0;
+      line-height: 1;
+      .link-item {
+        @include flexBoxContAlignX();
+        gap: $spacer-base;
+      }
+      .txt-info {
+        position: relative;
+        padding-left: $spacer-base;
+        &::before {
+          @include addBorderCenter(left, $txt-info-title, $line-light-hr);
+        }
+      }
+      .info-list {
+        position: relative;
+        &::before {
+          @include addBorderCenter(top, 100%, $line-hr, -$spacer-base);
+        }
+      }
+    }
+    .cont-head {
+      align-items: center;
+      position: relative;
+      .btn-favor {
+        display: none;
+      }
+      // .btn-favor {
+      // 	@include positionCenter(left);
+      // }
+    }
+    .cont-body {
+      gap: $spacer-md;
+      line-height: 1;
+      .cont-list {
+        position: relative;
+        &:hover {
+          .list-info {
+            display: block;
+          }
+        }
+      }
+      .list-info {
+        display: none;
+        position: absolute;
+        top: calc(100% + $spacer-xs);
+        left: 50%;
+        transform: translateX(-50%);
+        padding: $spacer-base $spacer-md;
+        line-height: 1.4;
+        background-color: $color-white;
+        box-shadow: $box-dialog-wrap;
+        border: $line-hr;
+        border-radius: $radius-sm;
+      }
+    }
+    .route-info {
+      @include flexBoxContAlign(space-around, center);
+      gap: $spacer-xs;
+      .txt-cont,
+      .icon-item {
+        @include flexBoxContAlignX(center);
+        flex: 1;
+      }
+      .icon-item {
+        position: relative;
+        max-width: $port-name-width;
+        &::before {
+          @include addBorderCenter(top, 100%, $line-bg-progress, 50%);
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          display: block;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          box-shadow: $box-icon-shadow-in-white;
+          z-index: 1;
+        }
+        .icon-route {
+          background-color: $color-white;
+          box-shadow: $box-icon-shadow-white;
+          z-index: 2;
+        }
+      }
+    }
+    .info-list {
+      gap: $spacer-md;
+      .info-title {
+        display: flex;
+        gap: $spacer-base;
+        .txt-label {
+          font-weight: $font-weight-bold;
+        }
+        .txt-label,
+        .txt-cont {
+          color: $color-smoky;
+        }
+      }
+      .info-item {
+        .txt-label {
+          color: $color-dark;
+          position: relative;
+          padding-left: $spacer-base;
+          &::before {
+            content: "";
+            @include positionCenter(left);
+            display: inline-block;
+            @include circleIcon($color-dark, $radius-xs);
+            left: 2px;
+          }
+        }
+      }
+      .txt-cont {
+        font-weight: $font-weight-light;
+      }
+    }
+  }
+  &.route {
+    .info-list {
+      @include gridType($spacer-xs, 2);
+      justify-content: space-between;
+      align-items: center;
+      .info-title {
+        grid-row: 1 / span 2;
+      }
+      .info-item {
+        width: $transport-info-item-width;
+        justify-content: flex-start;
+        overflow: visible;
+      }
+    }
+    .txt-info,
+    .txt-cont {
+      display: block;
+      @include textEllipsis;
+    }
+    .cont-head {
+      .link-item {
+        overflow: hidden;
+      }
+    }
+  }
+  &.store {
+    .info-list {
+      @include flexBoxContAlign(space-around, center);
+    }
+    // .cont-head {
+    // 	padding-left: $spacer-lg;
+    // }
+  }
+  .transport-visual {
+    padding: 0 math.div($icon-circle-arr-size, 2);
+    height: 100%;
+    width: calc(100% - $transport-info-width);
+    border-left: $line-light-hr;
+  }
+  .progress-area {
+    position: relative;
+    height: 100%;
+    overflow-x: clip;
+    padding: 0 $progress-gap-width;
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      width: $progress-gap-width;
+      height: 100%;
+      z-index: 1;
+    }
+    &::before {
+      left: 0px;
+      @include linearGradient(left, $color-white, $color-white, transparent);
+    }
+    &::after {
+      right: 0px;
+      @include linearGradient(right, $color-white, $color-white, transparent);
+    }
+  }
+}
+.tab-wrap {
+  @include tabBoxWrap("tab-menu", "tab-content", $spacer-md);
+  .tab-menu {
+    @include switchStyle(100%, $switch-tab-menu, $spacer-xs);
+    border-radius: $spacer-xs;
+    overflow: hidden;
+    background-color: $bg-ghost-color;
+    &::before {
+      background-color: $color-white;
+      border: $spacer-xs $bg-ghost-color solid;
+      border-radius: $spacer-xs * 2;
+    }
+  }
+  .nav-item {
+    color: $txt-tab-color;
+    font-weight: $font-weight-light;
+    .btn-menu {
+      gap: $spacer-base;
+      &.route {
+        @include txtIconAdd(left, icon-tab-route);
+      }
+      &.weather {
+        @include txtIconAdd(left, icon-tab-weather);
+      }
+    }
+    &.active {
+      color: $txt-tab-active-color;
+      font-weight: $font-weight-bold;
+      .btn-menu {
+        &.route {
+          @include txtIconAdd(left, icon-tab-route-on);
+        }
+        &.weather {
+          @include txtIconAdd(left, icon-tab-weather-on);
+        }
+      }
+    }
+  }
+  .summary-body & {
+    .tab-cont {
+      @include flexDirection;
+      gap: $spacer-lg;
+    }
+  }
+}
+// 상단 정보성 영역
+.summary-area {
+  position: relative;
+  border: $line-form-base;
+  border-radius: $radius-form;
+  @include flexBoxContAlignX(space-around);
+  padding-left: $summary-info-spacer;
+  padding-right: $summary-info-spacer;
+  gap: $summary-info-spacer;
+  .date-cont {
+    display: flex;
+    align-items: flex-end;
+    gap: $spacer-base;
+  }
+  &:not(.row) {
+    min-height: $summary-height;
+    &::before {
+      content: "";
+      display: block;
+      width: 1px;
+      border-left: $line-light-hr;
+      height: $summary-height - $summary-info-spacer;
+      @include fixCenter;
+    }
+  }
+  &.row {
+    &::before {
+      height: 100%;
+    }
+    .info-head,
+    li {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: $spacer-base;
+    }
+    .info-list {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      li {
+        width: $summary-item-width;
+        // padding-left: $box-spacer-big;
+        // padding-right: $box-spacer-big;
+        &:not(:first-child) {
+          border-left: $line-light-hr;
+        }
+      }
+      .txt-label {
+        min-width: $label-badge-md-width;
+        text-transform: capitalize;
+        @include formBoxStyle($form-height-size, $line-label-base);
+        padding-left: $spacer-md;
+        padding-right: $spacer-md;
+      }
+      .txt-cont {
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}
+.panl-area {
+  position: relative;
+  @include flexBoxContAlign(left, full);
+  gap: $panl-info-spacer;
+  min-height: $panl-min-height;
+  .panl-box {
+    @include flexBoxContAlign();
+    width: $panl-box-width;
+    min-width: $panl-box-width - ($panl-info-spacer * 4);
+    border: $line-form-base;
+    border-radius: $radius-form;
+    padding: $spacer-base;
+    cursor: pointer;
+    &.active,
+    &:hover {
+      background-color: $bg-panl-active-color;
+      border-color: $bg-panl-active-color;
+    }
+  }
+  .area-left {
+    @include directionAlign(bottom, right);
+    text-align: right;
+    gap: $spacer-base;
+  }
+  .area-right {
+    display: flex;
+    flex-direction: column;
+    gap: $spacer-base;
+    .info-list {
+      display: flex;
+      gap: $spacer-base;
+    }
+    .trans-info {
+      gap: $spacer-xs;
+    }
+  }
+  .panl-list {
+    @include flexBoxContAlign(right, center);
+    flex: auto;
+    padding: 0 $panl-info-spacer;
+    gap: $panl-info-spacer;
+    counter-reset: section;
+    .cont-head {
+      @include flexBoxContAlignX(full);
+      gap: $spacer-xs;
+      width: $panl-list-head-width;
+      flex: auto;
+    }
+    .info-item {
+      &::before {
+        counter-increment: section;
+        content: counter(section);
+        @include squareSize($badge-info-height);
+        border-radius: $radius-base-min;
+        background-color: $bg-gray-color;
+        font-size: $font-size-sm;
+        font-weight: $font-weight-bold;
+        @include flexBoxContAlign();
+      }
+    }
+  }
+}
+// 날씨
+.weather-area {
+  &.row,
+  .widget-area {
+    @include flexDirection;
+  }
+  .info-list,
+  .weather-list {
+    .info-item {
+      @include flexDirection;
+    }
+  }
+  .widget-area {
+    gap: $spacer-sm;
+    & + .widget-area {
+      border-top: $line-modal-hr;
+      padding-top: $dialog-gap-spacer;
+      margin-top: $dialog-gap-spacer;
+    }
+  }
+  .weather-info {
+    padding-top: $spacer-md;
+    gap: $spacer-base;
+    @include directionAlign(center, center);
+    .info-item {
+      display: flex;
+    }
+    .txt-cont {
+      gap: 0;
+    }
+    .txt-unit {
+      margin-left: 0;
+    }
+  }
+  .info-list {
+    @include flexBoxContAlignX(full);
+    .info-item {
+      align-items: flex-start;
+    }
+  }
+  .weather-list {
+    @include flexBoxContAlignX(space-around);
+  }
+}

@@ -1,0 +1,243 @@
+@mixin defaultStyle($type) {
+	@each $key, $value in map-get($default-type, $type) {
+		#{$key}: $value;
+	};
+}
+@mixin circleIcon($color, $size: $icon-legend-size) {
+	@include circleSize($size);
+	@include bgImgBase;
+	background-color: $color;
+}
+@mixin bgIconPosition($name, $position: right, $type: svg){
+	@include bgRepeat();
+	@include bgPositionType($position);
+	@include bgImgSize();
+	@if $type == svg {
+		@include svgIconName($name);
+	} @else {
+		@include iconName($name);
+	}
+}
+@mixin squareIcon($size, $name, $type: svg) {
+	@include squareSize($size);
+	padding-top: $size;
+	@if $type == svg {
+		@include svgIconName($name);
+	} @else {
+		@include iconName($name);
+	}
+	@include bgImgBase;
+}
+@mixin shapeIcon($sizeW, $sizeH, $name, $type: svg) {
+	@include shapeSize($sizeW, $sizeH);
+	padding-top: $sizeH;
+	@if $type == svg {
+		@include svgIconName($name);
+	} @else {
+		@include iconName($name, $property);
+	}
+	@include bgImgBase;
+}
+@mixin iconSizeChange($sizeW, $sizeH: $sizeW){
+	@include shapeSize($sizeW, $sizeH);
+	padding-top: $sizeH;
+}
+@mixin maskIconChange($color, $name, $type: svg) {
+	background-image: none;
+	background-color: $color;
+	@if $type == svg {
+		@include svgIconName($name, $property: mask);
+	} @else {
+		@include iconName($name, $property: mask);
+	}
+	@include bgImgBase($type: mask, $property: mask);
+}
+@mixin squareMaskIcon($size, $name, $color, $type: svg) {
+	background-color: $color;
+	@if $type == svg {
+		@include svgIconName($name, $property: mask);
+	} @else {
+		@include iconName($name, $property: mask);
+	}
+	@include bgImgBase($type: mask, $property: mask);
+	@include squareSize($size);
+	@include bgIconBase($size);
+}
+@mixin shapeMaskIcon($sizeW, $sizeH, $name, $color, $type: svg) {
+	background-color: $color;
+	@if $type == svg {
+		@include svgIconName($name, $property: mask);
+	} @else {
+		@include iconName($name, $property: mask);
+	}
+	@include bgImgBase($type: mask, $property: mask);
+	@include shapeSize($sizeW, $sizeH);
+	@include bgIconBase($sizeH);
+}
+@mixin maskColorChange($color) {
+	background-color: $color;
+}
+@mixin txtIconAdd($type:left, $name) {
+	@if $type == left {
+		&::before {
+			content: '';
+			display: inline-block;
+			@extend .#{$name};
+		}
+	} @else if $type == right {
+		&::after {
+			content: '';
+			display: inline-block;
+			@extend .#{$name};
+		}
+	}
+}
+@mixin iconAddPosition($type:left, $name, $X:0){
+	position: relative;
+	@if $type == left {
+		@include txtIconAdd(left, $name);
+		&::before {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			left: $X;
+		}
+	} @else if $type == right {
+		@include txtIconAdd(right, $name);
+		&::after {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			right: $X;
+		}
+	}
+}
+@mixin iconToBtnChange($name) {
+	overflow: hidden;
+	color: transparent;
+	@extend .#{$name};
+}
+@mixin addBorderStyle($position, $x, $y, $size, $style) {
+	@if $position == all {
+		@include addPosition(all, $x, $y, $size, $size);
+		@include borderStyle(all, $style);
+	} @else if $position == top {
+		@include addPosition(top, $x, $y, $size, 1px);
+		@include borderStyle(top, $style);
+	} @else if $position == bottom {
+		@include addPosition(bottom, $x, $y, $size, 1px);
+		@include borderStyle(bottom, $style);
+	} @else if $position == left {
+		@include addPosition(left, $x, $y, 1px, $size);
+		@include borderStyle(left, $style);
+	} @else if $position == right {
+		@include addPosition(right, $x, $y, 1px, $size);
+		@include borderStyle(right, $style);
+	} @else if $position == X {
+		$width: calc(100% - (#{$x} * 2));
+		@include addPosition(left, $x, $y, $width, $size);
+		@include borderStyle(X, $style);
+	} @else if $position == Y {
+		$height: calc(100% - (#{$y} * 2));
+		@include addPosition(left, $x, $y, $size, $height);
+		@include borderStyle(Y, $style);
+	}
+}
+@mixin addBorderCenter($position, $size, $style, $point: 0) {
+	@if $position == all {
+		@include addBorderStyle(all, 50%, 50%, $size, $style);
+		transform: translate(-50%, -50%);
+	} @else if $position == top {
+		@include addBorderStyle(top, 50%, $point, $size, $style);
+		transform: translate(-50%, 0);
+	} @else if $position == bottom {
+		@include addBorderStyle(bottom, 50%, $point, $size, $style);
+		transform: translate(-50%, 0);
+	} @else if $position == left {
+		@include addBorderStyle(left, $point, 50%, $size, $style);
+		transform: translate(0, -50%);
+	} @else if $position == right {
+		@include addBorderStyle(right, $point, 50%, $size, $style);
+		transform: translate(0, -50%);
+	}
+}
+// card, dialog, box style
+@mixin dialogBase {
+	border: $line-dialog;
+	background-color: $bg-dialog-color;
+}
+@mixin cardBase($radius, $name) {
+	@include boxRadius(all, $radius);
+	.#{$name}-header {
+		@include boxRadius(top, $radius);
+	}
+	.#{$name}-footer {
+		@include boxRadius(bottom, $radius);
+	}
+}
+@mixin cardType($type: base, $name: card) {
+	@if $type == base {
+		$radius: $radius-base;
+		@include cardBase($radius, $name);
+	} @else if  $type == thin {
+		$radius: $radius-sm;
+		@include cardBase($radius, $name);
+	} @else if $type == box {
+		$radius: 0;
+		@include cardBase($radius, $name);
+	} @else {
+		$radius: $type;
+		@include cardBase($radius, $name);
+	}
+}
+@mixin cardStyleWrap($body: base, $name: card) {
+	@include dialogBase;
+	@include cardType();
+	.#{$name}-header {
+		padding: 0 $card-spacer-x;
+	}
+	.#{$name}-footer {
+		padding: $card-footer-y $card-spacer-x;
+	}
+	@if $body == base {
+		.#{$name}-body {
+			padding: $card-spacer-y $card-spacer-x;
+		}
+	} @else if $body == box {
+		.#{$name}-body {
+			padding: $card-spacer-y 0;
+		}
+	} @else {
+		.#{$name}-body {
+			padding: $body;
+		}
+	}
+}
+@mixin portArea($type, $sizeH) {
+	@include flexDirection;
+	align-items: center;
+	width: $port-name-width;
+	@if $type == list {
+		justify-content: space-between;
+		height: $sizeH;
+		gap: $spacer-xs;
+		line-height: 1;
+	} @else if $type == progress {
+		height: auto;
+		padding-bottom: $icon-port-height;
+		z-index: 1;
+		&:not(:first-child):not(:last-child) {
+			margin-left: $progress-path-gap-spacer;
+			margin-right: $progress-path-gap-spacer;
+		}
+		&:first-child:not(.port-active) {
+			margin-right: $progress-path-gap-spacer;
+		}
+		&:last-child {
+			margin-left: $progress-path-gap-spacer;
+		}
+		&:hover {
+			z-index: 2;
+		}
+	}
+}

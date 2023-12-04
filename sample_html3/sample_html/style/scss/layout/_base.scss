@@ -1,0 +1,42 @@
+html, body {
+	overflow: overlay;
+}
+body {
+	font-family: $font-family-base;
+	font-weight: $font-weight-base;
+}
+button {
+	@include btnBase;
+}
+i {
+	@include bgIconBase;
+}
+::placeholder {
+	color: $txt-placeholder-color;
+	font-weight: $font-weight-light;
+}
+input, textarea {
+	box-sizing: border-box;
+}
+::-webkit-calendar-picker-indicator {
+    display: none;
+}
+.flex-area {
+	@include flexBox();
+	.area-left {
+		@include flexBoxContAlignX();
+	}
+	.area-right {
+		@include flexBoxContAlignX(right);
+	}
+	.area-center {
+		@include flexBoxContAlignX(center);
+	}
+}
+.ui-layout {
+	overflow: hidden;
+	overflow-x: auto;
+	min-width: $screen-default-min;
+	@include scrollWrap($brand-gray, $scroll-size, $type: x);
+}
+

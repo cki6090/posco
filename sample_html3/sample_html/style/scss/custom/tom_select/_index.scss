@@ -1,0 +1,267 @@
+.ts-hidden-accessible{
+    border: 0 !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important;
+}
+.ts-control {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: stretch;
+    gap: $badge-tom-gap-spacer;
+	cursor: text;
+    & > input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        @include defaultStyle(form);
+		padding-right: $icon-form-txt-size;
+        &::-ms-clear {
+            display: none;
+        }
+        &:focus {
+            outline: none !important;
+        }
+    }
+	.item {
+		@include defaultStyle(tom-item);
+	}
+    .full & {
+        background-color: $bg-form-default;
+    }
+}
+.ts-dropdown {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	z-index: 10;
+	box-sizing: border-box;
+	border: $line-form-base;
+	border-radius: $radius-form;
+	background: $bg-select-option;
+	box-shadow: $box-select-option;
+	overflow-x: hidden;
+	max-height: $select-dropdown-height;
+	@include scrollWrap($bg-scroll-cut, $scroll-sm-size, y);
+	.has-items & {
+		margin-top: $badge-tom-gap-spacer;
+	}
+	[data-selectable] {
+		cursor: pointer;
+		overflow: hidden;
+		.highlight {
+			color: $txt-select-option-hover;
+		}
+	}
+	.option, [data-disabled], [data-disabled] [data-selectable].option {
+		cursor: inherit;
+		opacity: 0.5;
+	}
+	[data-selectable].option {
+		opacity: 1;
+		cursor: pointer;
+	}
+	.optgroup-header {
+		color: $txt-form-color;
+		cursor: default;
+	}
+	.create {
+		color: $txt-select-option-select;
+		background-color: $bg-select-option-select;
+	}
+}
+@mixin selectize-vertical-gradient($color-top, $color-bottom) {
+    background-color: mix($color-top, $color-bottom, 60%);
+    background-image: linear-gradient(to bottom, $color-top, $color-bottom);
+    background-repeat: repeat-x;
+}
+.ts-wrapper {
+	&:not(.disabled) {
+		.item, input {
+			cursor: pointer;
+		}
+	}
+    &.single {
+        .ts-control {
+			height: $form-height-size;
+            .item {
+				align-self: center;
+				margin: 1px;
+				margin-right: $btn-spacer * 2.5;
+				background-color: $bg-form-default;
+				// z-index: 1;
+                .remove {
+                    display: none;
+                }
+            }
+            & > input {
+                z-index: -1;
+            }
+        }
+		&.dropdown-active {
+			.ts-control {
+				& > input {
+					z-index: 0;
+				}
+			}
+		}
+		.ts-dropdown {
+			margin-top: $badge-tom-gap-spacer;
+		}
+		.input-hidden {
+			.ts-control {
+				& > input {
+					z-index: -1;
+				}
+			}
+		}
+		&.disabled {
+			.ts-control {
+				.item {
+					color: $txt-disabled-color;
+					background-color: $bg-form-disabled;
+				}
+				& > input {
+					z-index: -1;
+				}
+			}
+		}
+    }
+    &.multi {
+        .ts-control {
+            padding-top: $form-height-size + $badge-tom-gap-spacer;
+            .item {
+                flex: auto;
+                @include defaultStyle(tom-badge);
+                .remove {
+                    overflow: hidden;
+                    margin-left: math.div($btn-spacer, 2);
+                    @include squareIcon($icon-badge-size, ico_badge_close);
+                }
+            }
+        }
+    }
+    &.focus {
+        .ts-control {
+            & > input {
+                border-color: $line-form-select-color;
+            }
+        }
+        .active {
+            color: $txt-form-color;
+            background-color: $bg-form-default;
+		}
+    }
+    &.disabled {
+        cursor: default !important;
+        .ts-control {
+            & > input {
+                color: $txt-disabled-color;
+                background-color: $bg-form-disabled;
+                border-color: $line-default-color;
+            }
+			.item .remove {
+				display: none;
+			}
+        }
+        .active {
+            color: $txt-disabled-color;
+            background-color: $bg-form-disabled;
+		}
+    }
+}
+.ts-dropdown-content {
+	display: flex;
+	flex-direction: column;
+	.option, .create {
+		display: flex;
+		justify-self: start;
+		align-items: center;
+		height: $form-height-size;
+        padding-left: $form-spacer;
+        padding-right: $form-spacer;
+		@include borderStyle(top, $line-form-base);
+		&.active {
+			background-color: $bg-light-color;
+			color: $txt-select-option-hover;
+			&.create {
+				color: $txt-select-option-hover;
+			}
+		}
+	}
+	.no-results {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: $form-height-size;
+        padding-left: $form-spacer;
+        padding-right: $form-spacer;
+		color: $txt-disabled-color;
+		@include borderStyle(bottom, $line-form-base);
+	}
+	.multi & {
+		.selected {
+			display: none;
+		}
+	}
+	.single & {
+		margin-top: -1px;
+		.selected {
+			color: $color-point;
+			cursor: default;
+			order: -1;
+			pointer-events: none;
+			// @include borderStyle(bottom, $line-form-base);
+		}
+	}
+}
+
+.form-select {
+	.ts-control > input {
+		@extend %icon-down;
+	}
+	.focus .ts-control > input {
+		@extend %icon-up;
+	}
+}
+
+
+
+// .ts-wrapper {
+// 	&.multi {
+// 		.ts-control {
+// 			[data-value] {
+// 				&.active {
+// 				}
+// 			}
+// 		}
+// 		&.disabled .ts-control [data-value] {
+// 			&, .remove {
+// 			}
+// 			.remove {
+// 			}
+// 		}
+// 	}
+// 	&.single {
+// 		.ts-control {
+// 		}
+// 	}
+// }
+// .ts-wrapper.single .ts-control, .ts-dropdown.single {
+// }
+// .ts-control {
+// 	.dropdown-active & {
+// 	}
+// }
+// .ts-dropdown {
+// 	.optgroup-header {
+// 	}
+// 	.optgroup {
+// 	}
+// }

@@ -1,0 +1,154 @@
+// flex layout
+@mixin flexAlignX($alignX: left) {
+    @if $alignX == full {
+        justify-content: space-between;
+    } @else if $alignX == center {
+        justify-content: center;
+    } @else if $alignX == left {
+        justify-content: flex-start;
+    } @else if $alignX == right {
+        justify-content: flex-end;
+    } @else {
+        justify-content: $alignX;
+    }
+}
+@mixin flexAlignY($alignY: top) {
+	@if $alignY == full {
+		align-items: stretch;
+	} @else if $alignY == center {
+		align-items: center;
+	} @else if $alignY == top {
+		align-items: flex-start;
+	} @else if $alignY == bottom {
+		align-items: flex-end;
+	} @else {
+		align-items: $alignY;
+	}
+}
+@mixin flexBox($type: full) {
+    display: flex;
+    @if $type == full {
+        align-items: stretch;
+        justify-content: space-between;
+        height: 100%;
+    } @else if $type == center {
+        align-items: center;
+        justify-content: center;
+    } @else if $type == top {
+        align-items: flex-start;
+        justify-content: center;
+    } @else if $type == bottom {
+        align-items: flex-end;
+        justify-content: center;
+    }
+}
+@mixin flexDirection {
+    display: flex;
+    flex-direction: column;
+}
+@mixin directionAlign($alignX:full, $alignY:left) {
+    @include flexDirection;
+    @include flexAlignX($alignY);
+    @include flexAlignY($alignX);
+}
+@mixin flexBoxContAlignX($type: left) {
+    display: flex;
+    align-items: center;
+    @include flexAlignX($type);
+}
+@mixin flexBoxContAlignY($type: top) {
+    display: flex;
+    @include flexAlignY($type);
+}
+@mixin flexBoxContAlign($alignX: center, $alignY: center) {
+    display: flex;
+    @include flexAlignX($alignX);
+    @include flexAlignY($alignY);
+}
+@mixin flexContArea($left, $right, $type: base, $style: base) {
+    display: flex;
+    @include flexAlignX(full);
+    @if $type == base {
+        @include flexAlignY(center);
+    } @else if $type == full {
+        height: 100%;
+        @include flexAlignY(top);
+    } @else if $type == top {
+        @include flexAlignY(top);
+    } @else if $type == bottom {
+        @include flexAlignY(bottom);
+    }
+    @if $style == left {
+        .#{$left} {
+            flex: 1 1 auto;
+        }
+    } @else if $style == right {
+        .#{$right} {
+            flex: 1 1 auto;
+        }
+    } @else if $style == all {
+        .#{$left}, .#{$right} {
+            flex: 1 1 auto;
+        }
+    }
+    .#{$left} {
+        @include flexBoxContAlignX(left);
+    }
+    .#{$right} {
+        @include flexBoxContAlignX(right);
+    }
+}
+@mixin flexContChange($left, $right) {
+    @include flexAlignY(top);
+    overflow: hidden;
+    .#{$left}, .#{$right} {
+        display: flex;
+        height: 100%;
+    }
+}
+// grid layout
+@mixin gridBase {
+    display: grid;
+    gap: $grid-gap-spacer;
+}
+@mixin gridArea($columns: 2, $width: auto) {
+    @include gridBase;
+    grid-template-columns: repeat($columns, $width);
+}
+@mixin gridType($gap: $spacer-md, $columns: 2, $width: auto) {
+    display: grid;
+    gap: $gap;
+    grid-template-columns: repeat($columns, $width);
+}
+// position
+@mixin addPosition($position, $x, $y, $width, $height: $width) {
+	content: "";
+	display: block;
+    @include absolutePosition($position, $x, $y);
+	width: $width;
+	height: $height;
+}
+@mixin positionCenter($position: center, $point: 0) {
+    position: absolute;
+    @if $position == center {
+        top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	} @else if $position == top {
+        top: $point;
+		left: 50%;
+		transform: translate(-50%, 0);
+	} @else if $position == bottom {
+		left: 50%;
+        bottom: $point;
+		transform: translate(-50%, 0);
+	} @else if $position == left {
+        top: 50%;
+		left: $point;
+		transform: translate(0, -50%);
+	} @else if $position == right {
+        top: 50%;
+        right: $point;
+		transform: translate(0, -50%);
+	}
+}

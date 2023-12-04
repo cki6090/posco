@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
+    <title>창고 현황 모니터링(평택)</title>
+
+    <!-- 필수 plugin -->
+    <!-- jQuery -->
+    <script src="../../js/jquery/dist/jquery.min.js"></script>
+    <script src="../../js/jquery-ui/dist/jquery-ui.min.js"></script>
+    <script src="../../js/jsrender/dist/jsrender.js"></script>
+    <!-- Select -->
+    <script src="../../js/tom-select/dist/js/tom-select.complete.min.js"></script>
+    <!-- 날짜 관련 -->
+    <script src="../../js/moment/dist/moment.min.js"></script>
+    <!-- //필수 plugin -->
+
+    <!-- UI Style -->
+    <link rel="stylesheet" href="../../style/css/style-ui.css" />
+</head>
+
+<body class="iframe-layout">
+    <div class="wrapper">
+        <!-- 타이틀 및 네비게이션 영역 -->
+        <section class="content-head">
+            <h2 class="page-title"><span>창고 현황 모니터링(평택)</span></h2>
+            <div class="head-article" x-data="{open: false}">
+                <include src="../_include/content/content-head-article.html"></include>
+            </div>
+        </section>
+        <!-- //타이틀 및 네비게이션 영역 -->
+
+        <!-- Main content -->
+        <section class="content-body">
+            <!-- 검색된 컨텐츠 영역 -->
+            <div class="search-cont-area">
+                <!-- class : off 추가시 검색영역 hide -->
+                <include src="../_include/search/search_content.html"></include>
+            </div>
+            <!-- //검색된 컨텐츠 영역 -->
+
+            <div class="content-area dashboard">
+                <div class="area-left"></div>
+                <div class="area-right"></div>
+                <div class="area-full"></div>
+
+
+
+                <div class="warehouse_capacity" style="display: none;">
+                    <div class="tt_area">
+                        <div class="txt-title">창고 Capacity 및 적재 현황 </div>
+                        <div class="txt-stitle"><i class="icon_txt_info"></i> 최근 10일간의 추세선을 확인하실 수 있습니다.</div>
+                    </div>
+                    <div>
+                        <div class="wc_con">
+
+                            <div class="tt_area">
+                                <div class="txt-title"></div>
+                            </div>
+
+                            <div>
+                                <div class="wc_graph_txt">
+                                    <div class="wgt_img">
+                                        <div><i class="icon_home"></i></div>
+                                        <div>
+                                            <p class="wgt_t">창고</p>
+                                            <p class="wgt_n">16,485m2</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="wc_graph_num">40.3<span>%</span></div>
+                                </div>
+
+                                <div class="wc_graph">
+                                    <!-- Line Chart -->
+                                    <div id="lineChart" style="height: 190px; width: 100%;"></div>
+                                    <!-- End Line Chart -->
+                                    <div class="var up"><i class="icon_sw_in"></i> <span>8.92%</span></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="wc_txt">
+                                    <sapn class="num">01</sapn> 철광석 <span class="percent">54%</span>
+                                </div>
+
+                                <div class="line"></div>
+                                <div class="wc_txt">
+                                    <sapn class="num">01</sapn> 철광석 <span class="percent">54%</span>
+                                </div>
+                                <div class="line"></div>
+
+                                <div class="wc_txt">
+                                    <sapn class="num">01</sapn> 철광석 <span class="percent">54%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="line"></div>
+
+                        <div class="wc_con">
+                            <div>
+                                <p class="txt-title"><span></span></p>
+                            </div>
+
+                            <div>
+                                <div class="wc_graph_txt">
+                                    <div class="wgt_img">
+                                        <div><i class="icon_yd"></i></div>
+                                        <div>
+                                            <p class="wgt_t">야드</p>
+                                            <p class="wgt_n">16,485m2</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="wc_graph_num">40.3<span>%</span></div>
+                                </div>
+
+                                <div class="wc_graph">
+                                    <!-- Line Chart -->
+                                    <div id="lineChart2" style="height: 210px; width: 100%;"></div>
+                                    <!-- End Line Chart -->
+                                    <div class="var dw"><i class="icon_sw_out"></i> <span>8.92%</span></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="wc_txt">
+                                    <sapn class="num">01</sapn> 철광석 <span class="percent">54%</span>
+                                </div>
+
+                                <div class="line"></div>
+                                <div class="wc_txt">
+                                    <sapn class="num">01</sapn> 철광석 <span class="percent">54%</span>
+                                </div>
+                                <div class="line"></div>
+
+                                <div class="wc_txt">
+                                    <sapn class="num">01</sapn> 철광석 <span class="percent">54%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="status_week" style="display: none;">
+                    <div class="sw_tit">
+                        <p class="txt-title">주별 입고 / 출고 현황</span></p>
+                        <div class="txt_state">
+                            <div><span class="sw_in"></span>입고</div>
+                            <div><span class="sw_out"></span>출고</div>
+                        </div>
+                    </div>
+                    <div class="sw_graph" id="container"></div>
+                    <div class="tt_area">
+                        <div class="txt-stitle"><i class="icon_txt_info"></i> 최근 10일간의 추세선을 확인하실 수 있습니다.</div>
+                    </div>
+                </div>
+
+                <div class="long_term_status" style="display: none;">
+
+                    <div>
+                        <div class="tt_area">
+                            <div class="txt-title">장기 재고 현황</div>
+                            <div class="txt-stitle">
+                                <span class="num">01</span>장기 재고 현황 차트의 자세한 현황은 해당 상세화면을 참조하시면 됩니다.
+                                <span class="num">02</span>1년 이상 재고 현황은 담당자에게 문의 부탁드립니다.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lts_con">
+                        <div class="lts_ratio_bar">
+                            <div>
+                                <p class="rb_tit">252,004 <span>톤</span></p>
+                                <div class="ratio_bar">
+                                    <div class="sky w10"></div>
+                                    <div class="Yellow w20"></div>
+                                    <div class="Orange w30"></div>
+                                    <div class="red w40"></div>
+                                    <div class="Purple w50"></div>
+                                    <div class="Indigo w60"></div>
+                                </div>
+                            </div>
+
+                            <div class="ratio_bar_tit">
+                                <div>
+                                    <p class="tit">일주일 재고</p>
+                                    <p class="num"><span class="Circle sky"></span> 8,232</p>
+                                </div>
+                                <div>
+                                    <p class="tit">1개월 재고</p>
+                                    <p class="num"><span class="Circle Yellow"></span> 8,232</p>
+                                </div>
+                                <div>
+                                    <p class="tit">3개월 재고</p>
+                                    <p class="num"><span class="Circle Orange"></span> 8,232</p>
+                                </div>
+
+                                <div>
+                                    <p class="tit">6개월 재고</p>
+                                    <p class="num"><span class="Circle red"></span> 8,232</p>
+                                </div>
+                                <div>
+                                    <p class="tit">1년 재고</p>
+                                    <p class="num"><span class="Circle Purple"></span> 8,232</p>
+                                </div>
+                                <div>
+                                    <p class="tit">1년 이상 재고</p>
+                                    <p class="num"><span class="Circle Indigo"></span> 8,232</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="lts_Table">
+                            <div class="on">
+                                <div class="lt_txt">1년 이상 재고</div>
+                                <div class="lt_con">
+                                    <div class="ltc_tit">
+                                        45,2<span>%</span>
+                                    </div>
+                                    <div class="ltc_con">
+                                        <p><span>옥내</span> 65,811</p>
+                                        <p><span>야드</span> 54,408</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="lt_txt">1년 이상 재고</div>
+                                <div class="lt_con">
+                                    <div class="ltc_tit">
+                                        45,2<span>%</span>
+                                    </div>
+                                    <div class="ltc_con">
+                                        <p><span>옥내</span> 65,811</p>
+                                        <p><span>야드</span> 54,408</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="lt_txt">1년 이상 재고</div>
+                                <div class="lt_con">
+                                    <div class="ltc_tit">
+                                        45,2<span>%</span>
+                                    </div>
+                                    <div class="ltc_con">
+                                        <p><span>옥내</span> 65,811</p>
+                                        <p><span>야드</span> 54,408</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="lt_txt">1년 이상 재고</div>
+                                <div class="lt_con">
+                                    <div class="ltc_tit">
+                                        45,2<span>%</span>
+                                    </div>
+                                    <div class="ltc_con">
+                                        <p><span>옥내</span> 65,811</p>
+                                        <p><span>야드</span> 54,408</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="lt_txt">1년 이상 재고</div>
+                                <div class="lt_con">
+                                    <div class="ltc_tit">
+                                        45,2<span>%</span>
+                                    </div>
+                                    <div class="ltc_con">
+                                        <p><span>옥내</span> 65,811</p>
+                                        <p><span>야드</span> 54,408</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="lt_txt">1년 이상 재고</div>
+                                <div class="lt_con">
+                                    <div class="ltc_tit">
+                                        45,2<span>%</span>
+                                    </div>
+                                    <div class="ltc_con">
+                                        <p><span>옥내</span> 65,811</p>
+                                        <p><span>야드</span> 54,408</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+        <!-- //Main content -->
+    </div>
+    <!-- /wrapper -->
+    <!-- //필수 plugin -->
+
+    <!-- ibleaders -->
+    <script src="../../js/ibsheet8/ibsheet.js"></script>
+    <script src="../../js/ibsheet8/ibleaders.js"></script>
+    <script src="../../js/ibsheet8/locale/ko.js"></script>
+    <!-- //ibleaders -->
+    <!-- chart js 추가-->
+    <script src="../../js/echarts/echarts.js"></script>
+
+    <!-- 퍼블 사용하기 위한 JavaScript -->
+    <script src="../../style/js/include.js"></script>
+    <script src="../../style/js/alpinejs.min.js"></script>
+    <!-- //퍼블 사용하기 위한 JavaScript -->
+
+
+    <script type="text/javascript">
+        function lineChart() {
+            /*https://echarts.apache.org/examples/en/editor.html?c=line-simple 사용*/
+            document.addEventListener("DOMContentLoaded", () => {
+                echarts.init(document.querySelector("#lineChart")).setOption({
+                    xAxis: {
+                        type: 'category',
+                        data: ['0', '10', '100', '1000', '10000', '100000', '1000000'],
+                        axisLabel: {
+                            color: '#ffffff'
+                        },
+                        axisLine: {
+                            show: false,
+                            lineStyle: {
+                                color: '#ffffff',
+                            },
+                        },
+                    },
+
+                    yAxis: {
+                        type: 'value',
+                        axisLabel: {
+                            color: '#ffffff'
+                        },
+                        splitLine: {
+                            show: false
+                        },
+                    },
+
+                    grid: {
+                        bottom: 30
+                    },
+
+                    series: [{
+                        data: [250, 230, 424, 218, 135, 47, 260],
+                        type: 'line',
+                        smooth: true,
+                        showSymbol: false,
+                        lineStyle: {
+                            color: '#F18A00'
+                        },
+                        splitLine: {
+                            show: false
+                        },
+
+
+                    }]
+                });
+            });
+        }
+        lineChart();
+
+        function lineChart2() {
+            document.addEventListener("DOMContentLoaded", () => {
+                echarts.init(document.querySelector("#lineChart2")).setOption({
+                    xAxis: {
+                        type: 'category',
+                        data: ['0', '10', '100', '1000', '10000', '100000', '1000000'],
+                        axisLabel: {
+                            color: '#ffffff'
+                        },
+                        splitLine: {
+                            show: false,
+                        },
+                        axisLine: {
+                            show: false,
+                            lineStyle: {
+                                color: '#ffffff',
+                            },
+                        },
+
+                    },
+
+                    yAxis: {
+                        type: 'value',
+                        axisLabel: {
+                            color: '#ffffff'
+                        },
+                        splitLine: {
+                            show: false,
+                        },
+                    },
+
+                    grid: {
+                        bottom: 30
+                    },
+
+
+                    series: [{
+                        data: [50, 280, 124, 18, 135, 127, 160],
+                        type: 'line',
+                        smooth: true,
+                        showSymbol: false,
+                        lineStyle: {
+                            color: '#F18A00'
+                        },
+
+                    }]
+                });
+            });
+        }
+        lineChart2();
+
+        function container() {
+            /*https://echarts.apache.org/examples/en/editor.html?c=bar-brush 사용*/
+            let chartDom = document.getElementById('container');
+            let myChart = echarts.init(chartDom);
+            let option
+
+            let xAxisData = [];
+            let data1 = [];
+            let data2 = [];
+
+            for (let i = 0; i < 10; i++) {
+                xAxisData.push('day' + i);
+                data1.push(+(Math.random() * 2).toFixed(2));
+                data2.push(+(Math.random() - 2).toFixed(2));
+            }
+
+            option = {
+                legend: {
+                    data: ['bar', 'bar2'],
+                    left: '10%'
+                },
+
+                xAxis: {
+                    data: xAxisData,
+                    name: '',
+                    axisLabel: {
+                        color: '#ffffff'
+                    },
+                    splitLine: {
+                        show: false,
+                    },
+                    axisTick: {
+                        alignWithLabel: true
+                    },
+                    axisLine: { onZero: true }
+                },
+
+                yAxis: {
+                    axisLabel: {
+                        color: '#ffffff'
+                    },
+                    splitLine: {
+                        show: false,
+                    },
+                },
+
+                grid: {
+                    bottom: 50
+                },
+
+                series: [
+                    {
+                        type: 'bar',
+                        stack: 'one',
+                        data: data1
+                    },
+                    {
+                        type: 'bar',
+                        stack: 'one',
+                        data: data2
+                    }
+                ]
+            };
+
+            if (option && typeof option === 'object') {
+                myChart.setOption(option);
+            }
+            window.addEventListener('resize', myChart.resize);
+        }
+        container();
+    </script>
+</body>
+
+</html>
